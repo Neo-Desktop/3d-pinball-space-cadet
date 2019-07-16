@@ -53,7 +53,7 @@ int32_t function_1e30f8d(int32_t a1, int32_t a2) {
 int32_t function_1e30fc1(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t a5) {
     // 0x1e30fc1
     int32_t v1; // bp-32
-    int32_t v2 = &v1; // 0x1e30fc4
+    int32_t v2 = v1; // 0x1e30fc4
     int32_t v3 = g8; // 0x1e30fc8
     int32_t v4 = g6; // 0x1e30fc9
     g8 = a1;
@@ -70,7 +70,7 @@ int32_t function_1e30fc1(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     g2 = *(int32_t *)(g6 + 16) - 1;
     g11++;
     uint32_t v11 = (int32_t)__asm_fnstsw(g10); // 0x1e30ffa
-    g2 = g2 & -0x10000 | v11;
+    g2 = (g2 & -0x10000) | v11;
     int3_t v12; // 0x1e31021
     if ((v11 / 256 & 65) == 0) {
         float32_t v13 = *(float32_t *)(g6 + 24); // 0x1e3100e
@@ -86,7 +86,7 @@ int32_t function_1e30fc1(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     // 0x1e31021
     g11 = v12 + 1;
     uint32_t v16 = (int32_t)__asm_fnstsw(g10); // 0x1e31029
-    g2 = g2 & -0x10000 | v16;
+    g2 = (g2 & -0x10000) | v16;
     int3_t v17; // 0x1e31090
     if ((v16 / 256 & 1) == 0) {
         // 0x1e31088
@@ -101,7 +101,7 @@ int32_t function_1e30fc1(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
         g2 = v21;
         g11++;
         uint32_t v22 = (int32_t)__asm_fnstsw(g10); // 0x1e31050
-        g2 = g2 & -0x10000 | v22;
+        g2 = (g2 & -0x10000) | v22;
         int3_t v23; // 0x1e31077
         float80_t v24; // 0x1e31077
         if ((v22 / 256 & 65) == 0) {
@@ -138,7 +138,7 @@ int32_t function_1e30fc1(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     g2 = *(int32_t *)(g6 + 20) - 1;
     g11++;
     uint32_t v35 = (int32_t)__asm_fnstsw(g10); // 0x1e310c3
-    g2 = g2 & -0x10000 | v35;
+    g2 = (g2 & -0x10000) | v35;
     int3_t v36; // 0x1e310eb
     if ((v35 / 256 & 65) == 0) {
         int32_t v37 = g6; // 0x1e310d7
@@ -156,7 +156,7 @@ int32_t function_1e30fc1(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     // 0x1e310eb
     g11 = v36 + 1;
     uint32_t v41 = (int32_t)__asm_fnstsw(g10); // 0x1e310f3
-    g2 = g2 & -0x10000 | v41;
+    g2 = (g2 & -0x10000) | v41;
     int3_t v42; // 0x1e3115c
     if ((v41 / 256 & 1) == 0) {
         // 0x1e31154
@@ -173,7 +173,7 @@ int32_t function_1e30fc1(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
         g2 = v47;
         g11++;
         uint32_t v48 = (int32_t)__asm_fnstsw(g10); // 0x1e3111b
-        g2 = g2 & -0x10000 | v48;
+        g2 = (g2 & -0x10000) | v48;
         int3_t v49; // 0x1e31143
         float80_t v50; // 0x1e31143
         if ((v48 / 256 & 65) == 0) {
@@ -270,7 +270,7 @@ int32_t function_1e311c3(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     // 0x1e311c3
     g2 = a1;
     int32_t v1 = g6; // bp-32
-    int32_t v2 = &v1; // 0x1e311d1
+    int32_t v2 = v1; // 0x1e311d1
     int32_t v3; // ebx
     int32_t v4;
     int32_t v5;
@@ -479,7 +479,7 @@ int32_t function_1e311c3(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     g5 = a3;
     g11++;
     uint32_t v27 = (int32_t)__asm_fnstsw(g10); // 0x1e312fd
-    g2 = g2 & -0x10000 | v27;
+    g2 = (g2 & -0x10000) | v27;
     if ((v27 / 256 & 1) != 0) {
         // 0x1e31302
         g5 = (float32_t)g684;
@@ -516,7 +516,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
     g2 = *(int32_t *)g6 - 1;
     g11++;
     uint32_t v10 = (int32_t)__asm_fnstsw(g10); // 0x1e3136a
-    g2 = g2 & -0x10000 | v10;
+    g2 = (g2 & -0x10000) | v10;
     int3_t v11; // 0x1e31391
     if ((v10 / 256 & 65) == 0) {
         int32_t v12 = g8; // 0x1e3137d
@@ -533,7 +533,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
     // 0x1e31391
     g11 = v11 + 1;
     uint32_t v16 = (int32_t)__asm_fnstsw(g10); // 0x1e31399
-    g2 = g2 & -0x10000 | v16;
+    g2 = (g2 & -0x10000) | v16;
     int3_t v17; // 0x1e31400
     if ((v16 / 256 & 1) == 0) {
         // 0x1e313f8
@@ -548,7 +548,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
         g2 = *(int32_t *)g6 - 1;
         g11++;
         uint32_t v22 = (int32_t)__asm_fnstsw(g10); // 0x1e313c0
-        g2 = g2 & -0x10000 | v22;
+        g2 = (g2 & -0x10000) | v22;
         int3_t v23; // 0x1e313e7
         float80_t v24; // 0x1e313e7
         if ((v22 / 256 & 65) == 0) {
@@ -588,7 +588,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
     g2 = *(int32_t *)g4 - 1;
     g11++;
     uint32_t v38 = (int32_t)__asm_fnstsw(g10); // 0x1e31439
-    g2 = g2 & -0x10000 | v38;
+    g2 = (g2 & -0x10000) | v38;
     int3_t v39; // 0x1e31460
     if ((v38 / 256 & 65) == 0) {
         int32_t v40 = g8; // 0x1e3144c
@@ -606,7 +606,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
     // 0x1e31460
     g11 = v39 + 1;
     uint32_t v44 = (int32_t)__asm_fnstsw(g10); // 0x1e31468
-    g2 = g2 & -0x10000 | v44;
+    g2 = (g2 & -0x10000) | v44;
     int3_t v45; // 0x1e314cf
     if ((v44 / 256 & 1) == 0) {
         // 0x1e314c7
@@ -622,7 +622,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
         g2 = *(int32_t *)g4 - 1;
         g11++;
         uint32_t v50 = (int32_t)__asm_fnstsw(g10); // 0x1e3148f
-        g2 = g2 & -0x10000 | v50;
+        g2 = (g2 & -0x10000) | v50;
         int3_t v51; // 0x1e314b6
         float80_t v52; // 0x1e314b6
         if ((v50 / 256 & 65) == 0) {
@@ -660,7 +660,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
     g2 = *(int32_t *)g6 - 1;
     g11++;
     uint32_t v66 = (int32_t)__asm_fnstsw(g10); // 0x1e31507
-    g2 = g2 & -0x10000 | v66;
+    g2 = (g2 & -0x10000) | v66;
     int3_t v67; // 0x1e3152e
     if ((v66 / 256 & 65) == 0) {
         int32_t v68 = g8; // 0x1e3151a
@@ -678,7 +678,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
     // 0x1e3152e
     g11 = v67 + 1;
     uint32_t v72 = (int32_t)__asm_fnstsw(g10); // 0x1e31536
-    g2 = g2 & -0x10000 | v72;
+    g2 = (g2 & -0x10000) | v72;
     int3_t v73; // 0x1e3159d
     if ((v72 / 256 & 1) == 0) {
         // 0x1e31595
@@ -694,7 +694,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
         g2 = *(int32_t *)g6 - 1;
         g11++;
         uint32_t v78 = (int32_t)__asm_fnstsw(g10); // 0x1e3155d
-        g2 = g2 & -0x10000 | v78;
+        g2 = (g2 & -0x10000) | v78;
         int3_t v79; // 0x1e31584
         float80_t v80; // 0x1e31584
         if ((v78 / 256 & 65) == 0) {
@@ -731,7 +731,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
     g2 = *(int32_t *)g4 - 1;
     g11++;
     uint32_t v93 = (int32_t)__asm_fnstsw(g10); // 0x1e315d6
-    g2 = g2 & -0x10000 | v93;
+    g2 = (g2 & -0x10000) | v93;
     int3_t v94; // 0x1e315fd
     if ((v93 / 256 & 65) == 0) {
         int32_t v95 = g8; // 0x1e315e9
@@ -749,7 +749,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
     // 0x1e315fd
     g11 = v94 + 1;
     uint32_t v99 = (int32_t)__asm_fnstsw(g10); // 0x1e31605
-    g2 = g2 & -0x10000 | v99;
+    g2 = (g2 & -0x10000) | v99;
     float64_t v100;
     int3_t v101; // 0x1e3166c
     if ((v99 / 256 & 1) == 0) {
@@ -767,7 +767,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
         g2 = *(int32_t *)g4 - 1;
         g11++;
         uint32_t v106 = (int32_t)__asm_fnstsw(g10); // 0x1e3162c
-        g2 = g2 & -0x10000 | v106;
+        g2 = (g2 & -0x10000) | v106;
         int3_t v107; // 0x1e31653
         float80_t v108; // 0x1e31653
         if ((v106 / 256 & 65) == 0) {
@@ -832,7 +832,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
                         float80_t v126 = v122 + v121 * (v125 + (float80_t)*(float32_t *)(g8 + 24)); // 0x1e31944
                         g684 = v126;
                         uint32_t v127 = (int32_t)__asm_fnstsw(g10); // 0x1e3194d
-                        g2 = g2 & -0x10000 | v127;
+                        g2 = (g2 & -0x10000) | v127;
                         if ((v127 / 256 & 65) == 0) {
                             // 0x1e31952
                             g6--;
@@ -840,7 +840,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
                             // 0x1e31955
                             g684 = v126;
                             uint32_t v128 = (int32_t)__asm_fnstsw(g10); // 0x1e3195b
-                            g2 = g2 & -0x10000 | v128;
+                            g2 = (g2 & -0x10000) | v128;
                             if ((v128 / 256 & 64) != 0) {
                                 // 0x1e31960
                                 g6--;
@@ -883,13 +883,13 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
                         float80_t v133 = v122 + v121 * (v132 + (float80_t)*(float32_t *)(g8 + 24)); // 0x1e318de
                         g684 = v133;
                         uint32_t v134 = (int32_t)__asm_fnstsw(g10); // 0x1e318e7
-                        g2 = g2 & -0x10000 | v134;
+                        g2 = (g2 & -0x10000) | v134;
                         if ((v134 / 256 & 1) == 0) {
                             // 0x1e318ef
                             g684 = v133;
                             g4 = g5;
                             uint32_t v135 = (int32_t)__asm_fnstsw(g10); // 0x1e318f7
-                            g2 = g2 & -0x10000 | v135;
+                            g2 = (g2 & -0x10000) | v135;
                             if ((v135 / 256 & 64) != 0) {
                                 // 0x1e318fc
                                 g6--;
@@ -937,7 +937,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
                         float80_t v141 = v122 + v121 * (v140 + (float80_t)*(float32_t *)(g8 + 24)); // 0x1e3186d
                         g684 = v141;
                         uint32_t v142 = (int32_t)__asm_fnstsw(g10); // 0x1e31876
-                        g2 = g2 & -0x10000 | v142;
+                        g2 = (g2 & -0x10000) | v142;
                         if ((v142 / 256 & 65) == 0) {
                             // 0x1e3187b
                             g6 = g5;
@@ -945,7 +945,7 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
                             // 0x1e3187f
                             g684 = v141;
                             uint32_t v143 = (int32_t)__asm_fnstsw(g10); // 0x1e31885
-                            g2 = g2 & -0x10000 | v143;
+                            g2 = (g2 & -0x10000) | v143;
                             if ((v143 / 256 & 64) != 0) {
                                 // 0x1e3188a
                                 g6 = g5;
@@ -990,13 +990,13 @@ float80_t function_1e31324(int32_t * a1, int32_t a2, int32_t * a3) {
                         float80_t v149 = v122 + v121 * (v148 + (float80_t)*(float32_t *)(g8 + 24)); // 0x1e317ff
                         g684 = v149;
                         uint32_t v150 = (int32_t)__asm_fnstsw(g10); // 0x1e31808
-                        g2 = g2 & -0x10000 | v150;
+                        g2 = (g2 & -0x10000) | v150;
                         if ((v150 / 256 & 1) == 0) {
                             // 0x1e31811
                             g684 = v149;
                             g4 = g5;
                             uint32_t v151 = (int32_t)__asm_fnstsw(g10); // 0x1e31819
-                            g2 = g2 & -0x10000 | v151;
+                            g2 = (g2 & -0x10000) | v151;
                             if ((v151 / 256 & 64) != 0) {
                                 // 0x1e3181e
                                 g6 = g7;
@@ -1244,7 +1244,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
     g2 = *(int32_t *)g6 - 1;
     g11++;
     uint32_t v14 = (int32_t)__asm_fnstsw(g10); // 0x1e31a1a
-    g2 = g2 & -0x10000 | v14;
+    g2 = (g2 & -0x10000) | v14;
     int3_t v15; // 0x1e31a41
     if ((v14 / 256 & 65) == 0) {
         int32_t v16 = g8; // 0x1e31a2d
@@ -1261,7 +1261,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
     // 0x1e31a41
     g11 = v15 + 1;
     uint32_t v20 = (int32_t)__asm_fnstsw(g10); // 0x1e31a49
-    g2 = g2 & -0x10000 | v20;
+    g2 = (g2 & -0x10000) | v20;
     int3_t v21; // 0x1e31ab0
     if ((v20 / 256 & 1) == 0) {
         // 0x1e31aa8
@@ -1276,7 +1276,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
         g2 = *(int32_t *)g6 - 1;
         g11++;
         uint32_t v26 = (int32_t)__asm_fnstsw(g10); // 0x1e31a70
-        g2 = g2 & -0x10000 | v26;
+        g2 = (g2 & -0x10000) | v26;
         int3_t v27; // 0x1e31a97
         float80_t v28; // 0x1e31a97
         if ((v26 / 256 & 65) == 0) {
@@ -1312,7 +1312,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
     g2 = *(int32_t *)(g6 + 20) - 1;
     g11++;
     uint32_t v39 = (int32_t)__asm_fnstsw(g10); // 0x1e31ae3
-    g2 = g2 & -0x10000 | v39;
+    g2 = (g2 & -0x10000) | v39;
     int3_t v40; // 0x1e31b0b
     if ((v39 / 256 & 65) == 0) {
         int32_t v41 = g6; // 0x1e31af7
@@ -1330,7 +1330,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
     // 0x1e31b0b
     g11 = v40 + 1;
     uint32_t v45 = (int32_t)__asm_fnstsw(g10); // 0x1e31b13
-    g2 = g2 & -0x10000 | v45;
+    g2 = (g2 & -0x10000) | v45;
     int3_t v46; // 0x1e31b7c
     if ((v45 / 256 & 1) == 0) {
         // 0x1e31b74
@@ -1346,7 +1346,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
         g2 = *(int32_t *)(g6 + 20) - 1;
         g11++;
         uint32_t v51 = (int32_t)__asm_fnstsw(g10); // 0x1e31b3b
-        g2 = g2 & -0x10000 | v51;
+        g2 = (g2 & -0x10000) | v51;
         int3_t v52; // 0x1e31b63
         float80_t v53; // 0x1e31b63
         if ((v51 / 256 & 65) == 0) {
@@ -1381,7 +1381,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
     g2 = *(int32_t *)(g6 + 16) - 1;
     g11++;
     uint32_t v63 = (int32_t)__asm_fnstsw(g10); // 0x1e31bb0
-    g2 = g2 & -0x10000 | v63;
+    g2 = (g2 & -0x10000) | v63;
     int3_t v64; // 0x1e31bd8
     if ((v63 / 256 & 65) == 0) {
         int32_t v65 = g6; // 0x1e31bc4
@@ -1399,7 +1399,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
     // 0x1e31bd8
     g11 = v64 + 1;
     uint32_t v69 = (int32_t)__asm_fnstsw(g10); // 0x1e31be0
-    g2 = g2 & -0x10000 | v69;
+    g2 = (g2 & -0x10000) | v69;
     int3_t v70; // 0x1e31c49
     if ((v69 / 256 & 1) == 0) {
         // 0x1e31c41
@@ -1415,7 +1415,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
         g2 = *(int32_t *)(g6 + 16) - 1;
         g11++;
         uint32_t v75 = (int32_t)__asm_fnstsw(g10); // 0x1e31c08
-        g2 = g2 & -0x10000 | v75;
+        g2 = (g2 & -0x10000) | v75;
         int3_t v76; // 0x1e31c30
         float80_t v77; // 0x1e31c30
         if ((v75 / 256 & 65) == 0) {
@@ -1450,7 +1450,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
     g2 = *(int32_t *)(g6 + 20) - 1;
     g11++;
     uint32_t v87 = (int32_t)__asm_fnstsw(g10); // 0x1e31c7d
-    g2 = g2 & -0x10000 | v87;
+    g2 = (g2 & -0x10000) | v87;
     int3_t v88; // 0x1e31ca5
     if ((v87 / 256 & 65) == 0) {
         int32_t v89 = g6; // 0x1e31c91
@@ -1468,7 +1468,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
     // 0x1e31ca5
     g11 = v88 + 1;
     uint32_t v93 = (int32_t)__asm_fnstsw(g10); // 0x1e31cad
-    g2 = g2 & -0x10000 | v93;
+    g2 = (g2 & -0x10000) | v93;
     if ((v93 / 256 & 1) == 0) {
         // 0x1e31d0e
         g2 = 0;
@@ -1482,7 +1482,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
         g2 = *(int32_t *)(g6 + 20) - 1;
         g11++;
         uint32_t v98 = (int32_t)__asm_fnstsw(g10); // 0x1e31cd5
-        g2 = g2 & -0x10000 | v98;
+        g2 = (g2 & -0x10000) | v98;
         int3_t v99; // 0x1e31cfd
         float80_t v100; // 0x1e31cfd
         if ((v98 / 256 & 65) == 0) {
@@ -1594,36 +1594,36 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                     // 0x1e31da2
                     g11 = v129;
                     uint32_t v141 = (int32_t)__asm_fnstsw(g10); // 0x1e31da8
-                    g2 = g2 & -0x10000 | v141;
+                    g2 = (g2 & -0x10000) | v141;
                     if ((v141 / 256 & 1) == 0) {
                         // 0x1e31db1
                         g2 = (int32_t)g563;
                         uint32_t v142 = (int32_t)__asm_fnstsw(g10); // 0x1e31dc4
-                        g2 = g2 & -0x10000 | v142;
+                        g2 = (g2 & -0x10000) | v142;
                         if ((v142 / 256 & 1) == 0) {
                             uint32_t v143 = (int32_t)__asm_fnstsw(g10); // 0x1e31dd3
-                            g2 = g2 & -0x10000 | v143;
+                            g2 = (g2 & -0x10000) | v143;
                             if ((v143 / 256 & 1) == 0) {
                                 // 0x1e31ddc
                                 g2 = (int32_t)g563;
                                 uint32_t v144 = (int32_t)__asm_fnstsw(g10); // 0x1e31df0
-                                g2 = g2 & -0x10000 | v144;
+                                g2 = (g2 & -0x10000) | v144;
                                 if ((v144 / 256 & 1) == 0) {
                                     uint32_t v145 = (int32_t)__asm_fnstsw(g10); // 0x1e31e01
-                                    g2 = g2 & -0x10000 | v145;
+                                    g2 = (g2 & -0x10000) | v145;
                                     if ((v145 / 256 & 65) == 0) {
                                         goto lab_0x1e31e2d;
                                     } else {
                                         uint32_t v146 = (int32_t)__asm_fnstsw(g10); // 0x1e31e0b
-                                        g2 = g2 & -0x10000 | v146;
+                                        g2 = (g2 & -0x10000) | v146;
                                         if ((v146 / 256 & 1) == 0) {
                                             uint32_t v147 = (int32_t)__asm_fnstsw(g10); // 0x1e31e19
-                                            g2 = g2 & -0x10000 | v147;
+                                            g2 = (g2 & -0x10000) | v147;
                                             if ((v147 / 256 & 65) == 0) {
                                                 goto lab_0x1e31e2d;
                                             } else {
                                                 uint32_t v148 = (int32_t)__asm_fnstsw(g10); // 0x1e31e24
-                                                g2 = g2 & -0x10000 | v148;
+                                                g2 = (g2 & -0x10000) | v148;
                                                 if ((v148 / 256 & 1) == 0) {
                                                     v126 = v125;
                                                     goto lab_0x1e3205f;
@@ -1729,7 +1729,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
     g2 = (float32_t)v162;
     g11++;
     uint32_t v163 = (int32_t)__asm_fnstsw(g10); // 0x1e31e4f
-    g2 = g2 & -0x10000 | v163;
+    g2 = (g2 & -0x10000) | v163;
     if ((v163 / 256 & 65) == 0) {
         // 0x1e31e58
         *(int32_t *)(g9 - 4) = *(int32_t *)(g4 + 8);
@@ -1744,7 +1744,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
         g2 = (float32_t)v165;
         g11++;
         uint32_t v166 = (int32_t)__asm_fnstsw(g10); // 0x1e31e7e
-        g2 = g2 & -0x10000 | v166;
+        g2 = (g2 & -0x10000) | v166;
         if ((v166 / 256 & 65) == 0) {
             // 0x1e31e87
             *(int32_t *)(g9 - 4) = *(int32_t *)(g4 + 8);
@@ -1760,7 +1760,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
             g2 = (float32_t)v170;
             g11++;
             uint32_t v171 = (int32_t)__asm_fnstsw(g10); // 0x1e31eae
-            g2 = g2 & -0x10000 | v171;
+            g2 = (g2 & -0x10000) | v171;
             if ((v171 / 256 & 65) == 0) {
                 // 0x1e31eb7
                 *(int32_t *)(g9 - 4) = *(int32_t *)(g4 + 8);
@@ -1775,7 +1775,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                 g2 = (float32_t)v173;
                 g11++;
                 uint32_t v174 = (int32_t)__asm_fnstsw(g10); // 0x1e31edd
-                g2 = g2 & -0x10000 | v174;
+                g2 = (g2 & -0x10000) | v174;
                 if ((v174 / 256 & 65) == 0) {
                     // 0x1e31ee6
                     *(int32_t *)&v123 = *(int32_t *)&v119;
@@ -1796,7 +1796,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                     g2 = function_1e3a828((int32_t)v123, (int32_t)&g708);
                     g11++;
                     uint32_t v180 = (int32_t)__asm_fnstsw(g10); // 0x1e31f17
-                    g2 = g2 & -0x10000 | v180;
+                    g2 = (g2 & -0x10000) | v180;
                     if ((v180 / 256 & 1) == 0) {
                         // 0x1e31f20
                         g2 = (int32_t)g563;
@@ -1809,7 +1809,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                         g2 = function_1e3a828((int32_t)v182, (int32_t)&g708);
                         g11++;
                         uint32_t v183 = (int32_t)__asm_fnstsw(g10); // 0x1e31f44
-                        g2 = g2 & -0x10000 | v183;
+                        g2 = (g2 & -0x10000) | v183;
                         if ((v183 / 256 & 1) == 0) {
                             // 0x1e31f4d
                             g2 = (int32_t)g563;
@@ -1820,7 +1820,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                             g2 = function_1e3a828(0, 0x3f800000);
                             g11++;
                             uint32_t v184 = (int32_t)__asm_fnstsw(g10); // 0x1e31f76
-                            g2 = g2 & -0x10000 | v184;
+                            g2 = (g2 & -0x10000) | v184;
                             if ((v184 / 256 & 1) == 0) {
                                 // 0x1e31f7f
                                 g2 = (int32_t)g563;
@@ -1832,7 +1832,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                                 g2 = function_1e3a828((int32_t)v186, (int32_t)&g708);
                                 g11++;
                                 uint32_t v187 = (int32_t)__asm_fnstsw(g10); // 0x1e31fa4
-                                g2 = g2 & -0x10000 | v187;
+                                g2 = (g2 & -0x10000) | v187;
                                 if ((v187 / 256 & 1) == 0) {
                                     // 0x1e31fad
                                     g2 = (int32_t)g563;
@@ -1843,7 +1843,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                                     g2 = function_1e3a828(-0x40800000, 0);
                                     g11++;
                                     uint32_t v188 = (int32_t)__asm_fnstsw(g10); // 0x1e31fd5
-                                    g2 = g2 & -0x10000 | v188;
+                                    g2 = (g2 & -0x10000) | v188;
                                     if ((v188 / 256 & 1) == 0) {
                                         // 0x1e31fde
                                         g2 = (int32_t)g563;
@@ -1856,7 +1856,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                                         g2 = function_1e3a828((int32_t)v190, (int32_t)&g708);
                                         g11++;
                                         uint32_t v191 = (int32_t)__asm_fnstsw(g10); // 0x1e32002
-                                        g2 = g2 & -0x10000 | v191;
+                                        g2 = (g2 & -0x10000) | v191;
                                         if ((v191 / 256 & 1) == 0) {
                                             // 0x1e32007
                                             g2 = (int32_t)g563;
@@ -1867,7 +1867,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                                             g2 = function_1e3a828(0, -0x40800000);
                                             g11++;
                                             uint32_t v192 = (int32_t)__asm_fnstsw(g10); // 0x1e32030
-                                            g2 = g2 & -0x10000 | v192;
+                                            g2 = (g2 & -0x10000) | v192;
                                             if ((v192 / 256 & 1) == 0) {
                                                 // 0x1e32035
                                                 g2 = (int32_t)g563;
@@ -1878,7 +1878,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
                                                 g2 = function_1e3a828((int32_t)v193, (int32_t)&g708);
                                                 g11++;
                                                 uint32_t v194 = (int32_t)__asm_fnstsw(g10); // 0x1e3205a
-                                                g2 = g2 & -0x10000 | v194;
+                                                g2 = (g2 & -0x10000) | v194;
                                                 if ((v194 / 256 & 1) == 0) {
                                                     v127 = v169;
                                                     v122 = v193;
@@ -1963,7 +1963,7 @@ int32_t function_1e319ad(int32_t a1, int32_t a2, int32_t a3) {
 int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t a5, int32_t a6) {
     int32_t v1 = g3; // bp-4
     g2 = (int32_t)g563;
-    g3 = &v1;
+    g3 = v1;
     int32_t v2 = __ftol(); // esi
     g2 = (int32_t)g563;
     g11 -= 2;
@@ -1983,7 +1983,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     g2 = *(int32_t *)g8 - 1;
     g11++;
     uint32_t v11 = (int32_t)__asm_fnstsw(g10); // 0x1e32162
-    g2 = g2 & -0x10000 | v11;
+    g2 = (g2 & -0x10000) | v11;
     int3_t v12; // 0x1e32187
     if ((v11 / 256 & 65) == 0) {
         float32_t v13 = *(float32_t *)g4; // 0x1e32175
@@ -1999,7 +1999,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     // 0x1e32187
     g11 = v12 + 1;
     uint32_t v16 = (int32_t)__asm_fnstsw(g10); // 0x1e3218f
-    g2 = g2 & -0x10000 | v16;
+    g2 = (g2 & -0x10000) | v16;
     float32_t v17;
     int3_t v18; // 0x1e321f2
     if ((v16 / 256 & 1) == 0) {
@@ -2014,7 +2014,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
         g2 = *(int32_t *)g8 - 1;
         g11++;
         uint32_t v22 = (int32_t)__asm_fnstsw(g10); // 0x1e321b4
-        g2 = g2 & -0x10000 | v22;
+        g2 = (g2 & -0x10000) | v22;
         int3_t v23; // 0x1e321d9
         float80_t v24; // 0x1e321d9
         if ((v22 / 256 & 65) == 0) {
@@ -2053,7 +2053,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     g2 = *(int32_t *)(g4 + 20) - 1;
     g11++;
     uint32_t v36 = (int32_t)__asm_fnstsw(g10); // 0x1e32227
-    g2 = g2 & -0x10000 | v36;
+    g2 = (g2 & -0x10000) | v36;
     int3_t v37; // 0x1e3224e
     if ((v36 / 256 & 65) == 0) {
         float32_t v38 = *(float32_t *)g6; // 0x1e3223b
@@ -2070,7 +2070,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     // 0x1e3224e
     g11 = v37 + 1;
     uint32_t v41 = (int32_t)__asm_fnstsw(g10); // 0x1e32256
-    g2 = g2 & -0x10000 | v41;
+    g2 = (g2 & -0x10000) | v41;
     int3_t v42; // 0x1e322bd
     if ((v41 / 256 & 1) == 0) {
         // 0x1e322b5
@@ -2085,7 +2085,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
         g2 = *(int32_t *)(g4 + 20) - 1;
         g11++;
         uint32_t v46 = (int32_t)__asm_fnstsw(g10); // 0x1e3227d
-        g2 = g2 & -0x10000 | v46;
+        g2 = (g2 & -0x10000) | v46;
         int3_t v47; // 0x1e322a4
         float80_t v48; // 0x1e322a4
         if ((v46 / 256 & 65) == 0) {
@@ -2123,7 +2123,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     g2 = *(int32_t *)(g4 + 16) - 1;
     g11++;
     uint32_t v59 = (int32_t)__asm_fnstsw(g10); // 0x1e322f0
-    g2 = g2 & -0x10000 | v59;
+    g2 = (g2 & -0x10000) | v59;
     int3_t v60; // 0x1e32318
     if ((v59 / 256 & 65) == 0) {
         int32_t v61 = g4; // 0x1e32304
@@ -2141,7 +2141,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     // 0x1e32318
     g11 = v60 + 1;
     uint32_t v65 = (int32_t)__asm_fnstsw(g10); // 0x1e32320
-    g2 = g2 & -0x10000 | v65;
+    g2 = (g2 & -0x10000) | v65;
     int3_t v66; // 0x1e32389
     if ((v65 / 256 & 1) == 0) {
         // 0x1e32381
@@ -2157,7 +2157,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
         g2 = *(int32_t *)(g4 + 16) - 1;
         g11++;
         uint32_t v71 = (int32_t)__asm_fnstsw(g10); // 0x1e32348
-        g2 = g2 & -0x10000 | v71;
+        g2 = (g2 & -0x10000) | v71;
         int3_t v72; // 0x1e32370
         float80_t v73; // 0x1e32370
         if ((v71 / 256 & 65) == 0) {
@@ -2194,7 +2194,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     g2 = *(int32_t *)(g4 + 20) - 1;
     g11++;
     uint32_t v84 = (int32_t)__asm_fnstsw(g10); // 0x1e323bd
-    g2 = g2 & -0x10000 | v84;
+    g2 = (g2 & -0x10000) | v84;
     int3_t v85; // 0x1e323e5
     if ((v84 / 256 & 65) == 0) {
         int32_t v86 = g4; // 0x1e323d1
@@ -2212,7 +2212,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     // 0x1e323e5
     g11 = v85 + 1;
     uint32_t v90 = (int32_t)__asm_fnstsw(g10); // 0x1e323ed
-    g2 = g2 & -0x10000 | v90;
+    g2 = (g2 & -0x10000) | v90;
     int3_t v91; // 0x1e32456
     if ((v90 / 256 & 1) == 0) {
         // 0x1e3244e
@@ -2228,7 +2228,7 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
         g2 = *(int32_t *)(g4 + 20) - 1;
         g11++;
         uint32_t v96 = (int32_t)__asm_fnstsw(g10); // 0x1e32415
-        g2 = g2 & -0x10000 | v96;
+        g2 = (g2 & -0x10000) | v96;
         int3_t v97; // 0x1e3243d
         float80_t v98; // 0x1e3243d
         if ((v96 / 256 & 65) == 0) {
@@ -2280,20 +2280,20 @@ int32_t function_1e320db(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                 int3_t v121; // 0x1e32514
                 while (true) {
                     uint32_t v122 = (int32_t)__asm_fnstsw(g10); // 0x1e324aa
-                    g2 = g2 & -0x10000 | v122;
+                    g2 = (g2 & -0x10000) | v122;
                     if ((v122 / 256 & 65) != 0) {
                         // 0x1e324af
                         g2 = (int32_t)g563;
                         uint32_t v123 = (int32_t)__asm_fnstsw(g10); // 0x1e324bc
-                        g2 = g2 & -0x10000 | v123;
+                        g2 = (g2 & -0x10000) | v123;
                         if ((v123 / 256 & 1) == 0) {
                             uint32_t v124 = (int32_t)__asm_fnstsw(g10); // 0x1e324c7
-                            g2 = g2 & -0x10000 | v124;
+                            g2 = (g2 & -0x10000) | v124;
                             if ((v124 / 256 & 65) != 0) {
                                 // 0x1e324cc
                                 g2 = (int32_t)g563;
                                 uint32_t v125 = (int32_t)__asm_fnstsw(g10); // 0x1e324da
-                                g2 = g2 & -0x10000 | v125;
+                                g2 = (g2 & -0x10000) | v125;
                                 if ((v125 / 256 & 1) == 0) {
                                     if (a5 != 0) {
                                         // 0x1e324e5

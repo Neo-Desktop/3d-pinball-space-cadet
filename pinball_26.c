@@ -203,7 +203,7 @@ int32_t function_1e41a00(int32_t lpMultiByteStr, int32_t a2) {
     struct _cpinfo * v1 = g130; // 0x1e41a5c
     int32_t CodePage = (int32_t)v1; // 0x1e41a5c
     g2 = CodePage;
-    g5 = &lpWideCharStr;
+    g5 = lpWideCharStr;
     int32_t result = WideCharToMultiByte(CodePage, 544, (int16_t *)&lpWideCharStr, 1, (char *)lpMultiByteStr, g442, NULL, (bool *)&lpUsedDefaultChar); // 0x1e41a6f
     g2 = result;
     if (result != 0) {
@@ -229,7 +229,7 @@ int32_t function_1e41aa0(int32_t a1, int32_t a2) {
     g2 = v2;
     int32_t v3 = a2 & a1; // 0x1e41abc
     g5 = v3;
-    int32_t result = v2 & -1 - a2 | v3; // 0x1e41ac4
+    int32_t result = (v2 & -1 - a2) | v3; // 0x1e41ac4
     function_1e41bb0(result);
     g2 = result;
     return result;
@@ -357,7 +357,7 @@ int32_t function_1e41bb0(int32_t a1) {
     int32_t v3; // 0x1e41bc5
     if ((a1 & 8) != 0) {
         // 0x1e41bc5
-        v3 = v1 | v2 & 251 | 4;
+        v3 = v1 | (v2 & 251) | 4;
         g2 = v3;
     } else {
         v3 = v2;
@@ -456,8 +456,8 @@ int32_t function_1e41c50(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     int32_t v1 = g6; // 0x1e41c56
     int32_t v2 = a2 >> 31; // 0x1e41c5e
     int32_t v3 = ((v2 & 31) + a2) / 32; // 0x1e41c66
-    int32_t v4 = v2 - ((v2 ^ a2) - v2 & 31 ^ v2) + 31; // 0x1e41c79
-    g5 = g5 & -256 | v4 & 255;
+    int32_t v4 = v2 - (((v2 ^ a2) - v2 & 31) ^ v2) + 31; // 0x1e41c79
+    g5 = (g5 & -256) | (v4 & 255);
     g2 = a1;
     uint32_t v5 = v4 & 31; // 0x1e41c7f
     int32_t v6; // 0x1e41c81
@@ -508,12 +508,12 @@ int32_t function_1e41c50(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
 // Address range: 0x1e41cc0 - 0x1e41d23
 int32_t function_1e41cc0(int32_t a1, int32_t a2) {
     int32_t v1 = g6; // bp-12
-    int32_t v2 = &v1; // 0x1e41cc2
+    int32_t v2 = v1; // 0x1e41cc2
     int32_t v3 = a2 >> 31; // 0x1e41cd0
     int32_t v4 = ((v3 & 31) + a2) / 32; // 0x1e41cd6
     g8 = v4;
-    int32_t v5 = v3 - ((v3 ^ a2) - v3 & 31 ^ v3) + 31; // 0x1e41ced
-    g5 = g5 & -256 | v5 & 255;
+    int32_t v5 = v3 - (((v3 ^ a2) - v3 & 31) ^ v3) + 31; // 0x1e41ced
+    g5 = (g5 & -256) | (v5 & 255);
     int32_t v6 = 4 * v4 + a1; // 0x1e41cef
     g2 = v6;
     uint32_t v7 = v5 & 31; // 0x1e41cf2
@@ -584,11 +584,11 @@ int32_t function_1e41d30(int32_t * a1, int32_t a2) {
     int32_t v6 = a2 >> 31; // 0x1e41d49
     int32_t v7 = ((v6 & 31) + a2) / 32; // 0x1e41d54
     g8 = v7;
-    int32_t v8 = v6 - ((v6 ^ a2) - v6 & 31 ^ v6) + 31; // 0x1e41d66
+    int32_t v8 = v6 - (((v6 ^ a2) - v6 & 31) ^ v6) + 31; // 0x1e41d66
     g4 = v8;
     int32_t v9 = 4 * v7 + v1; // 0x1e41d6c
     g2 = 1;
-    g5 = v8 & 255 | v9 & -256;
+    g5 = (v8 & 255) | (v9 & -256);
     uint32_t v10 = v8 & 31; // 0x1e41d7a
     int32_t v11; // 0x1e41d7a
     if (v10 != 0) {
@@ -620,7 +620,7 @@ int32_t function_1e41d30(int32_t * a1, int32_t a2) {
     }
     // 0x1e41da9
     g2 = -1;
-    g5 = g5 & -256 | g4 & 255;
+    g5 = (g5 & -256) | (g4 & 255);
     uint32_t v14 = g4 & 31; // 0x1e41db0
     int32_t v15; // 0x1e41db0
     if (v14 != 0) {
@@ -730,10 +730,10 @@ int32_t function_1e41e30(int32_t * a1, int32_t a2) {
     int32_t v1 = (int32_t)a1;
     int32_t v2 = a2 >> 31; // 0x1e41e3a
     int32_t v3 = ((v2 & 31) + a2) / 32; // bp-16
-    int32_t v4 = ((v2 ^ a2) - v2 & 31 ^ v2) - v2; // 0x1e41e56
+    int32_t v4 = (((v2 ^ a2) - v2 & 31) ^ v2) - v2; // 0x1e41e56
     g2 = v4;
     int32_t v5 = a2 & -256; // 0x1e41e5d
-    g5 = v5 | v4 & 255;
+    g5 = v5 | (v4 & 255);
     uint32_t v6 = v4 & 31; // 0x1e41e63
     int32_t v7; // 0x1e41e70
     if (v6 != 0) {
@@ -753,7 +753,7 @@ int32_t function_1e41e30(int32_t * a1, int32_t a2) {
         int32_t v13 = v1 + 4; // ebx
         int32_t v14 = v11 & v7; // 0x1e41e83
         int32_t v15 = v14 & -256; // 0x1e41e8b
-        g5 = v15 | v4 & 255;
+        g5 = v15 | (v4 & 255);
         uint32_t v16 = v4 & 31; // 0x1e41e8d
         int32_t v17; // 0x1e41e8d
         if (v16 != 0) {
@@ -823,15 +823,15 @@ int32_t function_1e41ee0(int32_t a1, int32_t a2, int32_t * a3) {
     // 0x1e41ee0
     g5 = a1;
     int32_t v1; // bp-24
-    int32_t v2 = &v1; // 0x1e41ee4
+    int32_t v2 = v1; // 0x1e41ee4
     int32_t v3 = (int32_t)*(int16_t *)(a1 + 10); // 0x1e41ee7
-    g2 = g2 & -0x10000 | v3;
+    g2 = (g2 & -0x10000) | v3;
     int32_t v4 = g4; // 0x1e41eeb
     int32_t v5 = g8; // 0x1e41eec
     int32_t v6 = g6; // 0x1e41ef2
     int32_t v7 = g3; // 0x1e41ef3
     int32_t v8 = v7; // bp-40
-    int32_t v9 = &v8; // 0x1e41ef3
+    int32_t v9 = v8; // 0x1e41ef3
     int32_t v10 = v3 & 0x7fff; // 0x1e41ef4
     g4 = v10 - 0x3fff;
     int32_t v11 = *(int32_t *)(a1 + 2); // 0x1e41f05
@@ -846,7 +846,7 @@ int32_t function_1e41ee0(int32_t a1, int32_t a2, int32_t * a3) {
         // 0x1e41f66
         g2 = v2;
         int32_t v15; // bp-12
-        int32_t v16 = &v15; // 0x1e41f6a
+        int32_t v16 = v15; // 0x1e41f6a
         g5 = v16;
         function_1e41de0(&v15, &v1);
         g6 = a2;
@@ -1004,9 +1004,9 @@ int32_t function_1e420f0(int32_t * a1, int32_t a2) {
     int32_t v1 = (int32_t)a1;
     g2 = a2;
     int32_t v2; // bp-16
-    g5 = &v2;
+    g5 = v2;
     int32_t v3; // bp-12
-    g7 = &v3;
+    g7 = v3;
     g2 = function_1e44520(&v3, &v2, a2, 0, 0, 0, 0);
     g5 = v1;
     int32_t result = function_1e420b0(&v3, v1); // 0x1e4211c
@@ -1019,9 +1019,9 @@ int32_t function_1e42130(int32_t * a1, int32_t a2) {
     int32_t v1 = (int32_t)a1;
     g2 = a2;
     int32_t v2; // bp-16
-    g5 = &v2;
+    g5 = v2;
     int32_t v3; // bp-12
-    g7 = &v3;
+    g7 = v3;
     g2 = function_1e44520(&v3, &v2, a2, 0, 0, 0, 0);
     g5 = v1;
     int32_t result = function_1e420d0(&v3, v1); // 0x1e4215c
@@ -1047,7 +1047,7 @@ int32_t function_1e42170(int32_t a1, int32_t a2, int32_t * a3) {
         while (true) {
             int32_t v6 = g3; // 0x1e4218f
             unsigned char v7 = *(char *)v6; // 0x1e4218f
-            g4 = g4 & -256 | (int32_t)v7;
+            g4 = (g4 & -256) | (int32_t)v7;
             if (v7 == 0) {
                 // 0x1e4219b
                 *(char *)v4 = 48;
@@ -1146,9 +1146,9 @@ int32_t function_1e42170(int32_t a1, int32_t a2, int32_t * a3) {
 int32_t function_1e42200(int32_t result, int32_t a2, int32_t * a3, int32_t * a4, int32_t a5, int32_t a6) {
     // 0x1e42200
     int32_t v1;
-    g2 = &v1;
+    g2 = v1;
     int32_t v2; // bp-40
-    g5 = &v2;
+    g5 = v2;
     int32_t v3 = g4; // 0x1e4220b
     function_1e42290(&v2, &v1, g6, g8, v3);
     g5 = v2;
@@ -1164,7 +1164,7 @@ int32_t function_1e42200(int32_t result, int32_t a2, int32_t * a3, int32_t * a4,
     g5 = -1;
     g2 = 0;
     int32_t v9; // bp-24
-    int32_t v10 = &v9;
+    int32_t v10 = v9;
     int32_t v11 = -1; // 0x1e42259
     int32_t v12; // 0x1e4225b
     int32_t v13; // 0x1e4225d
@@ -1214,7 +1214,7 @@ int32_t function_1e42290(int32_t * a1, int32_t * a2, int32_t a3, int32_t a4, int
     int32_t v6 = g3; // 0x1e422a3
     uint16_t v7 = v4 / 16 & 2047; // 0x1e422a4
     int32_t v8 = v5 & -0x10000; // 0x1e422a4
-    int32_t v9 = g7 & -0x10000 | (int32_t)(v4 & -0x8000); // edx
+    int32_t v9 = (g7 & -0x10000) | (int32_t)(v4 & -0x8000); // edx
     int32_t v10 = *(int32_t *)(v1 + 4) & 0xfffff; // 0x1e422b5
     g5 = v10;
     uint32_t v11 = *a2; // 0x1e422bb
@@ -1262,7 +1262,7 @@ int32_t function_1e42290(int32_t * a1, int32_t * a2, int32_t a3, int32_t a4, int
     *(int32_t *)(v12 + 4) = v16;
     if (v16 > -1) {
         int32_t v17 = v13; // 0x1e4231b
-        v13 = v17 + 0xffff & 0xffff | v17 & -0x10000;
+        v13 = (v17 + 0xffff & 0xffff) | (v17 & -0x10000);
         int32_t * v18 = (int32_t *)v12; // 0x1e4231d
         int32_t v19 = *v18; // 0x1e4231d
         g2 = v19;
@@ -1276,7 +1276,7 @@ int32_t function_1e42290(int32_t * a1, int32_t * a2, int32_t a3, int32_t a4, int
         while (v22 > 0xffffffff) {
             // 0x1e4231b
             v17 = v13;
-            v13 = v17 + 0xffff & 0xffff | v17 & -0x10000;
+            v13 = (v17 + 0xffff & 0xffff) | (v17 & -0x10000);
             v18 = (int32_t *)v12;
             v19 = *v18;
             g2 = v19;
@@ -1306,12 +1306,12 @@ int32_t function_1e42350(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     } else {
         // 0x1e42360
         int32_t lpCharType; // bp-4
-        g2 = &lpCharType;
+        g2 = lpCharType;
         bool v2 = GetStringTypeW(1, (int16_t *)&g68, 1, (int16_t *)&lpCharType); // 0x1e42374
         g2 = v2;
         if (!v2) {
             // 0x1e42386
-            g2 = &lpCharType2;
+            g2 = lpCharType2;
             bool v3 = GetStringTypeA(0, 1, (char *)&g67, 1, (int16_t *)&lpCharType2); // 0x1e42396
             g2 = v3;
             if (!v3) {
@@ -1502,13 +1502,13 @@ int32_t function_1e42510(int32_t a1, char * a2, int32_t a3, int32_t * a4, int32_
     } else {
         // 0x1e42520
         int32_t lpCharType; // bp-2
-        g2 = &lpCharType;
+        g2 = lpCharType;
         bool v2 = GetStringTypeA(0, 1, (char *)&g67, 1, (int16_t *)&lpCharType); // 0x1e42536
         g2 = v2;
         if (!v2) {
             // 0x1e42543
             int32_t lpCharType2; // bp-22
-            g2 = &lpCharType2;
+            g2 = lpCharType2;
             bool v3 = GetStringTypeW(1, (int16_t *)&g68, 1, (int16_t *)&lpCharType2); // 0x1e42551
             g2 = v3;
             if (!v3) {
@@ -2001,7 +2001,7 @@ int32_t function_1e42a78(void) {
     char * v2 = (char *)(v1 + g9); // 0x1e42a78
     *v2 = *v2 + (char)v1;
     int32_t v3 = g2; // 0x1e42a7b
-    g2 = v3 + 86 & 255 | v3 & -256;
+    g2 = (v3 + 86 & 255) | (v3 & -256);
     g2 = __asm_int3();
     g2 = __asm_int3();
     g2 = __asm_int3();

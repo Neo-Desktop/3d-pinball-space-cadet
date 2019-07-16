@@ -23,14 +23,14 @@ int32_t function_1e22220(void) {
 int32_t function_1e22260(int32_t a1) {
     // 0x1e22260
     g5 = 0;
-    g2 = &g114;
+    g2 = g114;
     g7 = a1;
     int32_t v1 = g8; // bp-432
-    int32_t v2 = &v1; // 0x1e22275
+    int32_t v2 = v1; // 0x1e22275
     int32_t v3 = g3; // bp-440
-    int32_t v4 = &v3; // 0x1e22277
+    int32_t v4 = v3; // 0x1e22277
     int32_t v5 = 0; // 0x1e2227f
-    int32_t v6 = &g114; // 0x1e2227c
+    int32_t v6 = g114; // 0x1e2227c
     int32_t v7; // 0x1e2228e
     int32_t v8; // 0x1e2245550
     while (true) {
@@ -116,16 +116,16 @@ int32_t function_1e22260(int32_t a1) {
     if (a1 != 252) {
         // 0x1e222ca
         int32_t lpFilename; // bp-260
-        g2 = &lpFilename;
+        g2 = lpFilename;
         int32_t nameSize = GetModuleFileNameA(NULL, (char *)&lpFilename, 260); // 0x1e222df
         g2 = nameSize;
         int32_t v26; // bp-272
         int32_t v27;
         if ((nameSize & 255) != 0) {
             // 0x1e222ca
-            v27 = &v26;
+            v27 = v26;
         } else {
-            int32_t v28 = &v26; // 0x1e222ea
+            int32_t v28 = v26; // 0x1e222ea
             g5 = 5;
             __asm_rep_movsd_memcpy((char *)&v26, "<program name unknown>", 5);
             g5 = 0;
@@ -426,7 +426,7 @@ int32_t function_1e22460(int32_t a1) {
     int32_t lpCriticalSection = *(int32_t *)&g121; // 0x1e22461
     g2 = lpCriticalSection;
     InitializeCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection);
-    g2 = &g708;
+    g2 = g708;
     int32_t lpCriticalSection2 = *(int32_t *)&g120; // 0x1e2246f
     g5 = lpCriticalSection2;
     InitializeCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection2);
@@ -436,8 +436,8 @@ int32_t function_1e22460(int32_t a1) {
     int32_t lpCriticalSection4 = *(int32_t *)&g118; // 0x1e22480
     g2 = lpCriticalSection4;
     InitializeCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection4);
-    g2 = &g708;
-    return &g708;
+    g2 = g708;
+    return g708;
 }
 
 // Address range: 0x1e22490 - 0x1e224f8
@@ -445,7 +445,7 @@ int32_t function_1e22490(int32_t a1) {
     // 0x1e22490
     g2 = a1;
     int32_t v1 = g6; // bp-12
-    int32_t v2 = &v1; // 0x1e22498
+    int32_t v2 = v1; // 0x1e22498
     int32_t v3 = 4 * a1 + (int32_t)&g117; // 0x1e22499
     g6 = v3;
     int32_t v4 = *(int32_t *)v3; // 0x1e224a0
@@ -469,7 +469,7 @@ int32_t function_1e22490(int32_t a1) {
         } else {
             // 0x1e224cf
             InitializeCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection);
-            g2 = &g708;
+            g2 = g708;
             *(int32_t *)g6 = lpCriticalSection;
             v7 = g9;
         }
@@ -486,11 +486,11 @@ int32_t function_1e22490(int32_t a1) {
     g2 = v6;
     *(int32_t *)(v5 - 4) = v6;
     EnterCriticalSection((struct _RTL_CRITICAL_SECTION *)&g708);
-    g2 = &g708;
+    g2 = g708;
     g6 = *(int32_t *)g9;
     g8 = *(int32_t *)(g9 + 4);
     g3 = *(int32_t *)(g9 + 8);
-    return &g708;
+    return g708;
 }
 
 // Address range: 0x1e22500 - 0x1e22517
@@ -500,9 +500,9 @@ int32_t function_1e22500(int32_t a1) {
     int32_t lpCriticalSection = *(int32_t *)(4 * a1 + (int32_t)&g117); // 0x1e22507
     g5 = lpCriticalSection;
     LeaveCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection);
-    g2 = &g708;
+    g2 = g708;
     g3 = lpCriticalSection;
-    return &g708;
+    return g708;
 }
 
 // Address range: 0x1e22520 - 0x1e22556
@@ -521,9 +521,9 @@ int32_t function_1e22520(uint32_t a1, int32_t a2, int32_t a3) {
     int32_t lpCriticalSection = a1 + 32; // 0x1e2254a
     g2 = lpCriticalSection;
     EnterCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection);
-    g2 = &g708;
+    g2 = g708;
     g3 = lpCriticalSection;
-    return &g708;
+    return g708;
 }
 
 // Address range: 0x1e22560 - 0x1e22588
@@ -540,9 +540,9 @@ int32_t function_1e22560(int32_t a1, int32_t a2) {
     int32_t lpCriticalSection = a2 + 32; // 0x1e2257c
     g2 = lpCriticalSection;
     EnterCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection);
-    g2 = &g708;
+    g2 = g708;
     g3 = lpCriticalSection;
-    return &g708;
+    return g708;
 }
 
 // Address range: 0x1e22590 - 0x1e225c6
@@ -561,9 +561,9 @@ int32_t function_1e22590(uint32_t a1) {
     int32_t lpCriticalSection = a1 + 32; // 0x1e225ba
     g2 = lpCriticalSection;
     LeaveCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection);
-    g2 = &g708;
+    g2 = g708;
     g3 = lpCriticalSection;
-    return &g708;
+    return g708;
 }
 
 // Address range: 0x1e225d0 - 0x1e225f8
@@ -580,9 +580,9 @@ int32_t function_1e225d0(int32_t a1, int32_t a2) {
     int32_t lpCriticalSection = a2 + 32; // 0x1e225ec
     g2 = lpCriticalSection;
     LeaveCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection);
-    g2 = &g708;
+    g2 = g708;
     g3 = lpCriticalSection;
-    return &g708;
+    return g708;
 }
 
 // Address range: 0x1e22600 - 0x1e2266d
@@ -597,9 +597,9 @@ int32_t function_1e22600(int32_t lpMem) {
     // 0x1e2260c
     function_1e22490(9);
     int32_t v2; // bp-8
-    g2 = &v2;
+    g2 = v2;
     int32_t v3; // bp-4
-    g5 = &v3;
+    g5 = v3;
     int32_t v4 = function_1e22ac0(lpMem, &v3, &v2); // 0x1e22621
     g2 = v4;
     if (v4 != 0) {
@@ -652,7 +652,7 @@ int32_t function_1e22690(int32_t a1, int32_t a2) {
     }
     // 0x1e226a9
     g6 = a2;
-    int32_t v4 = &v2; // 0x1e226b7
+    int32_t v4 = v2; // 0x1e226b7
     int32_t v5 = v3; // 0x1e226b7
     int32_t result; // 0x1e226b8
     int32_t v6; // 0x1e226bd
@@ -775,7 +775,7 @@ int32_t function_1e22760(int32_t a1, int32_t a2) {
     } else {
         v3 = v1;
     }
-    int32_t v5 = &v2; // 0x1e22798
+    int32_t v5 = v2; // 0x1e22798
     uint32_t v6 = v3; // 0x1e22790
     int32_t result;
     while (true) {
@@ -897,8 +897,8 @@ int32_t function_1e22810(void) {
         v2 = g9;
     } else {
         // 0x1e2281d
-        v3 = &g131;
-        v2 = &v1;
+        v3 = g131;
+        v2 = v1;
     }
     // 0x1e22822
     *(int32_t *)(v2 - 4) = 4;
@@ -932,7 +932,7 @@ int32_t function_1e22810(void) {
                 // 0x1e22861
                 if (g131 == 0) {
                     // 0x1e2286a
-                    g131 = &g131;
+                    g131 = g131;
                 }
                 // 0x1e22874
                 if (*(int32_t *)&g132 == 0) {
@@ -1082,7 +1082,7 @@ int32_t function_1e229e0(int32_t a1) {
     int32_t v1 = *(int32_t *)&g132; // 0x1e229e6
     g8 = v1;
     int32_t v2 = g3; // bp-20
-    int32_t v3 = &v2; // 0x1e22a05
+    int32_t v3 = v2; // 0x1e22a05
     int32_t v4; // ebp
     int32_t v5; // ebx
     int32_t v6; // edi
@@ -1240,9 +1240,9 @@ int32_t function_1e229e0(int32_t a1) {
 // Address range: 0x1e22ac0 - 0x1e22b11
 int32_t function_1e22ac0(uint32_t a1, int32_t * a2, int32_t * a3) {
     // 0x1e22ac0
-    g5 = &g131;
+    g5 = g131;
     g7 = a1;
-    int32_t v1 = &g131; // 0x1e22ae0
+    int32_t v1 = g131; // 0x1e22ae0
     while (true) {
         uint32_t v2 = *(int32_t *)(v1 + 2064); // 0x1e22ac9
         g2 = v2;
@@ -1284,7 +1284,7 @@ int32_t function_1e22b20(int32_t a1, int32_t a2, int32_t a3) {
     g2 = v1;
     g5 = a3;
     unsigned char v2 = *(char *)a3; // 0x1e22b37
-    g7 = g7 & -256 | (int32_t)v2;
+    g7 = (g7 & -256) | (int32_t)v2;
     char * v3 = (char *)(v1 + 16); // 0x1e22b39
     *v3 = *v3 + v2;
     *(char *)g5 = 0;
@@ -1327,7 +1327,7 @@ int32_t function_1e22b70(int32_t a1) {
                 while (true) {
                     unsigned char v7 = *(char *)(v6 + 16 + v3); // 0x1e22b9b
                     int32_t v8 = v7; // 0x1e22b9b
-                    g5 = g5 & -256 | v8;
+                    g5 = (g5 & -256) | v8;
                     g2 = v8;
                     uint32_t v9 = g4; // 0x1e22ba3
                     int32_t v10; // 0x1e22bdb
@@ -1406,7 +1406,7 @@ int32_t function_1e22b70(int32_t a1) {
                 while (true) {
                     unsigned char v21 = *(char *)(v19 + 16 + v20); // 0x1e22bf3
                     int32_t v22 = v21; // 0x1e22bf3
-                    g5 = g5 & -256 | v22;
+                    g5 = (g5 & -256) | v22;
                     g2 = v22;
                     uint32_t v23 = g4; // 0x1e22bfb
                     int32_t v24; // 0x1e22c33
@@ -1486,10 +1486,10 @@ int32_t function_1e22b70(int32_t a1) {
         }
         v1 = v32;
     }
-    int32_t v33 = &g131; // esi
+    int32_t v33 = g131; // esi
     g2 = 0;
     g5 = -1;
-    int32_t v34 = &g131; // 0x1e22c66
+    int32_t v34 = g131; // 0x1e22c66
     int32_t v35; // 0x1e22cd9
     int32_t v36; // 0x1e22c61
     while (true) {
@@ -1759,7 +1759,7 @@ int32_t function_1e22df0(int32_t a1, int32_t a2, int32_t a3) {
         while (true) {
             unsigned char v22 = *(char *)v19; // 0x1e22e58
             int32_t v23 = v22; // 0x1e22e58
-            g5 = v23 | v13 & -256;
+            g5 = v23 | (v13 & -256);
             int32_t v24; // 0x1e22e90
             if (v22 != 0) {
                 // 0x1e22e8c
@@ -1870,7 +1870,7 @@ int32_t function_1e22df0(int32_t a1, int32_t a2, int32_t a3) {
             }
             unsigned char v42 = *(char *)v39; // 0x1e22ef5
             int32_t v43 = v42; // 0x1e22ef5
-            g5 = v43 | v40 & -256;
+            g5 = v43 | (v40 & -256);
             int32_t v44;
             if (v42 != 0) {
                 // 0x1e22f1e
@@ -2074,7 +2074,7 @@ int32_t function_1e22f70(int32_t a1, int32_t a2, int32_t a3, uint32_t a4) {
     g2 = a1;
     int32_t v25 = g7; // 0x1e2301f
     unsigned char v26 = (char)v25 - (char)g5; // 0x1e2301f
-    g7 = (int32_t)v26 | v25 & -256;
+    g7 = (int32_t)v26 | (v25 & -256);
     char * v27 = (char *)(a1 + 16 + (a2 - *(int32_t *)(a1 + 2064)) / 0x1000); // 0x1e2302a
     *v27 = *v27 + v26;
     g2 = 1;

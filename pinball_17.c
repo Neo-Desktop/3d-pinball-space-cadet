@@ -7,7 +7,7 @@ int32_t function_1e35a8d(void) {
     g2 = g259;
     g5 = g259;
     int32_t v1 = 19; // bp-88
-    int32_t v2 = &v1; // 0x1e35a9e
+    int32_t v2 = v1; // 0x1e35a9e
     int32_t v3;
     int32_t v4; // 0x1e35ac6
     if (v3 > 0) {
@@ -169,7 +169,7 @@ int32_t function_1e35c09(int32_t result) {
     // 0x1e35c09
     g2 = result;
     int32_t v1; // bp-128
-    int32_t v2 = &v1; // 0x1e35c0d
+    int32_t v2 = v1; // 0x1e35c0d
     if (result < 66) {
         // 0x1e35cae
         return result;
@@ -182,7 +182,7 @@ int32_t function_1e35c09(int32_t result) {
     int32_t v4 = (int32_t)v3; // 0x1e35c25
     g2 = v4;
     unsigned char v5 = *v3; // 0x1e35c2a
-    g2 = (int32_t)v5 | v4 & -256;
+    g2 = (int32_t)v5 | (v4 & -256);
     if (v5 == 0) {
         // 0x1e35c74
         g2 = g347;
@@ -218,7 +218,7 @@ int32_t function_1e35c09(int32_t result) {
     int32_t v6 = (int32_t)v3; // 0x1e35c34
     g2 = v6;
     unsigned char v7 = *v3 ^ -91; // 0x1e35c3b
-    g2 = (int32_t)v7 | v6 & -256;
+    g2 = (int32_t)v7 | (v6 & -256);
     *(char *)v2 = v7;
     int32_t v8 = g5 + 1; // 0x1e35c3f
     g5 = v8;
@@ -232,7 +232,7 @@ int32_t function_1e35c09(int32_t result) {
         v6 = (int32_t)v3;
         g2 = v6;
         v7 = *v3 ^ -91;
-        g2 = (int32_t)v7 | v6 & -256;
+        g2 = (int32_t)v7 | (v6 & -256);
         *(char *)v8 = v7;
         v8 = g5 + 1;
         g5 = v8;
@@ -243,7 +243,7 @@ int32_t function_1e35c09(int32_t result) {
     // 0x1e35c51
     g2 = v9;
     unsigned char v11 = *v10; // 0x1e35c58
-    g2 = (int32_t)v11 | v9 & -256;
+    g2 = (int32_t)v11 | (v9 & -256);
     *(char *)v8 = v11;
     g423 = (char *)((int32_t)g423 + 1);
     g5 = g392;
@@ -258,7 +258,7 @@ int32_t function_1e35cb7(int32_t result2, int32_t a2) {
     // 0x1e35cb7
     g2 = result2;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e35cbe
+    int32_t v2 = v1; // 0x1e35cbe
     int32_t v3 = g6; // bp-80
     g6 = 0;
     int32_t result; // 0x1e35cfe
@@ -938,7 +938,7 @@ int32_t function_1e36224(int32_t result, int32_t a2) {
     // 0x1e36224
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e3622b
+    int32_t v2 = v1; // 0x1e3622b
     int32_t v3 = g8; // bp-72
     if (result != 63) {
         int32_t v4; // 0x1e36363
@@ -955,7 +955,7 @@ int32_t function_1e36224(int32_t result, int32_t a2) {
                 // 0x1e36390
                 return result;
             }
-            v4 = &v3;
+            v4 = v3;
         }
         // 0x1e3635e
         g2 = g249;
@@ -1044,7 +1044,7 @@ int32_t function_1e36397(int32_t result, int32_t a2) {
     // 0x1e36397
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e3639e
+    int32_t v2 = v1; // 0x1e3639e
     int32_t v3 = g8; // bp-72
     if (result != 63) {
         int32_t v4; // 0x1e3649f
@@ -1059,7 +1059,7 @@ int32_t function_1e36397(int32_t result, int32_t a2) {
                 // 0x1e364cc
                 return result;
             }
-            v4 = &v3;
+            v4 = v3;
         }
         // 0x1e3649a
         g2 = g249;
@@ -1218,11 +1218,11 @@ int32_t function_1e364d3(int32_t result, int32_t result3) {
     int32_t v11 = function_1e25763(113); // 0x1e3655d
     g2 = v11;
     v2 = v11;
-    int32_t v12 = &v2; // 0x1e36562
+    int32_t v12 = v2; // 0x1e36562
     g5 = g392;
     g2 = function_1e2fbc7(v11, (int32_t)&g708);
     v3 = 0x7a120;
-    int32_t v13 = &v3; // 0x1e3656e
+    int32_t v13 = v3; // 0x1e3656e
     g2 = function_1e32b02(0x7a120);
     int32_t v14 = function_1e25763(78); // 0x1e3657c
     g2 = v14;
@@ -1254,7 +1254,7 @@ int32_t function_1e36671(int32_t result, int32_t a2) {
     // 0x1e36671
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e36678
+    int32_t v2 = v1; // 0x1e36678
     int32_t v3 = g6; // bp-76
     int32_t * v4;
     if (result == 63) {
@@ -1295,9 +1295,9 @@ int32_t function_1e36671(int32_t result, int32_t a2) {
                                         if (g309 != a2) {
                                             result = 63;
                                             return result;
-                                        } else {
+                                        } 
                                             goto lab_0x1e366e8;
-                                        }
+                                        
                                     }
                                 }
                             }
@@ -1429,7 +1429,7 @@ int32_t function_1e368ea(int32_t result, int32_t a2) {
     // 0x1e368ea
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e368f1
+    int32_t v2 = v1; // 0x1e368f1
     int32_t v3 = g8; // bp-72
     if (result != 63) {
         int32_t v4; // 0x1e36a63
@@ -1448,7 +1448,7 @@ int32_t function_1e368ea(int32_t result, int32_t a2) {
                 // 0x1e36a87
                 return result;
             }
-            v4 = &v3;
+            v4 = v3;
         }
         // 0x1e36a5e
         g2 = g335;
@@ -1544,7 +1544,7 @@ int32_t function_1e36a8e(int32_t result, int32_t a2) {
     // 0x1e36a8e
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e36a95
+    int32_t v2 = v1; // 0x1e36a95
     int32_t v3 = g8; // bp-72
     if (result != 63) {
         int32_t v4; // 0x1e36c06
@@ -1563,7 +1563,7 @@ int32_t function_1e36a8e(int32_t result, int32_t a2) {
                 // 0x1e36c2d
                 return result;
             }
-            v4 = &v3;
+            v4 = v3;
         }
         // 0x1e36c01
         g2 = g332;
@@ -1662,9 +1662,9 @@ int32_t function_1e36c34(int32_t result3, int32_t result2) {
     // 0x1e36c34
     g2 = result3;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e36c3b
+    int32_t v2 = v1; // 0x1e36c3b
     int32_t v3 = g8; // bp-72
-    int32_t v4 = &v3; // 0x1e36c41
+    int32_t v4 = v3; // 0x1e36c41
     int32_t v5; // bp-80
     int32_t result; // 0x1e36c72
     if (result3 == 11) {
@@ -1724,7 +1724,7 @@ int32_t function_1e36c34(int32_t result3, int32_t result2) {
             g2 = g222;
             v5 = 11;
             g5 = g222;
-            v9 = &v5;
+            v9 = v5;
         } else {
             if (result3 != 67) {
                 // 0x1e36e1e
@@ -1798,7 +1798,7 @@ int32_t function_1e36c34(int32_t result3, int32_t result2) {
     g2 = v7;
     v5 = 20;
     g5 = v7;
-    v8 = &v5;
+    v8 = v5;
     goto lab_0x1e36cbe;
   lab_0x1e36cbe:;
     int32_t v16 = g407; // 0x1e36cbe
@@ -1918,7 +1918,7 @@ int32_t function_1e36e25(int32_t result, int32_t a2) {
     // 0x1e36e25
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e36e2c
+    int32_t v2 = v1; // 0x1e36e2c
     int32_t v3 = g6; // bp-76
     int32_t * v4;
     if (result == 63) {
@@ -2011,9 +2011,9 @@ int32_t function_1e36e25(int32_t result, int32_t a2) {
                                                                                             if (g340 != a2) {
                                                                                                 result = 63;
                                                                                                 return result;
-                                                                                            } else {
+                                                                                            } 
                                                                                                 goto lab_0x1e36f1c;
-                                                                                            }
+                                                                                            
                                                                                         }
                                                                                     }
                                                                                 }
@@ -2166,7 +2166,7 @@ int32_t function_1e37186(int32_t result2, int32_t a2) {
     // 0x1e37186
     g2 = result2;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e3718d
+    int32_t v2 = v1; // 0x1e3718d
     int32_t v3 = g8; // bp-72
     int32_t * v4;
     int32_t v5; // 0x1e37212

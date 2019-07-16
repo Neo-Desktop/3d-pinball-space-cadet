@@ -168,7 +168,7 @@ int32_t function_1e3a477(int32_t a1, uint32_t a2, int32_t a3, int32_t a4, int32_
         int32_t v8; // 0x1e3a4cd
         if (a2 >= 1) {
             // 0x1e3a4a9
-            g2 = v4 | a6 & 0xffff;
+            g2 = v4 | (a6 & 0xffff);
             g5 = v5;
             __asm_rep_stosd_memset((char *)v6, v4 / 0x10000, v5);
             int32_t v9 = g1 ? -4 : 4; // 0x1e3a4bf
@@ -270,7 +270,7 @@ int32_t function_1e3a4d9(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
             int32_t v33; // 0x1e3a59e
             while (true) {
                 uint16_t v34 = *(int16_t *)v28; // 0x1e3a587
-                int32_t v35 = (int32_t)v34 | v27 & -0x10000; // 0x1e3a587
+                int32_t v35 = (int32_t)v34 | (v27 & -0x10000); // 0x1e3a587
                 g2 = v35;
                 int32_t v36; // 0x1e3a599
                 int32_t v37; // 0x1e3a59a
@@ -278,10 +278,10 @@ int32_t function_1e3a4d9(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                 int32_t v39; // 0x1e3a59e
                 if (*(int16_t *)v26 >= v34) {
                     unsigned char v40 = *(char *)v25; // 0x1e3a58f
-                    g2 = (int32_t)v40 | v35 & -256;
+                    g2 = (int32_t)v40 | (v35 & -256);
                     *(char *)v24 = v40;
                     uint16_t v41 = *(int16_t *)v15; // 0x1e3a593
-                    g2 = g2 & -0x10000 | (int32_t)v41;
+                    g2 = (g2 & -0x10000) | (int32_t)v41;
                     *(int16_t *)v18 = v41;
                     v37 = v13;
                     v36 = g5;
@@ -419,11 +419,11 @@ int32_t function_1e3a5e4(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                 int32_t v30; // 0x1e3a677
                 int32_t v31; // 0x1e3a67a
                 if (*v27 != 0) {
-                    int32_t v32 = v12 & -0x10000 | a12 & 0xffff; // 0x1e3a668
+                    int32_t v32 = (v12 & -0x10000) | (a12 & 0xffff); // 0x1e3a668
                     v12 = v32;
                     if (*(int16_t *)v22 > (int16_t)a12) {
                         unsigned char v33 = *v27; // 0x1e3a671
-                        v12 = (int32_t)v33 | v32 & -256;
+                        v12 = (int32_t)v33 | (v32 & -256);
                         *(char *)v21 = v33;
                         v31 = v19;
                         v30 = g5;
@@ -594,7 +594,7 @@ int32_t function_1e3a739(int32_t a1, int32_t a2) {
     // 0x1e3a739
     g2 = a1;
     int32_t v1 = g8; // bp-4
-    int32_t v2 = &v1; // 0x1e3a73d
+    int32_t v2 = v1; // 0x1e3a73d
     if (a1 == 0) {
         // 0x1e3a764
         g8 = *(int32_t *)v2;
@@ -662,7 +662,7 @@ int32_t function_1e3a7a7(int32_t * a1) {
     float32_t v4 = *(float32_t *)(v1 + 4); // 0x1e3a7ba
     float32_t v5 = (float80_t)v2 * (float80_t)v2 + (float80_t)v3 * (float80_t)v3 + (float80_t)v4 * (float80_t)v4; // bp-4
     uint32_t v6 = (int32_t)__asm_fnstsw(g10); // 0x1e3a7cc
-    int32_t result = g2 & -0x10000 | v6; // 0x1e3a7cc
+    int32_t result = (g2 & -0x10000) | v6; // 0x1e3a7cc
     g2 = result;
     int3_t v7 = g11; // 0x1e3a7d9
     float80_t v8;
@@ -712,13 +712,13 @@ int32_t function_1e3a828(int32_t a1, int32_t a2) {
     float32_t v6 = *(float32_t *)(a1 + 16); // 0x1e3a84b
     float80_t v7 = v2 * (float80_t)v5 + v4 * (float80_t)v6; // 0x1e3a851
     uint32_t v8 = (int32_t)__asm_fnstsw(g10); // 0x1e3a85c
-    int32_t v9 = g2 & -0x10000 | v8; // 0x1e3a85c
+    int32_t v9 = (g2 & -0x10000) | v8; // 0x1e3a85c
     g2 = v9;
     int32_t result2; // 0x1e3a8b8
     if ((v8 / 256 & 1) == 0) {
         float80_t v10 = v2; // 0x1e3a867
         g5 += 12;
-        int32_t result = g2 & -0x10000 | (int32_t)__asm_fnstsw(g10); // 0x1e3a877
+        int32_t result = (g2 & -0x10000) | (int32_t)__asm_fnstsw(g10); // 0x1e3a877
         g2 = result;
         int3_t v11 = g11; // 0x1e3a879
         g11 = v11 - 1;
@@ -734,16 +734,16 @@ int32_t function_1e3a828(int32_t a1, int32_t a2) {
         // 0x1e3a88e
         g11 = v11;
         uint32_t v14 = (int32_t)__asm_fnstsw(g10); // 0x1e3a897
-        int32_t v15 = g2 & -0x10000 | v14; // 0x1e3a897
+        int32_t v15 = (g2 & -0x10000) | v14; // 0x1e3a897
         g2 = v15;
         if ((v14 / 256 & 1) == 0) {
             float80_t v16 = v7 - sqrtl(v13); // 0x1e3a8a1
             uint32_t v17 = (int32_t)__asm_fnstsw(g10); // 0x1e3a8ad
-            int32_t v18 = g2 & -0x10000 | v17; // 0x1e3a8ad
+            int32_t v18 = (g2 & -0x10000) | v17; // 0x1e3a8ad
             g2 = v18;
             if ((v17 / 256 & 1) == 0) {
                 uint32_t v19 = (int32_t)__asm_fnstsw(g10); // 0x1e3a8b8
-                result2 = g2 & -0x10000 | v19;
+                result2 = (g2 & -0x10000) | v19;
                 g2 = result2;
                 if ((v19 / 256 & 1) == 0) {
                     // 0x1e3a8bd
@@ -773,7 +773,7 @@ int32_t function_1e3a828(int32_t a1, int32_t a2) {
 // Address range: 0x1e3a8ce - 0x1e3a97f
 int32_t function_1e3a8ce(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t a5) {
     int32_t v1 = g3; // bp-4
-    g3 = &v1;
+    g3 = v1;
     int32_t v2 = g6; // 0x1e3a8db
     int32_t v3 = a1 + 12; // 0x1e3a8df
     *(float32_t *)v3 = (float32_t)a4 - (float32_t)a2;
@@ -791,17 +791,17 @@ int32_t function_1e3a8ce(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     *(float32_t *)(a1 + 24) = (float32_t)v9;
     g11++;
     uint32_t v10 = (int32_t)__asm_fnstsw(g10); // 0x1e3a91b
-    g2 = g2 & -0x10000 | v10;
+    g2 = (g2 & -0x10000) | v10;
     if ((v10 / 256 & 1) == 0) {
         goto lab_0x1e3a955;
     } else {
         uint32_t v11 = (int32_t)__asm_fnstsw(g10); // 0x1e3a929
-        g2 = g2 & -0x10000 | v11;
+        g2 = (g2 & -0x10000) | v11;
         if ((v11 / 256 & 65) == 0) {
             // 0x1e3a92e
             *(int32_t *)v3 = 0;
             uint32_t v12 = (int32_t)__asm_fnstsw(g10); // 0x1e3a93a
-            g2 = g2 & -0x10000 | v12;
+            g2 = (g2 & -0x10000) | v12;
             if ((v12 / 256 & 65) == 0) {
                 // 0x1e3a93f
                 g2 = a3;
@@ -820,7 +820,7 @@ int32_t function_1e3a8ce(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     }
   lab_0x1e3a955:;
     uint32_t v13 = (int32_t)__asm_fnstsw(g10); // 0x1e3a95b
-    g2 = g2 & -0x10000 | v13;
+    g2 = (g2 & -0x10000) | v13;
     if ((v13 / 256 & 65) == 0) {
         // 0x1e3a960
         g2 = a2;
@@ -852,7 +852,7 @@ int32_t function_1e3a97f(int32_t a1, int32_t a2) {
     float32_t v5 = *(float32_t *)a2; // 0x1e3a995
     float32_t v6 = (float80_t)v2 * (float80_t)v3 + (float80_t)v4 * (float80_t)v5; // bp-8
     uint32_t v7 = (int32_t)__asm_fnstsw(g10); // 0x1e3a9a2
-    int32_t v8 = g2 & -0x10000 | v7; // 0x1e3a9a2
+    int32_t v8 = (g2 & -0x10000) | v7; // 0x1e3a9a2
     g2 = v8;
     int32_t result; // 0x1e3aa26
     if ((v7 / 256 & 1) != 0) {
@@ -864,11 +864,11 @@ int32_t function_1e3a97f(int32_t a1, int32_t a2) {
         float32_t v14 = *(float32_t *)(a2 + 24); // 0x1e3a9b7
         v6 = -(float32_t)(((float80_t)v9 * (float80_t)v11 + (float80_t)v12 * (float80_t)v13 + (float80_t)v14) / (float80_t)v6);
         uint32_t v15 = (int32_t)__asm_fnstsw(g10); // 0x1e3a9ca
-        int32_t v16 = g2 & -0x10000 | v15; // 0x1e3a9ca
+        int32_t v16 = (g2 & -0x10000) | v15; // 0x1e3a9ca
         g2 = v16;
         if ((v15 / 256 & 65) != 0) {
             uint32_t v17 = (int32_t)__asm_fnstsw(g10); // 0x1e3a9d5
-            int32_t v18 = g2 & -0x10000 | v17; // 0x1e3a9d5
+            int32_t v18 = (g2 & -0x10000) | v17; // 0x1e3a9d5
             g2 = v18;
             if ((v17 / 256 & 1) == 0) {
                 int3_t v19 = g11; // 0x1e3a9da
@@ -884,11 +884,11 @@ int32_t function_1e3a97f(int32_t a1, int32_t a2) {
                     // 0x1e3aa12
                     g11 = v19;
                     uint32_t v26 = (int32_t)__asm_fnstsw(g10); // 0x1e3aa1b
-                    int32_t v27 = g2 & -0x10000 | v26; // 0x1e3aa1b
+                    int32_t v27 = (g2 & -0x10000) | v26; // 0x1e3aa1b
                     g2 = v27;
                     if ((v26 / 256 & 1) == 0) {
                         uint32_t v28 = (int32_t)__asm_fnstsw(g10); // 0x1e3aa26
-                        result = g2 & -0x10000 | v28;
+                        result = (g2 & -0x10000) | v28;
                         g2 = result;
                         if ((v28 / 256 & 65) != 0) {
                             // 0x1e3aa2b
@@ -905,11 +905,11 @@ int32_t function_1e3a97f(int32_t a1, int32_t a2) {
                     // 0x1e3a9f7
                     g11 = v19;
                     uint32_t v29 = (int32_t)__asm_fnstsw(g10); // 0x1e3a9fd
-                    int32_t v30 = g2 & -0x10000 | v29; // 0x1e3a9fd
+                    int32_t v30 = (g2 & -0x10000) | v29; // 0x1e3a9fd
                     g2 = v30;
                     if ((v29 / 256 & 1) == 0) {
                         uint32_t v31 = (int32_t)__asm_fnstsw(g10); // 0x1e3aa08
-                        int32_t result2 = g2 & -0x10000 | v31; // 0x1e3aa08
+                        int32_t result2 = (g2 & -0x10000) | v31; // 0x1e3aa08
                         g2 = result2;
                         if ((v31 / 256 & 65) != 0) {
                             // 0x1e3aa0d
@@ -1140,7 +1140,7 @@ int32_t function_1e3abb9(int32_t a1) {
         v1 = g8;
     } else {
         int32_t v4; // esi
-        v2 = &v4;
+        v2 = v4;
         v1 = a1;
     }
     int32_t v5 = *(int32_t *)(v1 + 78); // 0x1e3abcf
@@ -1237,7 +1237,7 @@ int32_t function_1e3ac4e(int32_t a1, float80_t a2) {
     int32_t v2 = g8; // 0x1e3ac5e
     int32_t v3 = g6; // 0x1e3ac5f
     int32_t v4 = v3; // bp-20
-    int32_t v5 = &v4; // 0x1e3ac5f
+    int32_t v5 = v4; // 0x1e3ac5f
     int32_t v6 = g5; // 0x1e3ac60
     g8 = v6;
     int32_t v7; // 0x1e3ad08
@@ -1866,7 +1866,7 @@ int32_t function_1e3b1c6(int32_t a1, uint32_t a2) {
         int32_t v5 = *(int32_t *)v4; // 0x1e3b214
         g2 = v5;
         int32_t v6; // bp-8
-        g5 = &v6;
+        g5 = v6;
         *(int32_t *)(g8 + 54) = v5;
         g6 = 0;
         int32_t v7 = function_1e39996(a2, 1027, &v6); // 0x1e3b225
@@ -2005,7 +2005,7 @@ int32_t function_1e3b2f5(int32_t a1) {
         g5 = g8 + 50;
     } else {
         uint32_t v5 = (int32_t)__asm_fnstsw(g10); // 0x1e3b32a
-        g2 = g2 & -0x10000 | v5;
+        g2 = (g2 & -0x10000) | v5;
         if ((v5 / 256 & 65) != 0) {
             // 0x1e3b348
             g2 = 0;
@@ -2110,7 +2110,7 @@ int32_t function_1e3b37f(int32_t a1, int32_t a2, int32_t a3, int32_t a4) {
 // Address range: 0x1e3b3a0 - 0x1e3b3d5
 int32_t function_1e3b3a0(void) {
     int32_t v1 = g6; // bp-8
-    int32_t v2 = &v1; // 0x1e3b3a1
+    int32_t v2 = v1; // 0x1e3b3a1
     int32_t v3 = g5; // 0x1e3b3a2
     int32_t v4 = *(int32_t *)(v3 + 46); // 0x1e3b3a2
     g2 = v4;

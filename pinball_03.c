@@ -31,7 +31,7 @@ int32_t function_1e230e0(int32_t result, char * a2, uint32_t a3) {
         int32_t v19 = v5; // 0x1e23106
         while (true) {
             unsigned char v20 = *(char *)v19; // 0x1e23104
-            g2 = (int32_t)v20 | v18 & -256;
+            g2 = (int32_t)v20 | (v18 & -256);
             v6 = v19 + 1;
             *(char *)v17 = v20;
             int32_t v21 = v7 + 1; // 0x1e23109
@@ -161,7 +161,7 @@ int32_t function_1e230e0(int32_t result, char * a2, uint32_t a3) {
     while (true) {
         int32_t v50 = v6; // 0x1e23125
         unsigned char v51 = *(char *)v50; // 0x1e23125
-        g2 = (int32_t)v51 | v49 & -256;
+        g2 = (int32_t)v51 | (v49 & -256);
         v6 = v50 + 1;
         *(char *)v48 = v51;
         int32_t v52 = v7 + 1; // 0x1e2312a
@@ -356,8 +356,8 @@ int32_t function_1e231e0(void) {
         v7 = g2;
     }
     int32_t v8 = 0; // edx
-    int32_t v9 = &g141; // esi
-    int32_t v10 = &g141; // 0x1e23293
+    int32_t v9 = g141; // esi
+    int32_t v10 = g141; // 0x1e23293
     int32_t v11 = 0; // 0x1e2326e
     int32_t result; // 0x1e23287
     while (true) {
@@ -474,7 +474,7 @@ int32_t function_1e23310(void) {
                 g2 = v7;
                 *(int32_t *)(g9 - 4) = v7;
                 DeleteCriticalSection((struct _RTL_CRITICAL_SECTION *)&g708);
-                g2 = &g708;
+                g2 = g708;
                 g5 = g673;
                 *(int32_t *)(g9 - 4) = *(int32_t *)(g6 + g673);
                 g2 = function_1e22600((int32_t)&g708);
@@ -542,7 +542,7 @@ int32_t function_1e233f0(int32_t a1, int32_t a2) {
     int32_t v3 = *(int32_t *)(a1 + 12); // 0x1e233f9
     g2 = v3;
     unsigned char v4 = (char)v3 & 3; // 0x1e233fe
-    g5 = (int32_t)v4 | v3 & -256;
+    g5 = (int32_t)v4 | (v3 & -256);
     if (v4 == 2) {
         if ((v3 & 264) != 0) {
             int32_t v5 = *(int32_t *)(a1 + 8); // 0x1e2340d
@@ -592,7 +592,7 @@ int32_t function_1e23470(int32_t a1) {
     // 0x1e23470
     g4 = 0;
     int32_t v1 = g3; // bp-20
-    int32_t v2 = &v1; // 0x1e23478
+    int32_t v2 = v1; // 0x1e23478
     g6 = 0;
     g2 = function_1e22490(2);
     int32_t v3; // 0x1e2351e
@@ -929,7 +929,7 @@ int32_t function_1e23710(int32_t a1, int32_t lpBuffer, int32_t a3) {
     if (*(char *)(v8 + 4) > -1) {
         // 0x1e23815
         int32_t lpNumberOfBytesWritten; // bp-1044
-        g2 = &lpNumberOfBytesWritten;
+        g2 = lpNumberOfBytesWritten;
         int32_t hFile = *(int32_t *)v8; // 0x1e23824
         g5 = hFile;
         bool v9 = WriteFile((int32_t *)hFile, (int32_t *)lpBuffer, g3, &lpNumberOfBytesWritten, NULL); // 0x1e23828
@@ -944,7 +944,7 @@ int32_t function_1e23710(int32_t a1, int32_t lpBuffer, int32_t a3) {
             g2 = v2;
         }
     } else {
-        int32_t v10 = &v2; // 0x1e237ad
+        int32_t v10 = v2; // 0x1e237ad
         while (true) {
             // 0x1e2379c
             g2 = lpBuffer;
@@ -969,7 +969,7 @@ int32_t function_1e23710(int32_t a1, int32_t lpBuffer, int32_t a3) {
                     break;
                 }
                 unsigned char v17 = *(char *)v14; // 0x1e237be
-                int32_t v18 = (int32_t)v17 | v16 & -256; // 0x1e237be
+                int32_t v18 = (int32_t)v17 | (v16 & -256); // 0x1e237be
                 g2 = v18;
                 lpBuffer = v14 + 1;
                 int32_t v19; // 0x1e237ca
@@ -1244,9 +1244,9 @@ int32_t function_1e23a50(int32_t a1) {
     g5 = a1;
     int32_t v2 = 0; // esi
     *(int32_t *)v1 = a1;
-    g2 = &g148;
+    g2 = g148;
     uint32_t v3 = g5;
-    int32_t v4 = &g148; // 0x1e23a67
+    int32_t v4 = g148; // 0x1e23a67
     while (true) {
         // 0x1e23a63
         if (*(int32_t *)v4 == v3) {
@@ -1315,7 +1315,7 @@ int32_t function_1e23af0(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
     // 0x1e23af0
     g4 = -1;
     g6 = 0;
-    g8 = &g677;
+    g8 = g677;
     g2 = function_1e22490(18);
     int32_t v1 = g8; // 0x1e23b11
     int32_t v2; // 0x1e23b90
@@ -1350,7 +1350,7 @@ int32_t function_1e23af0(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                             g2 = v11;
                             *(int32_t *)g9 = v11;
                             InitializeCriticalSection((struct _RTL_CRITICAL_SECTION *)&g708);
-                            g2 = &g708;
+                            g2 = g708;
                             int32_t * v12 = (int32_t *)(g3 + 8); // 0x1e23b4b
                             *v12 = *v12 + 1;
                             v10 = g9;
@@ -1370,7 +1370,7 @@ int32_t function_1e23af0(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                     g2 = v13;
                     *(int32_t *)(v8 - 4) = v13;
                     EnterCriticalSection((struct _RTL_CRITICAL_SECTION *)&g708);
-                    g2 = &g708;
+                    g2 = g708;
                     int32_t v14 = g3; // 0x1e23b62
                     if ((*(char *)(v14 + 4) & 1) == 0) {
                         // 0x1e23b82
@@ -1389,7 +1389,7 @@ int32_t function_1e23af0(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                     g2 = v18;
                     *(int32_t *)(g9 - 4) = v18;
                     LeaveCriticalSection((struct _RTL_CRITICAL_SECTION *)&g708);
-                    g2 = &g708;
+                    g2 = g708;
                     v6 = g8;
                     v5 = g3;
                 } else {
@@ -1541,7 +1541,7 @@ int32_t function_1e23ce0(int32_t a1) {
     g5 = a1;
     int32_t v1 = g8; // 0x1e23ce4
     int32_t v2 = g6; // bp-8
-    int32_t v3 = &v2; // 0x1e23ce5
+    int32_t v3 = v2; // 0x1e23ce5
     int32_t nStdHandle; // 0x1e23d3f
     int32_t v4; // 0x1e23d45
     int32_t v5; // 0x1e23d47
@@ -1646,7 +1646,7 @@ int32_t function_1e23d80(int32_t a1) {
 // Address range: 0x1e23dd0 - 0x1e23e31
 int32_t function_1e23dd0(int32_t a1) {
     int32_t v1 = g6; // bp-12
-    int32_t v2 = &v1; // 0x1e23dd8
+    int32_t v2 = v1; // 0x1e23dd8
     int32_t v3 = a1 / 8 & -4; // 0x1e23ddc
     g5 = v3;
     int32_t v4 = a1 & 31; // 0x1e23ddf
@@ -1668,7 +1668,7 @@ int32_t function_1e23dd0(int32_t a1) {
             int32_t lpCriticalSection = g4 + 12; // 0x1e23e08
             g2 = lpCriticalSection;
             InitializeCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection);
-            g2 = &g708;
+            g2 = g708;
             int32_t * v12 = (int32_t *)(g4 + 8); // 0x1e23e12
             *v12 = *v12 + 1;
             v11 = g9;
@@ -1690,11 +1690,11 @@ int32_t function_1e23dd0(int32_t a1) {
     g2 = v13;
     *(int32_t *)(v10 - 4) = v13;
     EnterCriticalSection((struct _RTL_CRITICAL_SECTION *)&g708);
-    g2 = &g708;
+    g2 = g708;
     g6 = *(int32_t *)g9;
     g8 = *(int32_t *)(g9 + 4);
     g4 = *(int32_t *)(g9 + 8);
-    return &g708;
+    return g708;
 }
 
 // Address range: 0x1e23e40 - 0x1e23e68
@@ -1709,8 +1709,8 @@ int32_t function_1e23e40(int32_t a1) {
     int32_t lpCriticalSection = v4 + v3 + 12; // 0x1e23e5d
     g2 = lpCriticalSection;
     LeaveCriticalSection((struct _RTL_CRITICAL_SECTION *)lpCriticalSection);
-    g2 = &g708;
-    return &g708;
+    g2 = g708;
+    return g708;
 }
 
 // Address range: 0x1e23e70 - 0x1e23ee8
@@ -1799,7 +1799,7 @@ int32_t function_1e23ef0(int32_t a1, int32_t lDistanceToMove, int32_t dwMoveMeth
 void _RtlUnwind_40_16(int32_t * TargetFrame, int32_t * TargetIp, struct _EXCEPTION_RECORD * ExceptionRecord, int32_t * ReturnValue) {
     // 0x1e23f72
     RtlUnwind(TargetFrame, TargetIp, ExceptionRecord, ReturnValue);
-    g2 = &g708;
+    g2 = g708;
 }
 
 // Address range: 0x1e23f78 - 0x1e23fe3
@@ -1820,7 +1820,7 @@ int32_t function_1e23f78(int32_t lpFilename, int32_t nSize, int32_t a3) {
                 int32_t v4 = g5; // 0x1e23f9f
                 while (true) {
                     unsigned char v5 = *(char *)v1; // 0x1e23f9f
-                    int32_t v6 = (int32_t)v5 | v4 & -256; // 0x1e23f9f
+                    int32_t v6 = (int32_t)v5 | (v4 & -256); // 0x1e23f9f
                     g5 = v6;
                     if (v5 == 92) {
                         // break -> 0x1e23fb3
@@ -1913,15 +1913,15 @@ int32_t function_1e23fe3(int32_t a1, int32_t a2) {
 int32_t function_1e24068(int32_t hWnd, int32_t a2) {
     // 0x1e24068
     int32_t lpRect; // bp-52
-    int32_t v1 = &lpRect; // 0x1e2406b
+    int32_t v1 = lpRect; // 0x1e2406b
     g2 = v1;
     g2 = GetWindowRect((int32_t *)hWnd, (struct tagRECT *)&lpRect);
     int32_t lpRect2; // bp-36
-    g5 = &lpRect2;
+    g5 = lpRect2;
     int32_t * hWnd2 = (int32_t *)a2; // 0x1e24086
     g2 = GetWindowRect(hWnd2, (struct tagRECT *)&lpRect2);
     int32_t X; // bp-20
-    int32_t v2 = &X; // 0x1e24088
+    int32_t v2 = X; // 0x1e24088
     g5 = v2;
     int32_t * hWnd3 = GetDesktopWindow(); // 0x1e2408c
     g2 = (int32_t)hWnd3;
@@ -2008,22 +2008,22 @@ int32_t function_1e24068(int32_t hWnd, int32_t a2) {
 int32_t function_1e24136(int32_t a1, int32_t a2, char * a3) {
     // 0x1e24136
     int32_t lpString1; // bp-388
-    int32_t v1 = &lpString1; // 0x1e24139
+    int32_t v1 = lpString1; // 0x1e24139
     g2 = v1;
     int32_t Reserved = 0; // esi
     g6 = *(int32_t *)0x1e4b1c4;
     lstrcpyA((char *)&lpString1, ",");
     int32_t lpdwDisposition; // bp-16
-    g5 = &lpdwDisposition;
+    g5 = lpdwDisposition;
     int32_t phkResult; // bp-8
-    g2 = &phkResult;
+    g2 = phkResult;
     int32_t v2 = RegCreateKeyExA(HKEY_CURRENT_USER, "Control Panel\\International", Reserved, (char *)Reserved, Reserved, 0xf003f, (struct _SECURITY_ATTRIBUTES *)Reserved, (int32_t **)&phkResult, &lpdwDisposition); // 0x1e24172
     g2 = v2;
     int32_t v3; // bp-12
     if (v2 == 0) {
         // 0x1e2417c
         int32_t lpcbData; // bp-20
-        g2 = &lpcbData;
+        g2 = lpcbData;
         g5 = v1;
         lpcbData = 10;
         int32_t * lpReserved = (int32_t *)Reserved; // 0x1e24198
@@ -2034,7 +2034,7 @@ int32_t function_1e24136(int32_t a1, int32_t a2, char * a3) {
             g2 = v1;
             g2 = (int32_t)lstrcpyA((char *)&lpString1, "00000409");
         }
-        int32_t v5 = &v3; // 0x1e241b0
+        int32_t v5 = v3; // 0x1e241b0
         g2 = v5;
         g5 = v1;
         *(int32_t *)(g9 - 4) = v5;
@@ -2052,7 +2052,7 @@ int32_t function_1e24136(int32_t a1, int32_t a2, char * a3) {
     } else {
         // 0x1e241da
         int32_t v7; // bp-188
-        int32_t v8 = &v7; // 0x1e241da
+        int32_t v8 = v7; // 0x1e241da
         g2 = v8;
         *(int32_t *)(g9 - 4) = v8;
         g2 = GetTimeZoneInformation((struct _TIME_ZONE_INFORMATION *)&g708);

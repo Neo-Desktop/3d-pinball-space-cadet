@@ -70,7 +70,7 @@ int32_t function_1e374d0(int32_t result, int32_t a2) {
     // 0x1e374d0
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e374d7
+    int32_t v2 = v1; // 0x1e374d7
     int32_t v3 = g6; // bp-80
     int32_t v4; // 0x1e37589
     if (result != 63) {
@@ -183,7 +183,7 @@ int32_t function_1e3767b(int32_t result, int32_t a2) {
     // 0x1e3767b
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e37682
+    int32_t v2 = v1; // 0x1e37682
     int32_t v3 = g8; // bp-72
     int32_t v4; // bp-80
     if (result != 63) {
@@ -281,7 +281,7 @@ int32_t function_1e377bb(int32_t result, int32_t result3) {
     // 0x1e377bb
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e377c2
+    int32_t v2 = v1; // 0x1e377c2
     int32_t v3 = g6; // bp-76
     int32_t v4; // bp-124
     if (result != 63) {
@@ -430,7 +430,7 @@ int32_t function_1e379de(int32_t result, int32_t a2) {
     // 0x1e379de
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e379e5
+    int32_t v2 = v1; // 0x1e379e5
     int32_t v3 = g8; // bp-72
     int32_t v4; // bp-88
     if (result != 63) {
@@ -532,7 +532,7 @@ int32_t function_1e37b45(int32_t result2, int32_t a2) {
     // 0x1e37b45
     g2 = result2;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e37b4c
+    int32_t v2 = v1; // 0x1e37b4c
     int32_t v3 = g8; // bp-72
     int32_t v4; // bp-104
     if (result2 == 63) {
@@ -621,7 +621,7 @@ int32_t function_1e37c72(int32_t result, int32_t result3) {
     // 0x1e37c72
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e37c79
+    int32_t v2 = v1; // 0x1e37c79
     int32_t v3 = g8; // bp-72
     int32_t v4; // bp-80
     if (result != 63) {
@@ -815,7 +815,7 @@ int32_t function_1e37edc(int32_t result, int32_t result3) {
     // 0x1e37edc
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e37ee3
+    int32_t v2 = v1; // 0x1e37ee3
     int32_t v3 = g8; // bp-72
     int32_t v4; // 0x1e37f49
     if (result != 63) {
@@ -897,7 +897,7 @@ int32_t function_1e37ffa(int32_t result2, int32_t a2) {
     // 0x1e37ffa
     g2 = result2;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e38001
+    int32_t v2 = v1; // 0x1e38001
     int32_t v3 = g8; // bp-72
     int32_t v4; // bp-88
     if (result2 == 63) {
@@ -983,7 +983,7 @@ int32_t function_1e380fa(int32_t result, int32_t result3) {
     // 0x1e380fa
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e38101
+    int32_t v2 = v1; // 0x1e38101
     int32_t v3 = g6; // bp-76
     int32_t v4; // bp-100
     int32_t v5; // bp-108
@@ -1131,7 +1131,7 @@ int32_t function_1e3832f(int32_t result, int32_t a2) {
     // 0x1e3832f
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e38336
+    int32_t v2 = v1; // 0x1e38336
     int32_t v3 = g8; // bp-72
     int32_t v4; // bp-96
     if (result != 63) {
@@ -1239,7 +1239,7 @@ int32_t function_1e38477(int32_t result, int32_t a2) {
     // 0x1e38477
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e3847e
+    int32_t v2 = v1; // 0x1e3847e
     int32_t v3 = g8; // bp-72
     int32_t v4; // bp-112
     if (result != 63) {
@@ -1366,7 +1366,7 @@ int32_t function_1e38619(int32_t result, int32_t a2) {
     // 0x1e38619
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e38620
+    int32_t v2 = v1; // 0x1e38620
     int32_t v3 = g6; // bp-76
     int32_t v4; // bp-124
     if (result != 63) {
@@ -1704,7 +1704,7 @@ int32_t function_1e38a51(int32_t result, int32_t result3) {
     // 0x1e38a51
     g2 = result;
     int32_t v1; // bp-68
-    int32_t v2 = &v1; // 0x1e38a58
+    int32_t v2 = v1; // 0x1e38a58
     int32_t v3 = g8; // bp-72
     int32_t v4; // bp-88
     if (result != 63) {
@@ -1786,7 +1786,7 @@ int32_t function_1e38b66(int32_t a1) {
     // 0x1e38b66
     g2 = a1;
     int32_t v1; // bp-132
-    int32_t v2 = &v1; // 0x1e38b6d
+    int32_t v2 = v1; // 0x1e38b6d
     if (a1 == 66) {
         // 0x1e38b84
         g2 = g416;
@@ -2359,11 +2359,11 @@ int32_t function_1e3907a(int32_t a1, int32_t a2) {
         lpCaption2 = 0;
     } else {
         // 0x1e3908a
-        g5 = &g425;
+        g5 = g425;
         int32_t v3 = 0; // 0x1e390bc11
         int32_t v4 = 0; // 0x1e390ac7
         int32_t v5 = 0; // 0x1e390a6
-        int32_t v6 = &g425; // 0x1e390a3
+        int32_t v6 = g425; // 0x1e390a3
         int32_t v7; // 0x1e390ac6
         int32_t lpCaption; // 0x1e390bc10
         int32_t v8; // 0x1e390a6

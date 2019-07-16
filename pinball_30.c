@@ -162,7 +162,7 @@ int32_t function_1e46a56(void) {
     g601 = g609;
     int32_t v2; // 0x1e46aff
     if (g609 == NULL) {
-        v2 = &v1;
+        v2 = v1;
         // 0x1e46aff
         g6 = *(int32_t *)v2;
         g8 = *(int32_t *)(v2 + 4);
@@ -655,7 +655,7 @@ int32_t function_1e46d55(int32_t * a1) {
     int32_t v115 = g7; // 0x1e47205
     uint16_t v116 = *(int16_t *)(v115 + 26); // 0x1e47205
     int32_t v117 = v116; // 0x1e47205
-    g5 = g5 & -0x10000 | v117;
+    g5 = (g5 & -0x10000) | v117;
     if (v116 != -1) {
         int32_t v118 = v117 + 1; // 0x1e47225
         g5 = v118;
@@ -923,20 +923,20 @@ int32_t function_1e46d55(int32_t * a1) {
                                                     int32_t v63 = (int32_t)g601; // 0x1e470ee
                                                     g5 = v63;
                                                     uint16_t v64 = *(int16_t *)(v63 + 182 + 4 * v5); // 0x1e470f4
-                                                    v61 = (int32_t)v64 | v63 & -0x10000;
+                                                    v61 = (int32_t)v64 | (v63 & -0x10000);
                                                 } else {
                                                     uint16_t v65 = *(int16_t *)(v59 + 28); // 0x1e470ca
-                                                    g5 = g5 & -0x10000 | (int32_t)v65;
+                                                    g5 = (g5 & -0x10000) | (int32_t)v65;
                                                     v15 = v59 + 58;
                                                     *(int16_t *)v58 = v65;
-                                                    v61 = g5 & -0x10000 | (int32_t)*(int16_t *)(g7 + 30);
+                                                    v61 = (g5 & -0x10000) | (int32_t)*(int16_t *)(g7 + 30);
                                                 }
                                                 // 0x1e470fc
                                                 g5 = v61;
                                                 *(int16_t *)v15 = (int16_t)v61;
                                                 int16_t * v66 = (int16_t *)v58; // 0x1e470ff
                                                 uint16_t v67 = *v66; // 0x1e470ff
-                                                int32_t v68 = g5 & -0x10000 | (int32_t)v67; // 0x1e470ff
+                                                int32_t v68 = (g5 & -0x10000) | (int32_t)v67; // 0x1e470ff
                                                 g5 = v68;
                                                 int32_t v69; // 0x1e4710d
                                                 if (v67 >= 11) {
@@ -948,7 +948,7 @@ int32_t function_1e46d55(int32_t * a1) {
                                                 }
                                                 int16_t * v70 = (int16_t *)v15; // 0x1e4710d
                                                 uint16_t v71 = *v70; // 0x1e4710d
-                                                g5 = (int32_t)v71 | v69 & -0x10000;
+                                                g5 = (int32_t)v71 | (v69 & -0x10000);
                                                 if (v71 >= 11) {
                                                     // 0x1e47116
                                                     *v70 = 10;
@@ -1690,7 +1690,7 @@ int32_t function_1e4754b(int32_t a1, int32_t a2) {
 // Address range: 0x1e47681 - 0x1e477d2
 int32_t function_1e47681(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t a5, int32_t a6, int32_t a7, int32_t a8) {
     int32_t v1 = g2 & -0x10000; // 0x1e47682
-    g2 = v1 | a3 & 0xffff;
+    g2 = v1 | (a3 & 0xffff);
     int32_t v2 = g6 & -0x10000; // 0x1e4768f
     uint16_t v3 = (int16_t)a3; // 0x1e47693
     uint16_t v4 = (int16_t)a2; // 0x1e47693
@@ -1758,7 +1758,7 @@ int32_t function_1e47681(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                 unsigned char v16 = *(char *)v15; // 0x1e47790
                 g2 = v15 + 1;
                 uint16_t v17 = 256 * (int16_t)v16 ^ -0x8000; // 0x1e4779a
-                g7 = (int32_t)v17 | (g7 | (int32_t)v16) & -0x10000;
+                g7 = (int32_t)v17 | ((g7 | (int32_t)v16) & -0x10000);
                 *(int16_t *)v14 = v17;
                 int32_t v18 = g5 + 2; // 0x1e477a1
                 g5 = v18;
@@ -1769,7 +1769,7 @@ int32_t function_1e47681(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                     v16 = *(char *)v15;
                     g2 = v15 + 1;
                     v17 = 256 * (int16_t)v16 ^ -0x8000;
-                    g7 = (int32_t)v17 | (g7 | (int32_t)v16) & -0x10000;
+                    g7 = (int32_t)v17 | ((g7 | (int32_t)v16) & -0x10000);
                     *(int16_t *)v18 = v17;
                     v18 = g5 + 2;
                     g5 = v18;
@@ -1786,7 +1786,7 @@ int32_t function_1e47681(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                 g7 = v22;
                 int32_t v23 = (v22 + v21) / 256; // 0x1e4777a
                 unsigned char v24 = (char)v23 ^ -128; // 0x1e4777d
-                g2 = (int32_t)v24 | v23 & -256;
+                g2 = (int32_t)v24 | (v23 & -256);
                 *(char *)v14 = v24;
                 int32_t v25 = g5 + 1; // 0x1e47781
                 g5 = v25;
@@ -1800,7 +1800,7 @@ int32_t function_1e47681(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                     g7 = v22;
                     v23 = (v22 + v21) / 256;
                     v24 = (char)v23 ^ -128;
-                    g2 = (int32_t)v24 | v23 & -256;
+                    g2 = (int32_t)v24 | (v23 & -256);
                     *(char *)v14 = v24;
                     v25 = g5 + 1;
                     g5 = v25;
@@ -1854,7 +1854,7 @@ int32_t function_1e47681(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
 // Address range: 0x1e477d2 - 0x1e47940
 int32_t function_1e477d2(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t a5) {
     uint32_t v1 = a2 & 0xffff; // 0x1e477d6
-    int32_t v2 = g4 & -0x10000 | v1; // ebx
+    int32_t v2 = (g4 & -0x10000) | v1; // ebx
     uint16_t v3 = (int16_t)a3; // 0x1e477db
     int32_t result; // 0x1e4793d
     if (v3 != (int16_t)a2) {
@@ -1885,7 +1885,7 @@ int32_t function_1e477d2(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                     g2 = v11;
                     if (v11 != 0) {
                         uint16_t v12 = *(int16_t *)a1; // 0x1e478a6
-                        g2 = (int32_t)v12 | v11 & -0x10000;
+                        g2 = (int32_t)v12 | (v11 & -0x10000);
                         *(int16_t *)v10 = v12;
                         int32_t v13 = g7 + 2; // 0x1e478ac
                         int32_t v14 = g5; // 0x1e478af
@@ -1898,7 +1898,7 @@ int32_t function_1e477d2(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                         while (v16 != 0) {
                             // 0x1e478a6
                             v12 = *(int16_t *)g5;
-                            g2 = (int32_t)v12 | v16 & -0x10000;
+                            g2 = (int32_t)v12 | (v16 & -0x10000);
                             *(int16_t *)v15 = v12;
                             v13 = g7 + 2;
                             v14 = g5;
@@ -1918,7 +1918,7 @@ int32_t function_1e477d2(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                     g5 = v17;
                     if (v17 != 0) {
                         unsigned char v18 = *(char *)a1; // 0x1e47886
-                        g5 = (int32_t)v18 | v17 & -256;
+                        g5 = (int32_t)v18 | (v17 & -256);
                         *(char *)v10 = v18;
                         int32_t v19 = g7 + 1; // 0x1e4788a
                         int32_t v20 = g2; // 0x1e4788b
@@ -1932,7 +1932,7 @@ int32_t function_1e477d2(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
                             // 0x1e47886
                             v10 = v21;
                             v18 = *(char *)g2;
-                            g5 = (int32_t)v18 | v22 & -256;
+                            g5 = (int32_t)v18 | (v22 & -256);
                             *(char *)v10 = v18;
                             v19 = g7 + 1;
                             v20 = g2;
@@ -2142,7 +2142,7 @@ int32_t function_1e47940(int32_t a1, int32_t a2, int32_t a3, int32_t a4, int32_t
         int64_t v18 = v17 / v12; // 0x1e47979
         g7 = v17 % v12;
         unsigned char v19 = (char)v18 ^ -128; // 0x1e4797c
-        g2 = (int32_t)v19 | (int32_t)v18 & -256;
+        g2 = (int32_t)v19 | ((int32_t)v18 & -256);
         g5 = a1;
         int32_t v20 = v11 - 1; // 0x1e47984
         v11 = v20;
@@ -2180,7 +2180,7 @@ int32_t function_1e479ca(int32_t a1, int32_t a2, uint32_t a3, int32_t a4, int32_
             g2 = a2;
             unsigned char v6 = *(char *)a2; // 0x1e479f0
             int32_t v7 = v6; // 0x1e479f0
-            int32_t v8 = v7 | v4 & -256; // ebx
+            int32_t v8 = v7 | (v4 & -256); // ebx
             g2 = (int32_t)*(char *)(a2 + a5) - v7;
             *(char *)a1 = v6;
             int32_t v9 = g2; // 0x1e479fd
@@ -2195,7 +2195,7 @@ int32_t function_1e479ca(int32_t a1, int32_t a2, uint32_t a3, int32_t a4, int32_
                 g7 = a3 - 1;
                 int32_t v13 = v8; // 0x1e47a0d
                 unsigned char v14 = (char)v13 + (char)v11; // 0x1e47a0d
-                v8 = (int32_t)v14 | v13 & -256;
+                v8 = (int32_t)v14 | (v13 & -256);
                 *(char *)v12 = v14;
                 int32_t v15 = g5 + a5; // 0x1e47a11
                 g5 = v15;
@@ -2205,7 +2205,7 @@ int32_t function_1e479ca(int32_t a1, int32_t a2, uint32_t a3, int32_t a4, int32_
                     // 0x1e47a0d
                     v13 = v8;
                     v14 = (char)v13 + (char)g2;
-                    v8 = (int32_t)v14 | v13 & -256;
+                    v8 = (int32_t)v14 | (v13 & -256);
                     *(char *)v15 = v14;
                     v15 = g5 + a5;
                     g5 = v15;
@@ -2250,7 +2250,7 @@ int32_t function_1e479ca(int32_t a1, int32_t a2, uint32_t a3, int32_t a4, int32_
         int32_t v25 = (int32_t)*(int16_t *)v21 - v24; // 0x1e47a49
         g2 = (0x100000000 * (int64_t)(v25 >> 31) | (int64_t)v25) / (int64_t)a3;
         uint16_t v26 = *v23; // 0x1e47a56
-        g7 = (int32_t)v26 | a2 & -0x10000;
+        g7 = (int32_t)v26 | (a2 & -0x10000);
         *(int16_t *)a1 = v26;
         if (a3 > 1) {
             int32_t v27 = g2 + g5; // 0x1e47a6238
