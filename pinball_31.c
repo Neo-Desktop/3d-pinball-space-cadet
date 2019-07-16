@@ -1,3 +1,4 @@
+#include "pinball.h"
 
 // Address range: 0x1e47a7f - 0x1e47c1e
 int32_t function_1e47a7f(int32_t result, uint32_t a2, uint32_t a3, int32_t a4, int32_t a5, int32_t a6) {

@@ -1,3 +1,4 @@
+#include "pinball.h"
 
 // Address range: 0x1e2e9be - 0x1e2effc
 int32_t function_1e2e9be(void) {
