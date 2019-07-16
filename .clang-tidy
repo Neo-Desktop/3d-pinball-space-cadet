@@ -1,4 +1,4 @@
-Checks:            'clang-diagnostic-*,clang-analyzer-*,-clang-analyzer-alpha*,clang-diagnostic-*,clang-analyzer-*,-clang-analyzer-alpha*,llvm-*,misc-*,modernize-*,performance-*,readability-*'
+Checks:            'clang-diagnostic-*,clang-analyzer-*,-clang-analyzer-alpha*,clang-diagnostic-*,clang-analyzer-*,-clang-analyzer-alpha*,llvm-*,misc-*,modernize-*,performance-*,readability-*,-misc-unused-parameters'
 HeaderFilterRegex: ''
 AnalyzeTemporaryDtors: false
 CheckOptions:    
