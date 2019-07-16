@@ -1,3 +1,5 @@
+#include "pinball.h"
+
 // --------------- Statically Linked Functions ----------------
 
 // __int64 __allmul(__int64 a, __int64 b);
@@ -223,3 +225,765 @@
 // Detected language: C++
 // Detected functions: 915
 // Decompilation date: 2019-07-08 00:18:28
+
+// --------------------- Global Variables ---------------------
+
+bool g1 = false; // df
+int32_t g2 = 0; // eax
+int32_t g3 = 0; // ebp
+int32_t g4 = 0; // ebx
+int32_t g5 = 0; // ecx
+int32_t g6 = 0; // edi
+int32_t g7 = 0; // edx
+int32_t g8 = 0; // esi
+int32_t g9 = 0; // esp
+int32_t g10 = 0; // fpsw
+int3_t g11 = 0; // fpu_stat_TOP
+char * g12;
+char * g13;
+char * g14;
+char * g15;
+char * g16;
+char * g17;
+char * g18;
+char * g19;
+char * g20;
+char * g21;
+char * g22;
+char * g23;
+char * g24;
+char * g25;
+int32_t g26 = 92;
+int32_t g27 = 114;
+int32_t g28 = 0x1e3df10;
+int32_t g29 = 0x1e30c93;
+int32_t g30 = 0x1e2a251;
+int32_t g31 = 0x1e2a370;
+int32_t g32 = 0x1e2a251;
+int32_t g33 = 0x1e2a710;
+int32_t g34 = 0x1e2a251;
+int32_t g35 = 0x1e2ab01;
+int32_t g36 = 0x1e2ad55;
+int32_t g37 = 0x1e2b210;
+int32_t g38 = 0x1e2b3a2;
+int32_t g39 = 0x1e2b566;
+int32_t g40 = 0x1e2b6b6;
+int32_t g41 = 0x1e2b7e3;
+int32_t g42 = 0x1e2b9d6;
+int32_t g43 = 0x1e2bb6b;
+int32_t g44 = 0x1e2b9d6;
+int32_t g45 = 0x1e2bdbd;
+int32_t g46 = 0x1e2c143;
+int32_t g47 = 0x1e2c538;
+int32_t g48 = 0x1e2a251;
+int32_t g49 = 0x1e2d2e5;
+int32_t g50 = 0x1e2d50f;
+int32_t g51 = 0x1e2d686;
+int32_t g52 = 0x1e2d7a9;
+int32_t g53 = 0x1e2a251;
+int32_t g54 = 0x1e2df7f;
+int32_t g55 = 0x1e2a251;
+int32_t g56 = 0x1e2f20e;
+int32_t g57 = 0x1e2fd66;
+int32_t g58 = 32;
+int32_t g59 = 0x1e30601;
+int32_t g60 = 0x1e3ac4e;
+int32_t g61 = 0x1e3b3eb;
+int32_t g62 = 0x1e3be4a;
+int32_t g63 = 0x1e3d0be;
+int32_t g64 = 0x1e3d58b;
+char * g65;
+int32_t g66 = 0x6000006;
+char * g67;
+int16_t * g68 = NULL;
+int32_t g69 = 0x10001;
+int32_t g70 = 0;
+int32_t g71 = 0;
+int32_t g72 = 0;
+int32_t g73 = 0;
+int32_t g74 = 0;
+int32_t g75 = 0;
+int32_t g76 = 0;
+int32_t g77 = 0;
+char * g78;
+int32_t g79 = 0;
+int32_t g80 = 2;
+int32_t g81 = 0;
+uint32_t g82 = 0;
+char g83 = 0;
+int32_t g84 = 0;
+int32_t g85 = 0;
+int32_t g86 = 0;
+int32_t g87 = 0;
+int32_t g88 = 0;
+int32_t g89 = 0;
+char * g90;
+char g91 = 0;
+int32_t g92 = 0;
+int32_t g93 = 0;
+int32_t g94 = -0x3ffffffb;
+int32_t g95 = 3;
+int32_t g96 = 7;
+int32_t g97 = 10;
+int32_t g98 = 0;
+char * g99;
+char * g100;
+int32_t g101 = 0;
+int32_t g102 = 0;
+int32_t g103 = 0;
+int32_t g104 = 0;
+int32_t g105 = 0;
+int32_t g106 = 0;
+char * g107 = "\x01\x02\x04\x08";
+int32_t g108 = 932;
+int32_t g109 = -0x7d867da0;
+int32_t g110 = 33;
+char * g111 = "\xa6\xdf";
+bool g112 = true;
+int32_t g113 = -1;
+int32_t g114 = 2;
+char (*g115)[37] = "R6002\r\n- floating point not loaded\r\n";
+bool g116 = false;
+int32_t g117 = 0;
+int16_t * g122 = (int16_t *)0x1e504d2; // 0x1e504c8
+int16_t * g124 = (int16_t *)0x200020;
+int32_t g125 = 0;
+int32_t g126 = 0;
+int32_t g127 = 0;
+int32_t g128 = 0;
+int32_t g129 = 0;
+struct _cpinfo * g130 = NULL;
+int32_t g131; // 0x1e506f8
+int32_t g133 = 0;
+int32_t g135 = 0;
+int32_t g136 = 480;
+int32_t g137 = 0;
+int32_t g138 = 0;
+int32_t g139 = 0;
+int32_t g141 = 0;
+bool g142 = false;
+bool g143 = false;
+bool g144 = false;
+bool g145 = false;
+int32_t g146 = 0;
+int32_t g147 = 0;
+int32_t g148 = 1;
+int32_t g149 = 22;
+bool g150 = false;
+int32_t g151 = 0;
+int32_t g152 = 0;
+int32_t g153 = 0;
+int32_t g154 = 0;
+int32_t g155 = 0;
+int32_t g156 = 0;
+int32_t g157 = 0;
+int32_t g158 = 0;
+int32_t g159 = 0;
+int32_t g160 = 0;
+int32_t g161 = 0;
+char g162 = -1;
+int32_t g163 = 0;
+int32_t g164 = 1;
+int32_t g165 = 0;
+int32_t g166 = 0;
+char g167 = 0;
+char g168 = 0;
+int32_t g169 = 0;
+int32_t g170 = 0;
+int32_t g171 = 0;
+float32_t g172 = 0.0f;
+int32_t g173 = 0;
+int32_t g174 = 0;
+int32_t g175 = 0;
+int32_t g176 = 0;
+int32_t g177 = 0;
+int32_t g178 = 0;
+float32_t g179 = 0.0f;
+struct tagLOGPALETTE * g180 = (struct tagLOGPALETTE *)0x1000300;
+int32_t g181 = 0;
+char * g182;
+char * g183;
+bool g184 = false;
+int32_t g185 = 0;
+int32_t g186 = 0;
+int32_t g187 = 0;
+int32_t g188 = 0;
+bool g189 = false;
+int16_t * g190 = (int16_t *)0x5a8041;
+int32_t g191 = -1;
+int32_t g192 = -1;
+int32_t g193 = 0;
+int32_t g194 = 0;
+int32_t g195 = 1;
+int32_t g196 = 0;
+int32_t g197 = 0;
+int32_t g198 = 0;
+int32_t g199 = 0;
+int32_t g200 = 0;
+int32_t g201 = 0;
+int32_t g202 = 0;
+int32_t g203 = 1;
+char * g204;
+int32_t g205 = 1;
+int32_t g206 = 0;
+int32_t g207 = 0;
+char (*g208)[8] = "a_bump1";
+int32_t g209 = 0;
+int32_t g210 = 0;
+int32_t g211 = 0;
+int32_t g212 = 0;
+int32_t g213 = 0;
+int32_t g214 = 0;
+int32_t g215 = 0;
+int32_t g216 = 0;
+int32_t g217 = 0;
+int32_t g218 = 0;
+int32_t g219 = 0;
+int32_t g220 = 0;
+int32_t g221 = 0;
+int32_t g222 = 0;
+int32_t g223 = 0;
+int32_t g224 = 0;
+int32_t g225 = 0;
+int32_t g226 = 0;
+int32_t g227 = 0;
+int32_t g228 = 0;
+int32_t g229 = 0;
+int32_t g230 = 0;
+int32_t g231 = 0;
+int32_t g232 = 0;
+int32_t g233 = 0;
+int32_t g234 = 0;
+int32_t g235 = 0;
+int32_t g236 = 0;
+int32_t g237 = 0;
+int32_t g238 = 0;
+int32_t g239 = 0;
+int32_t g240 = 0;
+int32_t g241 = 0;
+int32_t g242 = 0;
+int32_t g243 = 0;
+int32_t g244 = 0;
+int32_t g245 = 0;
+int32_t g246 = 0;
+int32_t g247 = 0;
+int32_t g248 = 0;
+int32_t g249 = 0;
+int32_t g250 = 0;
+int32_t g251 = 0;
+int32_t g252 = 0;
+int32_t g253 = 0;
+int32_t g254 = 0;
+int32_t g255 = 0;
+int32_t g256 = 0;
+int32_t g257 = 0;
+int32_t g258 = 0;
+int32_t g259 = 0;
+int32_t g260 = 0;
+int32_t g261 = 0;
+int32_t g262 = 0;
+int32_t g263 = 0;
+int32_t g264 = 0;
+int32_t g265 = 0;
+int32_t g266 = 0;
+int32_t g267 = 0;
+int32_t g268 = 0;
+int32_t g269 = 0;
+int32_t g270 = 0;
+int32_t g271 = 0;
+int32_t g272 = 0;
+int32_t g273 = 0;
+int32_t g274 = 0;
+int32_t g275 = 0;
+int32_t g276 = 0;
+int32_t g277 = 0;
+int32_t g278 = 0;
+int32_t g279 = 0;
+int32_t g280 = 0;
+int32_t g281 = 0;
+int32_t g282 = 0;
+int32_t g283 = 0;
+int32_t g284 = 0;
+int32_t g285 = 0;
+int32_t g286 = 0;
+int32_t g287 = 0;
+int32_t g288; // 0x1e51bf0
+int32_t g289; // 0x1e51c00
+int32_t g290; // 0x1e51c10
+int32_t g291 = 0;
+int32_t g292 = 0;
+int32_t g293 = 0;
+int32_t g294 = 0;
+int32_t g295 = 0;
+int32_t g296 = 0;
+int32_t g297 = 0;
+int32_t g298 = 0;
+int32_t g299 = 0;
+int32_t g300 = 0;
+int32_t g301 = 0;
+int32_t g302 = 0;
+int32_t g303 = 0;
+int32_t g304 = 0;
+int32_t g305 = 0;
+int32_t g306 = 0;
+int32_t g307 = 0;
+int32_t g308 = 0;
+int32_t g309 = 0;
+int32_t g310 = 0;
+int32_t g311 = 0;
+int32_t g312 = 0;
+int32_t g313 = 0;
+int32_t g314 = 0;
+int32_t g315 = 0;
+int32_t g316 = 0;
+int32_t g317 = 0;
+int32_t g318 = 0;
+int32_t g319 = 0;
+int32_t g320 = 0;
+int32_t g321 = 0;
+int32_t g322 = 0;
+int32_t g323 = 0;
+int32_t g324 = 0;
+int32_t g325 = 0;
+int32_t g326 = 0;
+int32_t g327 = 0;
+int32_t g328 = 0;
+int32_t g329 = 0;
+int32_t g330 = 0;
+int32_t g331 = 0;
+int32_t g332 = 0;
+int32_t g333 = 0;
+int32_t g334 = 0;
+int32_t g335 = 0;
+int32_t g336 = 0;
+int32_t g337 = 0;
+int32_t g338 = 0;
+int32_t g339 = 0;
+int32_t g340 = 0;
+int32_t g341 = 0;
+int32_t g342 = 0;
+int32_t g343 = 0;
+int32_t g344 = 0;
+int32_t g345 = 0;
+int32_t g346 = 0;
+int32_t g347 = 0;
+int32_t g348 = 0;
+int32_t g349 = 0;
+int32_t g350 = 0;
+int32_t g351 = 0;
+int32_t g352 = 0;
+int32_t g353 = 0;
+int32_t g354 = 0;
+int32_t g355 = 0;
+int32_t g356 = 0;
+int32_t g357 = 0;
+int32_t g358 = 0;
+int32_t g359 = 0;
+int32_t g360 = 0;
+int32_t g361 = 0;
+int32_t g362 = 0;
+int32_t g363 = 0;
+int32_t g364 = 0;
+int32_t g365 = 0;
+int32_t g366 = 0;
+int32_t g367 = 0;
+int32_t g368 = 0;
+int32_t g369 = 0;
+int32_t g370 = 0;
+int32_t g371 = 0;
+int32_t g372 = 0;
+int32_t g373 = 0;
+int32_t g374 = 0;
+int32_t g375 = 0;
+int32_t g376 = 0;
+int32_t g377 = 0;
+int32_t g378 = 0;
+int32_t g379 = 0;
+int32_t g380 = 0;
+int32_t g381 = 0;
+int32_t g382 = 0;
+int32_t g383 = 0;
+int32_t g384 = 0;
+int32_t g385 = 0;
+int32_t g386 = 0;
+int32_t g387 = 0;
+int32_t g388 = 0;
+int32_t g389 = 0;
+int32_t g390 = 0;
+int32_t g391 = 0;
+int32_t g392 = 0;
+int32_t g393 = 0;
+int32_t g394 = 0;
+int32_t g395 = 0;
+int32_t g396 = 0;
+int32_t g397 = 0;
+int32_t g398 = 0;
+int32_t g399 = 0;
+int32_t g400 = 0;
+int32_t g401 = 0;
+int32_t g402 = 0;
+int32_t g403 = 0;
+int32_t g404 = 0;
+int32_t g405 = 0;
+int32_t g406 = 0;
+int32_t g407 = 0;
+int32_t g408 = 0;
+int32_t g409 = 0;
+int32_t g410 = 0;
+int32_t g411 = 0;
+int32_t g412 = 0;
+int32_t g413 = 0;
+int32_t g414 = 0;
+int32_t g415 = 0;
+int32_t g416 = 0;
+int32_t g418; // 0x1e52650
+int32_t g419 = 0;
+int32_t g420 = 0;
+int32_t g421 = 84;
+int32_t g422 = 92;
+char * g423;
+int32_t g424 = 0;
+int32_t g425 = 0;
+char (*g426)[11] = "Bad Handle";
+int64_t g427 = 1;
+int16_t * g428 = (int16_t *)-0xfffe;
+int32_t g429 = 0;
+int32_t g430 = 0;
+int32_t g431 = 0x1e3d890;
+int32_t g432 = 0x173f;
+int32_t g433 = 93;
+char (*g434)[7] = "(null)";
+int16_t (*g435)[7] = L"(null)";
+int32_t g436 = 0x1e41c40;
+int32_t g437 = 0x1e41c40;
+int32_t g438 = 0x1e41c40;
+int32_t g439 = 0x1e41c40;
+int32_t g440 = 0x1e41c40;
+int32_t g441 = 0x1e41c40;
+int32_t g442 = 1;
+char g443 = 46;
+int32_t g444 = 1;
+int32_t g445 = 20;
+char (*g446)[4] = "exp";
+float80_t g447 = 2.08129000077976626854e-4942L;
+float64_t g448 = INFINITY;
+int32_t g449 = 0x7ff00000;
+float64_t g450 = 1.7976931348623157e+308;
+int32_t g451 = 0x7fefffff;
+int32_t g452 = 1024;
+int32_t g453 = 128;
+int32_t g454 = 0;
+int32_t g455 = 0;
+int32_t g456 = 0x2694;
+int32_t g457 = 0;
+int32_t g458 = 0;
+int32_t g459 = 0;
+int32_t g460 = 0;
+int32_t g461 = 0;
+int32_t g462 = 0;
+int32_t g463 = 0;
+int32_t g464 = 0;
+int16_t g465 = 0;
+int16_t g466 = 0;
+int16_t g467 = 0;
+int16_t g468 = 0;
+int16_t g469 = 0;
+int32_t g470 = 0;
+float80_t g471 = 7.82798000081545756947e-4942L;
+float80_t g472 = 1.95697999929649081301e-4942L;
+float64_t g473 = 1.0;
+int32_t g474 = 0;
+char * g475[43] = {
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+    "AM",
+    "PM",
+    "M/d/yy",
+    "dddd, MMMM dd, yyyy",
+    "H:mm:ss"
+};
+bool g477 = false;
+int16_t * g478 = (int16_t *)0x1e53790; // 0x1e53798
+int16_t * g479 = (int16_t *)0x1e53798; // 0x1e537c8
+int32_t g480 = 0;
+int32_t g481 = 0;
+int32_t g482 = 0;
+int32_t g483 = -0x5f5159f2;
+int32_t g484 = 0;
+int32_t g485 = 0;
+int32_t g486 = 0;
+int32_t g487 = 0;
+int32_t g488 = 0;
+int32_t g489 = 0;
+char * g490;
+int32_t g491 = 0;
+int32_t g492 = 0;
+int32_t g493 = 0;
+int32_t g494 = 0;
+int32_t g495 = 0;
+int32_t g496 = 0;
+int32_t g497 = 0;
+char * g498;
+int32_t g499 = 0;
+int32_t g500 = 0;
+int32_t g501 = 0;
+int32_t g502 = 0;
+int32_t g503 = 0;
+int32_t g504 = 0;
+int32_t g505 = 0;
+int32_t g506 = 0;
+int32_t g507 = 0;
+int32_t g508 = 0;
+struct tagRECT * g509 = NULL;
+int32_t g510 = 0;
+int32_t g511 = 0;
+struct tagRECT * g512 = NULL;
+float32_t g513 = 0.0f;
+int32_t g514 = 0;
+char * g515;
+int32_t g516 = 0;
+int32_t g517 = 0;
+int32_t g518 = 0;
+int32_t g519 = 0;
+int32_t g520 = 0;
+int32_t g521 = 0;
+int16_t g522 = 0;
+int32_t g523 = 0;
+int32_t g524 = 0;
+int32_t g525 = 0;
+int32_t g526 = 0;
+int32_t g527 = 0;
+int32_t g528 = 0;
+int32_t g529 = 0;
+int32_t g530 = 0;
+char * g531;
+int32_t g532 = 0;
+int32_t g533 = 0;
+int32_t g534 = 0;
+int32_t g535 = 0;
+char * g536;
+int32_t g537 = 0;
+int32_t g538 = 0;
+int32_t g539 = 0;
+int32_t g540 = 0;
+float32_t g541 = 0.0f;
+int32_t g542 = 0;
+int32_t g543 = 0;
+int32_t g544 = 0;
+int32_t g545 = 0;
+int32_t g546 = 0;
+float32_t g547 = 0.0f;
+float32_t g548 = 0.0f;
+int32_t g549 = 0;
+int32_t g550 = 0;
+int32_t g551 = 0;
+int16_t g552 = 0;
+int16_t g553 = 0;
+int32_t g554 = 0;
+int32_t g555 = 0;
+int16_t g556 = 0;
+bool g557 = false;
+int32_t g558 = 0;
+int64_t g559 = 0;
+char * g560;
+int32_t g561 = 0;
+int32_t g562 = 0;
+float32_t * g563 = NULL;
+int32_t g564 = 0;
+char * g565;
+int32_t g566 = 0;
+char * g567;
+char * g568;
+float32_t g569 = 0.0f;
+float32_t g570 = 0.0f;
+float32_t g571 = 0.0f;
+float32_t g572 = 0.0f;
+float32_t g573 = 0.0f;
+float32_t g574 = 0.0f;
+float32_t g575 = 0.0f;
+float32_t g576 = 0.0f;
+float32_t g577 = 0.0f;
+float32_t g578 = 0.0f;
+int32_t g579 = 0;
+float32_t g580 = 0.0f;
+float32_t g581 = 0.0f;
+int32_t g582 = 0;
+float32_t g583 = 0.0f;
+float32_t g584 = 0.0f;
+float32_t g585 = 0.0f;
+int32_t g586 = 0;
+int32_t g587 = 0;
+float32_t g588 = 0.0f;
+float32_t g589 = 0.0f;
+int32_t g590 = 0;
+float32_t g591 = 0.0f;
+float32_t g592 = 0.0f;
+int32_t g593 = 0;
+char * g594;
+bool g595 = false;
+int32_t g596 = 0;
+bool g597 = false;
+int32_t g598 = 0;
+int32_t g599 = 0;
+int32_t g600 = 0;
+struct tWAVEFORMATEX * g601 = NULL;
+int32_t g602 = 0;
+int32_t g603 = 0;
+char * g604;
+int32_t g605 = 0;
+int32_t g606 = 0;
+int32_t g607 = 0;
+int32_t g608 = 0;
+struct tWAVEFORMATEX * g609 = NULL;
+int16_t * g610 = NULL;
+float32_t g611 = 0.0f;
+float32_t g612 = 0.0f;
+int32_t g613 = 0;
+bool g614 = false;
+int32_t g615 = 0;
+int32_t g616 = 0;
+int32_t g617 = 0;
+int32_t g618 = 0;
+float32_t g619 = 0.0f;
+int16_t * g620 = NULL;
+int16_t * g621 = NULL;
+int64_t g622 = 0;
+int32_t g623 = 0;
+int32_t g624 = 0;
+int32_t g625 = 0;
+float32_t * g626 = NULL;
+int32_t g627 = 0;
+int32_t g628 = 0;
+int32_t g629 = 0;
+int32_t g630 = 0;
+int32_t g631 = 0;
+char * g632;
+int32_t g633 = 0;
+int32_t g634 = 0;
+int32_t g635 = 0;
+int32_t g636 = 0;
+int32_t g637 = 0;
+int32_t g638 = 0;
+int32_t g639 = 0;
+int32_t g640 = 0;
+int32_t g641 = 0;
+int32_t g642 = 0;
+int32_t g643 = 0;
+int32_t g644 = 0;
+int32_t g645 = 0;
+int32_t g646 = 0;
+int32_t g647 = 0;
+int32_t g648 = 0;
+int32_t g649 = 0;
+int32_t g650 = 0;
+int32_t g651 = 0;
+int32_t g652 = 0;
+int32_t g653 = 0;
+int32_t g654 = 0;
+int32_t g655 = 0;
+int32_t g656 = 0;
+int32_t g657 = 0;
+char g658 = 0;
+char g659 = 0;
+struct tagPAINTSTRUCT * g660 = NULL;
+int32_t g661 = 0;
+int32_t g662 = 0;
+int32_t g663 = 0;
+int32_t g664 = 0;
+int32_t g665 = 0;
+int32_t g666 = 0;
+int32_t g667 = 0;
+int32_t g668 = 0;
+int32_t g669 = 0;
+int32_t g670 = 0;
+int32_t g671 = 0;
+int32_t g672 = 0;
+int32_t g673 = 0;
+int32_t g674 = 0;
+int32_t g675 = 0;
+int32_t g676 = 0;
+int32_t g677 = 0;
+int32_t g678 = 0;
+bool g679 = false;
+int32_t g680 = 0;
+int32_t g681 = 0;
+char * g682;
+bool g683 = false; // of
+float80_t g684 = 0.0L; // st7
+int32_t g685;
+int32_t g686;
+int32_t g687;
+int32_t g688;
+int32_t g689;
+int32_t g690;
+int32_t g691;
+int32_t g692;
+int32_t g693;
+int32_t g694;
+int32_t g695;
+int32_t g696;
+int32_t g697;
+int32_t g698;
+int32_t g699;
+int32_t g700;
+int32_t g701;
+int32_t g702;
+int32_t g703;
+int32_t g704;
+int32_t g705;
+int32_t g706;
+int32_t g707;
+int32_t g708;
+int32_t g709;
+int32_t g710;
+int32_t g711;
+int32_t g712;
+int32_t g713;
+int32_t g714;
+int32_t * g118 = &g491;
+int32_t * g119 = &g493;
+int32_t * g120 = &g494;
+int32_t * g121 = &g492;
+int32_t * g123 = (int32_t *)&g124;
+int32_t * g132 = &g131;
+int32_t * g134 = &g131;
+int32_t * g140 = &g674;
+char (**g417)[8] = &g208;
+char * (*g476)[43] = &g475;
+
