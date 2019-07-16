@@ -49,11 +49,6 @@ struct _LIST_ENTRY {
     struct _LIST_ENTRY * e1;
 };
 
-struct _LIST_ENTRY {
-    struct _LIST_ENTRY * e0;
-    struct _LIST_ENTRY * e1;
-};
-
 struct _M128A {
     int64_t e0;
     int64_t e1;
