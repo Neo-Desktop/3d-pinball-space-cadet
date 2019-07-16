@@ -11,7 +11,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <windows.h>
+
+#if defined _WIN32 || defined _WIN64
+    #include <windows.h>
+#endif
 
 // ---------------- Integer Types Definitions -----------------
 
@@ -1293,5 +1296,5 @@ int32_t function_1e4a2d8(void);
 int32_t function_1e4a32e(int32_t a1);
 int32_t function_1e4a400(int32_t a1, int32_t a2);
 
-
 #endif
+
