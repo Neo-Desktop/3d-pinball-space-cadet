@@ -1,0 +1,8 @@
+//
+// Created by neo on 2019-08-15.
+//
+
+#ifndef PINBALL_TLIGHTBARGRAPH_H
+#define PINBALL_TLIGHTBARGRAPH_H
+
+#endif //PINBALL_TLIGHTBARGRAPH_H

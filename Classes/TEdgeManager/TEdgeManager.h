@@ -1,0 +1,8 @@
+//
+// Created by neo on 2019-08-15.
+//
+
+#ifndef PINBALL_TEDGEMANAGER_H
+#define PINBALL_TEDGEMANAGER_H
+
+#endif //PINBALL_TEDGEMANAGER_H
