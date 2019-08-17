@@ -145,7 +145,7 @@ void __stdcall options_uninit()
 {
     options_set_int(0, "Sounds", (BYTE)options);
     options_set_int(0, "Music", (BYTE)phkResult);
-    options_set_int(0, "FullScreen", (BYTE)dword_102822C);
+    options_set_int(0, "FullScreen", (BYTE)fullscreen_toggle);
     options_set_int(0, "Players", (BYTE)dword_1028234);
     options_set_int(0, "Left Flippper key", (BYTE)dword_1028238);
     options_set_int(0, "Right Flipper key", (BYTE)dword_102823C);
@@ -204,8 +204,8 @@ HMENU __stdcall options_toggle(UINT uIDCheckItem)
                 midi_play_pb_theme(0);
             return options_menu_check(uIDCheckItem, v3);
         case 0x193u:
-            v2 = dword_102822C == 0;
-            dword_102822C = (HKEY)(dword_102822C == 0);
+            v2 = fullscreen_toggle == 0;
+            fullscreen_toggle = (HKEY)(fullscreen_toggle == 0);
             v3 = v2;
             fullscrn_set_screen_mode(v2);
             return options_menu_check(uIDCheckItem, v3);
@@ -473,9 +473,9 @@ void __stdcall options_init(HMENU a1)
     hMenu = a1;
     options = (HKEY)1;
     phkResult = 0;
-    dword_102822C = 0;
+    fullscreen_toggle = 0;
     dword_1028228 = (HKEY)5;
-    dword_1028230 = (HKEY)2;
+    application_priority = (HKEY)2;
     *(_DWORD *)&dword_1028250 = 90;
     *(_DWORD *)&dword_1028254 = 191;
     *(_DWORD *)&dword_1028258 = 32;
@@ -498,8 +498,8 @@ void __stdcall options_init(HMENU a1)
     options = options_get_int(0, "Sounds", options);
     phkResult = options_get_int(0, "Music", phkResult);
     dword_1028228 = options_get_int(0, "Average", dword_1028228);
-    dword_102822C = options_get_int(0, "FullScreen", dword_102822C);
-    dword_1028230 = options_get_int(0, "Priority_Adjustment", dword_1028230);
+    fullscreen_toggle = options_get_int(0, "FullScreen", fullscreen_toggle);
+    application_priority = options_get_int(0, "Priority_Adjustment", application_priority);
     dword_1028234 = options_get_int(0, "Players", dword_1028234);
     dword_1028238 = options_get_int(0, "Left Flippper key", dword_1028238);
     dword_102823C = options_get_int(0, "Right Flipper key", dword_102823C);
@@ -510,7 +510,7 @@ void __stdcall options_init(HMENU a1)
     options_menu_check(0xC9u, (int)options);
     Sound_Enable(0, 7, (int)options);
     options_menu_check(0xCAu, (int)phkResult);
-    options_menu_check(0x193u, (int)dword_102822C);
+    options_menu_check(0x193u, (int)fullscreen_toggle);
     options_menu_check(0x198u, dword_1028234 == (HKEY)1);
     options_menu_check(0x199u, dword_1028234 == (HKEY)2);
     options_menu_check(0x19Au, dword_1028234 == (HKEY)3);

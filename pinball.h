@@ -153,7 +153,7 @@ INT __stdcall a_dialog(HINSTANCE hInstance, HWND hWnd, int a3);
 void __stdcall __noreturn winmain_memalloc_failure(); // idb
 HANDLE __stdcall adjust_priority(int a1);
 LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4);
-signed int sub_10082A9();
+signed int message_loop();
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
 double __stdcall normalize_2d(float *a1);
 double __stdcall ray_intersect_circle(float *a1, float *a2);
@@ -1501,7 +1501,7 @@ float flt_1028198; // weak
 float flt_102819C; // weak
 int then; // weak
 _UNKNOWN gfr_display; // weak
-int dword_10281C8; // weak
+int displaying_splashscreen; // weak
 UINT iFrostUniqueMsg; // idb
 int last_mouse_y; // idb
 int now; // weak
