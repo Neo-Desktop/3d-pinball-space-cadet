@@ -7,143 +7,86 @@
 //----- (0100833A) --------------------------------------------------------
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
-    CHAR *v4; // eax
-    CHAR *v5; // eax
-    int v6; // eax
-    CHAR *v7; // ST24_4
-    CHAR *v8; // eax
-    signed int v9; // edi
-    CHAR *v10; // eax
-    CHAR *v11; // eax
-    CHAR *v12; // ST2C_4
-    CHAR *v13; // eax
-    CHAR *v14; // eax
-    CHAR *v15; // eax
-    CHAR *v16; // eax
-    HINSTANCE v17; // edi
-    CHAR *v18; // ST28_4
-    CHAR *v19; // eax
-    CHAR *v20; // eax
-    HWND v21; // eax
-    CHAR *v22; // eax
-    CHAR *v23; // eax
-    HWND v24; // eax
-    HMENU v26; // eax
-    DWORD (__stdcall *v27)(); // edi
-    DWORD v28; // eax
-    HINSTANCE v29; // eax
-    char *v30; // esi
-    signed int v31; // edx
-    signed int v32; // edi
-    _BYTE *v33; // eax
-    char v34; // cl
-    char v35; // cl
-    DWORD v36; // eax
-    int v37; // eax
-    HINSTANCE v38; // ST2C_4
-    CHAR *v39; // eax
     WNDCLASSA WndClass; // [esp+14h] [ebp-13Ch]
     INITCOMMONCONTROLSEX picce; // [esp+3Ch] [ebp-114h]
-    HINSTANCE v42; // [esp+44h] [ebp-10Ch]
+    HINSTANCE debugThen = hInstance; // [esp+44h] [ebp-10Ch]
     LPCSTR lpString1; // [esp+48h] [ebp-108h]
     int v44; // [esp+4Ch] [ebp-104h]
-    HINSTANCE v45; // [esp+50h] [ebp-100h]
-    char *Str; // [esp+54h] [ebp-FCh]
-    int v47; // [esp+58h] [ebp-F8h]
+    HINSTANCE debugFrameStart = 0; // [esp+50h] [ebp-100h]
+    char *Str = lpCmdLine; // [esp+54h] [ebp-FCh]
+    int splash_screen_timer = 300; // [esp+58h] [ebp-F8h]
     struct tagPOINT Point; // [esp+5Ch] [ebp-F4h]
     CHAR String1; // [esp+64h] [ebp-ECh]
     struct tagMSG Dest; // [esp+12Ch] [ebp-24h]
 
-    v42 = hInstance;
-    Str = lpCmdLine;
-    v47 = 300;
-    v45 = 0;
     memory_init((int)winmain_memalloc_failure);
     ++memory_critical_allocation;
-    v4 = get_rc_string(165, 0);
-    options_path_init(v4);
-    v5 = get_rc_string(166, 0);
-    if ( (signed int)options_get_int((DWORD)v5, "Table Version", (HKEY)1) <= 1 )
+    options_path_init(get_rc_string(165, 0));
+
+	Point.y = memoryallocate(500);
+	if (!Point.y)
+	{
+		options_path_uninit();
+		return 0;
+	}
+
+    if ( (signed int)options_get_int((DWORD)get_rc_string(166, 0), "Table Version", (HKEY)1) <= 1 )
     {
-        Point.y = memoryallocate(0x1F4u);
-        if ( !Point.y )
-        {
-            LABEL_3:
-            options_path_uninit();
-            return 0;
-        }
-        v10 = get_rc_string(166, 0);
-        options_set_int((HKEY)v10, "Table Version", 1u);
+        options_set_int((HKEY)get_rc_string(166, 0), "Table Version", 1);
         GetModuleFileNameA(hinst, (LPSTR)Point.y, 0x1F4u);
-        v11 = get_rc_string(166, 0);
-        options_set_string((HKEY)v11, "Table Exe", (LPCSTR)Point.y);
-        v12 = get_rc_string(169, 0);
-        v13 = get_rc_string(166, 0);
-        options_set_string((HKEY)v13, "Table Name", v12);
-        v14 = get_rc_string(166, 0);
-        options_set_string(0, "Last Table Played", v14);
-        memoryfree(Point.y);
-        Point.y = memoryallocate(0x1F4u);
-        if ( Point.y )
+        options_set_string((HKEY)get_rc_string(166, 0), "Table Exe", (LPCSTR)Point.y);
+        options_set_string((HKEY)get_rc_string(166, 0), "Table Name", get_rc_string(169, 0));
+        options_set_string(0, "Last Table Played", get_rc_string(166, 0));
+
+		lpString1 = (LPCSTR)memoryallocate(500);
+        if ( lpString1 )
         {
-            lpString1 = (LPCSTR)memoryallocate(0x1F4u);
-            if ( lpString1 )
+            for (int i = 0; i < 32700; i++)
             {
-                v44 = 0;
-                do
-                {
-                    _sprintf((char *)&Dest, "Table%d", v44);
-                    options_get_string(0, (LPCSTR)&Dest, (LPSTR)Point.y, WindowName, 500);
-                    if ( !*(_BYTE *)Point.y )
-                        break;
-                    options_get_string(Point.y, "Table Name", (LPSTR)lpString1, WindowName, 500);
-                    v15 = get_rc_string(169, 0);
-                    if ( !lstrcmpA(lpString1, v15) )
-                        goto LABEL_15;
-                    if ( !*lpString1 )
-                        break;
-                    ++v44;
-                }
-                while ( v44 < 32700 );
-                v16 = get_rc_string(166, 0);
-                options_set_string(0, (LPCSTR)&Dest, v16);
-                LABEL_15:
-                memoryfree((int)lpString1);
+                _sprintf((char *)&Dest, "Table%d", i);
+                options_get_string(0, (LPCSTR)&Dest, (LPSTR)Point.y, WindowName, 500);
+                if ( !*(_BYTE *)Point.y )
+                    break;
+                options_get_string(Point.y, "Table Name", (LPSTR)lpString1, WindowName, 500);
+                if ( !lstrcmpA(lpString1, get_rc_string(169, 0)) )
+                    goto SKIP_SET;
+                if ( !*lpString1 )
+                    break;
             }
-            memoryfree(Point.y);
+            options_set_string(0, (LPCSTR)&Dest, get_rc_string(166, 0));
+            SKIP_SET:
+            memoryfree((int)lpString1);
         }
+        memoryfree(Point.y);
     }
     else
     {
-        v6 = memoryallocate(0x1F4u);
-        Point.y = v6;
-        if ( !v6 )
-            goto LABEL_3;
-        v7 = (CHAR *)v6;
-        v8 = get_rc_string(166, 0);
-        options_get_string((DWORD)v8, "Shell Exe", v7, WindowName, 500);
-        v9 = WinExec((LPCSTR)Point.y, 5u);
+        options_get_string((DWORD)get_rc_string(166, 0), "Shell Exe", Point.y, WindowName, 500);
+        
+		UINT retval = WinExec((LPCSTR)Point.y, 5u);
         memoryfree(Point.y);
-        if ( v9 >= 32 )
-            goto LABEL_3;
+
+		if (retval >= 32) {
+			options_path_uninit();
+			return 0;
+		}
     }
     --memory_critical_allocation;
-    v17 = v42;
+
     dword_102556C = _strstr(Str, "-quick") != 0;
-    hinst = v42;
-    v18 = get_rc_string(168, 0);
-    v19 = get_rc_string(166, 0);
-    options_get_string((DWORD)v19, "Pinball Data", byte_102543C, v18, 300);
+    hinst = hInstance;
+    options_get_string((DWORD)get_rc_string(166, 0), "Pinball Data", byte_102543C, get_rc_string(168, 0), 300);
     iFrostUniqueMsg = RegisterWindowMessageA("PinballThemeSwitcherUniqueMsgString");
-    v20 = get_rc_string(167, 0);
-    v21 = FindWindowA(v20, 0);
-    if ( v21 )
+
+	HWIND window = FindWindowA(get_rc_string(167, 0), 0);
+    if ( window )
     {
-        SendMessageA(v21, iFrostUniqueMsg, 0, 0);
+        SendMessageA(window, iFrostUniqueMsg, 0, 0);
         return 0;
     }
     if ( check_expiration_date() )
         return 0;
+
     picce.dwSize = 8;
     picce.dwICC = 5885;
     InitCommonControlsEx(&picce);
@@ -151,118 +94,123 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
     WndClass.lpfnWndProc = message_handler;
     WndClass.cbClsExtra = 0;
     WndClass.cbWndExtra = 0;
-    WndClass.hInstance = v17;
-    WndClass.hIcon = LoadIconA(v17, "ICON_1");
+    WndClass.hInstance = hInstance;
+    WndClass.hIcon = LoadIconA(hInstance, "ICON_1");
     WndClass.hCursor = LoadCursorA(0, (LPCSTR)0x7F00);
     WndClass.hbrBackground = (HBRUSH)16;
     WndClass.lpszMenuName = "MENU_1";
     WndClass.lpszClassName = get_rc_string(167, 0);
-    Point.y = splash_screen((int)v17, "splash_bitmap", "splash_bitmap");
+    Point.y = splash_screen((int)hInstance, "splash_bitmap", "splash_bitmap");
     RegisterClassA(&WndClass);
+
     FindShiftKeys();
-    v22 = get_rc_string(38, 0);
-    lstrcpyA(&String1, v22);
-    v23 = get_rc_string(167, 0);
-    v24 = CreateWindowExA(0, v23, &String1, 0x3CA0000u, 0, 0, 640, 480, 0, 0, v17, 0);
-    hwnd_frame = v24;
-    if ( !v24 )
+
+	lstrcpyA(&String1, get_rc_string(38, 0));
+    hwnd_frame = CreateWindowExA(0, get_rc_string(167, 0), &String1, 0x3CA0000u, 0, 0, 640, 480, 0, 0, hInstance, 0);
+    if ( !hwnd_frame)
     {
         PostQuitMessage(0);
         return 0;
     }
-    v26 = GetMenu(v24);
-    options_init(v26);
+
+    options_init(GetMenu(hwnd_frame));
     pb_reset_table();
     pb_firsttime_setup();
+
     if ( _strstr(Str, "-fullscreen") )
     {
-        dword_102822C = (HKEY)1;
-        options_menu_check(0x193u, 1);
+        fullscreen_toggle = (HKEY)1;
+        options_menu_check(403, 1);
     }
+
     ShowWindow(hwnd_frame, nShowCmd);
-    fullscrn_set_screen_mode((int)dword_102822C);
+
+    fullscrn_set_screen_mode((int)fullscreen_toggle);
     UpdateWindow(hwnd_frame);
-    if ( Point.y )
+
+	if ( Point.y )
     {
         splash_hide(Point.y);
         splash_destroy(Point.y);
     }
-    adjust_priority((int)dword_1028230);
-    v27 = timeGetTime;
+
+    adjust_priority((int)application_priority);
+
+    DWORD now = timeGetTime;
     Point.y = timeGetTime();
     while ( timeGetTime() >= Point.y && timeGetTime() - Point.y < 0x7D0 )
         PeekMessageA(&Dest, hwnd_frame, 0, 0, 1u);
-    if ( _strstr(Str, "-demo") )
+
+	if ( _strstr(Str, "-demo") )
         pb_toggle_demo(0);
     else
         pb_replay_level(0);
-    v28 = timeGetTime();
-    LABEL_35:
-    then = v28;
-    while ( 1 )
+
+	then = timeGetTime();
+
+	while ( true )
     {
-        if ( !v47 )
+        if ( !splash_screen_timer )
         {
-            v47 = 300;
+            splash_screen_timer = 300;
             if ( DispFrameRate )
             {
-                v29 = (HINSTANCE)v27();
-                v42 = v29;
-                if ( v45 )
+				HINSTANCE debugNow = (HINSTANCE)timeGetTime();
+                debugThen = debugNow;
+                if ( debugFrameStart )
                 {
-                    Str = (char *)((char *)v29 - (char *)v45);
-                    _sprintf(::Dest, "Frames/sec = %02.02f", 300.0 / ((double)(unsigned int)((char *)v29 - (char *)v45) * 0.001));
-                    SetWindowTextA(hwnd_frame, ::Dest);
+                    _sprintf((char *)&Dest, "Frames/sec = %02.02f", 300.0 / ((double)(unsigned int)((char *)debugNow - (char *)debugFrameStart) * 0.001));
+                    SetWindowTextA(hwnd_frame, (char*)&Dest);
                     if ( DispGRhistory )
                     {
-                        if ( !dword_10281C8 )
+                        if ( !displaying_splashscreen )
                         {
-                            v30 = (char *)_malloc(0x400u);
-                            v31 = 0;
-                            v32 = 0;
-                            v33 = v30 + 41;
-                            do
+                            char* pallette_array = (char *)_malloc(1024);
+                            int red, green, blue = 0;
+							BYTE* current_color = pallette_array + 41; // eax
+
+							for (int i = 0; i < 256; i++)
                             {
-                                if ( v31 + 10 >= 256 )
+                                if ( i + 10 >= 256 )
                                     break;
-                                v34 = v32;
-                                if ( v32 > 255 )
-                                    v34 = -1;
-                                v33[1] = v34;
-                                v35 = v32;
-                                if ( v32 > 255 )
-                                    v35 = v31;
-                                *v33 = v35;
-                                *(v33 - 1) = v35;
-                                v32 += 8;
-                                v33 += 4;
-                                ++v31;
+
+                                green = red;
+                                if ( red > 255 )
+                                    green = -1;
+                                current_color[1] = green;
+                                blue = red;
+                                if ( red > 255 )
+                                    blue = i;
+                                *current_color = blue;
+                                *(current_color - 1) = blue;
+                                red += 8;
+                                current_color += 4;
                             }
-                            while ( v31 < 256 );
-                            gdrv_display_palette((int)v30);
-                            _free(v30);
+
+                            gdrv_display_palette((int)pallette_array);
+                            _free(pallette_array);
                             gdrv_create_bitmap((int)&gfr_display, 400, 15);
-                            v27 = timeGetTime;
+                            ticks = timeGetTime;
                         }
                         gdrv_blit((int)&gfr_display, 0, 0, 0, 0, 300, 10);
                         gdrv_fill_bitmap(0, &gfr_display, 0x12Cu, 10, 0, 0, 0);
                     }
                 }
-                v45 = v42;
+                debugFrameStart = debugThen;
             }
             else
             {
-                v45 = 0;
+                debugFrameStart = 0;
             }
         }
         Sound_Idle();
-        if ( !sub_10082A9() || bQuit )
+        if ( !message_loop() || bQuit )
             break;
         if ( has_focus )
         {
             if ( mouse_down )
             {
-                now = v27();
+                now = ticks();
                 if ( now - then >= 2 )
                 {
                     GetCursorPos(&Point);
@@ -272,11 +220,11 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
             }
             if ( !single_step )
             {
-                v36 = v27();
-                now = v36;
+                int v36 = ;
+                now = ticks();
                 if ( no_time_loss )
                 {
-                    then = v36;
+                    then = now;
                     no_time_loss = 0;
                 }
                 if ( v36 == then )
@@ -285,16 +233,17 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
                 }
                 else if ( pb_frame(0, v36 - then) )
                 {
-                    if ( dword_10281C8 )
+                    if ( displaying_splashscreen )
                     {
-                        v37 = now - then + 10;
-                        if ( v37 > 236 )
-                            LOBYTE(v37) = -7;
-                        gdrv_fill_bitmap(0, &gfr_display, 1u, 10, 299 - v47, 0, v37);
+                        int diff = now - then + 10;
+                        if ( diff > 236 )
+                            LOBYTE(diff) = -7;
+                        gdrv_fill_bitmap(0, &gfr_display, 1u, 10, 299 - splash_screen_timer, 0, v37);
                     }
-                    --v47;
-                    v28 = now;
-                    goto LABEL_35;
+                    --splash_screen_timer;
+                    then = now;
+					then = timeGetTime();
+					continue;
                 }
             }
         }
@@ -307,9 +256,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
     gdrv_uninit();
     DestroyWindow(hwnd_frame);
     options_path_uninit();
-    v38 = hinst;
-    v39 = get_rc_string(167, 0);
-    UnregisterClassA(v39, v38);
+    UnregisterClassA(get_rc_string(167, 0), hinst);
     return return_value;
 }
 // 1024F04: using guessed type int memory_critical_allocation;
@@ -322,7 +269,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 // 1024FF4: using guessed type int no_time_loss;
 // 102556C: using guessed type int dword_102556C;
 // 10281A0: using guessed type int then;
-// 10281C8: using guessed type int dword_10281C8;
+// 10281C8: using guessed type int displaying_splashscreen;
 // 10281F0: using guessed type int now;
 // 1028200: using guessed type int return_value;
 
@@ -417,14 +364,14 @@ LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4)
                     if ( phkResult && !single_step )
                         midi_play_pb_theme(0);
                     no_time_loss = 1;
-                    adjust_priority((int)dword_1028230);
+                    adjust_priority((int)application_priority);
                 }
                 else
                 {
                     activated = 0;
                     fullscrn_activate(0);
                     options_menu_check(0x193u, 0);
-                    dword_102822C = 0;
+                    fullscreen_toggle = 0;
                     v12 = GetCurrentThread();
                     SetThreadPriority(v12, 0);
                     Sound_Deactivate();
@@ -458,7 +405,7 @@ LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4)
                         SetCursor(v8);
                         v10 = options_get_int(0, "Change Display", (HKEY)1);
                         v11 = GetMenu(v21);
-                        fullscrn_init(v18, (int)lpString1, (int)dword_102822C, v21, (int)v11, (int)v10);
+                        fullscrn_init(v18, (int)lpString1, (int)fullscreen_toggle, v21, (int)v11, (int)v10);
                         --memory_critical_allocation;
                         v5 = wParam;
                         return DefWindowProcA(v21, Msg, v5, lParam);
@@ -533,7 +480,7 @@ LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4)
                     case 0x7Eu:
                         if ( fullscrn_displaychange() )
                         {
-                            dword_102822C = 0;
+                            fullscreen_toggle = 0;
                             options_menu_check(0x193u, 0);
                         }
                         return DefWindowProcA(v21, Msg, v5, lParam);
@@ -549,7 +496,7 @@ LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4)
                 switch ( wParam )
                 {
                     case 0x1Bu:
-                        if ( dword_102822C )
+                        if ( fullscreen_toggle )
                             options_toggle(0x193u);
                         SendMessageA(hwnd_frame, 0x112u, 0xF020u, 0);
                         break;
@@ -793,11 +740,11 @@ LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4)
                     return DefWindowProcA(v21, Msg, v5, lParam);
                 break;
             case 0x218u:
-                if ( wParam == 4 && dword_102822C )
+                if ( wParam == 4 && fullscreen_toggle )
                 {
-                    dword_102822C = 0;
+                    fullscreen_toggle = 0;
                     options_menu_check(0x193u, 0);
-                    fullscrn_set_screen_mode((int)dword_102822C);
+                    fullscrn_set_screen_mode((int)fullscreen_toggle);
                 }
                 return DefWindowProcA(v21, Msg, v5, lParam);
             case 0x311u:
@@ -831,7 +778,7 @@ LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4)
 // 102556C: using guessed type int dword_102556C;
 
 //----- (010082A9) --------------------------------------------------------
-signed int sub_10082A9()
+signed int message_loop()
 {
     MSG Msg; // [esp+8h] [ebp-1Ch]
 

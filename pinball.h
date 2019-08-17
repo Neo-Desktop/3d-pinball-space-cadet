@@ -1514,8 +1514,8 @@ int num_channels; // weak
 HKEY options; // idb
 HKEY phkResult; // idb
 HKEY dword_1028228; // idb
-HKEY dword_102822C; // idb
-HKEY dword_1028230; // idb
+HKEY fullscreen_toggle; // idb
+HKEY application_priority; // idb
 HKEY dword_1028234; // idb
 HKEY dword_1028238; // idb
 HKEY dword_102823C; // idb
