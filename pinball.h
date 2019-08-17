@@ -2,6 +2,8 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "Classes/classes.h"
+
 #ifndef PINBALL_PINBALL_H
 #define PINBALL_PINBALL_H
 

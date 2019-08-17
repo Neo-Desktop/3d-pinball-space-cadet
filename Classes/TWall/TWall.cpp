@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TWall.h"
 
 //----- (01015ACE) --------------------------------------------------------
 void __stdcall TWall::TimerExpired(int a1, void *a2)

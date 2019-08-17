@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TBlocker.h"
 
 //----- (0101631C) --------------------------------------------------------
 int __thiscall TBlocker::Message(TBlocker *this, int a2, float a3)

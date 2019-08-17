@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TSoloTarget.h"
 
 //----- (01016230) --------------------------------------------------------
 int __thiscall TSoloTarget::Message(TSoloTarget *this, int a2, float a3)

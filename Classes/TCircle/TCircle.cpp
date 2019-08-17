@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TCircle.h"
 
 //----- (01015898) --------------------------------------------------------
 TCircle *__thiscall TCircle::TCircle(TCircle *this, struct TCollisionComponent *a2, char *a3, unsigned int a4, struct vector_type *a5, float a6)

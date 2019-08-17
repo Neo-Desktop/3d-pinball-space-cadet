@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TBumper.h"
 
 //----- (01015CB2) --------------------------------------------------------
 void __stdcall TBumper::TimerExpired(int a1, void *a2)

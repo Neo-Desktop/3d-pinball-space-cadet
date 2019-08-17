@@ -2,6 +2,8 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../pinball.h"
+
 //----- (0100B9C7) --------------------------------------------------------
 void __stdcall edges_insert_circle(struct circle_type *a1, struct TEdgeSegment *a2, struct field_effect_type *a3)
 {

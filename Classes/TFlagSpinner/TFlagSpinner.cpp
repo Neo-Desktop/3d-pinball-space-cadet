@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TFlagSpinner.h"
 
 //----- (01015F34) --------------------------------------------------------
 void __stdcall TFlagSpinner::SpinTimer(int a1, void *a2)

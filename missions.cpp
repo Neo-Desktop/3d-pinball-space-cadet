@@ -1,3 +1,5 @@
+#include"pinball.h"
+
 //----- (0100E657) --------------------------------------------------------
 void __userpurge WaitingDeploymentController(int a1@<ebx>, int a2, struct TPinballComponent *a3)
 {

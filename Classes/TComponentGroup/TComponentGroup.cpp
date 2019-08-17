@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TComponentGroup.h"
 
 //----- (010159DC) --------------------------------------------------------
 void __stdcall TComponentGroup::NotifyTimerExpired(int a1, struct TPinballComponent *a2)

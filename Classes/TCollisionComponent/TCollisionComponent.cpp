@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TCollisionComponent.h"
 
 //----- (01015A9A) --------------------------------------------------------
 void __thiscall TCollisionComponent::port_draw(TCollisionComponent *this)

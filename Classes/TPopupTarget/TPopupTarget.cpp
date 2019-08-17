@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TPopupTarget.h"
 
 //----- (010160B3) --------------------------------------------------------
 void __stdcall TPopupTarget::TimerExpired(int a1, void *a2)

@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TRollover.h"
 
 //----- (0101644B) --------------------------------------------------------
 void __stdcall TRollover::TimerExpired(int a1, void *a2)

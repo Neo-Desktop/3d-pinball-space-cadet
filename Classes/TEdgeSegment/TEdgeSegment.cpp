@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TEdgeSegment.h
 
 //----- (01015866) --------------------------------------------------------
 TEdgeSegment *__thiscall TEdgeSegment::TEdgeSegment(TEdgeSegment *this, struct TCollisionComponent *a2, char *a3, unsigned int a4)

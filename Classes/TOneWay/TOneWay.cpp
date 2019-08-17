@@ -1,5 +1,4 @@
-
-#include "../../pinball.h"
+#include "TOneWay.h"
 
 //----- (01015B61) --------------------------------------------------------
 int __thiscall TOneway::get_scoring(TOneway *this, int a2)

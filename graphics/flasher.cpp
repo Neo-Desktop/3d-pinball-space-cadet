@@ -2,6 +2,8 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../pinball.h"
+
 //----- (01009910) --------------------------------------------------------
 void __stdcall flasher_callback(int a1, void *a2)
 {

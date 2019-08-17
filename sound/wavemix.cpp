@@ -1,4 +1,4 @@
-#include "pinball.h"
+#include "../pinball.h"
 
 //----- (0101CFD0) --------------------------------------------------------
 _WORD *__stdcall SessionToGlobalDataPtr(_WORD *a1)

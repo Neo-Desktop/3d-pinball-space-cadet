@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TZmaplist.h"
 
 //----- (010158F0) --------------------------------------------------------
 TZmapList *__thiscall TZmapList::TZmapList(TZmapList *this, int a2, int a3)

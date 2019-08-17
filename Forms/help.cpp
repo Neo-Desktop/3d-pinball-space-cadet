@@ -1,4 +1,4 @@
-#include "pinball.h"
+#include "../pinball.h"
 
 //----- (0100772D) --------------------------------------------------------
 void __stdcall help_introduction(int a1, int a2)

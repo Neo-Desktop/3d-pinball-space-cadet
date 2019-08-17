@@ -1,3 +1,5 @@
+#include "pinball.h"
+
 //----- (0101CB8E) --------------------------------------------------------
 void __stdcall vector_add(struct vector_type *a1, struct vector_type *a2)
 {

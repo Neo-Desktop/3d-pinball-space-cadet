@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TFlipperEdge.h"
 
 //----- (0101B0D4) --------------------------------------------------------
 void __thiscall TFlipperEdge::place_in_grid(TFlipperEdge *this)

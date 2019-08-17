@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TPinballTable.h"
 
 //----- (01017467) --------------------------------------------------------
 void __stdcall TPinballTable::LightShow_timeout(int a1, void *a2)

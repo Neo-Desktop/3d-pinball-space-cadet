@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TTripwire.h"
 
 //----- (010165ED) --------------------------------------------------------
 void __thiscall TTripwire::Collision(TTripwire *this, struct TBall *a2, struct vector_type *a3, struct vector_type *a4, float a5, struct TEdgeSegment *a6)

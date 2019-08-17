@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TDrain.h"
 
 //----- (010172A3) --------------------------------------------------------
 int __thiscall TDrain::Message(TDrain *this, int a2, float a3)

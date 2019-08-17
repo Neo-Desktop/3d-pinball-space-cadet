@@ -1,4 +1,4 @@
-#include "pinball.h"
+#include "../pinball.h"
 
 //----- (0101304D) --------------------------------------------------------
 void __stdcall render_repaint(struct render_sprite_type_struct *a1)

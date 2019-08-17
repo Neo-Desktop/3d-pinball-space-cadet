@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TLightRollover.h"
 
 //----- (010164D1) --------------------------------------------------------
 void __stdcall TLightRollover::delay_expired(int a1, void *a2)

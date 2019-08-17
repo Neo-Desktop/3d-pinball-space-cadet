@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TTextbox.h"
 
 //----- (01014092) --------------------------------------------------------
 TTextBox *__thiscall TTextBox::TTextBox(TTextBox *this, struct TPinballTable *a2, int a3)

@@ -1,5 +1,4 @@
-#include "../../pinball.h"
-
+#include "TPlunger.h"
 
 //----- (010172F0) --------------------------------------------------------
 void __stdcall TPlunger::BallFeedTimer(int a1, void *a2)

@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TTextBoxMessage.h"
 
 //----- (01013AF1) --------------------------------------------------------
 TTextBoxMessage *__thiscall TTextBoxMessage::TTextBoxMessage(TTextBoxMessage *this, char *a2, float a3)

@@ -2,6 +2,8 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../pinball.h"
+
 //----- (01006D96) --------------------------------------------------------
 HPALETTE __stdcall splash_init_palette(LOGPALETTE *plpal)
 {

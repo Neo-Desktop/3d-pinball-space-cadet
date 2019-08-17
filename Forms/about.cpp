@@ -1,6 +1,8 @@
 //
 // Created by neo on 2019-08-15.
-//
+
+
+#include "../pinball.h"
 
 //----- (0100789A) --------------------------------------------------------
 INT __stdcall a_dialog(HINSTANCE hInstance, HWND hWnd, int a3)

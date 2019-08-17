@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TSink.h"
 
 //----- (01017130) --------------------------------------------------------
 void __stdcall TSink::TimerExpired(int a1, void *a2)

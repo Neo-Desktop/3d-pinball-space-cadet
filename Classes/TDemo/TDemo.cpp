@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TDemo.h"
 
 //----- (01016D62) --------------------------------------------------------
 void __stdcall TDemo::PlungerRelease(int a1, void *a2)

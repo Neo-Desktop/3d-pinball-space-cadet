@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TRamp.h"
 
 //----- (01016AEC) --------------------------------------------------------
 int __thiscall TRamp::get_scoring(TRamp *this, int a2)

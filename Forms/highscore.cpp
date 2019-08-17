@@ -2,7 +2,7 @@
 // Created by neo on 2019-08-15.
 //
 
-#include "pinball.h"
+#include "../pinball.h"
 
 //----- (01004C3C) --------------------------------------------------------
 int __stdcall high_score_clear_table(int a1)

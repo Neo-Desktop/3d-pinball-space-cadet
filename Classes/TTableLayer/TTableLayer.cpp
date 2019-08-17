@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TTableLayer.h"
 
 //----- (010173E7) --------------------------------------------------------
 int __thiscall TTableLayer::FieldEffect(TTableLayer *this, struct TBall *a2, struct vector_type *a3)

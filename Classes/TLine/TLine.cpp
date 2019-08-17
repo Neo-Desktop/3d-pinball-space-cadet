@@ -1,4 +1,4 @@
-#include "../../pinball.h"
+#include "TLine.h"
 
 //----- (0101C6FD) --------------------------------------------------------
 TLine *__thiscall TLine::TLine(TLine *this, struct TCollisionComponent *a2, char *a3, unsigned int a4, float a5, float a6, float a7, float a8)
