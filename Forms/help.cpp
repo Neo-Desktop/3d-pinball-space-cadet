@@ -61,3 +61,27 @@ return 0;
 }
 // 1025720: using guessed type HWND (__stdcall *pHtmlHelpA)(HWND, const char *, unsigned int, unsigned int);
 // 1025728: using guessed type int dword_1025728;
+
+//----- (0101CEB6) --------------------------------------------------------
+int __stdcall sub_101CEB6(LPBYTE lpData)
+{
+	signed int v1; // esi
+	DWORD cbData; // [esp+4h] [ebp-8h]
+	HKEY phkResult; // [esp+8h] [ebp-4h]
+
+	v1 = 0;
+	if (RegOpenKeyExA(
+		HKEY_CLASSES_ROOT,
+		"CLSID\\{ADB880A6-D8FF-11CF-9377-00AA003B7A11}\\InprocServer32",
+		0,
+		0x20019u,
+		&phkResult))
+	{
+		return 0;
+	}
+	cbData = 260;
+	if (!RegQueryValueExA(phkResult, WindowName, 0, 0, lpData, &cbData))
+		v1 = 1;
+	RegCloseKey(phkResult);
+	return v1;
+}
