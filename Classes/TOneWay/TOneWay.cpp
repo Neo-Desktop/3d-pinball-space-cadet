@@ -83,7 +83,7 @@ int v17; // [esp+68h] [ebp-8h]
 v3 = 0;
 v4 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 0);
-*(_DWORD *)v4 = &TOneway::`vftable';
+*(_DWORD *)v4 = &TOneway::`vftable`;
 loader_query_visual(a3, 0, &v10);
 if ( v11 == 2 )
 {
@@ -116,7 +116,7 @@ objlist_class::Add((TOneway *)((char *)v4 + 42), *(void **)((char *)v4 + 82));
 }
 return v4;
 }
-// 1002530: using guessed type void *TOneway::`vftable';
+// 1002530: using guessed type void *TOneway::`vftable`;
 
 //----- (0101AAA7) --------------------------------------------------------
 TOneway *__thiscall TOneway::`scalar deleting destructor`(TOneway *this, char a2)

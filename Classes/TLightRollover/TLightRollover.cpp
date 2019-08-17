@@ -80,7 +80,7 @@ bool v4; // zf
 v3 = this;
 TRollover::TRollover(this, a2, a3, 0);
 v4 = *(_DWORD *)((char *)v3 + 34) == 0;
-*(_DWORD *)v3 = &TLightRollover::`vftable';
+*(_DWORD *)v3 = &TLightRollover::`vftable`;
 *((_BYTE *)v3 + 78) = 0;
 *(_DWORD *)((char *)v3 + 91) = 0;
 if ( !v4 )
@@ -89,4 +89,4 @@ TRollover::build_walls(v3, a3);
 *(_DWORD *)((char *)v3 + 87) = *(_DWORD *)loader_query_float_attribute(a3, 0, 407);
 return v3;
 }
-// 1002630: using guessed type void *TLightRollover::`vftable';
+// 1002630: using guessed type void *TLightRollover::`vftable`;

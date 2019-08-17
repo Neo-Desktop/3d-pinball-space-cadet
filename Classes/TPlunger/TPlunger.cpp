@@ -169,7 +169,7 @@ int v12; // [esp+44h] [ebp-Ch]
 
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
-*(_DWORD *)v3 = &TPlunger::`vftable';
+*(_DWORD *)v3 = &TPlunger::`vftable`;
 loader_query_visual(a3, 0, &v9);
 v4 = v11;
 *(float *)((char *)v3 + 62) = 0.0;
@@ -191,4 +191,4 @@ v7 = (_DWORD *)loader_query_float_attribute(a3, 0, 601);
 *(_DWORD *)((char *)a2 + 290) = v7[1];
 return v3;
 }
-// 1002750: using guessed type void *TPlunger::`vftable';
+// 1002750: using guessed type void *TPlunger::`vftable`;

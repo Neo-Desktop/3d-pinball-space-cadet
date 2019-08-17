@@ -349,7 +349,7 @@ double v7; // st7
 
 v3 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 1);
-*(_DWORD *)v3 = &TLight::`vftable';
+*(_DWORD *)v3 = &TLight::`vftable`;
 *(_DWORD *)((char *)v3 + 110) = 0;
 *(_DWORD *)((char *)v3 + 82) = 0;
 *(_DWORD *)((char *)v3 + 114) = 0;
@@ -365,4 +365,4 @@ v7 = *v6;
 *(float *)((char *)v3 + 106) = v7;
 return v3;
 }
-// 1001A48: using guessed type void *TLight::`vftable';
+// 1001A48: using guessed type void *TLight::`vftable`;

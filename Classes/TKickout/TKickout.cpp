@@ -181,7 +181,7 @@ struct vector_type *v32; // [esp+78h] [ebp+10h]
 
 v4 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 0);
-*(_DWORD *)v4 = &TKickout::`vftable';
+*(_DWORD *)v4 = &TKickout::`vftable`;
 *(_DWORD *)((char *)v4 + 82) = a4 == 0;
 if ( !a4 )
 *((_BYTE *)v4 + 5) = 0;
@@ -237,4 +237,4 @@ v28 = *(_DWORD *)((char *)v4 + 118);
 edges_insert_circle((struct circle_type *)&v26, 0, (TKickout *)((char *)v4 + 154));
 return v4;
 }
-// 1002690: using guessed type void *TKickout::`vftable';
+// 1002690: using guessed type void *TKickout::`vftable`;

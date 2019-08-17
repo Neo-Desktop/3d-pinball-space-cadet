@@ -68,7 +68,7 @@ int v5; // eax
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
 v4 = *(_DWORD **)((char *)v3 + 26);
-*(_DWORD *)v3 = &TWall::`vftable';
+*(_DWORD *)v3 = &TWall::`vftable`;
 if ( v4 )
 render_sprite_set_bitmap(v4, 0);
 v5 = *(_DWORD *)((char *)v3 + 34);
@@ -77,5 +77,5 @@ if ( v5 )
 *(_DWORD *)((char *)v3 + 78) = 0;
 return v3;
 }
-// 1002508: using guessed type void *TWall::`vftable';
+// 1002508: using guessed type void *TWall::`vftable`;
 

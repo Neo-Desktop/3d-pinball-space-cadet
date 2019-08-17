@@ -60,7 +60,7 @@ signed int v33; // [esp+88h] [ebp+10h]
 
 v4 = this;
 v5 = a2;
-*(_DWORD *)this = &TPinballComponent::`vftable';
+*(_DWORD *)this = &TPinballComponent::`vftable`;
 *(_DWORD *)((char *)this + 6) = 0;
 *((_BYTE *)this + 4) = 0;
 *((_BYTE *)this + 5) = 0;
@@ -154,7 +154,7 @@ v30,
 *(_DWORD *)((char *)v4 + 22) = a3;
 return v4;
 }
-// 10024A8: using guessed type void *TPinballComponent::`vftable';
+// 10024A8: using guessed type void *TPinballComponent::`vftable`;
 
 //----- (01018FBC) --------------------------------------------------------
 TZmapList *__thiscall TPinballComponent::~TPinballComponent(TPinballComponent *this)
@@ -166,7 +166,7 @@ TZmapList *v4; // ecx
 
 v1 = this;
 result = *(TZmapList **)((char *)this + 30);
-*(_DWORD *)this = &TPinballComponent::`vftable';
+*(_DWORD *)this = &TPinballComponent::`vftable`;
 if ( result )
 result = (TZmapList *)objlist_delete_object(*(_DWORD *)((char *)result + 254), (int)this);
 v3 = *(TZmapList **)((char *)v1 + 34);
@@ -177,7 +177,7 @@ if ( v4 )
 result = TZmapList::`scalar deleting destructor`(v4, 1);
 return result;
 }
-// 10024A8: using guessed type void *TPinballComponent::`vftable';
+// 10024A8: using guessed type void *TPinballComponent::`vftable`;
 
 //----- (01018FFD) --------------------------------------------------------
 TComponentGroup *__thiscall TComponentGroup::TComponentGroup(TComponentGroup *this, struct TPinballTable *a2, int a3)
@@ -191,7 +191,7 @@ int v9; // [esp+1Ch] [ebp+Ch]
 
 v3 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 0);
-*(_DWORD *)v3 = &TComponentGroup::`vftable';
+*(_DWORD *)v3 = &TComponentGroup::`vftable`;
 objlist_class::objlist_class((TComponentGroup *)((char *)v3 + 42), 4, 4);
 *(_DWORD *)((char *)v3 + 50) = 0;
 if ( a3 > 0 )
@@ -208,7 +208,7 @@ objlist_class::Add((TComponentGroup *)((char *)v3 + 42), (void *)v6);
 }
 return v3;
 }
-// 10024D8: using guessed type void *TComponentGroup::`vftable';
+// 10024D8: using guessed type void *TComponentGroup::`vftable`;
 
 //----- (01019082) --------------------------------------------------------
 TZmapList *__thiscall TComponentGroup::~TComponentGroup(TComponentGroup *this)
@@ -218,7 +218,7 @@ int v2; // eax
 
 v1 = this;
 v2 = *(_DWORD *)((char *)this + 50);
-*(_DWORD *)this = &TComponentGroup::`vftable';
+*(_DWORD *)this = &TComponentGroup::`vftable`;
 if ( v2 )
 {
 timer_kill(v2);
@@ -227,5 +227,5 @@ timer_kill(v2);
 objlist_destroy(*(_DWORD *)((char *)v1 + 46));
 return TPinballComponent::~TPinballComponent(v1);
 }
-// 10024D8: using guessed type void *TComponentGroup::`vftable';
+// 10024D8: using guessed type void *TComponentGroup::`vftable`;
 

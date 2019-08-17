@@ -14,7 +14,7 @@ v3 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 1);
 v4 = a3 == 0;
 v5 = a3 < 0;
-*(_DWORD *)v3 = &TTextBox::`vftable';
+*(_DWORD *)v3 = &TTextBox::`vftable`;
 *(_DWORD *)((char *)v3 + 42) = 0;
 *(_DWORD *)((char *)v3 + 46) = 0;
 *(_DWORD *)((char *)v3 + 50) = 0;
@@ -38,7 +38,7 @@ v8 = *v6;
 }
 return v3;
 }
-// 10023B4: using guessed type void *TTextBox::`vftable';
+// 10023B4: using guessed type void *TTextBox::`vftable`;
 // 10253C4: using guessed type struct score_msg_font_type *score_msg_fontp;
 
 //----- (01014143) --------------------------------------------------------
@@ -124,7 +124,7 @@ int v4; // edi
 
 v1 = this;
 v2 = *(_DWORD *)((char *)this + 58);
-*(_DWORD *)this = &TTextBox::`vftable';
+*(_DWORD *)this = &TTextBox::`vftable`;
 if ( v2 )
 {
 if ( v2 != -1 )
@@ -145,7 +145,7 @@ while ( v4 );
 }
 return TPinballComponent::~TPinballComponent(v1);
 }
-// 10023B4: using guessed type void *TTextBox::`vftable';
+// 10023B4: using guessed type void *TTextBox::`vftable`;
 
 //----- (01014269) --------------------------------------------------------
 void __usercall TTextBox::Draw(TTextBox *this@<ecx>, int a2@<ebx>)

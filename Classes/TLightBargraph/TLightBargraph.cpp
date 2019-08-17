@@ -11,12 +11,12 @@ TZmapList *__thiscall TLightBargraph::~TLightBargraph(TLightBargraph *this)
 
     v1 = this;
     v2 = *(_DWORD *)((char *)this + 138);
-    *(_DWORD *)this = &TLightBargraph::`vftable';
+    *(_DWORD *)this = &TLightBargraph::`vftable`;
     if ( v2 )
         memoryfree(v2);
     return TLightGroup::~TLightGroup(v1);
 }
-// 1001A30: using guessed type void *TLightBargraph::`vftable';
+// 1001A30: using guessed type void *TLightBargraph::`vftable`;
 
 //----- (0100AAA9) --------------------------------------------------------
 void __thiscall TLightBargraph::Reset(TLightBargraph *this)
@@ -159,7 +159,7 @@ int i; // eax
 
 v3 = this;
 TLightGroup::TLightGroup(this, a2, a3);
-*(_DWORD *)v3 = &TLightBargraph::`vftable';
+*(_DWORD *)v3 = &TLightBargraph::`vftable`;
 *(_DWORD *)((char *)v3 + 138) = 0;
 TLightBargraph::Reset(v3);
 if ( a3 > 0 )
@@ -179,7 +179,7 @@ for ( i = 0; i < v5; ++v4 )
 }
 return v3;
 }
-// 1001A30: using guessed type void *TLightBargraph::`vftable';
+// 1001A30: using guessed type void *TLightBargraph::`vftable`;
 
 //----- (0100AEF9) --------------------------------------------------------
 TLightBargraph *__thiscall TLightBargraph::`vector deleting destructor'(TLightBargraph *this, char a2)

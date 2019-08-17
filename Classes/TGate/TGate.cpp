@@ -41,7 +41,7 @@ int v8; // [esp+40h] [ebp-Ch]
 
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
-*(_DWORD *)v3 = &TGate::`vftable';
+*(_DWORD *)v3 = &TGate::`vftable`;
 loader_query_visual(a3, 0, &v6);
 *(_DWORD *)((char *)v3 + 78) = v7;
 *(_DWORD *)((char *)v3 + 82) = v8;
@@ -51,4 +51,4 @@ render_sprite_set_bitmap(*(_DWORD **)((char *)v3 + 26), *(_DWORD *)(*(_DWORD *)(
 control_handler(1024, v3);
 return v3;
 }
-// 10025F8: using guessed type void *TGate::`vftable';
+// 10025F8: using guessed type void *TGate::`vftable`;

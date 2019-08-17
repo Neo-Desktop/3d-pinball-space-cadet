@@ -99,10 +99,10 @@ TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
 *(_DWORD *)((char *)v3 + 6) = 0;
 *(_DWORD *)((char *)v3 + 86) = 0;
 *(_DWORD *)((char *)v3 + 90) = 0;
-*(_DWORD *)v3 = &TKickback::`vftable';
+*(_DWORD *)v3 = &TKickback::`vftable`;
 *(_DWORD *)((char *)v3 + 78) = 1060320051;
 *(_DWORD *)((char *)v3 + 82) = 1036831949;
 *(_DWORD *)((char *)v3 + 66) = 1315859240;
 return v3;
 }
-// 1002668: using guessed type void *TKickback::`vftable';
+// 1002668: using guessed type void *TKickback::`vftable`;

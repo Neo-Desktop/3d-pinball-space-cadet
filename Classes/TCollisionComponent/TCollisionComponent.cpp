@@ -355,7 +355,7 @@ unsigned int v16; // [esp+48h] [ebp-14h]
 
 v4 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 1);
-*(_DWORD *)v4 = &TCollisionComponent::`vftable';
+*(_DWORD *)v4 = &TCollisionComponent::`vftable`;
 objlist_class::objlist_class((TCollisionComponent *)((char *)v4 + 42), 4, 4);
 v5 = *(_DWORD *)((char *)v4 + 10) == 0;
 *((_BYTE *)v4 + 5) = 1;
@@ -385,7 +385,7 @@ install_wall(v8, v4, (char *)v4 + 5, v7, v6, 0);
 *(_DWORD *)((char *)v4 + 22) = a3;
 return v4;
 }
-// 10024EC: using guessed type void *TCollisionComponent::`vftable';
+// 10024EC: using guessed type void *TCollisionComponent::`vftable`;
 
 //----- (01019172) --------------------------------------------------------
 TZmapList *__thiscall TCollisionComponent::~TCollisionComponent(TCollisionComponent *this)
@@ -397,7 +397,7 @@ void *v4; // edi
 
 v1 = this;
 v2 = *(_DWORD *)((char *)this + 46);
-*(_DWORD *)this = &TCollisionComponent::`vftable';
+*(_DWORD *)this = &TCollisionComponent::`vftable`;
 if ( *(_DWORD *)(v2 + 4) )
 {
 do
@@ -412,4 +412,4 @@ while ( *(_DWORD *)(*(_DWORD *)((char *)v1 + 46) + 4) );
 objlist_destroy(*(_DWORD *)((char *)v1 + 46));
 return TPinballComponent::~TPinballComponent(v1);
 }
-// 10024EC: using guessed type void *TCollisionComponent::`vftable';
+// 10024EC: using guessed type void *TCollisionComponent::`vftable`;

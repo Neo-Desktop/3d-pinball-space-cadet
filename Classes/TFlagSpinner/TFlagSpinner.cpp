@@ -149,7 +149,7 @@ int v18; // [esp+64h] [ebp-8h]
 
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 0);
-*(_DWORD *)v3 = &TFlagSpinner::`vftable';
+*(_DWORD *)v3 = &TFlagSpinner::`vftable`;
 *(_DWORD *)((char *)v3 + 102) = 0;
 loader_query_visual(a3, 0, &v12);
 v15 = *v13;
@@ -191,4 +191,4 @@ if ( v10 )
 *(_DWORD *)((char *)v3 + 86) = *v10;
 return v3;
 }
-// 1002588: using guessed type void *TFlagSpinner::`vftable';
+// 1002588: using guessed type void *TFlagSpinner::`vftable`;

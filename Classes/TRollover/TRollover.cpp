@@ -109,10 +109,10 @@ TRollover *v4; // esi
 
 v4 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, a4);
-*(_DWORD *)v4 = &TRollover::`vftable';
+*(_DWORD *)v4 = &TRollover::`vftable`;
 return v4;
 }
-// 1002614: using guessed type void *TRollover::`vftable';
+// 1002614: using guessed type void *TRollover::`vftable`;
 
 //----- (01019771) --------------------------------------------------------
 TRollover *__thiscall TRollover::TRollover(TRollover *this, struct TPinballTable *a2, int a3)
@@ -123,11 +123,11 @@ int v4; // eax
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 0);
 v4 = *(_DWORD *)((char *)v3 + 34);
-*(_DWORD *)v3 = &TRollover::`vftable';
+*(_DWORD *)v3 = &TRollover::`vftable`;
 *((_BYTE *)v3 + 78) = 0;
 if ( v4 )
 render_sprite_set_bitmap(*(_DWORD **)((char *)v3 + 26), *(_DWORD *)(*(_DWORD *)(v4 + 4) + 8));
 TRollover::build_walls(v3, a3);
 return v3;
 }
-// 1002614: using guessed type void *TRollover::`vftable';
+// 1002614: using guessed type void *TRollover::`vftable`;

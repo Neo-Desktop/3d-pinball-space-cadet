@@ -657,7 +657,7 @@ int i; // ecx
 signed int v5; // [esp+Ch] [ebp-4h]
 
 v1 = this;
-*(_DWORD *)this = &TPinballTable::`vftable';
+*(_DWORD *)this = &TPinballTable::`vftable`;
 v2 = (int *)((char *)this + 102);
 v5 = 4;
 do
@@ -692,7 +692,7 @@ objlist_destroy(*(_DWORD *)((char *)v1 + 262));
 objlist_destroy(*(_DWORD *)((char *)v1 + 254));
 return TPinballComponent::~TPinballComponent(v1);
 }
-// 1002790: using guessed type void *TPinballTable::`vftable';
+// 1002790: using guessed type void *TPinballTable::`vftable`;
 
 //----- (0101A9F2) --------------------------------------------------------
 TPinballTable *__thiscall TPinballTable::`vector deleting destructor`(TPinballTable *this, char a2)
@@ -763,7 +763,7 @@ int i; // [esp+10h] [ebp-4h]
 v1 = 0;
 v2 = this;
 TPinballComponent::TPinballComponent(this, 0, -1, 0);
-*(_DWORD *)v2 = &TPinballTable::`vftable';
+*(_DWORD *)v2 = &TPinballTable::`vftable`;
 objlist_class::objlist_class((TPinballTable *)((char *)v2 + 250), 32, 16);
 objlist_class::objlist_class((TPinballTable *)((char *)v2 + 258), 3, 1);
 *(_DWORD *)((char *)v2 + 50) = 0;
@@ -991,5 +991,5 @@ MissTextBox = TPinballTable::find_component(v2, "mission_text_box");
 control_make_links(v2);
 return v2;
 }
-// 1002790: using guessed type void *TPinballTable::`vftable';
+// 1002790: using guessed type void *TPinballTable::`vftable`;
 

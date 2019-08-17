@@ -44,8 +44,8 @@ TDrain *v3; // esi
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
 *(_DWORD *)((char *)v3 + 86) = 0;
-*(_DWORD *)v3 = &TDrain::`vftable';
+*(_DWORD *)v3 = &TDrain::`vftable`;
 *(_DWORD *)((char *)v3 + 78) = *(_DWORD *)loader_query_float_attribute(a3, 0, 407);
 return v3;
 }
-// 1002720: using guessed type void *TDrain::`vftable';
+// 1002720: using guessed type void *TDrain::`vftable`;

@@ -70,7 +70,7 @@ struct TPinballTable *v46; // [esp+88h] [ebp+8h]
 v2 = a2;
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, -1, 0);
-*(_DWORD *)v3 = &TTableLayer::`vftable';
+*(_DWORD *)v3 = &TTableLayer::`vftable`;
 v45 = (struct TPinballTable *)loader_query_handle("table");
 loader_query_visual((int)v45, 0, &v30);
 v4 = (float *)loader_query_float_attribute((int)v45, 0, 700);
@@ -230,7 +230,7 @@ v26,
 (TTableLayer *)((char *)v3 + 114));
 return v3;
 }
-// 100276C: using guessed type void *TTableLayer::`vftable';
+// 100276C: using guessed type void *TTableLayer::`vftable`;
 
 //----- (0101A928) --------------------------------------------------------
 TZmapList *__thiscall TTableLayer::~TTableLayer(TTableLayer *this)
@@ -238,12 +238,12 @@ TZmapList *__thiscall TTableLayer::~TTableLayer(TTableLayer *this)
 TCollisionComponent *v1; // esi
 
 v1 = this;
-*(_DWORD *)this = &TTableLayer::`vftable';
+*(_DWORD *)this = &TTableLayer::`vftable`;
 if ( edge_manager )
 TEdgeManager::`scalar deleting destructor`(edge_manager, 1);
 return TCollisionComponent::~TCollisionComponent(v1);
 }
-// 100276C: using guessed type void *TTableLayer::`vftable';
+// 100276C: using guessed type void *TTableLayer::`vftable`;
 
 //----- (0101AACD) --------------------------------------------------------
 TTableLayer *__thiscall TTableLayer::`scalar deleting destructor`(TTableLayer *this, char a2)

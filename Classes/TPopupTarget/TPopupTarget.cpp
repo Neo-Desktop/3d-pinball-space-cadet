@@ -124,10 +124,10 @@ int v4; // eax
 
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
-*(_DWORD *)v3 = &TPopupTarget::`vftable';
+*(_DWORD *)v3 = &TPopupTarget::`vftable`;
 v4 = *(_DWORD *)loader_query_float_attribute(a3, 0, 407);
 *(_DWORD *)((char *)v3 + 78) = 0;
 *(_DWORD *)((char *)v3 + 82) = v4;
 return v3;
 }
-// 10025A4: using guessed type void *TPopupTarget::`vftable';
+// 10025A4: using guessed type void *TPopupTarget::`vftable`;

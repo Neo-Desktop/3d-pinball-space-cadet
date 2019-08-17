@@ -2,7 +2,7 @@
 // Created by neo on 2019-08-15.
 //
 
-#include "objlist.h"
+#include "Objlist.h"
 
 //----- (010098D3) --------------------------------------------------------
 objlist_class *__thiscall objlist_class::objlist_class(objlist_class *this, int a2, int a3)
