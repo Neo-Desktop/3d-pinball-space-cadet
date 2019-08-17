@@ -3,13 +3,16 @@
 //
 
 #include "Classes/classes.h"
+#include <CommCtrl.h>
+#include <combaseapi.h>
+#include <Vfw.h>
 #include <wingdi.h>
 #include <wtypes.h>
-#include <Vfw.h>
-#include <combaseapi.h>
 #include <WinUser.h>
+
 #include <Windows.h>
-#include <CommCtrl.h>
+#define WIN32_LEAN_AND_MEAN
+
 
 
 #ifndef PINBALL_PINBALL_H
