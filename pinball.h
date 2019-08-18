@@ -1410,7 +1410,7 @@ float ball_speed_limit; // weak
 _UNKNOWN pb_state; // weak
 CHAR byte_102543C[300]; // idb
 int dword_1025568; // weak
-int dword_102556C; // weak
+int play_midi_music; // weak
 int dword_1025570; // weak
 int dword_1025574; // weak
 CHAR byte_1025578[32]; // idb

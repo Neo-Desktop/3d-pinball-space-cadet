@@ -103,6 +103,33 @@ int __stdcall Sound_Init(HINSTANCE hInstance, int a2, int a3)
 // 1024F68: using guessed type int (__stdcall *dword_1024F68)(_DWORD, _DWORD, _DWORD);
 // 1028208: using guessed type int num_channels;
 
+//----- (010076BF) --------------------------------------------------------
+int __stdcall make_path_name(LPSTR lpFilename, LPCSTR lpString2, DWORD nSize)
+{
+	CHAR* i; // ecx
+
+	DWORD ModuleFileName = GetModuleFileNameA(hinst, lpFilename, nSize);
+	if (ModuleFileName && ModuleFileName != nSize)
+	{
+		for (i = &lpFilename[ModuleFileName]; i > lpFilename; --i)
+		{
+			if (*i == 92 || *i == 58)
+			{
+				i[1] = 0;
+				break;
+			}
+			--ModuleFileName;
+		}
+		if ((ModuleFileName + 13) < nSize)
+		{
+			lstrcatA(lpFilename, lpString2);
+			return 0;
+		}
+		lstrcatA(lpFilename, "?");
+	}
+	return 1;
+}
+
 //----- (01006AF6) --------------------------------------------------------
 HLOCAL __stdcall Sound_Close()
 {
