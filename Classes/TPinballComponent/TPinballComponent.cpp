@@ -26,10 +26,10 @@ int TPinballComponent::get_scoring(int a2)
 }
 
 //----- (01017C6D) --------------------------------------------------------
-TPinballComponent* TPinballComponent::TPinballComponent(struct TPinballTable* a2, int a3, int a4)
+TPinballComponent* TPinballComponent::TPinballComponent(TPinballTable* a2, int a3, int a4)
 {
 	TPinballComponent* this; // esi
-	struct TPinballTable* v5; // edi
+	struct TPinballTable* a2; // edi
 	TZmapList* v6; // eax
 	TZmapList* v7; // eax
 	objlist_class* v8; // ecx
@@ -43,9 +43,6 @@ TPinballComponent* TPinballComponent::TPinballComponent(struct TPinballTable* a2
 	_DWORD* v16; // eax
 	int v17; // eax
 
-	this = this;
-	v5 = a2;
-
 	* (_DWORD*)((char*)this + 6) = 0;
 	*((_BYTE*)this + 4) = 0;
 	*((_BYTE*)this + 5) = 0;
@@ -57,29 +54,29 @@ TPinballComponent* TPinballComponent::TPinballComponent(struct TPinballTable* a2
 		* (_DWORD*)((char*)this + 10) = loader_query_name(a3);
 	if (a4 && a3 >= 0)
 	{
-		v33 = loader_query_visual_states(a3);
-		v31 = 0;
+		this.v33 = loader_query_visual_states(a3);
+		this.v31 = 0;
 		if (v33 > 0)
 		{
 			do
 			{
-				loader_query_visual(a3, (signed int)v31, &v19);
-				if (v20)
+				loader_query_visual(a3, (signed int)this.v31, &v19);
+				if (this.v20)
 				{
 					if (!*(_DWORD*)((char*)this + 34))
 					{
 						v6 = (TZmapList*)operator new(8u);
 						if (v6)
-							v7 = TZmapList::TZmapList(v6, v33, 4);
+							v7 = TZmapList::TZmapList(v6, this.v33, 4);
 						else
 							v7 = 0;
 						*(_DWORD*)((char*)this + 34) = v7;
 					}
 					v8 = *(objlist_class * *)((char*)this + 34);
 					if (v8)
-						objlist_class::Add(v8, v20);
+						objlist_class::Add(v8, this.v20);
 				}
-				if (v21)
+				if (this.v21)
 				{
 					if (!*(_DWORD*)((char*)this + 38))
 					{
@@ -92,10 +89,10 @@ TPinballComponent* TPinballComponent::TPinballComponent(struct TPinballTable* a2
 					}
 					v11 = *(objlist_class * *)((char*)this + 38);
 					if (v11)
-						objlist_class::Add(v11, v21);
+						objlist_class::Add(v11, this.v21);
 				}
-				v31 = (struct TPinballTable*)((char*)v31 + 1);
-			} while ((signed int)v31 < v33);
+				this.v31 = (struct TPinballTable*)((char*)v31 + 1);
+			} while (this.v31 < this.v33);
 		}
 		v12 = *(_DWORD*)((char*)this + 38);
 		if (v12)
@@ -104,34 +101,34 @@ TPinballComponent* TPinballComponent::TPinballComponent(struct TPinballTable* a2
 		if (v13)
 		{
 			v14 = *(_DWORD * *)(*(_DWORD*)(v13 + 4) + 8);
-			v26 = *(_DWORD*)((char*)v14 + 29) - *(_DWORD*)((char*)v5 + 234);
+			this.v26 = *(_DWORD*)((char*)v14 + 29) - *(_DWORD*)((char*)a2 + 234);
 			v15 = 1;
-			v27 = *(_DWORD*)((char*)v14 + 33) - *(_DWORD*)((char*)v5 + 238);
-			v28 = v14[3];
-			v29 = v14[4];
+			this.v27 = *(_DWORD*)((char*)v14 + 33) - *(_DWORD*)((char*)a2 + 238);
+			this.v28 = v14[3];
+			this.v29 = v14[4];
 			if (*(_DWORD*)(*(_DWORD*)(v13 + 4) + 4) > 1)
 			{
-				v32 = (struct TPinballTable*)12;
+				this.v32 = (struct TPinballTable*)12;
 				do
 				{
 					v16 = *(_DWORD * *)((char*)v32 + *(_DWORD*)(*(_DWORD*)((char*)this + 34) + 4));
-					v22 = *(_DWORD*)((char*)v16 + 29) - *(_DWORD*)((char*)v5 + 234);
-					v23 = *(_DWORD*)((char*)v16 + 33) - *(_DWORD*)((char*)v5 + 238);
-					v24 = v16[3];
-					v25 = v16[4];
+					this.v22 = *(_DWORD*)((char*)v16 + 29) - *(_DWORD*)((char*)a2 + 234);
+					this.v23 = *(_DWORD*)((char*)v16 + 33) - *(_DWORD*)((char*)a2 + 238);
+					this.v24 = v16[3];
+					this.v25 = v16[4];
 					enclosing_box(&v26, &v22, &v26);
-					v32 = (struct TPinballTable*)((char*)v32 + 4);
+					this.v32 = (struct TPinballTable*)((char*)v32 + 4);
 					++v15;
 				} while (v15 < *(_DWORD*)(*(_DWORD*)(*(_DWORD*)((char*)this + 34) + 4) + 4));
 			}
 			v17 = *(_DWORD*)(*(_DWORD*)(*(_DWORD*)((char*)this + 34) + 4) + 8);
 			*(_DWORD*)((char*)this + 26) = render_create_sprite(
-				v33 > 0,
+				this.v33 > 0,
 				*(_DWORD*)(*(_DWORD*)(*(_DWORD*)((char*)this + 34) + 4) + 8),
-				v30,
-				*(_DWORD*)(v17 + 29) - *(_DWORD*)((char*)v5 + 234),
-				*(_DWORD*)(v17 + 33) - *(_DWORD*)((char*)v5 + 238),
-				&v26);
+				this.v30,
+				*(_DWORD*)(v17 + 29) - *(_DWORD*)((char*)a2 + 234),
+				*(_DWORD*)(v17 + 33) - *(_DWORD*)((char*)a2 + 238),
+				&this.v26);
 		}
 	}
 	*(_DWORD*)((char*)this + 22) = a3;
@@ -140,7 +137,7 @@ TPinballComponent* TPinballComponent::TPinballComponent(struct TPinballTable* a2
 // 10024A8: using guessed type void *TPinballComponent::vftable;
 
 //----- (01018FBC) --------------------------------------------------------
-TZmapList* __thiscall TPinballComponent::~TPinballComponent(TPinballComponent* this)
+TZmapList* TPinballComponent::~TPinballComponent(TPinballComponent* this)
 {
 	TPinballComponent* v1; // esi
 	TZmapList* result; // eax
@@ -161,54 +158,3 @@ TZmapList* __thiscall TPinballComponent::~TPinballComponent(TPinballComponent* t
 			return result;
 }
 // 10024A8: using guessed type void *TPinballComponent::vftable;
-
-//----- (01018FFD) --------------------------------------------------------
-TComponentGroup* __thiscall TComponentGroup::TComponentGroup(TComponentGroup* this, struct TPinballTable* a2, int a3)
-{
-	TComponentGroup* v3; // esi
-	int v4; // eax
-	signed __int16* i; // edi
-	struct TPinballComponent* v6; // eax
-	int v8; // [esp+Ch] [ebp-4h]
-	int v9; // [esp+1Ch] [ebp+Ch]
-
-	v3 = this;
-	TPinballComponent::TPinballComponent(this, a2, a3, 0);
-	*(_DWORD*)v3 = &TComponentGroup::vftable;
-		objlist_class::objlist_class((TComponentGroup*)((char*)v3 + 42), 4, 4);
-	*(_DWORD*)((char*)v3 + 50) = 0;
-	if (a3 > 0)
-	{
-		v4 = loader_query_iattribute(a3, 1027, &v8);
-		v9 = 0;
-		for (i = (signed __int16*)v4; v9 < v8; ++i)
-		{
-			v6 = TPinballTable::find_component(a2, *i);
-			if (v6)
-				objlist_class::Add((TComponentGroup*)((char*)v3 + 42), (void*)v6);
-			++v9;
-		}
-	}
-	return v3;
-}
-// 10024D8: using guessed type void *TComponentGroup::vftable;
-
-//----- (01019082) --------------------------------------------------------
-TZmapList* __thiscall TComponentGroup::~TComponentGroup(TComponentGroup* this)
-{
-	TComponentGroup* v1; // esi
-	int v2; // eax
-
-	v1 = this;
-	v2 = *(_DWORD*)((char*)this + 50);
-	*(_DWORD*)this = &TComponentGroup::vftable;
-		if (v2)
-		{
-			timer_kill(v2);
-			*(_DWORD*)((char*)v1 + 50) = 0;
-		}
-	objlist_destroy(*(_DWORD*)((char*)v1 + 46));
-	return TPinballComponent::~TPinballComponent(v1);
-}
-// 10024D8: using guessed type void *TComponentGroup::vftable;
-
