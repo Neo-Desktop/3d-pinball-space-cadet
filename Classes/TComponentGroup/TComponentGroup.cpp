@@ -46,7 +46,7 @@ return 0;
 }
 
 //----- (0101AA81) --------------------------------------------------------
-TComponentGroup *__thiscall TComponentGroup::`scalar deleting destructor`(TComponentGroup *this, char a2)
+TComponentGroup *__thiscall TComponentGroup::destroy(TComponentGroup *this, char a2)
 {
 TComponentGroup *v2; // esi
 
@@ -56,3 +56,54 @@ if ( a2 & 1 )
 operator delete((void *)v2);
 return v2;
 }
+
+//----- (01018FFD) --------------------------------------------------------
+TComponentGroup* __thiscall TComponentGroup::TComponentGroup(TComponentGroup* this, struct TPinballTable* a2, int a3)
+{
+	TComponentGroup* v3; // esi
+	int v4; // eax
+	signed __int16* i; // edi
+	struct TPinballComponent* v6; // eax
+	int v8; // [esp+Ch] [ebp-4h]
+	int v9; // [esp+1Ch] [ebp+Ch]
+
+	v3 = this;
+	TPinballComponent::TPinballComponent(this, a2, a3, 0);
+	*(_DWORD*)v3 = &TComponentGroup::vftable;
+	objlist_class::objlist_class((TComponentGroup*)((char*)v3 + 42), 4, 4);
+	*(_DWORD*)((char*)v3 + 50) = 0;
+	if (a3 > 0)
+	{
+		v4 = loader_query_iattribute(a3, 1027, &v8);
+		v9 = 0;
+		for (i = (signed __int16*)v4; v9 < v8; ++i)
+		{
+			v6 = TPinballTable::find_component(a2, *i);
+			if (v6)
+				objlist_class::Add((TComponentGroup*)((char*)v3 + 42), (void*)v6);
+			++v9;
+		}
+	}
+	return v3;
+}
+// 10024D8: using guessed type void *TComponentGroup::vftable;
+
+//----- (01019082) --------------------------------------------------------
+TZmapList* __thiscall TComponentGroup::~TComponentGroup(TComponentGroup* this)
+{
+	TComponentGroup* v1; // esi
+	int v2; // eax
+
+	v1 = this;
+	v2 = *(_DWORD*)((char*)this + 50);
+	*(_DWORD*)this = &TComponentGroup::vftable;
+	if (v2)
+	{
+		timer_kill(v2);
+		*(_DWORD*)((char*)v1 + 50) = 0;
+	}
+	objlist_destroy(*(_DWORD*)((char*)v1 + 46));
+	return TPinballComponent::~TPinballComponent(v1);
+}
+// 10024D8: using guessed type void *TComponentGroup::vftable;
+

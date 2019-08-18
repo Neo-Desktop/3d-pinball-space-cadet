@@ -119,7 +119,7 @@ return v4;
 // 1002530: using guessed type void *TOneway::vftable;
 
 //----- (0101AAA7) --------------------------------------------------------
-TOneway *__thiscall TOneway::`scalar deleting destructor`(TOneway *this, char a2)
+TOneway *__thiscall TOneway::destroy(TOneway *this, char a2)
 {
 TOneway *v2; // esi
 

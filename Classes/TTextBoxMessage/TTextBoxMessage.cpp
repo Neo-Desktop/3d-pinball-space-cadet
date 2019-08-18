@@ -37,7 +37,7 @@ void __thiscall TTextBoxMessage::Refresh(TTextBoxMessage *this, float a2)
 // 1024F84: using guessed type int time_ticks;
 
 //----- (01014115) --------------------------------------------------------
-TTextBoxMessage *__thiscall TTextBoxMessage::`scalar deleting destructor`(TTextBoxMessage *this, char a2)
+TTextBoxMessage *__thiscall TTextBoxMessage::destroy(TTextBoxMessage *this, char a2)
 {
 TTextBoxMessage *v2; // esi
 

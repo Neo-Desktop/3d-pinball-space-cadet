@@ -21,6 +21,6 @@ TEdgeManager* __thiscall TEdgeManager::TEdgeManager(TEdgeManager* this, float a2
 void __thiscall TEdgeManager::add_edge_to_box(TEdgeManager* this, int, int, struct TEdgeSegment*); // idb
 void __thiscall TEdgeManager::add_field_to_box(TEdgeManager* this, int, int, struct field_effect_type*); // idb
 TEdgeBox* __thiscall TEdgeManager::~TEdgeManager(TEdgeManager* this);
-TEdgeManager* __thiscall TEdgeManager::`scalar deleting destructor`(TEdgeManager* this, char a2);
+TEdgeManager* __thiscall TEdgeManager::destroy(TEdgeManager* this, char a2);
 
 #endif //PINBALL_TEDGEMANAGER_H

@@ -154,10 +154,10 @@ TZmapList* __thiscall TPinballComponent::~TPinballComponent(TPinballComponent* t
 			result = (TZmapList*)objlist_delete_object(*(_DWORD*)((char*)result + 254), (int)this);
 	v3 = *(TZmapList * *)((char*)v1 + 34);
 	if (v3)
-		result = TZmapList::`scalar deleting destructor`(v3, 1);
+		result = TZmapList::destroy(v3, 1);
 		v4 = *(TZmapList * *)((char*)v1 + 38);
 		if (v4)
-			result = TZmapList::`scalar deleting destructor`(v4, 1);
+			result = TZmapList::destroy(v4, 1);
 			return result;
 }
 // 10024A8: using guessed type void *TPinballComponent::vftable;

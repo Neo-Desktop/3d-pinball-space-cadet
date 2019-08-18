@@ -91,7 +91,7 @@ while ( *(_DWORD *)((char *)v2 + 70) )
 v5 = *(TTextBoxMessage **)((char *)v2 + 70);
 v6 = *(_DWORD *)v5;
 if ( v5 )
-TTextBoxMessage::`scalar deleting destructor`(v5, 1);
+TTextBoxMessage::destroy(v5, 1);
 *(_DWORD *)((char *)v2 + 70) = v6;
 }
 }
@@ -107,7 +107,7 @@ v3 = *(TTextBoxMessage **)((char *)a3 + 70);
 if ( v3 )
 {
 v4 = *(_DWORD *)v3;
-TTextBoxMessage::`scalar deleting destructor`(v3, 1);
+TTextBoxMessage::destroy(v3, 1);
 *(_DWORD *)((char *)a3 + 70) = v4;
 TTextBox::Draw(a3, a1);
 control_handler(60, a3);
@@ -138,7 +138,7 @@ do
 v3 = *(TTextBoxMessage **)((char *)v1 + 70);
 v4 = *(_DWORD *)v3;
 if ( v3 )
-TTextBoxMessage::`scalar deleting destructor`(v3, 1);
+TTextBoxMessage::destroy(v3, 1);
 *(_DWORD *)((char *)v1 + 70) = v4;
 }
 while ( v4 );
@@ -305,7 +305,7 @@ goto LABEL_18;
 v5 = *(_DWORD *)v4;
 }
 if ( v4 )
-TTextBoxMessage::`scalar deleting destructor`((TTextBoxMessage *)v4, 1);
+TTextBoxMessage::destroy((TTextBoxMessage *)v4, 1);
 *(_DWORD *)((char *)v2 + 70) = v5;
 }
 gdrv_blit(
@@ -358,7 +358,7 @@ TTextBox::Draw(v4, a2);
 }
 else
 {
-TTextBoxMessage::`scalar deleting destructor`(v10, 1);
+TTextBoxMessage::destroy(v10, 1);
 }
 }
 }
@@ -380,7 +380,7 @@ else
 }
 
 //----- (010145CF) --------------------------------------------------------
-TTextBox *__thiscall TTextBox::`scalar deleting destructor`(TTextBox *this, char a2)
+TTextBox *__thiscall TTextBox::destroy(TTextBox *this, char a2)
 {
 TTextBox *v2; // esi
 

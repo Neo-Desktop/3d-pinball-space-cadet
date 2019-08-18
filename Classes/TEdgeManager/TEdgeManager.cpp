@@ -529,7 +529,7 @@ return v6;
 }
 
 //----- (01017441) --------------------------------------------------------
-TEdgeManager *__thiscall TEdgeManager::`scalar deleting destructor`(TEdgeManager *this, char a2)
+TEdgeManager *__thiscall TEdgeManager::destroy(TEdgeManager *this, char a2)
 {
 TEdgeManager *v2; // esi
 

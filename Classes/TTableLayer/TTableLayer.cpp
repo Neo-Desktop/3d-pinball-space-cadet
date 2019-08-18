@@ -240,13 +240,13 @@ TCollisionComponent *v1; // esi
 v1 = this;
 *(_DWORD *)this = &TTableLayer::vftable;
 if ( edge_manager )
-TEdgeManager::`scalar deleting destructor`(edge_manager, 1);
+TEdgeManager::destroy(edge_manager, 1);
 return TCollisionComponent::~TCollisionComponent(v1);
 }
 // 100276C: using guessed type void *TTableLayer::vftable;
 
 //----- (0101AACD) --------------------------------------------------------
-TTableLayer *__thiscall TTableLayer::`scalar deleting destructor`(TTableLayer *this, char a2)
+TTableLayer *__thiscall TTableLayer::destroy(TTableLayer *this, char a2)
 {
 TTableLayer *v2; // esi
 

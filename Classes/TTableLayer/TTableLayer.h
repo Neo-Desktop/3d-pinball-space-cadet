@@ -13,7 +13,7 @@ struct TTableLayer;
 int __thiscall TTableLayer::FieldEffect(TTableLayer* this, struct TBall*, struct vector_type*); // idb
 TTableLayer* __thiscall TTableLayer::TTableLayer(TTableLayer* this, struct TPinballTable* a2);
 TZmapList* __thiscall TTableLayer::~TTableLayer(TTableLayer* this);
-TTableLayer* __thiscall TTableLayer::`scalar deleting destructor`(TTableLayer* this, char a2);
+TTableLayer* __thiscall TTableLayer::destroy(TTableLayer* this, char a2);
 
 void* TTableLayer::vftable = &TPinballComponent::Message; // weak
 

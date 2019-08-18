@@ -10,7 +10,7 @@ objlist_class::objlist_class(this, a2, a3);
 return v3;
 }
 //----- (01017E5C) --------------------------------------------------------
-TZmapList *__thiscall TZmapList::`scalar deleting destructor`(TZmapList *this, char a2)
+TZmapList *__thiscall TZmapList::destroy(TZmapList *this, char a2)
 {
 TZmapList *v2; // esi
 
