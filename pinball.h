@@ -588,9 +588,9 @@ int dword_10237E8 = 0; // weak
 int dword_10237F0 = 0; // weak
 int dword_1023808 = 0; // weak
 int dword_1023810 = 0; // weak
-char *off_1023814 = "lite30"; // weak
+char *lite30 = "lite30"; // weak
 int dword_1023818 = 0; // weak
-char *off_102381C = "lite29"; // weak
+char *lite29 = "lite29"; // weak
 int dword_1023820 = 0; // weak
 int dword_1023828 = 0; // weak
 int dword_1023830 = 0; // weak
@@ -599,30 +599,30 @@ int dword_1023840 = 0; // weak
 struct TPinballComponent *dword_1023860 = NULL; // idb
 int dword_1023868 = 0; // weak
 int dword_1023870 = 0; // weak
-char *off_1023874 = "lite54"; // weak
+char *lite54 = "lite54"; // weak
 int dword_1023878 = 0; // weak
-char *off_102387C = "lite55"; // weak
+char *lite55 = "lite55"; // weak
 int dword_1023880 = 0; // weak
-char *off_1023884 = "lite56"; // weak
+char *lite56 = "lite56"; // weak
 int dword_1023888 = 0; // weak
 int dword_102389C = 0; // weak
 int dword_10238A4 = 0; // weak
-char *off_10238A8 = "lite17"; // weak
+char *lite17 = "lite17"; // weak
 int dword_10238AC = 0; // weak
-char *off_10238B0 = "lite18"; // weak
+char *lite18 = "lite18"; // weak
 int dword_10238B4 = 0; // weak
 int dword_10238C0 = 0; // weak
 int dword_10238C8 = 0; // weak
-char *off_10238CC = "lite27"; // weak
+char *lite27 = "lite27"; // weak
 int dword_10238D0 = 0; // weak
-char *off_10238D4 = "lite28"; // weak
+char *lite28 = "lite28"; // weak
 int dword_10238D8 = 0; // weak
 int dword_10238E8 = 0; // weak
-char *off_10238EC = "lite16"; // weak
+char *lite16 = "lite16"; // weak
 int dword_10238F0 = 0; // weak
 int dword_1023924 = 0; // weak
 int dword_1023930 = 0; // weak
-char *off_102393C = "lite20"; // weak
+char *lite20 = "lite20"; // weak
 int dword_1023940 = 0; // weak
 int dword_1023948 = 0; // weak
 int dword_1023950 = 0; // weak
@@ -633,11 +633,11 @@ int dword_1023970 = 0; // weak
 int dword_1023978 = 0; // weak
 int dword_1023980 = 0; // weak
 struct TPinballComponent *dword_10239A8 = NULL; // idb
-char *off_10239AC = "lite25"; // weak
+char *lite25 = "lite25"; // weak
 int dword_10239B0 = 0; // weak
-char *off_10239B4 = "lite26"; // weak
+char *lite26 = "lite26"; // weak
 int dword_10239B8 = 0; // weak
-char *off_10239BC = "lite130"; // weak
+char *lite130 = "lite130"; // weak
 int dword_10239C0 = 0; // weak
 int dword_10239C8 = 0; // weak
 int dword_10239D0 = 0; // weak
@@ -648,7 +648,7 @@ int dword_1023A04 = 0; // weak
 int dword_1023A0C = 0; // weak
 int dword_1023A14 = 0; // weak
 int dword_1023A1C = 0; // weak
-char *off_1023A20 = "lite4"; // weak
+char *lite4 = "lite4"; // weak
 int dword_1023A24 = 0; // weak
 int dword_1023A2C = 0; // weak
 int dword_1023A34 = 0; // weak
@@ -661,7 +661,7 @@ char **lites[9] =
                 &off_1023A00,
                 &off_1023A08,
                 &off_1023A10,
-                &off_1023A20,
+                &lite4,
                 &off_1023A28,
                 &off_1023A30
         }; // weak
@@ -670,11 +670,11 @@ char **off_1023A4C[6] =
                 &off_1023A00,
                 &off_1023A08,
                 &off_1023A10,
-                &off_1023A20,
+                &lite4,
                 &off_1023A28,
                 &off_1023A30
         }; // weak
-char **off_1023A58[3] = { &off_1023A20, &off_1023A28, &off_1023A30 }; // weak
+char **off_1023A58[3] = { &lite4, &off_1023A28, &off_1023A30 }; // weak
 int dword_1023A74 = 0; // weak
 int dword_1023A7C = 0; // weak
 int dword_1023A84 = 0; // weak
@@ -683,13 +683,13 @@ int dword_1023A94 = 0; // weak
 int dword_1023A9C = 0; // weak
 int dword_1023AA4 = 0; // weak
 int dword_1023AAC = 0; // weak
-char *off_1023AB0 = "lite61"; // weak
+char *lite61 = "lite61"; // weak
 int dword_1023AB4 = 0; // weak
-char *off_1023AB8 = "lite60"; // weak
+char *lite60 = "lite60"; // weak
 int dword_1023ABC = 0; // weak
-char *off_1023AC0 = "lite59"; // weak
+char *lite59 = "lite59"; // weak
 int dword_1023AC4 = 0; // weak
-char *off_1023AC8 = "lite58"; // weak
+char *lite58 = "lite58"; // weak
 int dword_1023ACC = 0; // weak
 int dword_1023ADC = 0; // weak
 int dword_1023AE4 = 0; // weak
@@ -713,7 +713,7 @@ int dword_1023B9C = 0; // weak
 int dword_1023BA4 = 0; // weak
 int dword_1023BAC = 0; // weak
 int dword_1023BB4 = 0; // weak
-char *off_1023BB8 = "lite198"; // weak
+char *lite198 = "lite198"; // weak
 int dword_1023BBC = 0; // weak
 int dword_1023BC8 = 0; // weak
 int dword_1023BD0 = 0; // weak
@@ -730,14 +730,14 @@ int dword_1023C20 = 0; // weak
 int dword_1023C28 = 0; // weak
 int dword_1023C30 = 0; // weak
 int dword_1023C3C = 0; // weak
-char *off_1023C40 = "lite110"; // weak
+char *lite110 = "lite110"; // weak
 int dword_1023C44 = 0; // weak
 int dword_1023C50 = 0; // weak
 int dword_1023C5C = 0; // weak
 int dword_1023C68 = 0; // weak
 int dword_1023C70 = 0; // weak
 int dword_1023C7C = 0; // weak
-char *off_1023CB0 = "lite67"; // weak
+char *lite67 = "lite67"; // weak
 int dword_1023CB4 = 0; // weak
 int dword_1023CBC = 0; // weak
 int dword_1023CC4 = 0; // weak
@@ -748,9 +748,9 @@ int dword_1023CE4 = 0; // weak
 int dword_1023CEC = 0; // weak
 int dword_1023CF4 = 0; // weak
 int dword_1023CFC = 0; // weak
-char *off_1023D00 = "lite200"; // weak
+char *lite200 = "lite200"; // weak
 int dword_1023D04 = 0; // weak
-char *off_1023D08 = "lite199"; // weak
+char *lite199 = "lite199"; // weak
 int dword_1023D0C = 0; // weak
 int dword_1023D14 = 0; // weak
 int dword_1023D1C = 0; // weak
@@ -789,9 +789,9 @@ TTextBox *dword_1023E24 = NULL; // idb
 int dword_1023E34 = 0; // weak
 int dword_1023E3C = 0; // weak
 int dword_1023E44 = 0; // weak
-char *off_1023E48 = "lite303"; // weak
+char *lite303 = "lite303"; // weak
 int dword_1023E4C = 0; // weak
-char *off_1023E50 = "lite304"; // weak
+char *lite304 = "lite304"; // weak
 int dword_1023E54 = 0; // weak
 int dword_1023E5C = 0; // weak
 int dword_1023E64 = 0; // weak
@@ -802,16 +802,16 @@ int dword_1023E84 = 0; // weak
 int dword_1023E8C = 0; // weak
 int dword_1023E94 = 0; // weak
 int dword_1023E9C = 0; // weak
-char *off_1023EA0 = "lite314"; // weak
+char *lite314 = "lite314"; // weak
 int dword_1023EA4 = 0; // weak
 int dword_1023EAC = 0; // weak
-char *off_1023EB0 = "lite316"; // weak
+char *lite316 = "lite316"; // weak
 int dword_1023EB4 = 0; // weak
-char *off_1023EB8 = "lite317"; // weak
+char *lite317 = "lite317"; // weak
 int dword_1023EBC = 0; // weak
-char *off_1023EC0 = "lite318"; // weak
+char *lite318 = "lite318"; // weak
 int dword_1023EC4 = 0; // weak
-char *off_1023EC8 = "lite319"; // weak
+char *lite319 = "lite319"; // weak
 int dword_1023ECC = 0; // weak
 int dword_1023ED4 = 0; // weak
 int dword_1023EDC = 0; // weak
@@ -828,28 +828,28 @@ char **off_1024470[142] =
                 &off_102377C,
                 &off_1023784,
                 &off_102378C,
-                &off_1023814,
-                &off_102381C,
+                &lite30,
+                &lite29,
                 &off_1023864,
-                &off_1023874,
-                &off_102387C,
-                &off_1023884,
-                &off_10238B0,
-                &off_10238CC,
-                &off_10238D4,
-                &off_10238EC,
+                &lite54,
+                &lite55,
+                &lite56,
+                &lite18,
+                &lite27,
+                &lite28,
+                &lite16,
                 &off_1023984,
                 &off_102398C,
                 &off_1023994,
                 &off_102399C,
-                &off_10239AC,
-                &off_10239B4,
-                &off_10239BC,
+                &lite25,
+                &lite26,
+                &lite130,
                 &off_1023A00,
                 &off_1023A08,
                 &off_1023A10,
                 &off_1023A18,
-                &off_1023A20,
+                &lite4,
                 &off_1023A28,
                 &off_1023A30,
                 &off_1023A38,
@@ -862,10 +862,10 @@ char **off_1024470[142] =
                 &off_1023964,
                 &off_102396C,
                 &off_1023974,
-                &off_102393C,
+                &lite20,
                 &off_10239CC,
-                &off_1023AB0,
-                &off_1023AC8,
+                &lite61,
+                &lite58,
                 &off_1023AF0,
                 &off_1023AF8,
                 &off_1023B00,
@@ -885,9 +885,9 @@ char **off_1024470[142] =
                 &off_1023C1C,
                 &off_1023C24,
                 &off_1023C2C,
-                &off_1023C40,
+                &lite110,
                 &off_1023C6C,
-                &off_1023CB0,
+                &lite67,
                 &off_1023CB8,
                 &off_1023CC0,
                 &off_1023CC8,
@@ -895,7 +895,7 @@ char **off_1024470[142] =
                 &off_1023CD8,
                 &off_1023CE0,
                 &off_1023CE8,
-                &off_1023BB8,
+                &lite198,
                 &off_1023CF0,
                 &off_1023CF8,
                 &off_1023D10,
@@ -924,7 +924,7 @@ char **off_1024470[142] =
                 &off_1023DD0,
                 &off_1023DD8,
                 &off_1023DE0,
-                &off_1023D08,
+                &lite199,
                 &off_1023824,
                 &off_102382C,
                 &off_1023E18,
@@ -939,8 +939,8 @@ char **off_1024470[142] =
                 &off_1023E30,
                 &off_1023E38,
                 &off_1023E40,
-                &off_1023E48,
-                &off_1023E50,
+                &lite303,
+                &lite304,
                 &off_1023E58,
                 &off_1023E60,
                 &off_1023E68,
@@ -950,12 +950,12 @@ char **off_1024470[142] =
                 &off_1023E88,
                 &off_1023E90,
                 &off_1023E98,
-                &off_1023EA0,
+                &lite314,
                 &off_1023EA8,
-                &off_1023EB0,
-                &off_1023EB8,
-                &off_1023EC0,
-                &off_1023EC8,
+                &lite316,
+                &lite317,
+                &lite318,
+                &lite319,
                 &off_1023ED0,
                 &off_1023ED8,
                 &off_1023EE0,

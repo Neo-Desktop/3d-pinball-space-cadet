@@ -877,7 +877,7 @@ render_init(0, v16, v17, *v2, v2[1]);
 gdrv_copy_bitmap(&vscreen, v3[3], v3[4], *(_DWORD *)((char *)v3 + 29), *(_DWORD *)((char *)v3 + 33), v3, 0, 0);
 gdrv_destroy_bitmap((int)v3);
 loader_loadfrom((_WORD *)pb_record_table);
-if ( dword_102556C )
+if ( play_midi_music )
 pb_mode_change(1);
 else
 pb_mode_change(3);
@@ -899,7 +899,7 @@ return result;
 // 1024F04: using guessed type int memory_critical_allocation;
 // 1024F84: using guessed type int time_ticks;
 // 10253D0: using guessed type float ball_speed_limit;
-// 102556C: using guessed type int dword_102556C;
+// 102556C: using guessed type int play_midi_music;
 
 //----- (0101566E) --------------------------------------------------------
 int __stdcall pb_uninit()

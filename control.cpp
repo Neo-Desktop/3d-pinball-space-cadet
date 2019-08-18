@@ -89,7 +89,7 @@ v4 = (double)v6;
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023A3C)(23, LODWORD(v4));
 v5 = (double)(3 - v3);
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023A3C)(11, LODWORD(v5));
-if ( !light_on((struct component_tag *)&off_1023A20) )
+if ( !light_on((struct component_tag *)&lite4) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023A1C)(19, 0.0);
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023A3C)(19, 0.0);
@@ -98,7 +98,7 @@ if ( !light_on((struct component_tag *)&off_1023A20) )
 }
 }
 // 1023A1C: using guessed type int dword_1023A1C;
-// 1023A20: using guessed type char *off_1023A20;
+// 1023A20: using guessed type char *lite4;
 // 1023A24: using guessed type int dword_1023A24;
 // 1023A3C: using guessed type int dword_1023A3C;
 // 1023BBC: using guessed type int dword_1023BBC;
@@ -237,7 +237,7 @@ v6 = TPinballTable::AddScore(dword_1025040, v5);
 v7 = get_rc_string(21, 0);
 _sprintf(&Dest, v7, v6);
 TTextBox::Display(dword_1023E1C, a1, &Dest, 2.0);
-if ( !light_on((struct component_tag *)&off_1023884) )
+if ( !light_on((struct component_tag *)&lite56) )
 {
 v8 = (void (__thiscall ***)(_DWORD, signed int, _DWORD))dword_1023A8C;
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023A8C)(34, 0.0);
@@ -251,7 +251,7 @@ v9 = (void (__thiscall ***)(_DWORD, signed int, _DWORD))dword_1023A94;
 }
 }
 // 100C63A: could not find valid save-restore pair for esi
-// 1023884: using guessed type char *off_1023884;
+// 1023884: using guessed type char *lite56;
 // 1023A8C: using guessed type int dword_1023A8C;
 // 1023A94: using guessed type int dword_1023A94;
 // 1023CE4: using guessed type int dword_1023CE4;
@@ -323,7 +323,7 @@ char Dest; // [esp+Ch] [ebp-44h]
 if ( a2 == 63 )
 {
 v3 = 0;
-if ( light_on((struct component_tag *)&off_1023874) )
+if ( light_on((struct component_tag *)&lite54) )
 {
 v3 = 1;
 v4 = SpecialAddScore(*(_DWORD *)((char *)dword_1025040 + 302));
@@ -331,9 +331,9 @@ v5 = get_rc_string(10, 0);
 _sprintf(&Dest, v5, v4);
 TTextBox::Display(dword_1023E1C, a1, &Dest, 2.0);
 }
-if ( light_on((struct component_tag *)&off_102387C) )
+if ( light_on((struct component_tag *)&lite55) )
 v3 |= 2u;
-if ( light_on((struct component_tag *)&off_1023884) )
+if ( light_on((struct component_tag *)&lite56) )
 v3 |= 4u;
 if ( v3 )
 {
@@ -359,9 +359,9 @@ v7 = dword_1023D3C;
 (*(void (**)(void))(*(_DWORD *)v7 + 20))();
 }
 }
-// 1023874: using guessed type char *off_1023874;
-// 102387C: using guessed type char *off_102387C;
-// 1023884: using guessed type char *off_1023884;
+// 1023874: using guessed type char *lite54;
+// 102387C: using guessed type char *lite55;
+// 1023884: using guessed type char *lite56;
 // 1023D24: using guessed type int dword_1023D24;
 // 1023D2C: using guessed type int dword_1023D2C;
 // 1023D34: using guessed type int dword_1023D34;
@@ -408,7 +408,7 @@ if ( a4 == 63 )
 {
 v17 = a3;
 v5 = (void (__thiscall ***)(_DWORD, signed int, _DWORD))dword_1023A8C;
-if ( !light_on((struct component_tag *)&off_1023884)
+if ( !light_on((struct component_tag *)&lite56)
 && ((int (__thiscall *)(_DWORD, signed int, _DWORD))**v5)(v5, 39, 0.0) )
 {
 (**v5)(v5, 34, 0.0);
@@ -476,7 +476,7 @@ TPinballTable::AddScore(dword_1025040, v16);
 // 1023724: using guessed type int dword_1023724;
 // 102372C: using guessed type int dword_102372C;
 // 1023734: using guessed type int dword_1023734;
-// 1023884: using guessed type char *off_1023884;
+// 1023884: using guessed type char *lite56;
 // 1023A8C: using guessed type int dword_1023A8C;
 // 1023A94: using guessed type int dword_1023A94;
 
@@ -579,7 +579,7 @@ int v5; // eax
 
 if ( a3 == 63 )
 {
-if ( light_on((struct component_tag *)&off_10238A8) || light_on((struct component_tag *)&off_10238B0) )
+if ( light_on((struct component_tag *)&lite17) || light_on((struct component_tag *)&lite18) )
 {
 table_add_extra_ball(a1, 2.0);
 (**(void (__stdcall ***)(signed int, _DWORD))dword_10238AC)(20, 0.0);
@@ -591,7 +591,7 @@ else
 }
 if ( (struct TPinballComponent *)dword_102389C == a4 )
 {
-if ( light_on((struct component_tag *)&off_1023814) )
+if ( light_on((struct component_tag *)&lite30) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD, int))dword_1023818)(4, 0.0, a2);
 v4 = (void (__stdcall ***)(signed int))dword_1023828;
@@ -600,7 +600,7 @@ LABEL_11:
 goto LABEL_12;
 }
 }
-else if ( light_on((struct component_tag *)&off_102381C) )
+else if ( light_on((struct component_tag *)&lite29) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD, int))dword_1023820)(4, 0.0, a2);
 v4 = (void (__stdcall ***)(signed int))dword_1023830;
@@ -612,16 +612,16 @@ TPinballTable::AddScore(dword_1025040, v5);
 }
 }
 // 100CC20: could not find valid save-restore pair for esi
-// 1023814: using guessed type char *off_1023814;
+// 1023814: using guessed type char *lite30;
 // 1023818: using guessed type int dword_1023818;
-// 102381C: using guessed type char *off_102381C;
+// 102381C: using guessed type char *lite29;
 // 1023820: using guessed type int dword_1023820;
 // 1023828: using guessed type int dword_1023828;
 // 1023830: using guessed type int dword_1023830;
 // 102389C: using guessed type int dword_102389C;
-// 10238A8: using guessed type char *off_10238A8;
+// 10238A8: using guessed type char *lite17;
 // 10238AC: using guessed type int dword_10238AC;
-// 10238B0: using guessed type char *off_10238B0;
+// 10238B0: using guessed type char *lite18;
 // 10238B4: using guessed type int dword_10238B4;
 // 1023E04: using guessed type int dword_1023E04;
 
@@ -658,7 +658,7 @@ if ( a2 == 63 )
 {
 if ( (struct TPinballComponent *)dword_10238C0 == a3 )
 {
-if ( light_on((struct component_tag *)&off_10238CC) )
+if ( light_on((struct component_tag *)&lite27) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD, int))dword_1023AC4)(20, 0.0, a1);
 v3 = (void (__stdcall ***)(signed int))dword_10238D0;
@@ -674,7 +674,7 @@ else
 {
 if ( (struct TPinballComponent *)dword_10238C8 != a3 )
 return;
-if ( light_on((struct component_tag *)&off_10238D4) )
+if ( light_on((struct component_tag *)&lite28) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD, int))dword_1023AC4)(20, 0.0, a1);
 v3 = (void (__stdcall ***)(signed int))dword_10238D8;
@@ -688,9 +688,9 @@ goto LABEL_10;
 // 100CDA0: could not find valid save-restore pair for esi
 // 10238C0: using guessed type int dword_10238C0;
 // 10238C8: using guessed type int dword_10238C8;
-// 10238CC: using guessed type char *off_10238CC;
+// 10238CC: using guessed type char *lite27;
 // 10238D0: using guessed type int dword_10238D0;
-// 10238D4: using guessed type char *off_10238D4;
+// 10238D4: using guessed type char *lite28;
 // 10238D8: using guessed type int dword_10238D8;
 // 1023AC4: using guessed type int dword_1023AC4;
 
@@ -705,7 +705,7 @@ char Dest; // [esp+Ch] [ebp-44h]
 
 if ( a2 == 63 )
 {
-if ( light_on((struct component_tag *)&off_10238EC) )
+if ( light_on((struct component_tag *)&lite16) )
 {
 v3 = SpecialAddScore(*(_DWORD *)((char *)dword_1025040 + 306));
 v4 = get_rc_string(3, 0);
@@ -725,7 +725,7 @@ TTextBox::Display(dword_1023E1C, a1, v6, 2.0);
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023978)(45, 11.0);
 }
 }
-// 10238EC: using guessed type char *off_10238EC;
+// 10238EC: using guessed type char *lite16;
 // 10238F0: using guessed type int dword_10238F0;
 // 1023978: using guessed type int dword_1023978;
 // 1023D4C: using guessed type int dword_1023D4C;
@@ -1067,13 +1067,13 @@ if ( *(_DWORD *)(dword_1023A9C + 6) + *(_DWORD *)(dword_1023AA4 + 6) + *(_DWORD 
 v5 = (*(int (__thiscall **)(struct TPinballComponent *, _DWORD))(*(_DWORD *)a2 + 8))(a2, 0);
 goto LABEL_19;
 }
-if ( light_on((struct component_tag *)&off_1023AB0) )
+if ( light_on((struct component_tag *)&lite61) )
 {
-if ( light_on((struct component_tag *)&off_1023AB8) )
+if ( light_on((struct component_tag *)&lite60) )
 {
-if ( light_on((struct component_tag *)&off_1023AC0) )
+if ( light_on((struct component_tag *)&lite59) )
 {
-if ( light_on((struct component_tag *)&off_1023AC8) )
+if ( light_on((struct component_tag *)&lite58) )
 {
 v4 = (*(int (__thiscall **)(struct TPinballComponent *, signed int))(*(_DWORD *)a2 + 8))(a2, 1);
 TPinballTable::AddScore(dword_1025040, v4);
@@ -1120,10 +1120,10 @@ TPinballTable::AddScore(dword_1025040, v5);
 // 1023A9C: using guessed type int dword_1023A9C;
 // 1023AA4: using guessed type int dword_1023AA4;
 // 1023AAC: using guessed type int dword_1023AAC;
-// 1023AB0: using guessed type char *off_1023AB0;
-// 1023AB8: using guessed type char *off_1023AB8;
-// 1023AC0: using guessed type char *off_1023AC0;
-// 1023AC8: using guessed type char *off_1023AC8;
+// 1023AB0: using guessed type char *lite61;
+// 1023AB8: using guessed type char *lite60;
+// 1023AC0: using guessed type char *lite59;
+// 1023AC8: using guessed type char *lite58;
 // 1023BBC: using guessed type int dword_1023BBC;
 // 1023DB4: using guessed type int dword_1023DB4;
 // 1023DBC: using guessed type int dword_1023DBC;
@@ -1287,7 +1287,7 @@ else
 v3 = (void (__stdcall ***)(signed int, _DWORD, int))dword_1023BAC;
 }
 (**v3)(15, 2.0, a1);
-if ( !light_on((struct component_tag *)&off_1023BB8) || (v4 = dword_1023E0C, *(_DWORD *)(dword_1023BBC + 82)) )
+if ( !light_on((struct component_tag *)&lite198) || (v4 = dword_1023E0C, *(_DWORD *)(dword_1023BBC + 82)) )
 v4 = dword_1023DD4;
 (*(void (**)(void))(*(_DWORD *)v4 + 20))();
 v5 = (*(int (__thiscall **)(struct TPinballComponent *, _DWORD))(*(_DWORD *)a3 + 8))(a3, 0);
@@ -1303,7 +1303,7 @@ if ( (**(int (__stdcall ***)(signed int, _DWORD))dword_1023BB4)(37, 0.0) == 3 )
 // 1023BA4: using guessed type int dword_1023BA4;
 // 1023BAC: using guessed type int dword_1023BAC;
 // 1023BB4: using guessed type int dword_1023BB4;
-// 1023BB8: using guessed type char *off_1023BB8;
+// 1023BB8: using guessed type char *lite198;
 // 1023BBC: using guessed type int dword_1023BBC;
 // 1023DD4: using guessed type int dword_1023DD4;
 // 1023E0C: using guessed type int dword_1023E0C;
@@ -1412,7 +1412,7 @@ int v4; // eax
 
 if ( a2 == 63 )
 {
-if ( !light_on((struct component_tag *)&off_1023C40) )
+if ( !light_on((struct component_tag *)&lite110) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023C44)(15, 3.0);
 v3 = get_rc_string(93, 0);
@@ -1423,7 +1423,7 @@ TPinballTable::AddScore(dword_1025040, v4);
 AdvanceWormHoleDestination(1);
 }
 }
-// 1023C40: using guessed type char *off_1023C40;
+// 1023C40: using guessed type char *lite110;
 // 1023C44: using guessed type int dword_1023C44;
 
 //----- (0100DCB0) --------------------------------------------------------
@@ -1459,12 +1459,12 @@ AdvanceWormHoleDestination(0);
 else if ( a1 == 63 )
 {
 v2 = *(_DWORD *)a2;
-v3 = light_on((struct component_tag *)&off_102393C);
+v3 = light_on((struct component_tag *)&lite20);
 v4 = (*(int (__thiscall **)(struct TPinballComponent *, BOOL))(v2 + 8))(a2, v3);
 TPinballTable::AddScore(dword_1025040, v4);
 }
 }
-// 102393C: using guessed type char *off_102393C;
+// 102393C: using guessed type char *lite20;
 
 //----- (0100DD7A) --------------------------------------------------------
 void __userpurge GravityWellKickoutControl(int a1@<ebx>, int a2, struct TPinballComponent *a3)
@@ -1521,7 +1521,7 @@ void __stdcall SkillShotGate1Control(int a1, struct TPinballComponent *a2)
 if ( a1 == 63 )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023D04)(9, 5.0);
-if ( light_on((struct component_tag *)&off_1023CB0) )
+if ( light_on((struct component_tag *)&lite67) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CE4)(34, 0.0);
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CE4)(20, 0.0);
@@ -1536,7 +1536,7 @@ if ( light_on((struct component_tag *)&off_1023CB0) )
 // 1023878: using guessed type int dword_1023878;
 // 1023978: using guessed type int dword_1023978;
 // 10239B0: using guessed type int dword_10239B0;
-// 1023CB0: using guessed type char *off_1023CB0;
+// 1023CB0: using guessed type char *lite67;
 // 1023CB4: using guessed type int dword_1023CB4;
 // 1023CE4: using guessed type int dword_1023CE4;
 // 1023D04: using guessed type int dword_1023D04;
@@ -1547,14 +1547,14 @@ void __stdcall SkillShotGate2Control(int a1, struct TPinballComponent *a2)
 {
 if ( a1 == 63 )
 {
-if ( light_on((struct component_tag *)&off_1023CB0) )
+if ( light_on((struct component_tag *)&lite67) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CBC)(19, 0.0);
 (*(void (**)(void))(*(_DWORD *)dword_1023DF4 + 20))();
 }
 }
 }
-// 1023CB0: using guessed type char *off_1023CB0;
+// 1023CB0: using guessed type char *lite67;
 // 1023CBC: using guessed type int dword_1023CBC;
 // 1023DF4: using guessed type int dword_1023DF4;
 
@@ -1563,14 +1563,14 @@ void __stdcall SkillShotGate3Control(int a1, struct TPinballComponent *a2)
 {
 if ( a1 == 63 )
 {
-if ( light_on((struct component_tag *)&off_1023CB0) )
+if ( light_on((struct component_tag *)&lite67) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CC4)(19, 0.0);
 (*(void (**)(void))(*(_DWORD *)dword_1023DF4 + 20))();
 }
 }
 }
-// 1023CB0: using guessed type char *off_1023CB0;
+// 1023CB0: using guessed type char *lite67;
 // 1023CC4: using guessed type int dword_1023CC4;
 // 1023DF4: using guessed type int dword_1023DF4;
 
@@ -1579,14 +1579,14 @@ void __stdcall SkillShotGate4Control(int a1, struct TPinballComponent *a2)
 {
 if ( a1 == 63 )
 {
-if ( light_on((struct component_tag *)&off_1023CB0) )
+if ( light_on((struct component_tag *)&lite67) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CCC)(19, 0.0);
 (*(void (**)(void))(*(_DWORD *)dword_1023DF4 + 20))();
 }
 }
 }
-// 1023CB0: using guessed type char *off_1023CB0;
+// 1023CB0: using guessed type char *lite67;
 // 1023CCC: using guessed type int dword_1023CCC;
 // 1023DF4: using guessed type int dword_1023DF4;
 
@@ -1595,14 +1595,14 @@ void __stdcall SkillShotGate5Control(int a1, struct TPinballComponent *a2)
 {
 if ( a1 == 63 )
 {
-if ( light_on((struct component_tag *)&off_1023CB0) )
+if ( light_on((struct component_tag *)&lite67) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CD4)(19, 0.0);
 (*(void (**)(void))(*(_DWORD *)dword_1023DF4 + 20))();
 }
 }
 }
-// 1023CB0: using guessed type char *off_1023CB0;
+// 1023CB0: using guessed type char *lite67;
 // 1023CD4: using guessed type int dword_1023CD4;
 // 1023DF4: using guessed type int dword_1023DF4;
 
@@ -1611,14 +1611,14 @@ void __stdcall SkillShotGate6Control(int a1, struct TPinballComponent *a2)
 {
 if ( a1 == 63 )
 {
-if ( light_on((struct component_tag *)&off_1023CB0) )
+if ( light_on((struct component_tag *)&lite67) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CDC)(19, 0.0);
 (*(void (**)(void))(*(_DWORD *)dword_1023DF4 + 20))();
 }
 }
 }
-// 1023CB0: using guessed type char *off_1023CB0;
+// 1023CB0: using guessed type char *lite67;
 // 1023CDC: using guessed type int dword_1023CDC;
 // 1023DF4: using guessed type int dword_1023DF4;
 
@@ -1976,7 +1976,7 @@ v4 = (struct TPinballComponent *)TPinballTable::AddScore(dword_1025040, v3);
 GravityWellKickoutControl((int)a2, 64, v4);
 }
 LABEL_13:
-if ( light_on((struct component_tag *)&off_10239AC) )
+if ( light_on((struct component_tag *)&lite25) )
 {
 v18 = 1;
 v11 = SpecialAddScore(*(_DWORD *)((char *)dword_1025040 + 302));
@@ -1985,9 +1985,9 @@ _sprintf(&Dest, v12, v11);
 v2 = 2.0;
 TTextBox::Display(dword_1023E1C, (int)a2, &Dest, 2.0);
 }
-if ( light_on((struct component_tag *)&off_10239B4) )
+if ( light_on((struct component_tag *)&lite26) )
 v18 |= 2u;
-if ( light_on((struct component_tag *)&off_10239BC) )
+if ( light_on((struct component_tag *)&lite130) )
 {
 v18 |= 4u;
 (**(void (__stdcall ***)(signed int, _DWORD))dword_10239C0)(20, 0.0);
@@ -2085,10 +2085,10 @@ goto LABEL_13;
 }
 // 10238D0: using guessed type int dword_10238D0;
 // 10238D8: using guessed type int dword_10238D8;
-// 10239AC: using guessed type char *off_10239AC;
+// 10239AC: using guessed type char *lite25;
 // 10239B0: using guessed type int dword_10239B0;
-// 10239B4: using guessed type char *off_10239B4;
-// 10239BC: using guessed type char *off_10239BC;
+// 10239B4: using guessed type char *lite26;
+// 10239BC: using guessed type char *lite130;
 // 10239C0: using guessed type int dword_10239C0;
 // 1023D24: using guessed type int dword_1023D24;
 // 1023D64: using guessed type int dword_1023D64;
@@ -2118,7 +2118,7 @@ v3 = *(int (__stdcall ***)(signed int, _DWORD))dword_1023CF4;
 dword_1025044 = 0;
 if ( !(*v3)(37, 0.0) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CF4)(32, 0.0);
-if ( !light_on((struct component_tag *)&off_1023D00) )
+if ( !light_on((struct component_tag *)&lite200) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CE4)(20, 0.0);
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CB4)(19, 0.0);
@@ -2149,7 +2149,7 @@ MultiplierLightGroupControl(a1, 65, dword_1023B38);
 // 1023CB4: using guessed type int dword_1023CB4;
 // 1023CE4: using guessed type int dword_1023CE4;
 // 1023CF4: using guessed type int dword_1023CF4;
-// 1023D00: using guessed type char *off_1023D00;
+// 1023D00: using guessed type char *lite200;
 // 1023D04: using guessed type int dword_1023D04;
 // 1025044: using guessed type int dword_1025044;
 
@@ -2339,7 +2339,7 @@ if ( *(_DWORD *)((char *)dword_1025040 + 370) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023D0C)(20, 0.0);
 v2 = dword_1025040;
 }
-if ( light_on((struct component_tag *)&off_1023D00) )
+if ( light_on((struct component_tag *)&lite200) )
 {
 (*(void (**)(void))(*(_DWORD *)dword_1023DEC + 20))();
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023D04)(19, 0.0);
@@ -2347,7 +2347,7 @@ v3 = get_rc_string(96, 0);
 TTextBox::Display(dword_1023E1C, 0, v3, -1.0);
 (*(void (**)(void))(*(_DWORD *)dword_1023DE4 + 20))();
 }
-else if ( light_on((struct component_tag *)&off_1023D08) )
+else if ( light_on((struct component_tag *)&lite199) )
 {
 (*(void (**)(void))(*(_DWORD *)dword_1023DEC + 20))();
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023D0C)(20, 0.0);
@@ -2483,7 +2483,7 @@ else
 *(_DWORD *)(dword_1023BBC + 6) = 0;
 MissionControl(66, 0);
 (**(void (__cdecl ***)(signed int, _DWORD))dword_1025040)(1012, 0.0);
-if ( light_on((struct component_tag *)&off_1023AC8) )
+if ( light_on((struct component_tag *)&lite58) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023ACC)(20, 0.0);
 else
 *(_DWORD *)((char *)dword_1025040 + 306) = 25000;
@@ -2529,7 +2529,7 @@ else
 // 1023AB4: using guessed type int dword_1023AB4;
 // 1023ABC: using guessed type int dword_1023ABC;
 // 1023AC4: using guessed type int dword_1023AC4;
-// 1023AC8: using guessed type char *off_1023AC8;
+// 1023AC8: using guessed type char *lite58;
 // 1023ACC: using guessed type int dword_1023ACC;
 // 1023ADC: using guessed type int dword_1023ADC;
 // 1023AE4: using guessed type int dword_1023AE4;
@@ -2552,9 +2552,9 @@ else
 // 1023CEC: using guessed type int dword_1023CEC;
 // 1023CF4: using guessed type int dword_1023CF4;
 // 1023CFC: using guessed type int dword_1023CFC;
-// 1023D00: using guessed type char *off_1023D00;
+// 1023D00: using guessed type char *lite200;
 // 1023D04: using guessed type int dword_1023D04;
-// 1023D08: using guessed type char *off_1023D08;
+// 1023D08: using guessed type char *lite199;
 // 1023D0C: using guessed type int dword_1023D0C;
 // 1023DE4: using guessed type int dword_1023DE4;
 // 1023DEC: using guessed type int dword_1023DEC;

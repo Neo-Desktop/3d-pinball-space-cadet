@@ -166,17 +166,17 @@ return;
 }
 }
 else if ( (struct TPinballComponent *)dword_1023870 == a2
-&& light_on((struct component_tag *)&off_1023884)
+&& light_on((struct component_tag *)&lite56)
 && (**(int (__stdcall ***)(signed int, _DWORD))dword_1023978)(37, 0.0) )
 {
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023888)(20, 0.0);
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023BBC)(19, 0.0);
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023CFC)(26, -1.0);
-if ( light_on((struct component_tag *)&off_1023EB8) )
+if ( light_on((struct component_tag *)&lite317) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EBC)(20, 0.0);
-if ( light_on((struct component_tag *)&off_1023EC0) )
+if ( light_on((struct component_tag *)&lite318) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EC4)(20, 0.0);
-if ( light_on((struct component_tag *)&off_1023EC8) )
+if ( light_on((struct component_tag *)&lite319) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023ECC)(20, 0.0);
 v10 = *(_DWORD *)(dword_1023888 + 6);
 *(_DWORD *)(dword_1023BBC + 6) = v10;
@@ -210,17 +210,17 @@ return;
 }
 if ( (**(int (__stdcall ***)(signed int, _DWORD))dword_1023978)(37, 0.0) )
 {
-if ( light_on((struct component_tag *)&off_1023884) )
+if ( light_on((struct component_tag *)&lite56) )
 {
 v8 = get_rc_string(word_1024708[2 * *(_DWORD *)(dword_1023888 + 6)], 1);
 v9 = get_rc_string(106, 0);
 _sprintf(&Dest, v9, v8);
 TTextBox::Display(dword_1023E24, 0, &Dest, -1.0);
-if ( light_on((struct component_tag *)&off_1023EC0) )
+if ( light_on((struct component_tag *)&lite318) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EC4)(20, 0.0);
-if ( light_on((struct component_tag *)&off_1023EC8) )
+if ( light_on((struct component_tag *)&lite319) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023ECC)(20, 0.0);
-if ( !light_on((struct component_tag *)&off_1023EB8) )
+if ( !light_on((struct component_tag *)&lite317) )
 {
 v6 = (void (__stdcall ***)(signed int, _DWORD))dword_1023EBC;
 goto LABEL_28;
@@ -230,11 +230,11 @@ else
 {
 v7 = get_rc_string(104, 0);
 TTextBox::Display(dword_1023E24, 0, v7, -1.0);
-if ( light_on((struct component_tag *)&off_1023EB8) )
+if ( light_on((struct component_tag *)&lite317) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EBC)(20, 0.0);
-if ( light_on((struct component_tag *)&off_1023EC0) )
+if ( light_on((struct component_tag *)&lite318) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EC4)(20, 0.0);
-if ( !light_on((struct component_tag *)&off_1023EC8) )
+if ( !light_on((struct component_tag *)&lite319) )
 {
 v6 = (void (__stdcall ***)(signed int, _DWORD))dword_1023ECC;
 goto LABEL_28;
@@ -245,11 +245,11 @@ else
 {
 v5 = get_rc_string(105, 0);
 TTextBox::Display(dword_1023E24, 0, v5, -1.0);
-if ( light_on((struct component_tag *)&off_1023EB8) )
+if ( light_on((struct component_tag *)&lite317) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EBC)(20, 0.0);
-if ( light_on((struct component_tag *)&off_1023EC8) )
+if ( light_on((struct component_tag *)&lite319) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023ECC)(20, 0.0);
-if ( !light_on((struct component_tag *)&off_1023EC0) )
+if ( !light_on((struct component_tag *)&lite318) )
 {
 v6 = (void (__stdcall ***)(signed int, _DWORD))dword_1023EC4;
 LABEL_28:
@@ -260,7 +260,7 @@ return;
 }
 }
 // 1023870: using guessed type int dword_1023870;
-// 1023884: using guessed type char *off_1023884;
+// 1023884: using guessed type char *lite56;
 // 1023888: using guessed type int dword_1023888;
 // 1023978: using guessed type int dword_1023978;
 // 1023A8C: using guessed type int dword_1023A8C;
@@ -273,11 +273,11 @@ return;
 // 1023BBC: using guessed type int dword_1023BBC;
 // 1023CF4: using guessed type int dword_1023CF4;
 // 1023CFC: using guessed type int dword_1023CFC;
-// 1023EB8: using guessed type char *off_1023EB8;
+// 1023EB8: using guessed type char *lite317;
 // 1023EBC: using guessed type int dword_1023EBC;
-// 1023EC0: using guessed type char *off_1023EC0;
+// 1023EC0: using guessed type char *lite318;
 // 1023EC4: using guessed type int dword_1023EC4;
-// 1023EC8: using guessed type char *off_1023EC8;
+// 1023EC8: using guessed type char *lite319;
 // 1023ECC: using guessed type int dword_1023ECC;
 // 1023EEC: using guessed type int dword_1023EEC;
 // 1024708: using guessed type __int16 word_1024708[];
@@ -777,9 +777,9 @@ else if ( a2 == 63 )
 {
 if ( (struct TPinballComponent *)dword_1023C5C == a3 && *(_DWORD *)(dword_1023758 + 78) )
 {
-if ( light_on((struct component_tag *)&off_1023EB0) )
+if ( light_on((struct component_tag *)&lite316) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EB4)(20, 0.0);
-if ( light_on((struct component_tag *)&off_1023EA0) )
+if ( light_on((struct component_tag *)&lite314) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EA4)(20, 0.0);
 *(_DWORD *)(dword_1023BBC + 6) = 1;
 MissionControl(66, 0);
@@ -810,9 +810,9 @@ if ( *(_DWORD *)(dword_1023758 + 78) )
 {
 v5 = get_rc_string(123, 0);
 TTextBox::Display(dword_1023E24, a1, v5, v9);
-if ( light_on((struct component_tag *)&off_1023EB0) )
+if ( light_on((struct component_tag *)&lite316) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EB4)(20, 0.0);
-if ( !light_on((struct component_tag *)&off_1023EA0) )
+if ( !light_on((struct component_tag *)&lite314) )
 {
 v4 = (void (__stdcall ***)(signed int, _DWORD))dword_1023EA4;
 goto LABEL_12;
@@ -822,9 +822,9 @@ else
 {
 v3 = get_rc_string(122, 0);
 TTextBox::Display(dword_1023E24, a1, v3, v9);
-if ( light_on((struct component_tag *)&off_1023EA0) )
+if ( light_on((struct component_tag *)&lite314) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023EA4)(20, 0.0);
-if ( !light_on((struct component_tag *)&off_1023EB0) )
+if ( !light_on((struct component_tag *)&lite316) )
 {
 v4 = (void (__stdcall ***)(signed int, _DWORD))dword_1023EB4;
 LABEL_12:
@@ -839,9 +839,9 @@ return;
 // 1023BBC: using guessed type int dword_1023BBC;
 // 1023C5C: using guessed type int dword_1023C5C;
 // 1023D14: using guessed type int dword_1023D14;
-// 1023EA0: using guessed type char *off_1023EA0;
+// 1023EA0: using guessed type char *lite314;
 // 1023EA4: using guessed type int dword_1023EA4;
-// 1023EB0: using guessed type char *off_1023EB0;
+// 1023EB0: using guessed type char *lite316;
 // 1023EB4: using guessed type int dword_1023EB4;
 
 //----- (0100F900) --------------------------------------------------------
@@ -1006,7 +1006,7 @@ if ( (struct TPinballComponent *)dword_1023A9C == a3
 {
 goto LABEL_31;
 }
-if ( (struct TPinballComponent *)dword_1023980 != a3 || !light_on((struct component_tag *)&off_102393C) )
+if ( (struct TPinballComponent *)dword_1023980 != a3 || !light_on((struct component_tag *)&lite20) )
 return;
 v7 = *(_DWORD *)(dword_1023888 + 6) - 1;
 *(_DWORD *)(dword_1023888 + 6) = v7;
@@ -1016,9 +1016,9 @@ LABEL_31:
 MissionControl(67, a3);
 return;
 }
-if ( light_on((struct component_tag *)&off_1023E48) )
+if ( light_on((struct component_tag *)&lite303) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023E4C)(20, 0.0);
-if ( light_on((struct component_tag *)&off_1023E50) )
+if ( light_on((struct component_tag *)&lite304) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023E54)(20, 0.0);
 *(_DWORD *)(dword_1023BBC + 6) = 1;
 MissionControl(66, 0);
@@ -1045,15 +1045,15 @@ else if ( a2 != 67 )
 {
 return;
 }
-v3 = light_on((struct component_tag *)&off_102393C);
+v3 = light_on((struct component_tag *)&lite20);
 v11 = -1.0;
 if ( v3 )
 {
 v6 = get_rc_string(128, 0);
 TTextBox::Display(dword_1023E24, a1, v6, v11);
-if ( light_on((struct component_tag *)&off_1023E48) )
+if ( light_on((struct component_tag *)&lite303) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023E4C)(20, 0.0);
-if ( !light_on((struct component_tag *)&off_1023E50) )
+if ( !light_on((struct component_tag *)&lite304) )
 {
 v5 = (void (__stdcall ***)(signed int, _DWORD))dword_1023E54;
 goto LABEL_11;
@@ -1063,9 +1063,9 @@ else
 {
 v4 = get_rc_string(127, 0);
 TTextBox::Display(dword_1023E24, a1, v4, v11);
-if ( light_on((struct component_tag *)&off_1023E50) )
+if ( light_on((struct component_tag *)&lite304) )
 (**(void (__stdcall ***)(signed int, _DWORD))dword_1023E54)(20, 0.0);
-if ( !light_on((struct component_tag *)&off_1023E48) )
+if ( !light_on((struct component_tag *)&lite303) )
 {
 v5 = (void (__stdcall ***)(signed int, _DWORD))dword_1023E4C;
 LABEL_11:
@@ -1076,7 +1076,7 @@ return;
 }
 }
 // 1023888: using guessed type int dword_1023888;
-// 102393C: using guessed type char *off_102393C;
+// 102393C: using guessed type char *lite20;
 // 1023940: using guessed type int dword_1023940;
 // 1023980: using guessed type int dword_1023980;
 // 10239D0: using guessed type int dword_10239D0;
@@ -1085,9 +1085,9 @@ return;
 // 1023AAC: using guessed type int dword_1023AAC;
 // 1023BBC: using guessed type int dword_1023BBC;
 // 1023D14: using guessed type int dword_1023D14;
-// 1023E48: using guessed type char *off_1023E48;
+// 1023E48: using guessed type char *lite303;
 // 1023E4C: using guessed type int dword_1023E4C;
-// 1023E50: using guessed type char *off_1023E50;
+// 1023E50: using guessed type char *lite304;
 // 1023E54: using guessed type int dword_1023E54;
 
 //----- (0100FF35) --------------------------------------------------------

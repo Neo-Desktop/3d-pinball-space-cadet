@@ -95,7 +95,7 @@ signed int __stdcall loader_get_sound_id(int a1)
             v6 = dword_1027C24[v5];
             *(float *)&algn_1027C2C[20 * v1] = 0.0;
             v10 = v6;
-            if ( v6 > 0 && !dword_102556C )
+            if ( v6 > 0 && !play_midi_music )
             {
                 v7 = (_WORD *)partman_field(loader_table, v6, 0);
                 if ( v7 )
@@ -117,7 +117,7 @@ signed int __stdcall loader_get_sound_id(int a1)
     return result;
 }
 // 10236D8: using guessed type int sound_count;
-// 102556C: using guessed type int dword_102556C;
+// 102556C: using guessed type int play_midi_music;
 // 1027C20: using guessed type int sound_list[];
 // 1027C24: using guessed type int dword_1027C24[];
 // 1027C28: using guessed type int dword_1027C28[];
