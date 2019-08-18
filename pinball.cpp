@@ -10,9 +10,6 @@
 //----- (0101461A) --------------------------------------------------------
 signed int __stdcall pb_mode_change(int a1)
 {
-	int v1; // eax
-	int v2; // eax
-
 	switch (a1)
 	{
 	case 1:
@@ -23,7 +20,7 @@ signed int __stdcall pb_mode_change(int a1)
 			options_menu_check(0x194u, 1);
 			if (MainTable)
 			{
-				v2 = *(_DWORD*)((char*)MainTable + 230);
+				int v2 = *(_DWORD*)((char*)MainTable + 230);
 				if (v2)
 					* (_BYTE*)(v2 + 5) = 1;
 			}
@@ -35,7 +32,7 @@ signed int __stdcall pb_mode_change(int a1)
 			options_menu_check(0x194u, 0);
 			if (MainTable)
 			{
-				v1 = *(_DWORD*)((char*)MainTable + 230);
+				int v1 = *(_DWORD*)((char*)MainTable + 230);
 				if (v1)
 					* (_BYTE*)(v1 + 5) = 0;
 			}
