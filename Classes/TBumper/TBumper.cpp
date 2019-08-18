@@ -185,7 +185,7 @@ v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
 *(_DWORD *)((char *)v3 + 78) = 0;
 *(_DWORD *)((char *)v3 + 82) = 0;
-*(_DWORD *)v3 = &TBumper::`vftable`;
+*(_DWORD *)v3 = &TBumper::vftable;
 *(_DWORD *)((char *)v3 + 86) = *(_DWORD *)loader_query_float_attribute(a3, 0, 407);
 loader_query_visual(a3, 0, &v5);
 *(_DWORD *)((char *)v3 + 94) = v6;
@@ -193,4 +193,4 @@ loader_query_visual(a3, 0, &v5);
 *(_DWORD *)((char *)v3 + 90) = *(_DWORD *)((char *)v3 + 66);
 return v3;
 }
-// 100256C: using guessed type void *TBumper::`vftable`;
+// 100256C: using guessed type void *TBumper::vftable;

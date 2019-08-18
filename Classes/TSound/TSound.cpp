@@ -31,10 +31,10 @@ int v6; // [esp+3Ch] [ebp-10h]
 
 v3 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 1);
-*(_DWORD *)v3 = &TSound::`vftable`;
+*(_DWORD *)v3 = &TSound::vftable;
 loader_query_visual(a3, 0, &v5);
 *(_DWORD *)((char *)v3 + 42) = v6;
 return v3;
 }
-// 10027A4: using guessed type void *TSound::`vftable`;
+// 10027A4: using guessed type void *TSound::vftable;
 

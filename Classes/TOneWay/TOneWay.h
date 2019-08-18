@@ -16,6 +16,6 @@ void __thiscall TOneway::Collision(TOneway* this, struct TBall*, struct vector_t
 TOneway* __thiscall TOneway::TOneway(TOneway* this, struct TPinballTable* a2, int a3);
 TOneway* __thiscall TOneway::`scalar deleting destructor`(TOneway* this, char a2);
 
-void* TOneway::`vftable` = &TPinballComponent::Message; // weak
+void* TOneway::vftable = &TPinballComponent::Message; // weak
 
 #endif //PINBALL_TONEWAY_H

@@ -144,7 +144,7 @@ struct TPinballTable *v17; // [esp+64h] [ebp+8h]
 v2 = this;
 TPinballComponent::TPinballComponent(this, a2, -1, 0);
 *(float *)((char *)v2 + 78) = 0.0;
-*(_DWORD *)v2 = &TBall::`vftable`;
+*(_DWORD *)v2 = &TBall::vftable;
 *(float *)((char *)v2 + 70) = 0.0;
 *((_BYTE *)v2 + 5) = 1;
 *(_DWORD *)((char *)v2 + 106) = 0;
@@ -199,5 +199,5 @@ v11 = *(_DWORD *)((char *)v2 + 154);
 *(_DWORD *)((char *)v2 + 50) = *(_DWORD *)((char *)v2 + 154);
 return v2;
 }
-// 1002554: using guessed type void *TBall::`vftable`;
+// 1002554: using guessed type void *TBall::vftable;
 // 1008ED8: using guessed type double __stdcall proj_z_distance(_DWORD);

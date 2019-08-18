@@ -21,6 +21,6 @@ void __thiscall TFlipperEdge::SetMotion(TFlipperEdge* this, int, float); // idb
 void __thiscall TFlipperEdge::port_draw(TFlipperEdge* this); // idb
 TFlipperEdge* __thiscall TFlipperEdge::TFlipperEdge(TFlipperEdge* this, struct TCollisionComponent* a2, char* a3, unsigned int a4, struct TPinballTable* a5, struct vector_type* a6, struct vector_type* a7, struct vector_type* a8, float a9, float a10, float a11, float a12, float a13);
 
-void* TFlipperEdge::`vftable` = &TFlipperEdge::EdgeCollision; // weak
+void* TFlipperEdge::vftable = &TFlipperEdge::EdgeCollision; // weak
 
 #endif //PINBALL_TFLIPPEREDGE_H

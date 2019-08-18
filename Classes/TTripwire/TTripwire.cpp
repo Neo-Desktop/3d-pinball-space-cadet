@@ -26,7 +26,7 @@ TTripwire *v3; // esi
 
 v3 = this;
 TRollover::TRollover(this, a2, a3, 1);
-*(_DWORD *)v3 = &TTripwire::`vftable`;
+*(_DWORD *)v3 = &TTripwire::vftable;
 return v3;
 }
-// 100264C: using guessed type void *TTripwire::`vftable`;
+// 100264C: using guessed type void *TTripwire::vftable;

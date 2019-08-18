@@ -19,6 +19,12 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 	CHAR String1; // [esp+64h] [ebp-ECh]
 	struct tagMSG Dest; // [esp+12Ch] [ebp-24h]
 
+#ifdef _DEBUG
+
+	RedirectIOToConsole();
+
+#endif
+
 	memory_init((int)winmain_memalloc_failure);
 	++memory_critical_allocation;
 	options_path_init(get_rc_string(165, 0));

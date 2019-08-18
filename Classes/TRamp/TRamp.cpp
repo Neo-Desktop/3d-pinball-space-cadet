@@ -188,7 +188,7 @@ float v88; // [esp+A4h] [ebp-4h]
 v3 = a3;
 v4 = this;
 TCollisionComponent::TCollisionComponent(this, a2, (int)a3, 0);
-*(_DWORD *)v4 = &TRamp::`vftable`;
+*(_DWORD *)v4 = &TRamp::vftable;
 *(_DWORD *)((char *)v4 + 6) = 0;
 *((_BYTE *)v4 + 4) = 1;
 loader_query_visual((int)v3, 0, &v73);
@@ -590,4 +590,4 @@ v71 = v70;
 edges_insert_square(v86, v71, v69, v66, 0, (TRamp *)((char *)v4 + 94));
 return v4;
 }
-// 10026CC: using guessed type void *TRamp::`vftable`;
+// 10026CC: using guessed type void *TRamp::vftable;

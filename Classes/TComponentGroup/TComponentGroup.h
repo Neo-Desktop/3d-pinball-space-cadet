@@ -16,6 +16,6 @@ TComponentGroup* __thiscall TComponentGroup::TComponentGroup(TComponentGroup* th
 TZmapList* __thiscall TComponentGroup::~TComponentGroup(TComponentGroup* this);
 TComponentGroup* __thiscall TComponentGroup::`scalar deleting destructor`(TComponentGroup *this, char a2);
 
-void* TComponentGroup::`vftable` = &TComponentGroup::Message; // weak
+void* TComponentGroup::vftable = &TComponentGroup::Message; // weak
 
 #endif //PINBALL_TCOMPONENTGROUP_H

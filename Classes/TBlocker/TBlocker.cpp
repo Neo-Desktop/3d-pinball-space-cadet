@@ -72,7 +72,7 @@ int v8; // [esp+44h] [ebp-Ch]
 
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
-*(_DWORD *)v3 = &TBlocker::`vftable`;
+*(_DWORD *)v3 = &TBlocker::vftable;
 loader_query_visual(a3, 0, &v6);
 v4 = *(_DWORD **)((char *)v3 + 26);
 *(_DWORD *)((char *)v3 + 90) = v7;
@@ -86,5 +86,5 @@ v4 = *(_DWORD **)((char *)v3 + 26);
 render_sprite_set_bitmap(v4, 0);
 return v3;
 }
-// 10025DC: using guessed type void *TBlocker::`vftable`;
+// 10025DC: using guessed type void *TBlocker::vftable;
 

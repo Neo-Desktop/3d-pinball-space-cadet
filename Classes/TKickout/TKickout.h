@@ -19,6 +19,6 @@ int __thiscall TKickout::get_scoring(TKickout* this, int); // idb
 void __thiscall TKickout::put_scoring(TKickout* this, int, int); // idb
 TKickout* __thiscall TKickout::TKickout(TKickout* this, struct TPinballTable* a2, int a3, struct vector_type* a4);
 
-void* TKickout::`vftable` = &TKickout::Message; // weak
+void* TKickout::vftable = &TKickout::Message; // weak
 
 #endif //PINBALL_TKICKOUT_H

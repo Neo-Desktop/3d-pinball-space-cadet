@@ -19,6 +19,6 @@ void __thiscall TRollover::Collision(TRollover* this, struct TBall*, struct vect
 TRollover* __thiscall TRollover::TRollover(TRollover* this, struct TPinballTable* a2, int a3, int a4);
 TRollover* __thiscall TRollover::TRollover(TRollover* this, struct TPinballTable* a2, int a3);
 
-void* TRollover::`vftable` = &TRollover::Message; // weak
+void* TRollover::vftable = &TRollover::Message; // weak
 
 #endif //PINBALL_TROLLOVER_H

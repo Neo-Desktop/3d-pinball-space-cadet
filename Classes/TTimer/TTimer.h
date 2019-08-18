@@ -14,6 +14,6 @@ void __stdcall TTimer::TimerExpired(int, struct TPinballComponent*); // idb
 int __thiscall TTimer::Message(TTimer* this, int, float); // idb
 TTimer* __thiscall TTimer::TTimer(TTimer* this, struct TPinballTable* a2, int a3);
 
-void* TTimer::`vftable` = &TTimer::Message; // weak
+void* TTimer::vftable = &TTimer::Message; // weak
 
 #endif //PINBALL_TTIMER_H

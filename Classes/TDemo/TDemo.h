@@ -20,6 +20,6 @@ void __thiscall TDemo::Collision(TDemo* this, struct TBall*, struct vector_type*
 int __thiscall TDemo::Message(TDemo* this, int, float); // idb
 TDemo* __thiscall TDemo::TDemo(TDemo* this, struct TPinballTable* a2, int a3);
 
-void* TDemo::`vftable` = &TDemo::Message; // weak
+void* TDemo::vftable = &TDemo::Message; // weak
 
 #endif //PINBALL_TDEMO_H

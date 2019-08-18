@@ -15,6 +15,6 @@ int __thiscall TCollisionComponent::DefaultCollision(TCollisionComponent* this, 
 TCollisionComponent* __thiscall TCollisionComponent::TCollisionComponent(TCollisionComponent* this, struct TPinballTable* a2, int a3, int a4);
 TZmapList* __thiscall TCollisionComponent::~TCollisionComponent(TCollisionComponent* this);
 
-void* TCollisionComponent::`vftable` = &TPinballComponent::Message; // weak
+void* TCollisionComponent::vftable = &TPinballComponent::Message; // weak
 
 #endif //PINBALL_TCOLLISIONCOMPONENT_H

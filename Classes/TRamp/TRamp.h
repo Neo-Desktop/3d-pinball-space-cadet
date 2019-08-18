@@ -16,6 +16,6 @@ void __thiscall TRamp::Collision(TRamp* this, struct TBall*, struct vector_type*
 int __thiscall TRamp::FieldEffect(TRamp* this, struct TBall*, struct vector_type*); // idb
 TRamp* __thiscall TRamp::TRamp(TRamp* this, struct TPinballTable* a2, void* a3);
 
-void* TRamp::`vftable` = &TPinballComponent::Message; // weak
+void* TRamp::vftable = &TPinballComponent::Message; // weak
 
 #endif //PINBALL_TRAMP_H

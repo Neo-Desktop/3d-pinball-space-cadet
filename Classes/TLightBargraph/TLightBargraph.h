@@ -17,6 +17,6 @@ int __thiscall TLightBargraph::Message(TLightBargraph* this, int, float); // idb
 TLightBargraph* __thiscall TLightBargraph::TLightBargraph(TLightBargraph* this, struct TPinballTable* a2, int a3);
 TLightBargraph* __thiscall TLightBargraph::`vector deleting destructor'(TLightBargraph *this, char a2);
 
-void* TLightBargraph::`vftable` = &TLightBargraph::Message; // weak
+void* TLightBargraph::vftable = &TLightBargraph::Message; // weak
 
 #endif //PINBALL_TLIGHTBARGRAPH_H

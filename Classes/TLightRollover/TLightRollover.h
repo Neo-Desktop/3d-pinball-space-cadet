@@ -15,6 +15,6 @@ void __thiscall TLightRollover::Collision(TLightRollover* this, struct TBall*, s
 int __thiscall TLightRollover::Message(TLightRollover* this, int, float); // idb
 TLightRollover* __thiscall TLightRollover::TLightRollover(TLightRollover* this, struct TPinballTable* a2, int a3);
 
-void* TLightRollover::`vftable` = &TLightRollover::Message; // weak
+void* TLightRollover::vftable = &TLightRollover::Message; // weak
 
 #endif //PINBALL_TLIGHTROLLOVER_H

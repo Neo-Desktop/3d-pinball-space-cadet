@@ -9,11 +9,11 @@ void *v2; // ST00_4
 
 v1 = this;
 v2 = *(void **)((char *)this + 82);
-*(_DWORD *)this = &TFlipper::`vftable`;
+*(_DWORD *)this = &TFlipper::vftable;
 operator delete(v2);
 return TCollisionComponent::~TCollisionComponent(v1);
 }
-// 1002838: using guessed type void *TFlipper::`vftable`;
+// 1002838: using guessed type void *TFlipper::vftable;
 
 //----- (0101C070) --------------------------------------------------------
 void __stdcall TFlipper::TimerExpired(int a1, void *a2)
@@ -206,7 +206,7 @@ float *v25; // [esp+7Ch] [ebp+Ch]
 v3 = a3;
 v4 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 0);
-*(_DWORD *)v4 = &TFlipper::`vftable`;
+*(_DWORD *)v4 = &TFlipper::vftable;
 loader_query_visual(a3, 0, &v18);
 *(_DWORD *)((char *)v4 + 74) = v21;
 *(_DWORD *)((char *)v4 + 70) = v22;
@@ -245,7 +245,7 @@ v16 = *(_DWORD *)((char *)v4 + 34);
 *(float *)((char *)v4 + 102) = 0.0;
 return v4;
 }
-// 1002838: using guessed type void *TFlipper::`vftable`;
+// 1002838: using guessed type void *TFlipper::vftable;
 
 //----- (0101C6D7) --------------------------------------------------------
 TFlipper *__thiscall TFlipper::`vector deleting destructor`(TFlipper *this, char a2)

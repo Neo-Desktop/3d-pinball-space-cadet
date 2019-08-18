@@ -16,6 +16,6 @@ void __thiscall TLight::schedule_timeout(TLight* this, float); // idb
 int __thiscall TLight::Message(TLight* this, int, float); // idb
 TLight* __thiscall TLight::TLight(TLight* this, struct TPinballTable* a2, int a3);
 
-void* TLight::`vftable` = &TLight::Message; // weak
+void* TLight::vftable = &TLight::Message; // weak
 
 #endif //PINBALL_TLIGHT_H

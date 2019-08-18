@@ -16,6 +16,6 @@ int __thiscall TBall::Message(TBall* this, int, float); // idb
 void __thiscall TBall::Repaint(TBall* __hidden this); // idb
 TBall* __thiscall TBall::TBall(TBall* this, struct TPinballTable* a2);
 
-void* TBall::`vftable` = &TBall::Message; // weak
+void* TBall::vftable = &TBall::Message; // weak
 
 #endif //PINBALL_TBALL_H

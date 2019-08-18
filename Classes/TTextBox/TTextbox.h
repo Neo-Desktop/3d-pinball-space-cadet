@@ -19,6 +19,6 @@ TZmapList* __thiscall TTextBox::~TTextBox(TTextBox* this);
 TTextBox* __thiscall TTextBox::`scalar deleting destructor`(TTextBox *this, char a2);
 int __stdcall TTextBox::Message(int a2, float a3);
 
-void* TTextBox::`vftable` = &TTextBox::Message; // weak
+void* TTextBox::vftable = &TTextBox::Message; // weak
 
 #endif //PINBALL_TTEXTBOX_H

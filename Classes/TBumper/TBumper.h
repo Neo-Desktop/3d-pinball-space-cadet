@@ -18,6 +18,6 @@ void __thiscall TBumper::put_scoring(TBumper* this, int, int); // idb
 void __thiscall TBumper::Collision(TBumper* this, struct TBall*, struct vector_type*, struct vector_type*, float, struct TEdgeSegment*); // idb
 TBumper* __thiscall TBumper::TBumper(TBumper* this, struct TPinballTable* a2, int a3);
 
-void* TBumper::`vftable` = &TBumper::Message; // weak
+void* TBumper::vftable = &TBumper::Message; // weak
 
 #endif //PINBALL_TBUMPER_H

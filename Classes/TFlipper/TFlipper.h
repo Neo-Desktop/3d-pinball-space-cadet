@@ -17,6 +17,6 @@ void __thiscall TFlipper::port_draw(TFlipper* __hidden this); // idb
 TFlipper* __thiscall TFlipper::TFlipper(TFlipper* this, struct TPinballTable* a2, int a3);
 TFlipper* __thiscall TFlipper::`vector deleting destructor`(TFlipper *this, char a2);
 
-void* TFlipper::`vftable` = &TFlipper::Message; // weak
+void* TFlipper::vftable = &TFlipper::Message; // weak
 
 #endif //PINBALL_TFLIPPER_H

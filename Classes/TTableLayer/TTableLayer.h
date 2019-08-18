@@ -15,6 +15,6 @@ TTableLayer* __thiscall TTableLayer::TTableLayer(TTableLayer* this, struct TPinb
 TZmapList* __thiscall TTableLayer::~TTableLayer(TTableLayer* this);
 TTableLayer* __thiscall TTableLayer::`scalar deleting destructor`(TTableLayer* this, char a2);
 
-void* TTableLayer::`vftable` = &TPinballComponent::Message; // weak
+void* TTableLayer::vftable = &TPinballComponent::Message; // weak
 
 #endif //PINBALL_TTABLELAYER_H

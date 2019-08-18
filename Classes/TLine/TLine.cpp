@@ -11,11 +11,11 @@ TEdgeSegment::TEdgeSegment(this, a2, a3, a4);
 *(float *)((char *)v8 + 73) = a6;
 *(float *)((char *)v8 + 77) = a7;
 *(float *)((char *)v8 + 81) = a8;
-*(_DWORD *)v8 = &TLine::`vftable`;
+*(_DWORD *)v8 = &TLine::vftable;
 line_init((int)v8 + 21, a5, a6, a7, a8);
 return v8;
 }
-// 1002864: using guessed type void *TLine::`vftable`;
+// 1002864: using guessed type void *TLine::vftable;
 
 //----- (0101C764) --------------------------------------------------------
 double __thiscall TLine::FindCollisionDistance(TLine *this, struct ray_type *a2)
@@ -32,7 +32,7 @@ float v8; // ST10_4
 
 v6 = this;
 TEdgeSegment::TEdgeSegment(this, a2, a3, a4);
-*(_DWORD *)v6 = &TLine::`vftable`;
+*(_DWORD *)v6 = &TLine::vftable;
 *(_DWORD *)((char *)v6 + 69) = *(_DWORD *)a5;
 *(_DWORD *)((char *)v6 + 73) = *((_DWORD *)a5 + 1);
 *(_DWORD *)((char *)v6 + 77) = *(_DWORD *)a6;
@@ -42,7 +42,7 @@ v8 = v7;
 line_init((int)v6 + 21, *(float *)((char *)v6 + 69), *(float *)((char *)v6 + 73), *(float *)((char *)v6 + 77), v8);
 return v6;
 }
-// 1002864: using guessed type void *TLine::`vftable`;
+// 1002864: using guessed type void *TLine::vftable;
 
 //----- (0101C7E6) --------------------------------------------------------
 void __thiscall TLine::EdgeCollision(TLine *this, struct TBall *a2, float a3)

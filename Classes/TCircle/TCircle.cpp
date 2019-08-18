@@ -7,14 +7,14 @@ TCircle *v6; // ebx
 
 v6 = this;
 TEdgeSegment::TEdgeSegment(this, a2, a3, a4);
-*(_DWORD *)v6 = &TCircle::`vftable`;
+*(_DWORD *)v6 = &TCircle::vftable;
 *(float *)((char *)v6 + 33) = a6 * a6;
 *(_DWORD *)((char *)v6 + 21) = *(_DWORD *)a5;
 *(_DWORD *)((char *)v6 + 25) = *((_DWORD *)a5 + 1);
 *(_DWORD *)((char *)v6 + 29) = *((_DWORD *)a5 + 2);
 return v6;
 }
-// 1002454: using guessed type void *TCircle::`vftable`;
+// 1002454: using guessed type void *TCircle::vftable;
 
 //----- (010158D6) --------------------------------------------------------
 double __thiscall TCircle::FindCollisionDistance(TCircle *this, struct ray_type *a2)

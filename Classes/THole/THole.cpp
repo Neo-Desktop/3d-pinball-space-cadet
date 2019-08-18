@@ -141,7 +141,7 @@ TCircle *v22; // [esp+78h] [ebp+8h]
 
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 0);
-*(_DWORD *)v3 = &THole::`vftable`;
+*(_DWORD *)v3 = &THole::vftable;
 *(_DWORD *)((char *)v3 + 94) = 1028443341;
 *(_DWORD *)((char *)v3 + 6) = 0;
 *(_DWORD *)((char *)v3 + 86) = 0;
@@ -193,4 +193,4 @@ v18 = *(_DWORD *)((char *)v3 + 122);
 edges_insert_circle((struct circle_type *)&v16, 0, (THole *)((char *)v3 + 130));
 return v3;
 }
-// 10026AC: using guessed type void *THole::`vftable`;
+// 10026AC: using guessed type void *THole::vftable;

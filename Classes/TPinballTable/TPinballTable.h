@@ -22,7 +22,9 @@ void __stdcall TPinballTable::tilt_timeout(int, void*); // idb
 TZmapList* __thiscall TPinballTable::~TPinballTable(TPinballTable* this);
 TPinballTable* __thiscall TPinballTable::`vector deleting destructor'(TPinballTable *this, char a2);
 TPinballTable* __thiscall TPinballTable::TPinballTable(TPinballTable* this);
+TPinballComponent* __thiscall TPinballTable::find_component(TPinballTable* this, char*); // idb
+TPinballComponent* __thiscall TPinballTable::find_component(TPinballTable* this, int); // idb
 
-void* TPinballTable::`vftable` = &TPinballTable::Message; // weak
+void* TPinballTable::vftable = &TPinballTable::Message; // weak
 
 #endif //PINBALL_TPINBALLTABLE_H

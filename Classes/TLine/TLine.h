@@ -17,6 +17,6 @@ void __thiscall TLine::EdgeCollision(TLine* this, struct TBall*, float); // idb
 void __thiscall TLine::Offset(TLine* this, float); // idb
 void __thiscall TLine::place_in_grid(TLine* this); // idb
 
-void* TLine::`vftable` = &TLine::EdgeCollision; // weak
+void* TLine::vftable = &TLine::EdgeCollision; // weak
 
 #endif //PINBALL_TLINE_H

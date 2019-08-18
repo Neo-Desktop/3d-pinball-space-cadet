@@ -758,7 +758,7 @@ v13 = this;
 TEdgeSegment::TEdgeSegment(this, a2, a3, a4);
 *(float *)((char *)v13 + 25) = a12;
 *(float *)((char *)v13 + 29) = a13;
-*(_DWORD *)v13 = &TFlipperEdge::`vftable`;
+*(_DWORD *)v13 = &TFlipperEdge::vftable;
 v46 = *(float *)a6;
 v47 = *((float *)a6 + 1);
 v48 = *((float *)a6 + 2);
@@ -857,4 +857,4 @@ result = v13;
 *(float *)((char *)v13 + 209) = 0.0;
 return result;
 }
-// 1002854: using guessed type void *TFlipperEdge::`vftable`;
+// 1002854: using guessed type void *TFlipperEdge::vftable;

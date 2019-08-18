@@ -16,6 +16,6 @@ int __thiscall THole::Message(THole* this, int, float); // idb
 void __thiscall THole::Collision(THole* this, struct TBall*, struct vector_type*, struct vector_type*, float, struct TEdgeSegment*); // idb
 THole* __thiscall THole::THole(THole* this, struct TPinballTable* a2, int a3);
 
-void* THole::`vftable` = &THole::Message; // weak
+void* THole::vftable = &THole::Message; // weak
 
 #endif //PINBALL_THOLE_H

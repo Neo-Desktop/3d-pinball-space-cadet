@@ -767,7 +767,7 @@ int i; // [esp+1Ch] [ebp+Ch]
 
 v3 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 0);
-*(_DWORD *)v3 = &TLightGroup::`vftable`;
+*(_DWORD *)v3 = &TLightGroup::vftable;
 objlist_class::objlist_class((TLightGroup *)((char *)v3 + 42), 4, 4);
 *(_DWORD *)((char *)v3 + 70) = 0;
 *(_DWORD *)((char *)v3 + 66) = 0;
@@ -786,7 +786,7 @@ objlist_class::Add((TLightGroup *)((char *)v3 + 42), (void *)v5);
 }
 return v3;
 }
-// 1001A60: using guessed type void *TLightGroup::`vftable`;
+// 1001A60: using guessed type void *TLightGroup::vftable;
 
 //----- (0100AE4C) --------------------------------------------------------
 TLightGroup *__thiscall TLightGroup::`vector deleting destructor'(TLightGroup *this, char a2)

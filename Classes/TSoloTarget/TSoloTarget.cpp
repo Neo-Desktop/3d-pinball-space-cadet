@@ -87,11 +87,11 @@ int v6; // [esp+40h] [ebp-10h]
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
 *(_DWORD *)((char *)v3 + 82) = 0;
-*(_DWORD *)v3 = &TSoloTarget::`vftable`;
+*(_DWORD *)v3 = &TSoloTarget::vftable;
 *(_DWORD *)((char *)v3 + 86) = 1036831949;
 loader_query_visual(a3, 0, &v5);
 *(_DWORD *)((char *)v3 + 90) = v6;
 TSoloTarget::Message(v3, 50, 0.0);
 return v3;
 }
-// 10025C0: using guessed type void *TSoloTarget::`vftable`;
+// 10025C0: using guessed type void *TSoloTarget::vftable;

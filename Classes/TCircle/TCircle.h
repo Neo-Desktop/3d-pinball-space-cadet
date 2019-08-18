@@ -15,6 +15,6 @@ double __thiscall TCircle::FindCollisionDistance(TCircle* this, struct ray_type*
 void __thiscall TCircle::place_in_grid(TCircle* this); // idb
 void __thiscall TCircle::EdgeCollision(TCircle* this, struct TBall*, float); // idb
 
-void* TCircle::`vftable` = &TCircle::EdgeCollision; // weak
+void* TCircle::vftable = &TCircle::EdgeCollision; // weak
 
 #endif //PINBALL_TCIRCLE_H

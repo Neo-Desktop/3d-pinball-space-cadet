@@ -214,7 +214,7 @@ unsigned int v12; // [esp+48h] [ebp-14h]
 
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 0);
-*(_DWORD *)v3 = &TDemo::`vftable`;
+*(_DWORD *)v3 = &TDemo::vftable;
 *(_DWORD *)((char *)v3 + 114) = 0;
 *(_DWORD *)((char *)v3 + 110) = 0;
 *(_DWORD *)((char *)v3 + 102) = 0;
@@ -253,4 +253,4 @@ v9 = (float *)loader_query_float_attribute(a3, 0, 1404);
 *(_DWORD *)((char *)v3 + 126) = install_wall(v9, v3, (char *)v3 + 5, v12, *(float *)((char *)a2 + 282), (void *)0x57C);
 return v3;
 }
-// 10026E8: using guessed type void *TDemo::`vftable`;
+// 10026E8: using guessed type void *TDemo::vftable;

@@ -38,7 +38,7 @@ TTimer *v3; // esi
 v3 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 1);
 *(_DWORD *)((char *)v3 + 42) = 0;
-*(_DWORD *)v3 = &TTimer::`vftable`;
+*(_DWORD *)v3 = &TTimer::vftable;
 return v3;
 }
-// 10027BC: using guessed type void *TTimer::`vftable`;
+// 10027BC: using guessed type void *TTimer::vftable;

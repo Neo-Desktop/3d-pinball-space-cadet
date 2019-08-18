@@ -13,8 +13,6 @@
 #include <Windows.h>
 #define WIN32_LEAN_AND_MEAN
 
-
-
 #ifndef PINBALL_PINBALL_H
 #define PINBALL_PINBALL_H
 
@@ -28,6 +26,11 @@
 // Function declarations
 
 #define __thiscall __cdecl // Test compile in C mode
+
+#ifdef _DEBUG
+void RedirectIOToConsole();
+// guicon.cpp
+#endif
 
 HDC __stdcall _GetDC(HWND hWnd);
 HDC __stdcall _BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint);
