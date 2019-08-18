@@ -1,10 +1,10 @@
 #include "TLightRollover.h"
 
 //----- (010164D1) --------------------------------------------------------
-void __stdcall TLightRollover::delay_expired(int a1, void *a2)
+void TLightRollover::delay_expired(int a1, void *a2)
 {
-render_sprite_set_bitmap(*(_DWORD **)((char *)a2 + 26), 0);
-*(_DWORD *)((char *)a2 + 91) = 0;
+render_sprite_set_bitmap(*(DWORD **)((char *)a2 + 26), 0);
+*(DWORD *)((char *)a2 + 91) = 0;
 }
 
 //----- (010164F2) --------------------------------------------------------
@@ -19,10 +19,10 @@ int v10; // eax
 v6 = this;
 *(float *)((char *)a2 + 42) = *(float *)a3;
 v7 = *(float *)((char *)a2 + 70);
-*(_DWORD *)((char *)a2 + 46) = *((_DWORD *)a3 + 1);
+*(DWORD *)((char *)a2 + 46) = *((DWORD *)a3 + 1);
 *(float *)((char *)a2 + 70) = v7 - a5;
 TBall::not_again(a2, a6);
-if ( !*(_DWORD *)(*(_DWORD *)((char *)v6 + 30) + 370) )
+if ( !*(DWORD *)(*(DWORD *)((char *)v6 + 30) + 370) )
 {
 if ( *((_BYTE *)v6 + 78) )
 {
@@ -30,22 +30,22 @@ timer_set(0.1, (int)v6, (int)TRollover::TimerExpired);
 v8 = *((_BYTE *)v6 + 78) == 0;
 *((_BYTE *)v6 + 5) = 0;
 v9 = v8;
-v8 = *(_DWORD *)((char *)v6 + 91) == 0;
+v8 = *(DWORD *)((char *)v6 + 91) == 0;
 *((_BYTE *)v6 + 78) = v9;
 if ( v8 )
-*(_DWORD *)((char *)v6 + 91) = timer_set(
+*(DWORD *)((char *)v6 + 91) = timer_set(
 *(float *)((char *)v6 + 87),
 (int)v6,
 (int)TLightRollover::delay_expired);
 }
 else
 {
-loader_play_sound(*(_DWORD *)((char *)v6 + 70));
+loader_play_sound(*(DWORD *)((char *)v6 + 70));
 control_handler(63, v6);
 *((_BYTE *)v6 + 78) = *((_BYTE *)v6 + 78) == 0;
-v10 = *(_DWORD *)((char *)v6 + 34);
+v10 = *(DWORD *)((char *)v6 + 34);
 if ( v10 )
-render_sprite_set_bitmap(*(_DWORD **)((char *)v6 + 26), *(_DWORD *)(*(_DWORD *)(v10 + 4) + 8));
+render_sprite_set_bitmap(*(DWORD **)((char *)v6 + 26), *(DWORD *)(*(DWORD *)(v10 + 4) + 8));
 }
 }
 }
@@ -59,14 +59,14 @@ int v4; // eax
 v3 = this;
 if ( a2 == 1024 )
 {
-v4 = *(_DWORD *)((char *)this + 91);
+v4 = *(DWORD *)((char *)this + 91);
 *((_BYTE *)this + 5) = 1;
 *((_BYTE *)this + 78) = 0;
 if ( v4 )
 timer_kill(v4);
-*(_DWORD *)((char *)v3 + 91) = 0;
-if ( *(_DWORD *)((char *)v3 + 34) )
-render_sprite_set_bitmap(*(_DWORD **)((char *)v3 + 26), 0);
+*(DWORD *)((char *)v3 + 91) = 0;
+if ( *(DWORD *)((char *)v3 + 34) )
+render_sprite_set_bitmap(*(DWORD **)((char *)v3 + 26), 0);
 }
 return 0;
 }
@@ -79,14 +79,14 @@ bool v4; // zf
 
 v3 = this;
 TRollover::TRollover(this, a2, a3, 0);
-v4 = *(_DWORD *)((char *)v3 + 34) == 0;
-*(_DWORD *)v3 = &TLightRollover::vftable;
+v4 = *(DWORD *)((char *)v3 + 34) == 0;
+*(DWORD *)v3 = &TLightRollover::vftable;
 *((_BYTE *)v3 + 78) = 0;
-*(_DWORD *)((char *)v3 + 91) = 0;
+*(DWORD *)((char *)v3 + 91) = 0;
 if ( !v4 )
-render_sprite_set_bitmap(*(_DWORD **)((char *)v3 + 26), 0);
+render_sprite_set_bitmap(*(DWORD **)((char *)v3 + 26), 0);
 TRollover::build_walls(v3, a3);
-*(_DWORD *)((char *)v3 + 87) = *(_DWORD *)loader_query_float_attribute(a3, 0, 407);
+*(DWORD *)((char *)v3 + 87) = *(DWORD *)loader_query_float_attribute(a3, 0, 407);
 return v3;
 }
 // 1002630: using guessed type void *TLightRollover::vftable;

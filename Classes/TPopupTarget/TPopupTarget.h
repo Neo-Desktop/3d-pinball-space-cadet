@@ -10,7 +10,7 @@
 /* 106 */
 struct TPopupTarget;
 
-void __stdcall TPopupTarget::TimerExpired(int, void*); // idb
+void TPopupTarget::TimerExpired(int, void*); // idb
 int __thiscall TPopupTarget::Message(TPopupTarget* this, int, float); // idb
 int __thiscall TPopupTarget::get_scoring(TPopupTarget* this, int); // idb
 void __thiscall TPopupTarget::put_scoring(TPopupTarget* this, int, int); // idb

@@ -1,7 +1,7 @@
 #include "../pinball.h"
 
 //----- (0100772D) --------------------------------------------------------
-void __stdcall help_introduction(int a1, int a2)
+void help_introduction(int a1, int a2)
 {
     CHAR *v2; // ebx
     CHAR *v3; // eax
@@ -33,7 +33,7 @@ void __stdcall help_introduction(int a1, int a2)
 }
 
 //----- (0101CF1A) --------------------------------------------------------
-HWND __stdcall HtmlHelpA(HWND hwndCaller, LPCSTR pszFile, UINT uCommand, DWORD_PTR dwData)
+HWND HtmlHelpA(HWND hwndCaller, LPCSTR pszFile, UINT uCommand, DWORD_PTR dwData)
 {
 HMODULE v4; // ecx
 FARPROC v5; // eax
@@ -50,20 +50,20 @@ if ( hModule || (v4 = LoadLibraryA("hhctrl.ocx"), (hModule = v4) != 0) )
 LABEL_13:
 v5 = (FARPROC)pHtmlHelpA;
 if ( pHtmlHelpA )
-return (HWND)((int (__stdcall *)(HWND, LPCSTR, UINT, DWORD_PTR))v5)(hwndCaller, pszFile, uCommand, dwData);
+return (HWND)((int (*)(HWND, LPCSTR, UINT, DWORD_PTR))v5)(hwndCaller, pszFile, uCommand, dwData);
 v5 = GetProcAddress(v4, (LPCSTR)0xE);
-pHtmlHelpA = (HWND (__stdcall *)(HWND, const char *, unsigned int, unsigned int))v5;
+pHtmlHelpA = (HWND (*)(HWND, const char *, unsigned int, unsigned int))v5;
 if ( v5 )
-return (HWND)((int (__stdcall *)(HWND, LPCSTR, UINT, DWORD_PTR))v5)(hwndCaller, pszFile, uCommand, dwData);
+return (HWND)((int (*)(HWND, LPCSTR, UINT, DWORD_PTR))v5)(hwndCaller, pszFile, uCommand, dwData);
 }
 dword_1025728 = 1;
 return 0;
 }
-// 1025720: using guessed type HWND (__stdcall *pHtmlHelpA)(HWND, const char *, unsigned int, unsigned int);
+// 1025720: using guessed type HWND (*pHtmlHelpA)(HWND, const char *, unsigned int, unsigned int);
 // 1025728: using guessed type int dword_1025728;
 
 //----- (0101CEB6) --------------------------------------------------------
-int __stdcall sub_101CEB6(LPBYTE lpData)
+int sub_101CEB6(LPBYTE lpData)
 {
 	signed int v1; // esi
 	DWORD cbData; // [esp+4h] [ebp-8h]

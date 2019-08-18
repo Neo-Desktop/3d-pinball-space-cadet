@@ -1,42 +1,42 @@
 #include "TPinballTable.h"
 
 //----- (01017467) --------------------------------------------------------
-void __stdcall TPinballTable::LightShow_timeout(int a1, void *a2)
+void TPinballTable::LightShow_timeout(int a1, void *a2)
 {
-void (__stdcall **v2)(signed int, _DWORD); // eax
+void (**v2)(signed int, DWORD); // eax
 
-v2 = *(void (__stdcall ***)(signed int, _DWORD))a2;
-*(_DWORD *)((char *)a2 + 90) = 0;
+v2 = *(void (***)(signed int, DWORD))a2;
+*(DWORD *)((char *)a2 + 90) = 0;
 (*v2)(1013, 0.0);
 }
 
 //----- (0101748B) --------------------------------------------------------
-void __stdcall TPinballTable::EndGame_timeout(int a1, void *a2)
+void TPinballTable::EndGame_timeout(int a1, void *a2)
 {
 char *v2; // esi
 int v3; // eax
 int v4; // edi
-void (__thiscall ***v5)(_DWORD, signed int, _DWORD); // esi
+void (__thiscall ***v5)(DWORD, signed int, DWORD); // esi
 char *v6; // eax
 char *v7; // [esp+28h] [ebp+Ch]
 
 v2 = (char *)a2;
-*(_DWORD *)((char *)a2 + 94) = 0;
+*(DWORD *)((char *)a2 + 94) = 0;
 pb_end_game();
-v3 = *(_DWORD *)(*(_DWORD *)((char *)a2 + 254) + 4) - 1;
+v3 = *(DWORD *)(*(DWORD *)((char *)a2 + 254) + 4) - 1;
 if ( v3 >= 0 )
 {
 v4 = 4 * v3 + 8;
-v7 = *(char **)(*(_DWORD *)((char *)a2 + 254) + 4);
+v7 = *(char **)(*(DWORD *)((char *)a2 + 254) + 4);
 do
 {
-(***(void (__stdcall ****)(signed int, _DWORD))(v4 + *(_DWORD *)(v2 + 254)))(1022, 0.0);
+(***(void (****)(signed int, DWORD))(v4 + *(DWORD *)(v2 + 254)))(1022, 0.0);
 v4 -= 4;
 --v7;
 }
 while ( v7 );
 }
-v5 = *(void (__thiscall ****)(_DWORD, signed int, _DWORD))(v2 + 230);
+v5 = *(void (__thiscall ****)(DWORD, signed int, DWORD))(v2 + 230);
 if ( v5 )
 (**v5)(v5, 1022, 0.0);
 control_handler(67, MissTextBox);
@@ -47,62 +47,62 @@ TTextBox::Display(InfoTextBox, 1022, v6, -1.0);
 //----- (01017526) --------------------------------------------------------
 int __thiscall TPinballTable::AddScore(TPinballTable *this, int a2)
 {
-_DWORD *v2; // eax
-_DWORD *v3; // eax
+DWORD *v2; // eax
+DWORD *v3; // eax
 int v4; // esi
 int *v5; // eax
 signed int v6; // edx
 
-if ( *(_DWORD *)((char *)this + 318) )
+if ( *(DWORD *)((char *)this + 318) )
 {
-v2 = (_DWORD *)((char *)this + 314);
+v2 = (DWORD *)((char *)this + 314);
 *v2 += a2;
-if ( *(_DWORD *)((char *)this + 314) > 5000000 )
+if ( *(DWORD *)((char *)this + 314) > 5000000 )
 *v2 = 5000000;
 }
-if ( *(_DWORD *)((char *)this + 310) )
+if ( *(DWORD *)((char *)this + 310) )
 {
-v3 = (_DWORD *)((char *)this + 306);
+v3 = (DWORD *)((char *)this + 306);
 *v3 += a2;
-if ( *(_DWORD *)((char *)this + 306) > 5000000 )
+if ( *(DWORD *)((char *)this + 306) > 5000000 )
 *v3 = 5000000;
 }
-v4 = *(_DWORD *)((char *)this + 298) + a2 * dword_1024758[*(_DWORD *)((char *)this + 294)];
+v4 = *(DWORD *)((char *)this + 298) + a2 * dword_1024758[*(DWORD *)((char *)this + 294)];
 v5 = (int *)((char *)this + 82);
 *v5 += v4;
-v6 = *(_DWORD *)((char *)this + 82);
+v6 = *(DWORD *)((char *)this + 82);
 if ( v6 > 1000000000 )
 {
-++*(_DWORD *)((char *)this + 86);
+++*(DWORD *)((char *)this + 86);
 *v5 = v6 - 1000000000;
 }
-score_set(*(_DWORD **)((char *)this + 50), *v5);
+score_set(*(DWORD **)((char *)this + 50), *v5);
 return v4;
 }
 
 //----- (010175AA) --------------------------------------------------------
-void __userpurge TPinballTable::ChangeBallCount(TPinballTable *this@<ecx>, int a2@<ebx>, int a3)
+void TPinballTable::ChangeBallCount(TPinballTable *this, int a2, int a3)
 {
 TPinballTable *v3; // esi
 
 v3 = this;
-*(_DWORD *)((char *)this + 326) = a3;
+*(DWORD *)((char *)this + 326) = a3;
 if ( a3 <= 0 )
 {
-score_erase(a2, *(_DWORD **)((char *)this + 54), 1);
+score_erase(a2, *(DWORD **)((char *)this + 54), 1);
 }
 else
 {
-score_set(*(_DWORD **)((char *)this + 54), *(_DWORD *)((char *)this + 330) - a3 + 1);
+score_set(*(DWORD **)((char *)this + 54), *(DWORD *)((char *)this + 330) - a3 + 1);
 score_update(a2, *(int **)((char *)v3 + 54));
 }
 }
 
 //----- (010175EF) --------------------------------------------------------
-void __stdcall TPinballTable::replay_timer_callback(int a1, void *a2)
+void TPinballTable::replay_timer_callback(int a1, void *a2)
 {
-*(_DWORD *)((char *)a2 + 354) = 0;
-*(_DWORD *)((char *)a2 + 358) = 0;
+*(DWORD *)((char *)a2 + 354) = 0;
+*(DWORD *)((char *)a2 + 358) = 0;
 }
 
 //----- (0101760E) --------------------------------------------------------
@@ -114,14 +114,14 @@ int v3; // esi
 int v4; // ebx
 
 v1 = this;
-v2 = *(_DWORD *)(*(_DWORD *)((char *)this + 254) + 4) - 1;
+v2 = *(DWORD *)(*(DWORD *)((char *)this + 254) + 4) - 1;
 if ( v2 >= 0 )
 {
 v3 = 4 * v2 + 8;
-v4 = *(_DWORD *)(*(_DWORD *)((char *)this + 254) + 4);
+v4 = *(DWORD *)(*(DWORD *)((char *)this + 254) + 4);
 do
 {
-(*(void (**)(void))(**(_DWORD **)(v3 + *(_DWORD *)((char *)v1 + 254)) + 4))();
+(*(void (**)(void))(**(DWORD **)(v3 + *(DWORD *)((char *)v1 + 254)) + 4))();
 v3 -= 4;
 --v4;
 }
@@ -142,8 +142,8 @@ int v8; // [esp+10h] [ebp-4h]
 
 v8 = 0;
 v2 = this;
-v7 = *(_DWORD *)(*(_DWORD *)((char *)this + 254) + 4);
-if ( *(_DWORD *)(*(_DWORD *)((char *)this + 254) + 4) <= 0 )
+v7 = *(DWORD *)(*(DWORD *)((char *)this + 254) + 4);
+if ( *(DWORD *)(*(DWORD *)((char *)this + 254) + 4) <= 0 )
 {
 LABEL_6:
 MessageBoxA(0, "Table cant find:", lpString2, 0x2000u);
@@ -154,7 +154,7 @@ else
 v3 = 8;
 while ( 1 )
 {
-v4 = *(_DWORD *)(v3 + *(_DWORD *)((char *)v2 + 254));
+v4 = *(DWORD *)(v3 + *(DWORD *)((char *)v2 + 254));
 v5 = *(const CHAR **)(v4 + 10);
 if ( v5 )
 {
@@ -181,8 +181,8 @@ int v5; // edx
 struct TPinballComponent *result; // eax
 char DstBuf; // [esp+8h] [ebp-CCh]
 
-v2 = *(_DWORD *)((char *)this + 254);
-v3 = *(_DWORD *)(v2 + 4);
+v2 = *(DWORD *)((char *)this + 254);
+v3 = *(DWORD *)(v2 + 4);
 v4 = 0;
 if ( v3 <= 0 )
 {
@@ -197,7 +197,7 @@ v5 = v2 + 8;
 while ( 1 )
 {
 result = *(struct TPinballComponent **)v5;
-if ( Val == *(_DWORD *)(*(_DWORD *)v5 + 22) )
+if ( Val == *(DWORD *)(*(DWORD *)v5 + 22) )
 break;
 ++v4;
 v5 += 4;
@@ -209,24 +209,24 @@ return result;
 }
 
 //----- (01017738) --------------------------------------------------------
-void __stdcall TPinballTable::tilt_timeout(int a1, void *a2)
+void TPinballTable::tilt_timeout(int a1, void *a2)
 {
 int v2; // eax
-_DWORD *v3; // edi
+DWORD *v3; // edi
 int v4; // ebx
 char v5; // [esp+14h] [ebp-Ch]
 
-*(_DWORD *)((char *)a2 + 98) = 0;
-if ( *(_DWORD *)((char *)a2 + 370) )
+*(DWORD *)((char *)a2 + 98) = 0;
+if ( *(DWORD *)((char *)a2 + 370) )
 {
-v2 = *(_DWORD *)((char *)a2 + 262);
-v3 = (_DWORD *)(v2 + 8);
-if ( *(_DWORD *)(v2 + 4) > 0 )
+v2 = *(DWORD *)((char *)a2 + 262);
+v3 = (DWORD *)(v2 + 8);
+if ( *(DWORD *)(v2 + 4) > 0 )
 {
-v4 = *(_DWORD *)(v2 + 4);
+v4 = *(DWORD *)(v2 + 4);
 do
 {
-(*(void (__stdcall **)(_DWORD, char *, char *, _DWORD, _DWORD))(**(_DWORD **)((char *)a2 + 226) + 20))(
+(*(void (**)(DWORD, char *, char *, DWORD, DWORD))(**(DWORD **)((char *)a2 + 226) + 20))(
 *v3,
 &v5,
 &v5,
@@ -241,7 +241,7 @@ while ( v4 );
 }
 
 //----- (01017791) --------------------------------------------------------
-void __userpurge TPinballTable::tilt(TPinballTable *this@<ecx>, int a2@<ebx>, float a3)
+void TPinballTable::tilt(TPinballTable *this, int a2, float a3)
 {
 TPinballTable *v3; // esi
 int v4; // ST14_4
@@ -251,37 +251,37 @@ signed int v7; // ebx
 int v8; // [esp+20h] [ebp-4h]
 
 v3 = this;
-if ( !*(_DWORD *)((char *)this + 370) && !*(_DWORD *)((char *)this + 78) )
+if ( !*(DWORD *)((char *)this + 370) && !*(DWORD *)((char *)this + 78) )
 {
 v4 = a2;
 TTextBox::Clear(InfoTextBox, a2);
 TTextBox::Clear(MissTextBox, a2);
 v5 = get_rc_string(35, 0);
 TTextBox::Display(InfoTextBox, a2, v5, -1.0);
-loader_play_sound(*(_DWORD *)((char *)v3 + 74));
-*(_DWORD *)((char *)v3 + 98) = timer_set(30.0, (int)v3, (int)TPinballTable::tilt_timeout);
-v6 = *(_DWORD *)(*(_DWORD *)((char *)v3 + 254) + 4);
-v8 = *(_DWORD *)(*(_DWORD *)((char *)v3 + 254) + 4);
-(**(void (__thiscall ***)(TPinballTable *, signed int, _DWORD, int))v3)(v3, 1011, -1.0, v4);
+loader_play_sound(*(DWORD *)((char *)v3 + 74));
+*(DWORD *)((char *)v3 + 98) = timer_set(30.0, (int)v3, (int)TPinballTable::tilt_timeout);
+v6 = *(DWORD *)(*(DWORD *)((char *)v3 + 254) + 4);
+v8 = *(DWORD *)(*(DWORD *)((char *)v3 + 254) + 4);
+(**(void (__thiscall ***)(TPinballTable *, signed int, DWORD, int))v3)(v3, 1011, -1.0, v4);
 if ( v6 > 0 )
 {
 v7 = 8;
 do
 {
-(***(void (__stdcall ****)(signed int, _DWORD))(v7 + *(_DWORD *)((char *)v3 + 254)))(1011, LODWORD(a3));
+(***(void (****)(signed int, DWORD))(v7 + *(DWORD *)((char *)v3 + 254)))(1011, LODWORD(a3));
 v7 += 4;
 --v8;
 }
 while ( v8 );
 }
-(***(void (__stdcall ****)(signed int))((char *)v3 + 266))(8);
-*(_DWORD *)((char *)v3 + 370) = 1;
+(***(void (****)(signed int))((char *)v3 + 266))(8);
+*(DWORD *)((char *)v3 + 370) = 1;
 table_control_handler(1011);
 }
 }
 
 //----- (010187D6) --------------------------------------------------------
-int __userpurge TPinballTable::Message@<eax>(TPinballTable *this@<ecx>, int a2@<ebx>, int a3, float a4)
+int TPinballTable::Message(TPinballTable *this, int a2, int a3, float a4)
 {
 TPinballTable *v4; // esi
 int v5; // eax
@@ -290,28 +290,28 @@ int v7; // ebx
 int v8; // eax
 int v9; // eax
 signed __int64 v10; // rax
-_DWORD *v11; // ST14_4
+DWORD *v11; // ST14_4
 bool v12; // zf
 bool v13; // sf
 unsigned __int8 v14; // of
-_DWORD *v15; // edi
+DWORD *v15; // edi
 signed int v16; // eax
 int v17; // edi
 float v18; // ST10_4
 char *v19; // eax
-void (__thiscall ***v20)(_DWORD, signed int, _DWORD); // esi
+void (__thiscall ***v20)(DWORD, signed int, DWORD); // esi
 float v21; // ST10_4
 signed int v22; // ebx
 int v23; // ecx
 int v24; // eax
 int v25; // ST18_4
-_DWORD *v26; // ST14_4
+DWORD *v26; // ST14_4
 int v27; // edi
 float v28; // ST28_4
 char *v29; // eax
 char *v30; // eax
-void (__thiscall ***v31)(_DWORD, signed int, _DWORD); // esi
-void (__thiscall ***v32)(_DWORD, signed int, _DWORD); // esi
+void (__thiscall ***v31)(DWORD, signed int, DWORD); // esi
+void (__thiscall ***v32)(DWORD, signed int, DWORD); // esi
 int v33; // eax
 int v34; // edi
 int v35; // ebx
@@ -319,60 +319,60 @@ char *v36; // eax
 float v38; // [esp+18h] [ebp-18h]
 int v39; // [esp+2Ch] [ebp-4h]
 signed int v40; // [esp+3Ch] [ebp+Ch]
-_DWORD **v41; // [esp+3Ch] [ebp+Ch]
+DWORD **v41; // [esp+3Ch] [ebp+Ch]
 signed int v42; // [esp+3Ch] [ebp+Ch]
 
 v4 = this;
 switch ( a3 )
 {
 case 1000:
-if ( !*(_DWORD *)((char *)this + 370) )
+if ( !*(DWORD *)((char *)this + 370) )
 {
-v32 = *(void (__thiscall ****)(_DWORD, signed int, _DWORD))((char *)this + 42);
+v32 = *(void (__thiscall ****)(DWORD, signed int, DWORD))((char *)this + 42);
 goto LABEL_73;
 }
 goto LABEL_81;
 case 1001:
-if ( !*(_DWORD *)((char *)this + 370) )
+if ( !*(DWORD *)((char *)this + 370) )
 {
-v31 = *(void (__thiscall ****)(_DWORD, signed int, _DWORD))((char *)this + 42);
+v31 = *(void (__thiscall ****)(DWORD, signed int, DWORD))((char *)this + 42);
 goto LABEL_70;
 }
 goto LABEL_81;
 case 1002:
-if ( !*(_DWORD *)((char *)this + 370) )
+if ( !*(DWORD *)((char *)this + 370) )
 {
-v32 = *(void (__thiscall ****)(_DWORD, signed int, _DWORD))((char *)this + 46);
+v32 = *(void (__thiscall ****)(DWORD, signed int, DWORD))((char *)this + 46);
 LABEL_73:
 (**v32)(v32, 1, LODWORD(a4));
 }
 goto LABEL_81;
 case 1003:
-if ( !*(_DWORD *)((char *)this + 370) )
+if ( !*(DWORD *)((char *)this + 370) )
 {
-v31 = *(void (__thiscall ****)(_DWORD, signed int, _DWORD))((char *)this + 46);
+v31 = *(void (__thiscall ****)(DWORD, signed int, DWORD))((char *)this + 46);
 LABEL_70:
 (**v31)(v31, 2, LODWORD(a4));
 }
 goto LABEL_81;
 case 1004:
 case 1005:
-(***(void (__thiscall ****)(_DWORD, int, _DWORD))((char *)this + 222))(
-*(_DWORD *)((char *)this + 222),
+(***(void (__thiscall ****)(DWORD, int, DWORD))((char *)this + 222))(
+*(DWORD *)((char *)this + 222),
 a3,
 LODWORD(a4));
 goto LABEL_81;
 case 1008:
 case 1009:
 case 1010:
-v33 = *(_DWORD *)(*(_DWORD *)((char *)this + 254) + 4) - 1;
+v33 = *(DWORD *)(*(DWORD *)((char *)this + 254) + 4) - 1;
 if ( v33 >= 0 )
 {
 v34 = 4 * v33 + 8;
-v35 = *(_DWORD *)(*(_DWORD *)((char *)this + 254) + 4);
+v35 = *(DWORD *)(*(DWORD *)((char *)this + 254) + 4);
 do
 {
-(***(void (__stdcall ****)(int, _DWORD))(v34 + *(_DWORD *)((char *)v4 + 254)))(a3, LODWORD(a4));
+(***(void (****)(int, DWORD))(v34 + *(DWORD *)((char *)v4 + 254)))(a3, LODWORD(a4));
 v34 -= 4;
 --v35;
 }
@@ -380,97 +380,97 @@ while ( v35 );
 }
 goto LABEL_81;
 case 1012:
-(***(void (__stdcall ****)(signed int, _DWORD))((char *)this + 266))(14, 0.0);
-if ( *(_DWORD *)((char *)v4 + 370) )
+(***(void (****)(signed int, DWORD))((char *)this + 266))(14, 0.0);
+if ( *(DWORD *)((char *)v4 + 370) )
 {
-*(_DWORD *)((char *)v4 + 370) = 0;
-if ( *(_DWORD *)((char *)v4 + 98) )
-timer_kill(*(_DWORD *)((char *)v4 + 98));
-*(_DWORD *)((char *)v4 + 98) = 0;
+*(DWORD *)((char *)v4 + 370) = 0;
+if ( *(DWORD *)((char *)v4 + 98) )
+timer_kill(*(DWORD *)((char *)v4 + 98));
+*(DWORD *)((char *)v4 + 98) = 0;
 }
 goto LABEL_81;
 case 1013:
-(***(void (__stdcall ****)(signed int, _DWORD))((char *)this + 266))(34, 0.0);
-(***(void (__stdcall ****)(signed int, _DWORD))((char *)v4 + 266))(20, 0.0);
-(***(void (__stdcall ****)(signed int, _DWORD))((char *)v4 + 222))(1016, 0.0);
-if ( *(_BYTE *)(*(_DWORD *)((char *)v4 + 230) + 5) )
+(***(void (****)(signed int, DWORD))((char *)this + 266))(34, 0.0);
+(***(void (****)(signed int, DWORD))((char *)v4 + 266))(20, 0.0);
+(***(void (****)(signed int, DWORD))((char *)v4 + 222))(1016, 0.0);
+if ( *(_BYTE *)(*(DWORD *)((char *)v4 + 230) + 5) )
 v19 = get_rc_string(30, 0);
 else
 v19 = get_rc_string(26, 0);
 TTextBox::Display(InfoTextBox, 0, v19, -1.0);
-v20 = *(void (__thiscall ****)(_DWORD, signed int, _DWORD))((char *)v4 + 230);
+v20 = *(void (__thiscall ****)(DWORD, signed int, DWORD))((char *)v4 + 230);
 if ( v20 )
 (**v20)(v20, 1014, 0.0);
 goto LABEL_81;
 case 1014:
-if ( *(_DWORD *)((char *)this + 94) )
+if ( *(DWORD *)((char *)this + 94) )
 {
-timer_kill(*(_DWORD *)((char *)this + 94));
+timer_kill(*(DWORD *)((char *)this + 94));
 TPinballTable::EndGame_timeout(0, (void *)v4);
 pb_mode_change(1);
 }
-if ( *(_DWORD *)((char *)v4 + 90) )
+if ( *(DWORD *)((char *)v4 + 90) )
 {
-timer_kill(*(_DWORD *)((char *)v4 + 90));
-*(_DWORD *)((char *)v4 + 90) = 0;
+timer_kill(*(DWORD *)((char *)v4 + 90));
+*(DWORD *)((char *)v4 + 90) = 0;
 TPinballTable::Message(v4, 1013, 0.0);
 }
 else
 {
-*(_DWORD *)((char *)v4 + 62) = 0;
+*(DWORD *)((char *)v4 + 62) = 0;
 TPinballTable::Message(v4, 1024, 0.0);
-v9 = *(_DWORD *)(*(_DWORD *)((char *)v4 + 262) + 8);
+v9 = *(DWORD *)(*(DWORD *)((char *)v4 + 262) + 8);
 *(float *)(v9 + 46) = 0.0;
 *(float *)(v9 + 42) = 0.0;
-*(_DWORD *)(v9 + 50) = -1085485875;
+*(DWORD *)(v9 + 50) = -1085485875;
 v10 = (signed __int64)_floor(a4);
-*(_DWORD *)((char *)v4 + 214) = v10;
+*(DWORD *)((char *)v4 + 214) = v10;
 if ( (signed int)v10 >= 1 )
 {
 if ( (signed int)v10 > 4 )
-*(_DWORD *)((char *)v4 + 214) = 4;
+*(DWORD *)((char *)v4 + 214) = 4;
 }
 else
 {
-*(_DWORD *)((char *)v4 + 214) = 1;
+*(DWORD *)((char *)v4 + 214) = 1;
 }
-v11 = *(_DWORD **)((char *)v4 + 102);
-*(_DWORD *)((char *)v4 + 218) = 0;
-*(_DWORD *)((char *)v4 + 50) = v11;
-*(_DWORD *)((char *)v4 + 82) = 0;
+v11 = *(DWORD **)((char *)v4 + 102);
+*(DWORD *)((char *)v4 + 218) = 0;
+*(DWORD *)((char *)v4 + 50) = v11;
+*(DWORD *)((char *)v4 + 82) = 0;
 score_set(v11, 0);
-v14 = __OFSUB__(*(_DWORD *)((char *)v4 + 214), 1);
-v12 = *(_DWORD *)((char *)v4 + 214) == 1;
-v13 = *(_DWORD *)((char *)v4 + 214) - 1 < 0;
-*(_DWORD *)((char *)v4 + 294) = 0;
+v14 = __OFSUB__(*(DWORD *)((char *)v4 + 214), 1);
+v12 = *(DWORD *)((char *)v4 + 214) == 1;
+v13 = *(DWORD *)((char *)v4 + 214) - 1 < 0;
+*(DWORD *)((char *)v4 + 294) = 0;
 v40 = 1;
 if ( !((unsigned __int8)(v13 ^ v14) | v12) )
 {
-v15 = (_DWORD *)((char *)v4 + 134);
+v15 = (DWORD *)((char *)v4 + 134);
 do
 {
-score_set((_DWORD *)*(v15 - 1), 0);
+score_set((DWORD *)*(v15 - 1), 0);
 ++v40;
 *v15 = 0;
 v15[1] = 0;
-v15[3] = *(_DWORD *)((char *)v4 + 330);
-v15[4] = *(_DWORD *)((char *)v4 + 334);
-v15[5] = *(_DWORD *)((char *)v4 + 342);
-v15[2] = *(_DWORD *)((char *)v4 + 314);
+v15[3] = *(DWORD *)((char *)v4 + 330);
+v15[4] = *(DWORD *)((char *)v4 + 334);
+v15[5] = *(DWORD *)((char *)v4 + 342);
+v15[2] = *(DWORD *)((char *)v4 + 314);
 v15 += 7;
 }
-while ( v40 < *(_DWORD *)((char *)v4 + 214) );
+while ( v40 < *(DWORD *)((char *)v4 + 214) );
 }
-*(_DWORD *)((char *)v4 + 326) = *(_DWORD *)((char *)v4 + 330);
+*(DWORD *)((char *)v4 + 326) = *(DWORD *)((char *)v4 + 330);
 Sound_Idle();
-TPinballTable::ChangeBallCount(v4, 0, *(_DWORD *)((char *)v4 + 326));
-score_set(*(_DWORD **)((char *)v4 + 58), *(_DWORD *)((char *)v4 + 218) + 1);
+TPinballTable::ChangeBallCount(v4, 0, *(DWORD *)((char *)v4 + 326));
+score_set(*(DWORD **)((char *)v4 + 58), *(DWORD *)((char *)v4 + 218) + 1);
 score_update(0, *(int **)((char *)v4 + 58));
 Sound_Idle();
-v16 = *(_DWORD *)((char *)v4 + 214);
+v16 = *(DWORD *)((char *)v4 + 214);
 if ( v16 < 4 )
 {
-v41 = (_DWORD **)((char *)v4 + 28 * v16 + 102);
+v41 = (DWORD **)((char *)v4 + 28 * v16 + 102);
 v17 = 4 - v16;
 do
 {
@@ -481,66 +481,66 @@ v41 += 7;
 while ( v17 );
 }
 Sound_Idle();
-*(_DWORD *)((char *)v4 + 318) = 0;
-*(_DWORD *)((char *)v4 + 310) = 0;
-*(_DWORD *)((char *)v4 + 322) = 0;
+*(DWORD *)((char *)v4 + 318) = 0;
+*(DWORD *)((char *)v4 + 310) = 0;
+*(DWORD *)((char *)v4 + 322) = 0;
 TTextBox::Clear(InfoTextBox, 0);
 Sound_Idle();
 TTextBox::Clear(MissTextBox, 0);
 Sound_Idle();
-(***(void (__stdcall ****)(signed int, _DWORD))((char *)v4 + 266))(28, 0.2);
-v18 = loader_play_sound(*(_DWORD *)((char *)v4 + 66));
-*(_DWORD *)((char *)v4 + 90) = timer_set(v18, (int)v4, (int)TPinballTable::LightShow_timeout);
+(***(void (****)(signed int, DWORD))((char *)v4 + 266))(28, 0.2);
+v18 = loader_play_sound(*(DWORD *)((char *)v4 + 66));
+*(DWORD *)((char *)v4 + 90) = timer_set(v18, (int)v4, (int)TPinballTable::LightShow_timeout);
 }
 goto LABEL_81;
 case 1018:
-if ( *(_DWORD *)((char *)this + 358) )
-timer_kill(*(_DWORD *)((char *)this + 358));
+if ( *(DWORD *)((char *)this + 358) )
+timer_kill(*(DWORD *)((char *)this + 358));
 v21 = _floor(a4);
-*(_DWORD *)((char *)v4 + 358) = timer_set(v21, (int)v4, (int)TPinballTable::replay_timer_callback);
-*(_DWORD *)((char *)v4 + 354) = 1;
+*(DWORD *)((char *)v4 + 358) = timer_set(v21, (int)v4, (int)TPinballTable::replay_timer_callback);
+*(DWORD *)((char *)v4 + 354) = 1;
 goto LABEL_81;
 case 1021:
-v22 = *(_DWORD *)((char *)this + 214);
+v22 = *(DWORD *)((char *)this + 214);
 if ( v22 > 1 )
 {
-v23 = *(_DWORD *)((char *)this + 218);
+v23 = *(DWORD *)((char *)this + 218);
 v39 = (v23 + 1) % v22;
 v24 = (int)v4 + 28 * v39;
-if ( *(_DWORD *)(v24 + 118) <= 0 )
+if ( *(DWORD *)(v24 + 118) <= 0 )
 goto LABEL_81;
-*(_DWORD *)((char *)v4 + 28 * v23 + 106) = *(_DWORD *)((char *)v4 + 82);
-*(_DWORD *)((char *)v4 + 28 * *(_DWORD *)((char *)v4 + 218) + 110) = *(_DWORD *)((char *)v4 + 86);
-*(_DWORD *)((char *)v4 + 28 * *(_DWORD *)((char *)v4 + 218) + 118) = *(_DWORD *)((char *)v4 + 326);
-*(_DWORD *)((char *)v4 + 28 * *(_DWORD *)((char *)v4 + 218) + 122) = *(_DWORD *)((char *)v4 + 334);
-*(_DWORD *)((char *)v4 + 28 * *(_DWORD *)((char *)v4 + 218) + 126) = *(_DWORD *)((char *)v4 + 342);
-*(_DWORD *)((char *)v4 + 28 * *(_DWORD *)((char *)v4 + 218) + 114) = *(_DWORD *)((char *)v4 + 314);
-*(_DWORD *)((char *)v4 + 82) = *(_DWORD *)(v24 + 106);
-v25 = *(_DWORD *)((char *)v4 + 82);
-*(_DWORD *)((char *)v4 + 86) = *(_DWORD *)(v24 + 110);
-*(_DWORD *)((char *)v4 + 326) = *(_DWORD *)(v24 + 118);
-*(_DWORD *)((char *)v4 + 334) = *(_DWORD *)(v24 + 122);
-*(_DWORD *)((char *)v4 + 342) = *(_DWORD *)(v24 + 126);
-*(_DWORD *)((char *)v4 + 314) = *(_DWORD *)(v24 + 114);
-v26 = *(_DWORD **)(v24 + 102);
-*(_DWORD *)((char *)v4 + 50) = v26;
+*(DWORD *)((char *)v4 + 28 * v23 + 106) = *(DWORD *)((char *)v4 + 82);
+*(DWORD *)((char *)v4 + 28 * *(DWORD *)((char *)v4 + 218) + 110) = *(DWORD *)((char *)v4 + 86);
+*(DWORD *)((char *)v4 + 28 * *(DWORD *)((char *)v4 + 218) + 118) = *(DWORD *)((char *)v4 + 326);
+*(DWORD *)((char *)v4 + 28 * *(DWORD *)((char *)v4 + 218) + 122) = *(DWORD *)((char *)v4 + 334);
+*(DWORD *)((char *)v4 + 28 * *(DWORD *)((char *)v4 + 218) + 126) = *(DWORD *)((char *)v4 + 342);
+*(DWORD *)((char *)v4 + 28 * *(DWORD *)((char *)v4 + 218) + 114) = *(DWORD *)((char *)v4 + 314);
+*(DWORD *)((char *)v4 + 82) = *(DWORD *)(v24 + 106);
+v25 = *(DWORD *)((char *)v4 + 82);
+*(DWORD *)((char *)v4 + 86) = *(DWORD *)(v24 + 110);
+*(DWORD *)((char *)v4 + 326) = *(DWORD *)(v24 + 118);
+*(DWORD *)((char *)v4 + 334) = *(DWORD *)(v24 + 122);
+*(DWORD *)((char *)v4 + 342) = *(DWORD *)(v24 + 126);
+*(DWORD *)((char *)v4 + 314) = *(DWORD *)(v24 + 114);
+v26 = *(DWORD **)(v24 + 102);
+*(DWORD *)((char *)v4 + 50) = v26;
 score_set(v26, v25);
-*(_DWORD *)(*(_DWORD *)((char *)v4 + 50) + 4) = 1;
-TPinballTable::ChangeBallCount(v4, 0, *(_DWORD *)((char *)v4 + 326));
-score_set(*(_DWORD **)((char *)v4 + 58), v39 + 1);
+*(DWORD *)(*(DWORD *)((char *)v4 + 50) + 4) = 1;
+TPinballTable::ChangeBallCount(v4, 0, *(DWORD *)((char *)v4 + 326));
+score_set(*(DWORD **)((char *)v4 + 58), v39 + 1);
 score_update(0, *(int **)((char *)v4 + 58));
 v27 = 0;
-if ( *(_DWORD *)(*(_DWORD *)((char *)v4 + 254) + 4) > 0 )
+if ( *(DWORD *)(*(DWORD *)((char *)v4 + 254) + 4) > 0 )
 {
 v42 = 8;
 do
 {
 v28 = (double)v39;
-(***(void (__stdcall ****)(signed int, _DWORD))(v42 + *(_DWORD *)((char *)v4 + 254)))(1020, LODWORD(v28));
+(***(void (****)(signed int, DWORD))(v42 + *(DWORD *)((char *)v4 + 254)))(1020, LODWORD(v28));
 v42 += 4;
 ++v27;
 }
-while ( v27 < *(_DWORD *)(*(_DWORD *)((char *)v4 + 254) + 4) );
+while ( v27 < *(DWORD *)(*(DWORD *)((char *)v4 + 254) + 4) );
 }
 if ( v39 )
 {
@@ -548,38 +548,38 @@ switch ( v39 )
 {
 case 1:
 v38 = -1.0;
-if ( *(_BYTE *)(*(_DWORD *)((char *)v4 + 230) + 5) )
+if ( *(_BYTE *)(*(DWORD *)((char *)v4 + 230) + 5) )
 v29 = get_rc_string(31, 0);
 else
 v29 = get_rc_string(27, 0);
 break;
 case 2:
 v38 = -1.0;
-if ( *(_BYTE *)(*(_DWORD *)((char *)v4 + 230) + 5) )
+if ( *(_BYTE *)(*(DWORD *)((char *)v4 + 230) + 5) )
 v29 = get_rc_string(32, 0);
 else
 v29 = get_rc_string(28, 0);
 break;
 case 3:
 v38 = -1.0;
-if ( *(_BYTE *)(*(_DWORD *)((char *)v4 + 230) + 5) )
+if ( *(_BYTE *)(*(DWORD *)((char *)v4 + 230) + 5) )
 v29 = get_rc_string(33, 0);
 else
 v29 = get_rc_string(29, 0);
 break;
 default:
 LABEL_59:
-*(_DWORD *)((char *)v4 + 318) = 0;
-*(_DWORD *)((char *)v4 + 310) = 0;
-*(_DWORD *)((char *)v4 + 322) = 0;
-*(_DWORD *)((char *)v4 + 218) = v39;
+*(DWORD *)((char *)v4 + 318) = 0;
+*(DWORD *)((char *)v4 + 310) = 0;
+*(DWORD *)((char *)v4 + 322) = 0;
+*(DWORD *)((char *)v4 + 218) = v39;
 goto LABEL_81;
 }
 }
 else
 {
 v38 = -1.0;
-if ( *(_BYTE *)(*(_DWORD *)((char *)v4 + 230) + 5) )
+if ( *(_BYTE *)(*(DWORD *)((char *)v4 + 230) + 5) )
 v29 = get_rc_string(30, 0);
 else
 v29 = get_rc_string(26, 0);
@@ -587,7 +587,7 @@ v29 = get_rc_string(26, 0);
 TTextBox::Display(InfoTextBox, 0, v29, v38);
 goto LABEL_59;
 }
-if ( *(_BYTE *)(*(_DWORD *)((char *)this + 230) + 5) )
+if ( *(_BYTE *)(*(DWORD *)((char *)this + 230) + 5) )
 v30 = get_rc_string(30, 0);
 else
 v30 = get_rc_string(26, 0);
@@ -596,52 +596,52 @@ LABEL_81:
 table_control_handler(a3);
 return 0;
 case 1022:
-loader_play_sound(*(_DWORD *)((char *)this + 70));
+loader_play_sound(*(DWORD *)((char *)this + 70));
 TTextBox::Clear(MissTextBox, a2);
 v36 = get_rc_string(34, 0);
 TTextBox::Display(InfoTextBox, a2, v36, -1.0);
-*(_DWORD *)((char *)v4 + 94) = timer_set(3.0, (int)v4, (int)TPinballTable::EndGame_timeout);
+*(DWORD *)((char *)v4 + 94) = timer_set(3.0, (int)v4, (int)TPinballTable::EndGame_timeout);
 goto LABEL_81;
 case 1024:
-v5 = *(_DWORD *)(*(_DWORD *)((char *)this + 254) + 4) - 1;
+v5 = *(DWORD *)(*(DWORD *)((char *)this + 254) + 4) - 1;
 if ( v5 >= 0 )
 {
 v6 = 4 * v5 + 8;
-v7 = *(_DWORD *)(*(_DWORD *)((char *)this + 254) + 4);
+v7 = *(DWORD *)(*(DWORD *)((char *)this + 254) + 4);
 do
 {
-(***(void (__stdcall ****)(signed int, _DWORD))(v6 + *(_DWORD *)((char *)v4 + 254)))(1024, 0.0);
+(***(void (****)(signed int, DWORD))(v6 + *(DWORD *)((char *)v4 + 254)))(1024, 0.0);
 v6 -= 4;
 --v7;
 }
 while ( v7 );
 }
-if ( *(_DWORD *)((char *)v4 + 358) )
-timer_kill(*(_DWORD *)((char *)v4 + 358));
-v8 = *(_DWORD *)((char *)v4 + 90);
-*(_DWORD *)((char *)v4 + 358) = 0;
+if ( *(DWORD *)((char *)v4 + 358) )
+timer_kill(*(DWORD *)((char *)v4 + 358));
+v8 = *(DWORD *)((char *)v4 + 90);
+*(DWORD *)((char *)v4 + 358) = 0;
 if ( v8 )
 {
 timer_kill(v8);
-(***(void (__stdcall ****)(signed int, _DWORD))((char *)v4 + 266))(34, 0.0);
+(***(void (****)(signed int, DWORD))((char *)v4 + 266))(34, 0.0);
 }
-*(_DWORD *)((char *)v4 + 90) = 0;
-*(_DWORD *)((char *)v4 + 294) = 0;
-*(_DWORD *)((char *)v4 + 298) = 0;
-*(_DWORD *)((char *)v4 + 302) = 0;
-*(_DWORD *)((char *)v4 + 306) = 10000;
-*(_DWORD *)((char *)v4 + 310) = 0;
-*(_DWORD *)((char *)v4 + 314) = 20000;
-*(_DWORD *)((char *)v4 + 318) = 0;
-*(_DWORD *)((char *)v4 + 322) = 0;
-*(_DWORD *)((char *)v4 + 334) = 0;
-*(_DWORD *)((char *)v4 + 338) = 0;
-*(_DWORD *)((char *)v4 + 342) = 0;
-*(_DWORD *)((char *)v4 + 346) = 0;
-*(_DWORD *)((char *)v4 + 350) = 0;
-*(_DWORD *)((char *)v4 + 354) = 0;
-*(_DWORD *)((char *)v4 + 358) = 0;
-*(_DWORD *)((char *)v4 + 370) = 0;
+*(DWORD *)((char *)v4 + 90) = 0;
+*(DWORD *)((char *)v4 + 294) = 0;
+*(DWORD *)((char *)v4 + 298) = 0;
+*(DWORD *)((char *)v4 + 302) = 0;
+*(DWORD *)((char *)v4 + 306) = 10000;
+*(DWORD *)((char *)v4 + 310) = 0;
+*(DWORD *)((char *)v4 + 314) = 20000;
+*(DWORD *)((char *)v4 + 318) = 0;
+*(DWORD *)((char *)v4 + 322) = 0;
+*(DWORD *)((char *)v4 + 334) = 0;
+*(DWORD *)((char *)v4 + 338) = 0;
+*(DWORD *)((char *)v4 + 342) = 0;
+*(DWORD *)((char *)v4 + 346) = 0;
+*(DWORD *)((char *)v4 + 350) = 0;
+*(DWORD *)((char *)v4 + 354) = 0;
+*(DWORD *)((char *)v4 + 358) = 0;
+*(DWORD *)((char *)v4 + 370) = 0;
 goto LABEL_81;
 default:
 goto LABEL_81;
@@ -657,7 +657,7 @@ int i; // ecx
 signed int v5; // [esp+Ch] [ebp-4h]
 
 v1 = this;
-*(_DWORD *)this = &TPinballTable::vftable;
+*(DWORD *)this = &TPinballTable::vftable;
 v2 = (int *)((char *)this + 102);
 v5 = 4;
 do
@@ -671,25 +671,25 @@ v2 += 7;
 --v5;
 }
 while ( v5 );
-if ( *(_DWORD *)((char *)v1 + 58) )
+if ( *(DWORD *)((char *)v1 + 58) )
 {
-objlist_destroy(*(_DWORD *)((char *)v1 + 58));
-*(_DWORD *)((char *)v1 + 58) = 0;
+objlist_destroy(*(DWORD *)((char *)v1 + 58));
+*(DWORD *)((char *)v1 + 58) = 0;
 }
-if ( *(_DWORD *)((char *)v1 + 54) )
+if ( *(DWORD *)((char *)v1 + 54) )
 {
-objlist_destroy(*(_DWORD *)((char *)v1 + 54));
-*(_DWORD *)((char *)v1 + 54) = 0;
+objlist_destroy(*(DWORD *)((char *)v1 + 54));
+*(DWORD *)((char *)v1 + 54) = 0;
 }
-for ( i = *(_DWORD *)((char *)v1 + 266); ; i = *(_DWORD *)(*(_DWORD *)((char *)v1 + 254) + 8) )
+for ( i = *(DWORD *)((char *)v1 + 266); ; i = *(DWORD *)(*(DWORD *)((char *)v1 + 254) + 8) )
 {
 if ( i )
-(*(void (__stdcall **)(signed int))(*(_DWORD *)i + 16))(1);
-if ( !*(_DWORD *)(*(_DWORD *)((char *)v1 + 254) + 4) )
+(*(void (**)(signed int))(*(DWORD *)i + 16))(1);
+if ( !*(DWORD *)(*(DWORD *)((char *)v1 + 254) + 4) )
 break;
 }
-objlist_destroy(*(_DWORD *)((char *)v1 + 262));
-objlist_destroy(*(_DWORD *)((char *)v1 + 254));
+objlist_destroy(*(DWORD *)((char *)v1 + 262));
+objlist_destroy(*(DWORD *)((char *)v1 + 254));
 return TPinballComponent::~TPinballComponent(v1);
 }
 // 1002790: using guessed type void *TPinballTable::vftable;
@@ -715,13 +715,13 @@ TBall *v3; // eax
 TTableLayer *v4; // eax
 TLightGroup *v5; // eax
 TLightGroup *v6; // eax
-_DWORD *v7; // eax
+DWORD *v7; // eax
 int v8; // ebx
 void **v9; // edi
 int v10; // eax
-__int16 *v11; // ebx
-__int16 v12; // ax
-signed __int16 *v13; // ebx
+int *v11; // ebx
+int v12; // ax
+signed int *v13; // ebx
 int v14; // edi
 TWall *v15; // eax
 TOneway *v16; // eax
@@ -763,20 +763,20 @@ int i; // [esp+10h] [ebp-4h]
 v1 = 0;
 v2 = this;
 TPinballComponent::TPinballComponent(this, 0, -1, 0);
-*(_DWORD *)v2 = &TPinballTable::vftable;
+*(DWORD *)v2 = &TPinballTable::vftable;
 objlist_class::objlist_class((TPinballTable *)((char *)v2 + 250), 32, 16);
 objlist_class::objlist_class((TPinballTable *)((char *)v2 + 258), 3, 1);
-*(_DWORD *)((char *)v2 + 50) = 0;
-*(_DWORD *)((char *)v2 + 54) = 0;
-*(_DWORD *)((char *)v2 + 58) = 0;
-*(_DWORD *)((char *)v2 + 78) = 0;
+*(DWORD *)((char *)v2 + 50) = 0;
+*(DWORD *)((char *)v2 + 54) = 0;
+*(DWORD *)((char *)v2 + 58) = 0;
+*(DWORD *)((char *)v2 + 78) = 0;
 *((_BYTE *)v2 + 5) = 1;
-*(_DWORD *)((char *)v2 + 370) = 0;
-*(_DWORD *)((char *)v2 + 94) = 0;
-*(_DWORD *)((char *)v2 + 90) = 0;
-*(_DWORD *)((char *)v2 + 358) = 0;
-*(_DWORD *)((char *)v2 + 98) = 0;
-*(_DWORD *)((char *)v2 + 346) = 0;
+*(DWORD *)((char *)v2 + 370) = 0;
+*(DWORD *)((char *)v2 + 94) = 0;
+*(DWORD *)((char *)v2 + 90) = 0;
+*(DWORD *)((char *)v2 + 358) = 0;
+*(DWORD *)((char *)v2 + 98) = 0;
+*(DWORD *)((char *)v2 + 346) = 0;
 v3 = (TBall *)TPinballComponent::operator new(0x16Au);
 if ( v3 )
 v1 = TBall::TBall(v3, v2);
@@ -791,10 +791,10 @@ if ( v5 )
 v6 = TLightGroup::TLightGroup(v5, v2, 0);
 else
 v6 = 0;
-*(_DWORD *)((char *)v2 + 266) = v6;
+*(DWORD *)((char *)v2 + 266) = v6;
 v7 = score_create("score1", render_background_bitmap);
-*(_DWORD *)((char *)v2 + 50) = v7;
-*(_DWORD *)((char *)v2 + 102) = v7;
+*(DWORD *)((char *)v2 + 50) = v7;
+*(DWORD *)((char *)v2 + 102) = v7;
 v8 = 1;
 v9 = (void **)((char *)v2 + 130);
 do
@@ -803,12 +803,12 @@ do
 v9 += 7;
 }
 while ( v8 < 4 );
-*(_DWORD *)((char *)v2 + 218) = 0;
-*(_DWORD *)((char *)v2 + 330) = 3;
-*(_DWORD *)((char *)v2 + 54) = score_create("ballcount1", render_background_bitmap);
-*(_DWORD *)((char *)v2 + 58) = score_create("player_number1", render_background_bitmap);
+*(DWORD *)((char *)v2 + 218) = 0;
+*(DWORD *)((char *)v2 + 330) = 3;
+*(DWORD *)((char *)v2 + 54) = score_create("ballcount1", render_background_bitmap);
+*(DWORD *)((char *)v2 + 58) = score_create("player_number1", render_background_bitmap);
 v10 = loader_query_handle("table_objects");
-v11 = (__int16 *)loader_query_iattribute(v10, 1025, &v50);
+v11 = (int *)loader_query_iattribute(v10, 1025, &v50);
 if ( v50 > 0 )
 {
 for ( i = 0; i < v50 / 2; ++i )
@@ -831,7 +831,7 @@ if ( v17 )
 v18 = TPlunger::TPlunger(v17, v2, v14);
 else
 v18 = 0;
-*(_DWORD *)((char *)v2 + 222) = v18;
+*(DWORD *)((char *)v2 + 222) = v18;
 break;
 case 1002:
 v19 = (TLight *)TPinballComponent::operator new(0xDEu);
@@ -839,7 +839,7 @@ if ( v19 )
 v20 = TLight::TLight(v19, v2, v14);
 else
 v20 = 0;
-objlist_class::Add((objlist_class *)(*(_DWORD *)((char *)v2 + 266) + 42), (void *)v20);
+objlist_class::Add((objlist_class *)(*(DWORD *)((char *)v2 + 266) + 42), (void *)v20);
 break;
 case 1003:
 v23 = (TFlipper *)TPinballComponent::operator new(0x6Au);
@@ -847,7 +847,7 @@ if ( v23 )
 v24 = TFlipper::TFlipper(v23, v2, v14);
 else
 v24 = 0;
-*(_DWORD *)((char *)v2 + 42) = v24;
+*(DWORD *)((char *)v2 + 42) = v24;
 break;
 case 1004:
 v25 = (TFlipper *)TPinballComponent::operator new(0x6Au);
@@ -855,7 +855,7 @@ if ( v25 )
 v26 = TFlipper::TFlipper(v25, v2, v14);
 else
 v26 = 0;
-*(_DWORD *)((char *)v2 + 46) = v26;
+*(DWORD *)((char *)v2 + 46) = v26;
 break;
 case 1005:
 v27 = (TBumper *)TPinballComponent::operator new(0x96u);
@@ -873,7 +873,7 @@ if ( v37 )
 v38 = TDrain::TDrain(v37, v2, v14);
 else
 v38 = 0;
-*(_DWORD *)((char *)v2 + 226) = v38;
+*(DWORD *)((char *)v2 + 226) = v38;
 break;
 case 1011:
 v30 = (TBlocker *)TPinballComponent::operator new(0x72u);

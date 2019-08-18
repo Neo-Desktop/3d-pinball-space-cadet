@@ -5,11 +5,11 @@
 #include "../pinball.h"
 
 //----- (01003803) --------------------------------------------------------
-int __stdcall grtext_draw_ttext_in_box(LPCSTR lpString, int mode, int a3, COLORREF color, int a5, int a6)
+int grtext_draw_ttext_in_box(LPCSTR lpString, int mode, int a3, COLORREF color, int a5, int a6)
 {
     HDC v6; // ebx
     CHAR *v7; // eax
-    unsigned __int16 v8; // ax
+    unsigned int v8; // ax
     int v9; // eax
     struct tagRECT rc; // [esp+Ch] [ebp-10h]
     int modea; // [esp+28h] [ebp+Ch]
@@ -46,10 +46,10 @@ int __stdcall grtext_draw_ttext_in_box(LPCSTR lpString, int mode, int a3, COLORR
 
 
 //----- (01004154) --------------------------------------------------------
-int __stdcall DibSetUsage(int a1, HPALETTE hpal, int a3)
+int DibSetUsage(int a1, HPALETTE hpal, int a3)
 {
     signed int v4; // edi
-    unsigned __int16 v5; // cx
+    unsigned int v5; // cx
     char *v6; // esi
     signed int i; // eax
     _BYTE *v8; // eax
@@ -61,19 +61,19 @@ int __stdcall DibSetUsage(int a1, HPALETTE hpal, int a3)
         hpal = (HPALETTE)GetStockObject(15);
     if ( !a1 )
         return 0;
-    v4 = *(_DWORD *)(a1 + 32);
+    v4 = *(DWORD *)(a1 + 32);
     if ( !v4 )
     {
-        v5 = *(_WORD *)(a1 + 14);
+        v5 = *(WORD *)(a1 + 14);
         if ( v5 <= 8u )
             v4 = 1 << v5;
     }
     if ( v4 == 3 )
     {
-        if ( *(_DWORD *)(a1 + 16) != 3 )
+        if ( *(DWORD *)(a1 + 16) != 3 )
         {
             LABEL_12:
-            v6 = (char *)(a1 + *(_DWORD *)a1);
+            v6 = (char *)(a1 + *(DWORD *)a1);
             if ( (unsigned int)a3 <= 0 || (unsigned int)a3 > 2 )
             {
                 if ( v4 >= 256 )
@@ -85,7 +85,7 @@ int __stdcall DibSetUsage(int a1, HPALETTE hpal, int a3)
                     v8 = v6 + 1;
                     do
                     {
-                        v9 = pPalEntries[(_DWORD)hpala].peRed;
+                        v9 = pPalEntries[(DWORD)hpala].peRed;
                         hpala = (HPALETTE)((char *)hpala + 1);
                         v8[1] = v9;
                         *v8 = v8[(char *)pPalEntries - v6];
@@ -99,7 +99,7 @@ int __stdcall DibSetUsage(int a1, HPALETTE hpal, int a3)
             else
             {
                 for ( i = 0; i < v4; v6 += 2 )
-                    *(_WORD *)v6 = i++;
+                    *(WORD *)v6 = i++;
             }
             return 1;
         }
@@ -112,14 +112,14 @@ int __stdcall DibSetUsage(int a1, HPALETTE hpal, int a3)
 // 1004154: using guessed type struct tagPALETTEENTRY pPalEntries[256];
 
 //----- (0100423A) --------------------------------------------------------
-_DWORD *__stdcall DibCreate(int a1, int a2, int a3)
+DWORD *DibCreate(int a1, int a2, int a3)
 {
     unsigned int v3; // edi
     HGLOBAL v4; // eax
-    _DWORD *v5; // esi
-    _DWORD *result; // eax
-    _DWORD *i; // ecx
-    _DWORD *v8; // ecx
+    DWORD *v5; // esi
+    DWORD *result; // eax
+    DWORD *i; // ecx
+    DWORD *v8; // ecx
     int v9; // [esp+18h] [ebp+Ch]
 
     v3 = a3 * ((a2 * a1 / 8 + 3) & 0xFFFFFFFC);
@@ -132,8 +132,8 @@ _DWORD *__stdcall DibCreate(int a1, int a2, int a3)
         v5[1] = a2;
         *v5 = 40;
         v5[2] = a3;
-        *((_WORD *)v5 + 6) = 1;
-        *((_WORD *)v5 + 7) = a1;
+        *((WORD *)v5 + 6) = 1;
+        *((WORD *)v5 + 7) = a1;
         v5[4] = 0;
         v5[6] = 0;
         v5[7] = 0;
@@ -189,7 +189,7 @@ _DWORD *__stdcall DibCreate(int a1, int a2, int a3)
 }
 
 //----- (01004380) --------------------------------------------------------
-int __stdcall gdrv_init(int a1, HWND a2)
+int gdrv_init(int a1, HWND a2)
 {
     gdrv_hinst = a1;
     gdrv_hwnd = a2;
@@ -200,7 +200,7 @@ int __stdcall gdrv_init(int a1, HWND a2)
 // 1028284: using guessed type int gdrv_hinst;
 
 //----- (010043B9) --------------------------------------------------------
-int __stdcall gdrv_display_palette(int a1)
+int gdrv_display_palette(int a1)
 {
     HWND v1; // eax
     HDC v2; // eax
@@ -242,12 +242,12 @@ int __stdcall gdrv_display_palette(int a1)
     {
         if ( v6 )
         {
-            v7[(_DWORD)v12] = v7[1];
-            v7[(_DWORD)&pPalEntries - v6] = *v7;
-            v7[(_DWORD)((char *)&pPalEntries - v6 + 1)] = *(v7 - 1);
+            v7[(DWORD)v12] = v7[1];
+            v7[(DWORD)&pPalEntries - v6] = *v7;
+            v7[(DWORD)((char *)&pPalEntries - v6 + 1)] = *(v7 - 1);
             v3 = v10;
         }
-        v7[(_DWORD)((char *)&pPalEntries - v6 + 2)] = 4;
+        v7[(DWORD)((char *)&pPalEntries - v6 + 2)] = 4;
         v7 += 4;
         --v11;
     }
@@ -269,7 +269,7 @@ int __stdcall gdrv_display_palette(int a1)
 // 102345A: using guessed type char byte_102345A;
 
 //----- (01004508) --------------------------------------------------------
-int __stdcall gdrv_uninit()
+int gdrv_uninit()
 {
     if ( gdrv_palette_handle )
         DeleteObject(gdrv_palette_handle);
@@ -277,64 +277,64 @@ int __stdcall gdrv_uninit()
 }
 
 //----- (01004520) --------------------------------------------------------
-int __stdcall gdrv_create_bitmap_dib(int a1, int a2, int a3)
+int gdrv_create_bitmap_dib(int a1, int a2, int a3)
 {
     int v3; // edi
-    _DWORD *v4; // eax
-    _DWORD *v5; // eax
+    DWORD *v4; // eax
+    DWORD *v5; // eax
     int v6; // ecx
 
     v3 = a2;
     v4 = DibCreate(8, a2, a3);
-    *(_DWORD *)a1 = v4;
+    *(DWORD *)a1 = v4;
     DibSetUsage((int)v4, (HPALETTE)gdrv_palette_handle, 1);
-    *(_DWORD *)(a1 + 12) = a2;
-    *(_DWORD *)(a1 + 20) = a2;
+    *(DWORD *)(a1 + 12) = a2;
+    *(DWORD *)(a1 + 20) = a2;
     if ( a2 % 4 )
         v3 = 4 - a2 % 4 + a2;
-    v5 = *(_DWORD **)a1;
-    *(_DWORD *)(a1 + 20) = v3;
-    *(_DWORD *)(a1 + 16) = a3;
+    v5 = *(DWORD **)a1;
+    *(DWORD *)(a1 + 20) = v3;
+    *(DWORD *)(a1 + 16) = a3;
     *(_BYTE *)(a1 + 24) = 2;
     if ( v5[4] == 3 )
         v6 = (int)v5 + *v5 + 12;
     else
         v6 = (int)&v5[v5[8]] + *v5;
-    *(_DWORD *)(a1 + 8) = v6;
-    *(_DWORD *)(a1 + 4) = v6;
+    *(DWORD *)(a1 + 8) = v6;
+    *(DWORD *)(a1 + 4) = v6;
     return 0;
 }
 
 //----- (0100459A) --------------------------------------------------------
-int __stdcall gdrv_create_bitmap(int a1, int a2, int a3)
+int gdrv_create_bitmap(int a1, int a2, int a3)
 {
     return gdrv_create_bitmap_dib(a1, a2, a3);
 }
 
 //----- (010045AA) --------------------------------------------------------
-signed int __stdcall gdrv_create_raw_bitmap(int a1, int a2, int a3, int a4)
+signed int gdrv_create_raw_bitmap(int a1, int a2, int a3, int a4)
 {
     unsigned int v4; // ST04_4
     int v5; // eax
 
-    *(_DWORD *)a1 = 0;
-    *(_DWORD *)(a1 + 12) = a2;
-    *(_DWORD *)(a1 + 20) = a2;
+    *(DWORD *)a1 = 0;
+    *(DWORD *)(a1 + 12) = a2;
+    *(DWORD *)(a1 + 20) = a2;
     if ( a4 && a2 % 4 )
-        *(_DWORD *)(a1 + 20) = a2 - a2 % 4 + 4;
-    v4 = a3 * *(_DWORD *)(a1 + 20);
-    *(_DWORD *)(a1 + 16) = a3;
+        *(DWORD *)(a1 + 20) = a2 - a2 % 4 + 4;
+    v4 = a3 * *(DWORD *)(a1 + 20);
+    *(DWORD *)(a1 + 16) = a3;
     *(_BYTE *)(a1 + 24) = 1;
     v5 = memoryallocate(v4);
-    *(_DWORD *)(a1 + 8) = v5;
+    *(DWORD *)(a1 + 8) = v5;
     if ( !v5 )
         return -1;
-    *(_DWORD *)(a1 + 4) = v5;
+    *(DWORD *)(a1 + 4) = v5;
     return 0;
 }
 
 //----- (0100460C) --------------------------------------------------------
-signed int __stdcall gdrv_destroy_bitmap(int a1)
+signed int gdrv_destroy_bitmap(int a1)
 {
     HGLOBAL v2; // eax
     HGLOBAL v3; // eax
@@ -343,7 +343,7 @@ signed int __stdcall gdrv_destroy_bitmap(int a1)
         return -1;
     if ( *(_BYTE *)(a1 + 24) == 1 )
     {
-        memoryfree(*(_DWORD *)(a1 + 8));
+        memoryfree(*(DWORD *)(a1 + 8));
     }
     else if ( *(_BYTE *)(a1 + 24) == 2 )
     {
@@ -358,7 +358,7 @@ signed int __stdcall gdrv_destroy_bitmap(int a1)
 }
 
 //----- (01004664) --------------------------------------------------------
-UINT __stdcall gdrv_start_blit_sequence()
+UINT gdrv_start_blit_sequence()
 {
     HDC v0; // eax
 
@@ -371,7 +371,7 @@ UINT __stdcall gdrv_start_blit_sequence()
 // 102828C: using guessed type int gdrv_sequence_handle;
 
 //----- (0100469C) --------------------------------------------------------
-int __stdcall gdrv_blit_sequence(int a1, int xSrc, int a3, int xDest, int yDest, int DestWidth, int DestHeight)
+int gdrv_blit_sequence(int a1, int xSrc, int a3, int xDest, int yDest, int DestWidth, int DestHeight)
 {
     int result; // eax
 
@@ -383,7 +383,7 @@ int __stdcall gdrv_blit_sequence(int a1, int xSrc, int a3, int xDest, int yDest,
                 DestWidth,
                 DestHeight,
                 xSrc,
-                *(_DWORD *)(a1 + 16) - a3 - DestHeight,
+                *(DWORD *)(a1 + 16) - a3 - DestHeight,
                 DestWidth,
                 DestHeight,
                 *(const void **)(a1 + 8),
@@ -395,13 +395,13 @@ int __stdcall gdrv_blit_sequence(int a1, int xSrc, int a3, int xDest, int yDest,
 // 1024EFC: using guessed type int gdrv_use_wing;
 
 //----- (010046ED) --------------------------------------------------------
-int __stdcall gdrv_end_blit_sequence()
+int gdrv_end_blit_sequence()
 {
     return ReleaseDC(gdrv_hwnd, gdrv_sequence_hdc);
 }
 
 //----- (01004705) --------------------------------------------------------
-HDC __stdcall gdrv_blit(int a1, int xSrc, int a3, int xDest, int yDest, int DestWidth, int DestHeight)
+HDC gdrv_blit(int a1, int xSrc, int a3, int xDest, int yDest, int DestWidth, int DestHeight)
 {
     HDC result; // eax
     HDC v8; // esi
@@ -420,7 +420,7 @@ HDC __stdcall gdrv_blit(int a1, int xSrc, int a3, int xDest, int yDest, int Dest
                     DestWidth,
                     DestHeight,
                     xSrc,
-                    *(_DWORD *)(a1 + 16) - a3 - DestHeight,
+                    *(DWORD *)(a1 + 16) - a3 - DestHeight,
                     DestWidth,
                     DestHeight,
                     *(const void **)(a1 + 8),
@@ -434,7 +434,7 @@ HDC __stdcall gdrv_blit(int a1, int xSrc, int a3, int xDest, int yDest, int Dest
 // 1024EFC: using guessed type int gdrv_use_wing;
 
 //----- (01004787) --------------------------------------------------------
-int __stdcall gdrv_blat(int a1, int xDest, int yDest)
+int gdrv_blat(int a1, int xDest, int yDest)
 {
     HDC v3; // edi
 
@@ -446,12 +446,12 @@ int __stdcall gdrv_blat(int a1, int xDest, int yDest)
                 v3,
                 xDest,
                 yDest,
-                *(_DWORD *)(a1 + 12),
-                *(_DWORD *)(a1 + 16),
+                *(DWORD *)(a1 + 12),
+                *(DWORD *)(a1 + 16),
                 0,
                 0,
-                *(_DWORD *)(a1 + 12),
-                *(_DWORD *)(a1 + 16),
+                *(DWORD *)(a1 + 12),
+                *(DWORD *)(a1 + 16),
                 *(const void **)(a1 + 8),
                 *(const BITMAPINFO **)a1,
                 1u,
@@ -461,9 +461,9 @@ int __stdcall gdrv_blat(int a1, int xDest, int yDest)
 // 1024EFC: using guessed type int gdrv_use_wing;
 
 //----- (010047FA) --------------------------------------------------------
-int __userpurge gdrv_fill_bitmap@<eax>(int a1@<ebx>, _DWORD *a2, unsigned int a3, int a4, int a5, int a6, char a7)
+int gdrv_fill_bitmap(int a1, DWORD *a2, unsigned int a3, int a4, int a5, int a6, char a7)
 {
-_DWORD *v7; // esi
+DWORD *v7; // esi
 int v8; // eax
 int result; // eax
 unsigned int v10; // ecx
@@ -506,11 +506,11 @@ return result;
 }
 
 //----- (01004870) --------------------------------------------------------
-char *__stdcall gdrv_copy_bitmap(_DWORD *a1, int a2, int a3, int a4, int a5, _DWORD *a6, int a7, int a8)
+char *gdrv_copy_bitmap(DWORD *a1, int a2, int a3, int a4, int a5, DWORD *a6, int a7, int a8)
 {
-    _DWORD *v8; // edx
+    DWORD *v8; // edx
     int v9; // ecx
-    _DWORD *v10; // esi
+    DWORD *v10; // esi
     int v11; // eax
     char *result; // eax
     _BYTE *v13; // ecx
@@ -554,11 +554,11 @@ char *__stdcall gdrv_copy_bitmap(_DWORD *a1, int a2, int a3, int a4, int a5, _DW
 }
 
 //----- (010048EC) --------------------------------------------------------
-_BYTE *__stdcall gdrv_copy_bitmap_w_transparency(_DWORD *a1, int a2, int a3, int a4, int a5, _DWORD *a6, int a7, int a8)
+_BYTE *gdrv_copy_bitmap_w_transparency(DWORD *a1, int a2, int a3, int a4, int a5, DWORD *a6, int a7, int a8)
 {
-    _DWORD *v8; // edx
+    DWORD *v8; // edx
     int v9; // ecx
-    _DWORD *v10; // esi
+    DWORD *v10; // esi
     int v11; // eax
     _BYTE *result; // eax
     _BYTE *v13; // ecx
@@ -604,7 +604,7 @@ _BYTE *__stdcall gdrv_copy_bitmap_w_transparency(_DWORD *a1, int a2, int a3, int
 
 
 //----- (01003F10) --------------------------------------------------------
-HBRUSH __userpurge sub_1003F10@<eax>(LONG a1@<ebx>, LONG a2@<edi>, int a3, int a4)
+HBRUSH sub_1003F10(LONG a1, LONG a2, int a3, int a4)
 {
 HBRUSH result; // eax
 HDC v5; // esi
@@ -634,7 +634,7 @@ return result;
 }
 
 //----- (0100496C) --------------------------------------------------------
-int __stdcall zdrv_pad(int a1)
+int zdrv_pad(int a1)
 {
     int result; // eax
 
@@ -645,42 +645,42 @@ int __stdcall zdrv_pad(int a1)
 }
 
 //----- (01004989) --------------------------------------------------------
-signed int __stdcall zdrv_create_zmap(int a1, int a2, int a3)
+signed int zdrv_create_zmap(int a1, int a2, int a3)
 {
-    __int16 v3; // ax
+    int v3; // ax
     int v4; // eax
 
     v3 = zdrv_pad(a2);
-    *(_WORD *)(a1 + 4) = v3;
+    *(WORD *)(a1 + 4) = v3;
     v4 = memoryallocate(2 * a3 * v3);
-    *(_DWORD *)(a1 + 6) = v4;
+    *(DWORD *)(a1 + 6) = v4;
     if ( !v4 )
         return -1;
-    *(_DWORD *)(a1 + 10) = v4;
-    *(_WORD *)a1 = a2;
-    *(_WORD *)(a1 + 2) = a3;
+    *(DWORD *)(a1 + 10) = v4;
+    *(WORD *)a1 = a2;
+    *(WORD *)(a1 + 2) = a3;
     return 0;
 }
 
 //----- (010049D6) --------------------------------------------------------
-signed int __stdcall zdrv_destroy_zmap(_DWORD *a1)
+signed int zdrv_destroy_zmap(DWORD *a1)
 {
     int v2; // edi
 
     if ( !a1 )
         return -1;
-    if ( *(_DWORD *)((char *)a1 + 6) )
-        memoryfree(*(_DWORD *)((char *)a1 + 6));
+    if ( *(DWORD *)((char *)a1 + 6) )
+        memoryfree(*(DWORD *)((char *)a1 + 6));
     *a1 = 0;
     a1[1] = 0;
     v2 = (int)(a1 + 2);
-    *(_DWORD *)v2 = 0;
-    *(_WORD *)(v2 + 4) = 0;
+    *(DWORD *)v2 = 0;
+    *(WORD *)(v2 + 4) = 0;
     return 0;
 }
 
 //----- (01004A08) --------------------------------------------------------
-int __userpurge zdrv_fill@<eax>(int a1@<ebx>, int a2, unsigned int a3, int a4, int a5, int a6, __int16 a7)
+int zdrv_fill(int a1, int a2, unsigned int a3, int a4, int a5, int a6, int a7)
 {
 int result; // eax
 int v8; // esi
@@ -695,7 +695,7 @@ int v16; // [esp+Ch] [ebp+8h]
 
 result = a4;
 v8 = a2;
-v9 = (char *)(*(_DWORD *)(a2 + 6) + 2 * (a5 + *(signed __int16 *)(a2 + 4) * (*(signed __int16 *)(a2 + 2) - a4 - a6)));
+v9 = (char *)(*(DWORD *)(a2 + 6) + 2 * (a5 + *(signed int *)(a2 + 4) * (*(signed int *)(a2 + 2) - a4 - a6)));
 if ( a4 > 0 )
 {
 v10 = a3;
@@ -713,13 +713,13 @@ memset32(v9, a1, v12);
 v13 = &v9[4 * v12];
 for ( i = v11; i; --i )
 {
-*(_WORD *)v13 = a7;
+*(WORD *)v13 = a7;
 v13 += 2;
 }
 v10 = a3;
 v9 += 2 * a3;
 }
-result = *(signed __int16 *)(v8 + 4) - v10;
+result = *(signed int *)(v8 + 4) - v10;
 v15 = v16-- == 1;
 v9 += 2 * result;
 }
@@ -729,13 +729,13 @@ return result;
 }
 
 //----- (01004A76) --------------------------------------------------------
-_WORD *__stdcall zdrv_paint(int a1, int a2, _DWORD *a3, int a4, int a5, int a6, int a7, int a8, _DWORD *a9, int a10, int a11, int a12, int a13, int a14)
+WORD *zdrv_paint(int a1, int a2, DWORD *a3, int a4, int a5, int a6, int a7, int a8, DWORD *a9, int a10, int a11, int a12, int a13, int a14)
 {
     int v14; // ecx
-    _DWORD *v15; // ebx
+    DWORD *v15; // ebx
     int v16; // eax
-    _WORD *v17; // edi
-    _WORD *result; // eax
+    WORD *v17; // edi
+    WORD *result; // eax
     bool v19; // zf
     int v20; // [esp+18h] [ebp+Ch]
     int v21; // [esp+24h] [ebp+18h]
@@ -751,10 +751,10 @@ _WORD *__stdcall zdrv_paint(int a1, int a2, _DWORD *a3, int a4, int a5, int a6, 
         v14 = -v14;
     v23 = (_BYTE *)(a10 + a9[2] + a9[5] * (v16 - a2 - a11));
     v22 = (_BYTE *)(a4 + a3[2] + a3[5] * (v14 - a2 - a5));
-    v17 = (_WORD *)(*(_DWORD *)(a12 + 6)
-                    + 2 * (a13 + *(signed __int16 *)(a12 + 4) * (*(signed __int16 *)(a12 + 2) - a2 - a14)));
-    result = (_WORD *)(*(_DWORD *)(a6 + 6)
-                       + 2 * (a7 + *(signed __int16 *)(a6 + 4) * (*(signed __int16 *)(a6 + 2) - a2 - a8)));
+    v17 = (WORD *)(*(DWORD *)(a12 + 6)
+                    + 2 * (a13 + *(signed int *)(a12 + 4) * (*(signed int *)(a12 + 2) - a2 - a14)));
+    result = (WORD *)(*(DWORD *)(a6 + 6)
+                       + 2 * (a7 + *(signed int *)(a6 + 4) * (*(signed int *)(a6 + 2) - a2 - a8)));
     if ( a2 )
     {
         v21 = a2;
@@ -781,9 +781,9 @@ _WORD *__stdcall zdrv_paint(int a1, int a2, _DWORD *a3, int a4, int a5, int a6, 
             }
             v23 += v15[5] - a1;
             v22 += a3[5] - a1;
-            v17 += *(signed __int16 *)(a12 + 4) - a1;
+            v17 += *(signed int *)(a12 + 4) - a1;
             v19 = v21-- == 1;
-            result += *(signed __int16 *)(a6 + 4) - a1;
+            result += *(signed int *)(a6 + 4) - a1;
             if ( v19 )
                 break;
             v15 = a9;
@@ -793,14 +793,14 @@ _WORD *__stdcall zdrv_paint(int a1, int a2, _DWORD *a3, int a4, int a5, int a6, 
 }
 
 //----- (01004B75) --------------------------------------------------------
-unsigned __int16 *__stdcall zdrv_paint_flat(int a1, int a2, _DWORD *a3, int a4, int a5, int a6, int a7, int a8, _DWORD *a9, int a10, int a11, unsigned __int16 a12)
+unsigned int *zdrv_paint_flat(int a1, int a2, DWORD *a3, int a4, int a5, int a6, int a7, int a8, DWORD *a9, int a10, int a11, unsigned int a12)
 {
-    _DWORD *v12; // esi
+    DWORD *v12; // esi
     int v13; // ecx
-    _DWORD *v14; // edi
+    DWORD *v14; // edi
     int v15; // eax
     int v16; // ecx
-    unsigned __int16 *result; // eax
+    unsigned int *result; // eax
     bool v18; // zf
     int v19; // [esp+18h] [ebp+Ch]
     _BYTE *v20; // [esp+1Ch] [ebp+10h]
@@ -818,8 +818,8 @@ unsigned __int16 *__stdcall zdrv_paint_flat(int a1, int a2, _DWORD *a3, int a4, 
     v16 = a3[2] + a3[5] * (v13 - a2 - a5);
     v20 = (_BYTE *)(a10 + a9[2] + a9[5] * (v15 - a2 - a11));
     v21 = (_BYTE *)(a4 + v16);
-    result = (unsigned __int16 *)(*(_DWORD *)(a6 + 6)
-                                  + 2 * (a7 + *(signed __int16 *)(a6 + 4) * (*(signed __int16 *)(a6 + 2) - a2 - a8)));
+    result = (unsigned int *)(*(DWORD *)(a6 + 6)
+                                  + 2 * (a7 + *(signed int *)(a6 + 4) * (*(signed int *)(a6 + 2) - a2 - a8)));
     if ( a2 > 0 )
     {
         v22 = a2;
@@ -845,7 +845,7 @@ unsigned __int16 *__stdcall zdrv_paint_flat(int a1, int a2, _DWORD *a3, int a4, 
             v20 += v14[5] - a1;
             v21 += v12[5] - a1;
             v18 = v22-- == 1;
-            result += *(signed __int16 *)(a6 + 4) - a1;
+            result += *(signed int *)(a6 + 4) - a1;
         }
         while ( !v18 );
     }

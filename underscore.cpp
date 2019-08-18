@@ -5,7 +5,7 @@
 #include "pinball.h"
 
 //----- (01003445) --------------------------------------------------------
-HDC __stdcall _GetDC(HWND hWnd)
+HDC _GetDC(HWND hWnd)
 {
     HDC v1; // eax
     HDC v2; // esi
@@ -18,7 +18,7 @@ HDC __stdcall _GetDC(HWND hWnd)
 }
 
 //----- (0100347C) --------------------------------------------------------
-HDC __stdcall _BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint)
+HDC _BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint)
 {
     HDC v2; // eax
     HDC v3; // esi
@@ -31,7 +31,7 @@ HDC __stdcall _BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint)
 }
 
 //----- (01006498) --------------------------------------------------------
-char __stdcall _lread_char(HFILE hFile)
+char _lread_char(HFILE hFile)
 {
     char Buffer; // [esp+1h] [ebp-1h]
 
@@ -41,7 +41,7 @@ char __stdcall _lread_char(HFILE hFile)
 }
 
 //----- (010064BD) --------------------------------------------------------
-int __stdcall _lread_long(HFILE hFile)
+int _lread_long(HFILE hFile)
 {
     int Buffer; // [esp+0h] [ebp-4h]
 
@@ -52,7 +52,7 @@ int __stdcall _lread_long(HFILE hFile)
 
 
 //----- (01003752) --------------------------------------------------------
-CHAR *__stdcall get_rc_string(__int16 a1, int a2)
+CHAR *get_rc_string(int a1, int a2)
 {
     CHAR *v2; // esi
 
@@ -66,7 +66,7 @@ CHAR *__stdcall get_rc_string(__int16 a1, int a2)
 // 1024EA8: using guessed type int rc_string_slot;
 
 //----- (010037A6) --------------------------------------------------------
-int __stdcall get_rc_int(__int16 a1, int *a2)
+int get_rc_int(int a1, int *a2)
 {
     int result; // eax
     CHAR Buffer; // [esp+4h] [ebp-104h]
@@ -81,7 +81,7 @@ int __stdcall get_rc_int(__int16 a1, int *a2)
 }
 
 //----- (01012F2A) --------------------------------------------------------
-void __stdcall build_occlude_list()
+void build_occlude_list()
 {
 struct render_sprite_type_struct *v0; // esi
 signed int v1; // edi
@@ -101,13 +101,13 @@ if ( render_many_sprites > 0 )
 do
 {
 v0 = *v4;
-if ( *((_DWORD *)*v4 + 17) )
+if ( *((DWORD *)*v4 + 17) )
 {
-memoryfree(*((_DWORD *)*v4 + 17));
-*((_DWORD *)v0 + 17) = 0;
-*((_DWORD *)v0 + 18) = 0;
+memoryfree(*((DWORD *)*v4 + 17));
+*((DWORD *)v0 + 17) = 0;
+*((DWORD *)v0 + 18) = 0;
 }
-if ( !*((_BYTE *)v0 + 24) && *((_DWORD *)v0 + 21) != -1 )
+if ( !*((_BYTE *)v0 + 24) && *((DWORD *)v0 + 21) != -1 )
 {
 if ( !v7 )
 v7 = memoryallocate(0xFA0u);
@@ -117,20 +117,20 @@ for ( i = 0; i < render_many_sprites; ++v6 )
 {
 v2 = *v6;
 if ( !*((_BYTE *)*v6 + 24)
-&& *((_DWORD *)v2 + 21) != -1
+&& *((DWORD *)v2 + 21) != -1
 && rectangle_clip((int *)v0 + 19, (int *)v2 + 19, 0)
 && v7 )
 {
-*(_DWORD *)(v7 + 4 * v1++) = v2;
+*(DWORD *)(v7 + 4 * v1++) = v2;
 }
 ++i;
 }
-if ( !*((_BYTE *)v0 + 24) && *((_DWORD *)v0 + 4) && v1 < 2 )
+if ( !*((_BYTE *)v0 + 24) && *((DWORD *)v0 + 4) && v1 < 2 )
 v1 = 0;
 if ( v1 )
 {
-*((_DWORD *)v0 + 17) = memoryrealloc(v7, 4 * v1);
-*((_DWORD *)v0 + 18) = v1;
+*((DWORD *)v0 + 17) = memoryrealloc(v7, 4 * v1);
+*((DWORD *)v0 + 18) = v1;
 v7 = 0;
 }
 }

@@ -11,7 +11,7 @@
 struct TFlipper;
 
 TZmapList* __thiscall TFlipper::~TFlipper(TFlipper* this);
-void __stdcall TFlipper::TimerExpired(int, void*); // idb
+void TFlipper::TimerExpired(int, void*); // idb
 int __thiscall TFlipper::Message(TFlipper* this, int, float); // idb
 void __thiscall TFlipper::port_draw(TFlipper* __hidden this); // idb
 TFlipper* __thiscall TFlipper::TFlipper(TFlipper* this, struct TPinballTable* a2, int a3);

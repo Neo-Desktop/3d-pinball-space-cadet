@@ -1,7 +1,7 @@
 #include "TRollover.h"
 
 //----- (0101644B) --------------------------------------------------------
-void __stdcall TRollover::TimerExpired(int a1, void *a2)
+void TRollover::TimerExpired(int a1, void *a2)
 {
 *((_BYTE *)a2 + 5) = 1;
 }
@@ -13,11 +13,11 @@ int v3; // eax
 
 if ( a2 == 1024 )
 {
-v3 = *(_DWORD *)((char *)this + 34);
+v3 = *(DWORD *)((char *)this + 34);
 *((_BYTE *)this + 5) = 1;
 *((_BYTE *)this + 78) = 0;
 if ( v3 )
-render_sprite_set_bitmap(*(_DWORD **)((char *)this + 26), *(_DWORD *)(*(_DWORD *)(v3 + 4) + 8));
+render_sprite_set_bitmap(*(DWORD **)((char *)this + 26), *(DWORD *)(*(DWORD *)(v3 + 4) + 8));
 }
 return 0;
 }
@@ -30,7 +30,7 @@ int result; // eax
 if ( a2 >= 2 )
 result = 0;
 else
-result = *(_DWORD *)((char *)this + 4 * a2 + 79);
+result = *(DWORD *)((char *)this + 4 * a2 + 79);
 return result;
 }
 
@@ -38,7 +38,7 @@ return result;
 void __thiscall TRollover::put_scoring(TRollover *this, int a2, int a3)
 {
 if ( a2 < 2 )
-*(_DWORD *)((char *)this + 4 * a2 + 79) = a3;
+*(DWORD *)((char *)this + 4 * a2 + 79) = a3;
 }
 
 //----- (010182E4) --------------------------------------------------------
@@ -74,11 +74,11 @@ bool v10; // cl
 v6 = this;
 *(float *)((char *)a2 + 42) = *(float *)a3;
 v7 = *(float *)((char *)a2 + 70);
-*(_DWORD *)((char *)a2 + 46) = *((_DWORD *)a3 + 1);
+*(DWORD *)((char *)a2 + 46) = *((DWORD *)a3 + 1);
 *(float *)((char *)a2 + 70) = v7 - a5;
 TBall::not_again(a2, a6);
 v8 = 0;
-if ( !*(_DWORD *)(*(_DWORD *)((char *)v6 + 30) + 370) )
+if ( !*(DWORD *)(*(DWORD *)((char *)v6 + 30) + 370) )
 {
 if ( *((_BYTE *)v6 + 78) )
 {
@@ -87,17 +87,17 @@ timer_set(0.1, (int)v6, (int)TRollover::TimerExpired);
 }
 else
 {
-loader_play_sound(*(_DWORD *)((char *)v6 + 70));
+loader_play_sound(*(DWORD *)((char *)v6 + 70));
 control_handler(63, v6);
 }
-v9 = *(_DWORD *)((char *)v6 + 34);
+v9 = *(DWORD *)((char *)v6 + 34);
 v10 = *((_BYTE *)v6 + 78) == 0;
 *((_BYTE *)v6 + 78) = v10;
 if ( v9 )
 {
 if ( !v10 )
-v8 = *(_DWORD *)(*(_DWORD *)(v9 + 4) + 8);
-render_sprite_set_bitmap(*(_DWORD **)((char *)v6 + 26), v8);
+v8 = *(DWORD *)(*(DWORD *)(v9 + 4) + 8);
+render_sprite_set_bitmap(*(DWORD **)((char *)v6 + 26), v8);
 }
 }
 }
@@ -109,7 +109,7 @@ TRollover *v4; // esi
 
 v4 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, a4);
-*(_DWORD *)v4 = &TRollover::vftable;
+*(DWORD *)v4 = &TRollover::vftable;
 return v4;
 }
 // 1002614: using guessed type void *TRollover::vftable;
@@ -122,11 +122,11 @@ int v4; // eax
 
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 0);
-v4 = *(_DWORD *)((char *)v3 + 34);
-*(_DWORD *)v3 = &TRollover::vftable;
+v4 = *(DWORD *)((char *)v3 + 34);
+*(DWORD *)v3 = &TRollover::vftable;
 *((_BYTE *)v3 + 78) = 0;
 if ( v4 )
-render_sprite_set_bitmap(*(_DWORD **)((char *)v3 + 26), *(_DWORD *)(*(_DWORD *)(v4 + 4) + 8));
+render_sprite_set_bitmap(*(DWORD **)((char *)v3 + 26), *(DWORD *)(*(DWORD *)(v4 + 4) + 8));
 TRollover::build_walls(v3, a3);
 return v3;
 }

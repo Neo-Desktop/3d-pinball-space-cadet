@@ -28,7 +28,7 @@ struct TPinballComponent {
 
 	void* operator new(size_t SizeOfElements); // idb
 	int Message(int, float); // idb
-	int __stdcall TPinballComponent::get_scoring(int a2);
+	int TPinballComponent::get_scoring(int a2);
 	TPinballComponent* TPinballComponent::TPinballComponent(TPinballTable* a2, int a3, int a4);
 	TZmapList* TPinballComponent::~TPinballComponent();
 

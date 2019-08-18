@@ -5,7 +5,7 @@
 #include "pinball.h"
 
 //----- (010034B6) --------------------------------------------------------
-CHAR *__stdcall options_path_init(LPCSTR lpString)
+CHAR *options_path_init(LPCSTR lpString)
 {
     int v1; // eax
     CHAR *result; // eax
@@ -19,7 +19,7 @@ CHAR *__stdcall options_path_init(LPCSTR lpString)
 }
 
 //----- (010034E7) --------------------------------------------------------
-void __stdcall options_path_uninit()
+void options_path_uninit()
 {
     if ( lpString2 )
         memoryfree((int)lpString2);
@@ -27,7 +27,7 @@ void __stdcall options_path_uninit()
 }
 
 //----- (01003503) --------------------------------------------------------
-LPCSTR __stdcall options_path(LPCSTR lpString2)
+LPCSTR options_path(LPCSTR lpString2)
 {
     CHAR *v1; // eax
 
@@ -49,7 +49,7 @@ LPCSTR __stdcall options_path(LPCSTR lpString2)
 }
 
 //----- (0100356C) --------------------------------------------------------
-void __stdcall options_path_free()
+void options_path_free()
 {
     if ( lpString1 )
         memoryfree((int)lpString1);
@@ -57,7 +57,7 @@ void __stdcall options_path_free()
 }
 
 //----- (01003588) --------------------------------------------------------
-HKEY __stdcall options_get_int(DWORD cbData, LPCSTR lpValueName, HKEY phkResult)
+HKEY options_get_int(DWORD cbData, LPCSTR lpValueName, HKEY phkResult)
 {
     HKEY result; // eax
     const CHAR *v4; // eax
@@ -65,7 +65,7 @@ HKEY __stdcall options_get_int(DWORD cbData, LPCSTR lpValueName, HKEY phkResult)
     BYTE Data[4]; // [esp+8h] [ebp-4h]
 
     result = phkResult;
-    *(_DWORD *)Data = phkResult;
+    *(DWORD *)Data = phkResult;
     if ( lpString2 )
     {
         v4 = options_path((LPCSTR)cbData);
@@ -82,7 +82,7 @@ HKEY __stdcall options_get_int(DWORD cbData, LPCSTR lpValueName, HKEY phkResult)
 }
 
 //----- (01003601) --------------------------------------------------------
-void __stdcall options_get_string(DWORD dwDisposition, LPCSTR lpValueName, LPSTR lpString1, LPCSTR lpString2, int iMaxLength)
+void options_get_string(DWORD dwDisposition, LPCSTR lpValueName, LPSTR lpString1, LPCSTR lpString2, int iMaxLength)
 {
     const CHAR *v5; // edi
     const CHAR *v6; // eax
@@ -103,7 +103,7 @@ void __stdcall options_get_string(DWORD dwDisposition, LPCSTR lpValueName, LPSTR
 }
 
 //----- (0100367C) --------------------------------------------------------
-void __stdcall options_set_int(HKEY phkResult, LPCSTR lpValueName, BYTE Data)
+void options_set_int(HKEY phkResult, LPCSTR lpValueName, BYTE Data)
 {
     const CHAR *v3; // eax
     DWORD dwDisposition; // [esp+4h] [ebp-4h]
@@ -121,7 +121,7 @@ void __stdcall options_set_int(HKEY phkResult, LPCSTR lpValueName, BYTE Data)
 }
 
 //----- (010036E3) --------------------------------------------------------
-void __stdcall options_set_string(HKEY phkResult, LPCSTR lpValueName, LPCSTR lpString)
+void options_set_string(HKEY phkResult, LPCSTR lpValueName, LPCSTR lpString)
 {
     const CHAR *v3; // eax
     int v4; // eax
@@ -141,7 +141,7 @@ void __stdcall options_set_string(HKEY phkResult, LPCSTR lpValueName, LPCSTR lpS
 }
 
 //----- (010055F3) --------------------------------------------------------
-void __stdcall options_uninit()
+void options_uninit()
 {
     options_set_int(0, "Sounds", (BYTE)options);
     options_set_int(0, "Music", (BYTE)phkResult);
@@ -156,7 +156,7 @@ void __stdcall options_uninit()
 }
 
 //----- (010056A9) --------------------------------------------------------
-HMENU __stdcall options_menu_set(UINT uIDEnableItem, int a2)
+HMENU options_menu_set(UINT uIDEnableItem, int a2)
 {
     HMENU result; // eax
 
@@ -167,7 +167,7 @@ HMENU __stdcall options_menu_set(UINT uIDEnableItem, int a2)
 }
 
 //----- (010056D3) --------------------------------------------------------
-HMENU __stdcall options_menu_check(UINT uIDCheckItem, int a2)
+HMENU options_menu_check(UINT uIDCheckItem, int a2)
 {
     HMENU result; // eax
 
@@ -178,7 +178,7 @@ HMENU __stdcall options_menu_check(UINT uIDCheckItem, int a2)
 }
 
 //----- (010056FF) --------------------------------------------------------
-HMENU __stdcall options_toggle(UINT uIDCheckItem)
+HMENU options_toggle(UINT uIDCheckItem)
 {
     HMENU result; // eax
     int v2; // ST08_4
@@ -222,18 +222,18 @@ HMENU __stdcall options_toggle(UINT uIDCheckItem)
 }
 
 //----- (0100580C) --------------------------------------------------------
-unsigned int __stdcall get_vk_key_name(__int16 a1, LPSTR lpString)
+unsigned int get_vk_key_name(int a1, LPSTR lpString)
 {
     LONG v2; // eax
 
-    v2 = MapVirtualKeyA((unsigned __int16)a1, 0) << 16;
-    if ( (unsigned __int16)a1 >= 0x21u && (unsigned __int16)a1 <= 0x2Eu )
+    v2 = MapVirtualKeyA((unsigned int)a1, 0) << 16;
+    if ( (unsigned int)a1 >= 0x21u && (unsigned int)a1 <= 0x2Eu )
         v2 |= 0x1000000u;
     return GetKeyNameTextA(v2, lpString, 19) != 0 ? (unsigned int)lpString : 0;
 }
 
 //----- (01005850) --------------------------------------------------------
-BOOL __stdcall KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
+BOOL KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
 {
     unsigned int v5; // eax
     LRESULT v6; // eax
@@ -247,21 +247,21 @@ BOOL __stdcall KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
     LRESULT v14; // eax
     unsigned int v15; // eax
     LRESULT v16; // eax
-    unsigned __int16 v17; // ax
-    unsigned __int16 v18; // ax
-    unsigned __int16 v19; // ax
-    unsigned __int16 v20; // ax
-    unsigned __int16 v21; // ax
-    unsigned __int16 v22; // ax
+    unsigned int v17; // ax
+    unsigned int v18; // ax
+    unsigned int v19; // ax
+    unsigned int v20; // ax
+    unsigned int v21; // ax
+    unsigned int v22; // ax
     HKEY v23; // ebx
-    __int16 *v24; // edi
+    int *v24; // edi
     HKEY *v25; // esi
     CHAR *v26; // eax
     CHAR *v27; // eax
-    __int16 v28; // cx
-    __int16 v29; // dx
+    int v28; // cx
+    int v29; // dx
     INT_PTR v30; // eax
-    __int16 v31; // [esp+Ch] [ebp-B0h]
+    int v31; // [esp+Ch] [ebp-B0h]
     HKEY v32; // [esp+10h] [ebp-ACh]
     HKEY v33; // [esp+14h] [ebp-A8h]
     HKEY v34; // [esp+18h] [ebp-A4h]
@@ -270,7 +270,7 @@ BOOL __stdcall KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
     HKEY v37; // [esp+24h] [ebp-98h]
     INT_PTR nResult; // [esp+28h] [ebp-94h]
     WPARAM v39; // [esp+2Ch] [ebp-90h]
-    __int16 *i; // [esp+30h] [ebp-8Ch]
+    int *i; // [esp+30h] [ebp-8Ch]
     LPARAM v41; // [esp+34h] [ebp-88h]
     WPARAM wParam; // [esp+38h] [ebp-84h]
     HWND hDlg; // [esp+3Ch] [ebp-80h]
@@ -300,54 +300,54 @@ BOOL __stdcall KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
                 if ( v29 )
                 {
                     wParam = 128;
-                    nResult = (unsigned __int16)v30;
+                    nResult = (unsigned int)v30;
                     do
                     {
-                        if ( nResult == MapVirtualKeyA((unsigned __int16)wParam, 2u) )
+                        if ( nResult == MapVirtualKeyA((unsigned int)wParam, 2u) )
                             break;
                         ++wParam;
                     }
-                    while ( (unsigned __int16)wParam < 0x100u );
+                    while ( (unsigned int)wParam < 0x100u );
                     LOWORD(v30) = wParam;
-                    if ( (_WORD)wParam != 256 )
+                    if ( (WORD)wParam != 256 )
                     {
-                        *(_WORD *)lParam = (unsigned __int8)v39;
+                        *(WORD *)lParam = (unsigned __int8)v39;
                         v39 = wParam;
                         nResult = wParam;
                         LABEL_32:
-                        v41 = (unsigned __int16)v30;
+                        v41 = (unsigned int)v30;
                         while ( 1 )
                         {
                             if ( v31 || get_vk_key_name(v30, lParam) )
                             {
-                                wParam = (unsigned __int16)SendDlgItemMessageA(hDlg, 401, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
+                                wParam = (unsigned int)SendDlgItemMessageA(hDlg, 401, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
                                 SendDlgItemMessageA(hDlg, 401, 0x151u, wParam, v41);
                                 if ( (HKEY)v41 == dword_1028238 )
                                     SendDlgItemMessageA(hDlg, 401, 0x14Eu, wParam, 0);
-                                wParam = (unsigned __int16)SendDlgItemMessageA(hDlg, 402, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
+                                wParam = (unsigned int)SendDlgItemMessageA(hDlg, 402, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
                                 SendDlgItemMessageA(hDlg, 402, 0x151u, wParam, v41);
                                 if ( (HKEY)v41 == dword_102823C )
                                     SendDlgItemMessageA(hDlg, 402, 0x14Eu, wParam, 0);
-                                wParam = (unsigned __int16)SendDlgItemMessageA(hDlg, 403, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
+                                wParam = (unsigned int)SendDlgItemMessageA(hDlg, 403, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
                                 SendDlgItemMessageA(hDlg, 403, 0x151u, wParam, v41);
                                 if ( (HKEY)v41 == dword_1028240 )
                                     SendDlgItemMessageA(hDlg, 403, 0x14Eu, wParam, 0);
-                                wParam = (unsigned __int16)SendDlgItemMessageA(hDlg, 404, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
+                                wParam = (unsigned int)SendDlgItemMessageA(hDlg, 404, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
                                 SendDlgItemMessageA(hDlg, 404, 0x151u, wParam, v41);
                                 if ( (HKEY)v41 == dword_1028244 )
                                     SendDlgItemMessageA(hDlg, 404, 0x14Eu, wParam, 0);
-                                wParam = (unsigned __int16)SendDlgItemMessageA(hDlg, 405, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
+                                wParam = (unsigned int)SendDlgItemMessageA(hDlg, 405, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
                                 SendDlgItemMessageA(hDlg, 405, 0x151u, wParam, v41);
                                 if ( (HKEY)v41 == dword_1028248 )
                                     SendDlgItemMessageA(hDlg, 405, 0x14Eu, wParam, 0);
-                                wParam = (unsigned __int16)SendDlgItemMessageA(hDlg, 406, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
+                                wParam = (unsigned int)SendDlgItemMessageA(hDlg, 406, 0x14Au, 0xFFFFFFFF, (LPARAM)lParam);
                                 SendDlgItemMessageA(hDlg, 406, 0x151u, wParam, v41);
                                 if ( (HKEY)v41 == dword_102824C )
                                     SendDlgItemMessageA(hDlg, 406, 0x14Eu, wParam, 0);
                             }
                             ++v39;
                             ++v41;
-                            if ( (unsigned __int16)v39 > (unsigned __int16)nResult )
+                            if ( (unsigned int)v39 > (unsigned int)nResult )
                                 break;
                             LOWORD(v30) = v39;
                         }
@@ -365,7 +365,7 @@ BOOL __stdcall KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
                         ++i;
                         LOWORD(nResult) = *i;
                     }
-                    if ( (unsigned __int16)v30 <= (unsigned __int16)nResult )
+                    if ( (unsigned int)v30 <= (unsigned int)nResult )
                         goto LABEL_32;
                 }
                 LABEL_49:
@@ -376,8 +376,8 @@ BOOL __stdcall KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
     }
     if ( a2 != 273 )
         return 0;
-    nResult = (unsigned __int16)a3;
-    switch ( (unsigned __int16)a3 )
+    nResult = (unsigned int)a3;
+    switch ( (unsigned int)a3 )
     {
         case 1u:
             v39 = 0;
@@ -394,15 +394,15 @@ BOOL __stdcall KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
             v22 = SendDlgItemMessageA(hDlg, 406, 0x147u, 0, 0);
             v23 = (HKEY)SendDlgItemMessageA(hDlg, 406, 0x150u, v22, 0);
             v37 = v23;
-            v24 = (__int16 *)1;
+            v24 = (int *)1;
             v25 = &v32;
             while ( !v39 )
             {
-                for ( i = v24; (signed int)i < 6; i = (__int16 *)((char *)i + 1) )
+                for ( i = v24; (signed int)i < 6; i = (int *)((char *)i + 1) )
                 {
                     if ( v39 )
                         break;
-                    if ( *v25 == *(&v32 + (_DWORD)i) )
+                    if ( *v25 == *(&v32 + (DWORD)i) )
                     {
                         v26 = get_rc_string(43, 0);
                         lstrcpyA(&String1, v26);
@@ -411,7 +411,7 @@ BOOL __stdcall KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
                         v39 = 1;
                     }
                 }
-                v24 = (__int16 *)((char *)v24 + 1);
+                v24 = (int *)((char *)v24 + 1);
                 ++v25;
                 if ( (signed int)v24 - 1 >= 5 )
                 {
@@ -456,16 +456,16 @@ BOOL __stdcall KeyMapDlgProc(HWND a1, UINT a2, WPARAM a3, LPARAM a4)
     }
     return 1;
 }
-// 1023508: using guessed type __int16 vk_list;
+// 1023508: using guessed type int vk_list;
 
 //----- (01005F45) --------------------------------------------------------
-INT_PTR __stdcall options_keyboard()
+INT_PTR options_keyboard()
 {
     return DialogBoxParamA(hinst, "KEYMAPPER", hwnd_frame, KeyMapDlgProc, 0);
 }
 
 //----- (01005F69) --------------------------------------------------------
-void __stdcall options_init(HMENU a1)
+void options_init(HMENU a1)
 {
     CHAR *v1; // eax
     CHAR *v2; // edi
@@ -476,12 +476,12 @@ void __stdcall options_init(HMENU a1)
     fullscreen_toggle = 0;
     dword_1028228 = (HKEY)5;
     application_priority = (HKEY)2;
-    *(_DWORD *)&dword_1028250 = 90;
-    *(_DWORD *)&dword_1028254 = 191;
-    *(_DWORD *)&dword_1028258 = 32;
-    *(_DWORD *)&dword_102825C = 88;
-    *(_DWORD *)&dword_1028260 = 190;
-    *(_DWORD *)&dword_1028264 = 38;
+    *(DWORD *)&dword_1028250 = 90;
+    *(DWORD *)&dword_1028254 = 191;
+    *(DWORD *)&dword_1028258 = 32;
+    *(DWORD *)&dword_102825C = 88;
+    *(DWORD *)&dword_1028260 = 190;
+    *(DWORD *)&dword_1028264 = 38;
     get_rc_int(159, (int *)&dword_1028250);
     get_rc_int(160, (int *)&dword_1028254);
     get_rc_int(161, (int *)&dword_1028258);
@@ -532,7 +532,7 @@ void __stdcall options_init(HMENU a1)
 }
 
 //----- (010067F3) --------------------------------------------------------
-int __stdcall FindShiftKeys()
+int FindShiftKeys()
 {
     signed int v0; // esi
     int v1; // eax

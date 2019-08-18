@@ -10,7 +10,7 @@
 /* 108 */
 struct TRollover;
 
-void __stdcall TRollover::TimerExpired(int, void*); // idb
+void TRollover::TimerExpired(int, void*); // idb
 int __thiscall TRollover::Message(TRollover* this, int, float); // idb
 int __thiscall TRollover::get_scoring(TRollover* this, int); // idb
 void __thiscall TRollover::put_scoring(TRollover* this, int, int); // idb

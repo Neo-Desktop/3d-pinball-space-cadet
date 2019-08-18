@@ -15,7 +15,7 @@ TZmapList *__thiscall TZmapList::destroy(TZmapList *this, char a2)
 TZmapList *v2; // esi
 
 v2 = this;
-objlist_destroy(*((_DWORD *)this + 1));
+objlist_destroy(*((DWORD *)this + 1));
 if ( a2 & 1 )
 operator delete((void *)v2);
 return v2;

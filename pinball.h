@@ -3,15 +3,15 @@
 //
 
 #include "Classes/classes.h"
-#include <CommCtrl.h>
-#include <combaseapi.h>
-#include <Vfw.h>
-#include <wingdi.h>
-#include <wtypes.h>
-#include <WinUser.h>
+#include <stdlib.h>
 
+##ifdef _WIN32
+#include <CommCtrl.h>
+#include <Vfw.h>
+#include <gdiplus.h>
+#include <WinUser.h>
 #include <Windows.h>
-#define WIN32_LEAN_AND_MEAN
+#endif
 
 #ifndef PINBALL_PINBALL_H
 #define PINBALL_PINBALL_H
@@ -32,432 +32,430 @@ void RedirectIOToConsole();
 // guicon.cpp
 #endif
 
-HDC __stdcall _GetDC(HWND hWnd);
-HDC __stdcall _BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint);
-CHAR *__stdcall options_path_init(LPCSTR lpString);
-void __stdcall options_path_uninit();
-LPCSTR __stdcall options_path(LPCSTR lpString2);
-void __stdcall options_path_free();
-HKEY __stdcall options_get_int(DWORD cbData, LPCSTR lpValueName, HKEY phkResult);
-void __stdcall options_get_string(DWORD dwDisposition, LPCSTR lpValueName, LPSTR lpString1, LPCSTR lpString2, int iMaxLength);
-void __stdcall options_set_int(HKEY phkResult, LPCSTR lpValueName, BYTE Data);
-void __stdcall options_set_string(HKEY phkResult, LPCSTR lpValueName, LPCSTR lpString);
-CHAR *__stdcall get_rc_string(__int16 a1, int a2);
-int __stdcall get_rc_int(__int16 a1, int *a2);
-int __stdcall grtext_draw_ttext_in_box(LPCSTR lpString, int mode, int, COLORREF color, int, int); // idb
+HDC _GetDC(HWND hWnd);
+HDC _BeginPaint(HWND hWnd, LPPAINTSTRUCT lpPaint);
+CHAR *options_path_init(LPCSTR lpString);
+void options_path_uninit();
+LPCSTR options_path(LPCSTR lpString2);
+void options_path_free();
+HKEY options_get_int(DWORD cbData, LPCSTR lpValueName, HKEY phkResult);
+void options_get_string(DWORD dwDisposition, LPCSTR lpValueName, LPSTR lpString1, LPCSTR lpString2, int iMaxLength);
+void options_set_int(HKEY phkResult, LPCSTR lpValueName, BYTE Data);
+void options_set_string(HKEY phkResult, LPCSTR lpValueName, LPCSTR lpString);
+CHAR *get_rc_string(int a1, int a2);
+int get_rc_int(int a1, int *a2);
+int grtext_draw_ttext_in_box(LPCSTR lpString, int mode, int, COLORREF color, int, int); // idb
 int sub_10038F8();
 LONG sub_1003975();
 LONG sub_100399D();
-BOOL __stdcall fullscrn_set_menu_mode(int a1);
+BOOL fullscrn_set_menu_mode(int a1);
 signed int sub_1003A23();
 int sub_1003B66();
-LONG __stdcall fullscrn_set_screen_mode(int a1);
-void __stdcall fullscrn_force_redraw();
-signed int __stdcall fullscrn_displaychange();
-BOOL __stdcall fullscrn_init(int a1, int a2, int a3, HWND a4, int a5, int a6);
-LONG __stdcall fullscrn_shutdown();
-BOOL __stdcall fullscrn_activate(int a1);
-int __stdcall fullscrn_convert_mouse_pos(int a1);
-_DWORD *__stdcall fullscrn_getminmaxinfo(_DWORD *a1);
-// HBRUSH __userpurge sub_1003F10@<eax>(LONG a1@<ebx>, LONG a2@<edi>, int a3, int a4);
-void __stdcall fullscrn_paint();
-signed int __stdcall rectangle_clip(int *a1, int *a2, _DWORD *a3);
-int __stdcall enclosing_box(_DWORD *a1, _DWORD *a2, _DWORD *a3);
-int __stdcall DibSetUsage(int, HPALETTE hpal, int); // idb
-_DWORD *__stdcall DibCreate(int a1, int a2, int a3);
-int __stdcall gdrv_init(int a1, HWND a2);
-int __stdcall gdrv_display_palette(int a1);
-int __stdcall gdrv_uninit();
-int __stdcall gdrv_create_bitmap_dib(int a1, int a2, int a3);
-int __stdcall gdrv_create_bitmap(int a1, int a2, int a3);
-signed int __stdcall gdrv_create_raw_bitmap(int a1, int a2, int a3, int a4);
-signed int __stdcall gdrv_destroy_bitmap(int a1);
-UINT __stdcall gdrv_start_blit_sequence();
-int __stdcall gdrv_blit_sequence(int, int xSrc, int, int xDest, int yDest, int DestWidth, int DestHeight); // idb
-int __stdcall gdrv_end_blit_sequence();
-HDC __stdcall gdrv_blit(int a1, int xSrc, int a3, int xDest, int yDest, int DestWidth, int DestHeight);
-int __stdcall gdrv_blat(int, int xDest, int yDest); // idb
-// int __userpurge gdrv_fill_bitmap@<eax>(int a1@<ebx>, _DWORD *a2, unsigned int a3, int a4, int a5, int a6, char a7);
-char *__stdcall gdrv_copy_bitmap(_DWORD *a1, int a2, int a3, int a4, int a5, _DWORD *a6, int a7, int a8);
-_BYTE *__stdcall gdrv_copy_bitmap_w_transparency(_DWORD *a1, int a2, int a3, int a4, int a5, _DWORD *a6, int a7, int a8);
-int __stdcall zdrv_pad(int a1);
-signed int __stdcall zdrv_create_zmap(int a1, int a2, int a3);
-signed int __stdcall zdrv_destroy_zmap(_DWORD *a1);
-// int __userpurge zdrv_fill@<eax>(int a1@<ebx>, int a2, unsigned int a3, int a4, int a5, int a6, __int16 a7);
-_WORD *__stdcall zdrv_paint(int a1, int a2, _DWORD *a3, int a4, int a5, int a6, int a7, int a8, _DWORD *a9, int a10, int a11, int a12, int a13, int a14);
-unsigned __int16 *__stdcall zdrv_paint_flat(int a1, int a2, _DWORD *a3, int a4, int a5, int a6, int a7, int a8, _DWORD *a9, int a10, int a11, unsigned __int16 a12);
-int __stdcall high_score_clear_table(int a1);
-signed int __stdcall high_score_get_score_position(int a1, int a2);
-int __stdcall high_score_place_new_score_into(int, int, LPCSTR lpString, int); // idb
-char *__stdcall scramble_number_string(int Val, char *DstBuf);
-signed int __stdcall high_score_read(int a1, int a2);
-int __stdcall high_score_write(LPCSTR lpString, int); // idb
-char *__stdcall score_string_format(int a1, char *a2);
-void __stdcall hsdlg_show_score(HWND hDlg, LPCSTR lpString, int a3, int a4);
-void __stdcall show_high_scores(HWND hDlg, LPCSTR lpString);
-BOOL __stdcall HighScore(HWND, UINT, WPARAM, LPARAM); // idb
-INT_PTR __stdcall show_high_score_dialog(const CHAR *a1);
-INT_PTR __stdcall show_and_set_high_score_dialog(const CHAR *a1, int a2, int a3, const CHAR *a4);
-int __stdcall memory_init(int a1);
-int __stdcall memoryallocate(unsigned int a1);
-void __stdcall memoryfree(int a1);
-int __stdcall memoryrealloc(int a1, unsigned int a2);
-void __stdcall options_uninit();
-HMENU __stdcall options_menu_set(UINT uIDEnableItem, int a2);
-HMENU __stdcall options_menu_check(UINT uIDCheckItem, int a2);
-HMENU __stdcall options_toggle(UINT uIDCheckItem);
-unsigned int __stdcall get_vk_key_name(__int16 a1, LPSTR lpString);
-BOOL __stdcall KeyMapDlgProc(HWND, UINT, WPARAM, LPARAM); // idb
-INT_PTR __stdcall options_keyboard();
-void __stdcall options_init(HMENU a1);
-int __stdcall partman_field(int a1, int a2, int a3);
-int __stdcall partman_field_size_nth(int a1, int a2, int a3, int a4);
-int __stdcall partman_field_size(int a1, int a2, int a3);
-int __stdcall partman_field_nth(int a1, int a2, int a3, int a4);
-int __stdcall partman_record_labeled(int, LPCSTR lpString); // idb
-int __stdcall partman_field_labeled(int, LPCSTR lpString, int); // idb
-void __stdcall partman_unload_records(_WORD *a1);
-char __stdcall _lread_char(HFILE hFile);
-int __stdcall _lread_long(HFILE hFile); // idb
-signed __int16 *__stdcall partman_load_records(LPCSTR lpFileName);
-int __stdcall FindShiftKeys();
-int __stdcall nullsub_1(int, int, int); // weak
-LRESULT __stdcall SoundCallBackWndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
-int __stdcall Sound_Init(HINSTANCE hInstance, int, int); // idb
-HLOCAL __stdcall Sound_Close();
-CHAR *__stdcall Sound_LoadWaveFile(LPCSTR lpName);
-LPCVOID __stdcall Sound_FreeSound(LPCVOID pMem);
-LPCVOID __stdcall Sound_Deactivate();
-LPCVOID __stdcall Sound_Activate();
-int __stdcall Sound_Idle();
-signed int __stdcall Sound_Flush(signed int a1, int a2);
-void __stdcall Sound_PlaySound(int a1, int a2, int a3, unsigned __int16 a4, __int16 a5);
-void __stdcall Sound_Enable(signed int a1, int a2, int a3);
-HPALETTE __stdcall splash_init_palette(LOGPALETTE *plpal);
-HBITMAP __stdcall load_title_bitmap(HMODULE hModule, HDC hdc, LPCSTR lpName, UINT iStart, int a5, int a6);
-int __stdcall splash_bitmap_setup(int a1);
-void __stdcall splash_paint(int a1, HDC hdc);
-void __stdcall splash_hide(int a1);
-HINSTANCE __stdcall splash_destroy(int a1);
-LRESULT __stdcall splash_message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
-int __stdcall splash_screen(int, LPCSTR lpString2, LPCSTR); // idb
-signed int __stdcall timer_init(int a1);
-void __stdcall timer_uninit();
-int __stdcall timer_set(float, int, int); // idb
-signed int __stdcall timer_check();
-int __stdcall timer_kill(int a1);
-int __stdcall make_path_name(LPSTR lpFilename, LPCSTR lpString2, DWORD nSize); // idb
-void __stdcall help_introduction(int a1, int a2);
-BOOL __stdcall center_in(HWND hWnd, HWND a2);
-INT __stdcall a_dialog(HINSTANCE hInstance, HWND hWnd, int a3);
-// void __usercall winmain_pause(int a1@<ebx>);
-// void __usercall winmain_end_pause(int a1@<ebx>);
-// HCURSOR __usercall winmain_new_game@<eax>(int a1@<ebx>);
-void __stdcall __noreturn winmain_memalloc_failure(); // idb
-HANDLE __stdcall adjust_priority(int a1);
-LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4);
+LONG fullscrn_set_screen_mode(int a1);
+void fullscrn_force_redraw();
+signed int fullscrn_displaychange();
+BOOL fullscrn_init(int a1, int a2, int a3, HWND a4, int a5, int a6);
+LONG fullscrn_shutdown();
+BOOL fullscrn_activate(int a1);
+int fullscrn_convert_mouse_pos(int a1);
+DWORD *fullscrn_getminmaxinfo(DWORD *a1);
+// HBRUSH sub_1003F10(LONG a1, LONG a2, int a3, int a4);
+void fullscrn_paint();
+signed int rectangle_clip(int *a1, int *a2, DWORD *a3);
+int enclosing_box(DWORD *a1, DWORD *a2, DWORD *a3);
+int DibSetUsage(int, HPALETTE hpal, int); // idb
+DWORD *DibCreate(int a1, int a2, int a3);
+int gdrv_init(int a1, HWND a2);
+int gdrv_display_palette(int a1);
+int gdrv_uninit();
+int gdrv_create_bitmap_dib(int a1, int a2, int a3);
+int gdrv_create_bitmap(int a1, int a2, int a3);
+signed int gdrv_create_raw_bitmap(int a1, int a2, int a3, int a4);
+signed int gdrv_destroy_bitmap(int a1);
+UINT gdrv_start_blit_sequence();
+int gdrv_blit_sequence(int, int xSrc, int, int xDest, int yDest, int DestWidth, int DestHeight); // idb
+int gdrv_end_blit_sequence();
+HDC gdrv_blit(int a1, int xSrc, int a3, int xDest, int yDest, int DestWidth, int DestHeight);
+int gdrv_blat(int, int xDest, int yDest); // idb
+// int gdrv_fill_bitmap(int a1, DWORD *a2, unsigned int a3, int a4, int a5, int a6, char a7);
+char *gdrv_copy_bitmap(DWORD *a1, int a2, int a3, int a4, int a5, DWORD *a6, int a7, int a8);
+_BYTE *gdrv_copy_bitmap_w_transparency(DWORD *a1, int a2, int a3, int a4, int a5, DWORD *a6, int a7, int a8);
+int zdrv_pad(int a1);
+signed int zdrv_create_zmap(int a1, int a2, int a3);
+signed int zdrv_destroy_zmap(DWORD *a1);
+// int zdrv_fill(int a1, int a2, unsigned int a3, int a4, int a5, int a6, int a7);
+WORD *zdrv_paint(int a1, int a2, DWORD *a3, int a4, int a5, int a6, int a7, int a8, DWORD *a9, int a10, int a11, int a12, int a13, int a14);
+unsigned int *zdrv_paint_flat(int a1, int a2, DWORD *a3, int a4, int a5, int a6, int a7, int a8, DWORD *a9, int a10, int a11, unsigned int a12);
+int high_score_clear_table(int a1);
+signed int high_score_get_score_position(int a1, int a2);
+int high_score_place_new_score_into(int, int, LPCSTR lpString, int); // idb
+char *scramble_number_string(int Val, char *DstBuf);
+signed int high_score_read(int a1, int a2);
+int high_score_write(LPCSTR lpString, int); // idb
+char *score_string_format(int a1, char *a2);
+void hsdlg_show_score(HWND hDlg, LPCSTR lpString, int a3, int a4);
+void show_high_scores(HWND hDlg, LPCSTR lpString);
+BOOL HighScore(HWND, UINT, WPARAM, LPARAM); // idb
+INT_PTR show_high_score_dialog(const CHAR *a1);
+INT_PTR show_and_set_high_score_dialog(const CHAR *a1, int a2, int a3, const CHAR *a4);
+int memory_init(int a1);
+int memoryallocate(unsigned int a1);
+void memoryfree(int a1);
+int memoryrealloc(int a1, unsigned int a2);
+void options_uninit();
+HMENU options_menu_set(UINT uIDEnableItem, int a2);
+HMENU options_menu_check(UINT uIDCheckItem, int a2);
+HMENU options_toggle(UINT uIDCheckItem);
+unsigned int get_vk_key_name(int a1, LPSTR lpString);
+BOOL KeyMapDlgProc(HWND, UINT, WPARAM, LPARAM); // idb
+INT_PTR options_keyboard();
+void options_init(HMENU a1);
+int partman_field(int a1, int a2, int a3);
+int partman_field_size_nth(int a1, int a2, int a3, int a4);
+int partman_field_size(int a1, int a2, int a3);
+int partman_field_nth(int a1, int a2, int a3, int a4);
+int partman_record_labeled(int, LPCSTR lpString); // idb
+int partman_field_labeled(int, LPCSTR lpString, int); // idb
+void partman_unload_records(WORD *a1);
+char _lread_char(HFILE hFile);
+int _lread_long(HFILE hFile); // idb
+signed int *partman_load_records(LPCSTR lpFileName);
+int FindShiftKeys();
+int nullsub_1(int, int, int); // weak
+LRESULT SoundCallBackWndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
+int Sound_Init(HINSTANCE hInstance, int, int); // idb
+HLOCAL Sound_Close();
+CHAR *Sound_LoadWaveFile(LPCSTR lpName);
+LPCVOID Sound_FreeSound(LPCVOID pMem);
+LPCVOID Sound_Deactivate();
+LPCVOID Sound_Activate();
+int Sound_Idle();
+signed int Sound_Flush(signed int a1, int a2);
+void Sound_PlaySound(int a1, int a2, int a3, unsigned int a4, int a5);
+void Sound_Enable(signed int a1, int a2, int a3);
+HPALETTE splash_init_palette(LOGPALETTE *plpal);
+HBITMAP load_title_bitmap(HMODULE hModule, HDC hdc, LPCSTR lpName, UINT iStart, int a5, int a6);
+int splash_bitmap_setup(int a1);
+void splash_paint(int a1, HDC hdc);
+void splash_hide(int a1);
+HINSTANCE splash_destroy(int a1);
+LRESULT splash_message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
+int splash_screen(int, LPCSTR lpString2, LPCSTR); // idb
+signed int timer_init(int a1);
+void timer_uninit();
+int timer_set(float, int, int); // idb
+signed int timer_check();
+int timer_kill(int a1);
+int make_path_name(LPSTR lpFilename, LPCSTR lpString2, DWORD nSize); // idb
+void help_introduction(int a1, int a2);
+BOOL center_in(HWND hWnd, HWND a2);
+INT a_dialog(HINSTANCE hInstance, HWND hWnd, int a3);
+// void winmain_pause(int a1);
+// void winmain_end_pause(int a1);
+// HCURSOR winmain_new_game(int a1);
+void winmain_memalloc_failure(); // idb
+HANDLE adjust_priority(int a1);
+LRESULT message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4);
 signed int message_loop();
-int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
-double __stdcall normalize_2d(float *a1);
-double __stdcall ray_intersect_circle(float *a1, float *a2);
-int __stdcall line_init(int, float, float, float, float); // idb
-double __stdcall ray_intersect_line(float *a1, float *a2);
-float *__stdcall proj_matrix_vector_multiply(float *a1, float *a2, float *a3);
-float *__stdcall cross(float *a1, float *a2, float *a3);
-double __stdcall magnitude(float *a1);
-int __stdcall proj_init(int a1, int a2, int a3, int a4);
-int __stdcall proj_recenter(int a1, int a2);
-double __stdcall proj_z_distance(_DWORD); // weak
-double __stdcall proj_xform_to_2d(float *a1, _DWORD *a2);
-signed int __stdcall loader_error(int a1, int a2);
-_DWORD *__stdcall loader_default_vsi(_DWORD *a1);
-signed int __stdcall loader_get_sound_id(int a1);
-void __stdcall loader_unload();
-int __stdcall loader_loadfrom(_WORD *a1);
-int __stdcall loader_query_handle(LPCSTR lpString); // idb
-signed int __stdcall loader_query_visual_states(int a1);
-signed int __stdcall loader_material(int a1, _DWORD *a2);
-signed int __stdcall loader_kicker(int a1, _DWORD *a2);
-signed int __stdcall loader_state_id(int a1, signed int a2);
-signed int __stdcall loader_query_visual(int a1, signed int a2, _DWORD *a3);
-int __stdcall loader_query_name(int a1);
-int __stdcall loader_query_float_attribute(int a1, signed int a2, int a3);
-int __stdcall loader_query_iattribute(int a1, int a2, _DWORD *a3);
-double __stdcall loader_play_sound(int a1);
-void __stdcall flasher_callback(int, void *); // idb
-void __stdcall flasher_start(struct flasher_type *, int); // idb
-void __stdcall flasher_stop(struct flasher_type *, int); // idb
-int __stdcall midi_music_init(HWND a1);
-MCIERROR __stdcall midi_music_shutdown();
-MCIERROR __stdcall midi_music_stop();
-MCIERROR __stdcall midi_play_pb_theme(int a1);
-HWND __stdcall restart_midi_seq(int a1);
-void __stdcall `vector constructor iterator`(void *, unsigned int, int, void *(__thiscall *)(void *)); // idb
-void __stdcall `vector destructor iterator`(void *, unsigned int, int, void (__thiscall *)(void *)); // idb
-void __stdcall edges_insert_circle(struct circle_type *, struct TEdgeSegment *, struct field_effect_type *); // idb
-void __stdcall edges_insert_square(float, float, float, float, struct TEdgeSegment *, struct field_effect_type *); // idb
-struct TPinballComponent *__stdcall make_component_link(struct component_tag *); // idb
-void __stdcall control_make_links(struct TPinballTable *); // idb
-BOOL __stdcall light_on(struct component_tag *a1);
-void __stdcall table_control_handler(int); // idb
-// void __userpurge table_set_replay(int a1@<ebx>, float a2);
-// void __usercall table_set_multiball(int a1@<ebx>);
-// void __usercall table_set_jackpot(int a1@<ebx>);
-// void __usercall table_set_bonus(int a1@<ebx>);
-// void __usercall table_set_flag_lights(int a1@<ebx>);
-// void __usercall table_set_bonus_hold(int a1@<ebx>);
-// void __usercall table_bump_ball_sink_lock(int a1@<ebx>);
-// void __userpurge table_add_extra_ball(int a1@<ebx>, float a2);
-int __stdcall SpecialAddScore(int); // idb
-void __stdcall AdvanceWormHoleDestination(int); // idb
-void __stdcall FlipperRebounderControl1(int, struct TPinballComponent *); // idb
-void __stdcall FlipperRebounderControl2(int, struct TPinballComponent *); // idb
-void __stdcall RebounderControl(int, struct TPinballComponent *); // idb
-void __stdcall BumperControl(int, struct TPinballComponent *); // idb
-void __stdcall LeftKickerControl(int, struct TPinballComponent *); // idb
-void __stdcall RightKickerControl(int, struct TPinballComponent *); // idb
-void __stdcall LeftKickerGateControl(int, struct TPinballComponent *); // idb
-void __stdcall RightKickerGateControl(int, struct TPinballComponent *); // idb
-// void __userpurge DeploymentChuteToEscapeChuteOneWayControl(int a1@<ebx>, int a2@<esi>, int a3, struct TPinballComponent *a4);
-void __stdcall DeploymentChuteToTableOneWayControl(int, struct TPinballComponent *); // idb
-void __stdcall DrainBallBlockerControl(int, struct TPinballComponent *); // idb
-// void __userpurge LaunchRampControl(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-void __stdcall LaunchRampHoleControl(int, struct TPinballComponent *); // idb
-void __stdcall SpaceWarpRolloverControl(int, struct TPinballComponent *); // idb
-// void __userpurge ReentryLanesRolloverControl(int a1@<ebx>, int a2@<edi>, int a3@<esi>, int a4, struct TPinballComponent *a5);
-void __stdcall BumperGroupControl(int, struct TPinballComponent *); // idb
-// void __userpurge LaunchLanesRolloverControl(int a1@<ebx>, int a2@<edi>, int a3@<esi>, int a4, struct TPinballComponent *a5);
-// void __userpurge OutLaneRolloverControl(int a1@<ebx>, int a2@<esi>, int a3, struct TPinballComponent *a4);
-void __stdcall ExtraBallLightControl(int, struct TPinballComponent *); // idb
-// void __userpurge ReturnLaneRolloverControl(int a1@<esi>, int a2, struct TPinballComponent *a3);
-// void __userpurge BonusLaneRolloverControl(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge FuelRollover1Control(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge FuelRollover2Control(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge FuelRollover3Control(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge FuelRollover4Control(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge FuelRollover5Control(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge FuelRollover6Control(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-void __stdcall HyperspaceLightGroupControl(int, struct TPinballComponent *); // idb
-// void __userpurge WormHoleControl(int a1@<ebx>, int a2@<edi>, int a3@<esi>, int a4, struct TPinballComponent *a5);
-void __stdcall LeftFlipperControl(int, struct TPinballComponent *); // idb
-void __stdcall RightFlipperControl(int, struct TPinballComponent *); // idb
-void __stdcall JackpotLightControl(int, struct TPinballComponent *); // idb
-void __stdcall BonusLightControl(int, struct TPinballComponent *); // idb
-void __stdcall BoosterTargetControl(int, struct TPinballComponent *); // idb
-void __stdcall MedalLightGroupControl(int, struct TPinballComponent *); // idb
-// void __userpurge MultiplierLightGroupControl(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge FuelSpotTargetControl(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MissionSpotTargetControl(int a1@<esi>, int a2, struct TPinballComponent *a3);
-void __stdcall LeftHazardSpotTargetControl(int, struct TPinballComponent *); // idb
-void __stdcall RightHazardSpotTargetControl(int, struct TPinballComponent *); // idb
-// void __userpurge WormHoleDestinationControl(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge BlackHoleKickoutControl(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-void __stdcall FlagControl(int, struct TPinballComponent *); // idb
-// void __userpurge GravityWellKickoutControl(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-void __stdcall SkillShotGate1Control(int, struct TPinballComponent *); // idb
-void __stdcall SkillShotGate2Control(int, struct TPinballComponent *); // idb
-void __stdcall SkillShotGate3Control(int, struct TPinballComponent *); // idb
-void __stdcall SkillShotGate4Control(int, struct TPinballComponent *); // idb
-void __stdcall SkillShotGate5Control(int, struct TPinballComponent *); // idb
-void __stdcall SkillShotGate6Control(int, struct TPinballComponent *); // idb
-void __stdcall ShootAgainLightControl(int, struct TPinballComponent *); // idb
-void __stdcall EscapeChuteSinkControl(int, struct TPinballComponent *); // idb
-// int __usercall cheat_bump_rank@<eax>(int a1@<ebx>);
-// void __userpurge pbctrl_bdoor_controller(int a1@<ebx>, int a2);
-int __stdcall AddRankProgress(int); // idb
-// void __userpurge WaitingDeploymentController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-void __stdcall SelectMissionController(int, struct TPinballComponent *); // idb
-// void __userpurge PracticeMissionController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge LaunchTrainingController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge ReentryTrainingController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge ScienceMissionController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge StrayCometController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge SpaceRadiationController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge BlackHoleThreatController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge BugHuntController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge RescueMissionController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge AlienMenaceController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge AlienMenacePartTwoController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge SatelliteController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge ReconnaissanceController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge DoomsdayMachineController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge CosmicPlagueController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge CosmicPlaguePartTwoController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge SecretMissionYellowController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge SecretMissionRedController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge SecretMissionGreenController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge TimeWarpController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge TimeWarpPartTwoController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MaelstromController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MaelstromPartTwoController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MaelstromPartThreeController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MaelstromPartFourController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MaelstromPartFiveController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MaelstromPartSixController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MaelstromPartSevenController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MaelstromPartEightController(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-void __stdcall GameoverController(int, struct TPinballComponent *); // idb
-void __stdcall UnselectMissionController(int, struct TPinballComponent *); // idb
-void __stdcall MissionControl(int, struct TPinballComponent *); // idb
-void __stdcall control_handler(int, struct TPinballComponent *); // idb
-void __stdcall HyperspaceKickOutControl(int, struct TPinballComponent *); // idb
-// void __userpurge PlungerControl(int a1@<ebx>, int a2, struct TPinballComponent *a3);
-// void __userpurge MedalTargetControl(int a1@<ebx>, int a2@<edi>, int a3@<esi>, int a4, struct TPinballComponent *a5);
-// void __userpurge MultiplierTargetControl(int a1@<ebx>, int a2@<edi>, int a3@<esi>, int a4, struct TPinballComponent *a5);
-void __stdcall BallDrainControl(int, struct TPinballComponent *); // idb
-int __stdcall objlist_add_object(_DWORD *a1, int a2);
-signed int __stdcall objlist_delete_object(int a1, int a2);
-_DWORD *__stdcall objlist_new(int a1);
-int *__stdcall objlist_grow(int *a1, int a2);
-void __stdcall build_occlude_list();
-void __stdcall render_repaint(struct render_sprite_type_struct *); // idb
-void __stdcall render_paint_balls(); // idb
-void __stdcall render_unpaint_balls(); // idb
-int __stdcall render_remove_sprite(struct render_sprite_type_struct *); // idb
-int __stdcall render_remove_ball(struct render_sprite_type_struct *); // idb
-BOOL __stdcall overlapping_box(struct rectangle_type *a1, struct rectangle_type *a2, struct rectangle_type *a3);
-void __stdcall render_update();
-void __stdcall render_uninit();
-char *__stdcall render_init(_DWORD *a1, float a2, float a3, int a4, int a5);
-int __stdcall render_sprite_modified(int a1);
-int __stdcall render_create_sprite(int a1, int a2, int a3, int a4, int a5, _DWORD *a6);
-int __stdcall render_set_background_zmap(struct zmap_header_type *a1, int a2, int a3);
-int __stdcall render_sprite_set(_DWORD *a1, int a2, int a3, int a4, int a5);
-void __stdcall render_sprite_set_bitmap(_DWORD *a1, int a2);
-void __stdcall render_ball_set(int a1, int a2, float a3, int a4, int a5);
-void __stdcall render_paint();
-void __stdcall render_shift(int a1, int a2, int xSrc, int a4, int DestWidth, int DestHeight);
-_DWORD *__stdcall score_create(LPCSTR lpString, int a2);
-void *__stdcall score_dup(const void *a1, int a2);
-void __stdcall objlist_destroy(int a1);
-_DWORD *__stdcall score_set(_DWORD *a1, int a2);
-// void *__userpurge score_erase@<eax>(int a1@<ebx>, _DWORD *a2, int a3);
-// HDC __userpurge score_update@<eax>(int a1@<ebx>, int *a2);
-signed int __stdcall score_init();
-void __stdcall score_unload_msg_font();
-HRSRC __stdcall score_load_msg_font(LPCSTR lpName);
-_DWORD __stdcall pb_paint(); // idb
-signed int __stdcall pb_mode_change(int a1);
-signed int __stdcall pb_mode_countdown(int a1);
-int __stdcall pb_end_game();
-signed int __stdcall pb_chk_highscore();
-long double __stdcall pb_collide(struct TEdgeSegment *a1, float a2, struct TBall *a3);
-void __stdcall pb_timed_frame(float, float, int); // idb
-// signed int __userpurge pb_frame@<eax>(int a1@<ebx>, int a2);
-void __stdcall pb_firsttime_setup();
-// struct TPinballTable *__usercall pb_tilt_no_more@<eax>(int a1@<ebx>);
-void __stdcall pb_ballset(signed int a1, signed int a2);
-void __stdcall nudge(float, float); // idb
-void __stdcall un_nudge_left(int, void *); // idb
-void __stdcall un_nudge_right(int, void *); // idb
-void __stdcall nudge_left(); // idb
-void __stdcall nudge_right(); // idb
-void __stdcall un_nudge_up(int, void *); // idb
-void __stdcall nudge_up(); // idb
-void __stdcall pb_keydown(HKEY a1);
-void __stdcall pb_keyup(HKEY a1);
-int __stdcall pb_replay_level(int a1);
-INT_PTR __stdcall pb_high_scores();
-_DWORD *__stdcall pb_window_size(_DWORD *a1, _DWORD *a2);
-int __stdcall pb_init();
-int __stdcall pb_uninit();
-int __stdcall pb_loose_focus();
-// void __usercall pb_pause_continue(int a1@<ebx>);
-int __stdcall pb_launch_ball();
-int __stdcall pb_reset_table();
-// void __usercall pb_toggle_demo(int a1@<ebx>);
-_DWORD __stdcall gdrv_get_focus(); // idb
-void __stdcall throw_ball(struct TBall *, struct vector_type *, float, float, float); // idb
-void __stdcall find_closest_edge(struct ramp_plane_type *, int, struct wall_point_type *, struct vector_type **, struct vector_type **); // idb
-double __stdcall basic_collision(struct TBall *a1, struct vector_type *a2, struct vector_type *a3, float a4, float a5, float a6, float a7);
-struct TEdgeSegment *__stdcall install_wall(float *, struct TCollisionComponent *, char *, unsigned int, float, void *); // idb
-void __stdcall vswap(struct vector_type *, struct vector_type *); // idb
-double __stdcall distance_to_flipper(struct ray_type *a1, struct ray_type *a2);
-void __stdcall vector_add(struct vector_type *, struct vector_type *); // idb
-void __stdcall RotatePt(struct vector_type *, float, float, struct vector_type *); // idb
-long double __stdcall Distance(struct vector_type *a1, struct vector_type *a2);
-double __stdcall Distance_Squared(float a1, float a2, int a3, float a4, float a5, int a6);
-double __stdcall DotProduct(const struct vector_type *a1, const struct vector_type *a2);
-void __stdcall SinCos(float, float *, float *); // idb
-void __stdcall RotateVector(struct vector_type *, float); // idb
-int __security_init_cookie();
-// BOOL __usercall __noreturn __report_gsfailure@<eax>(int a1@<eax>, int a2@<edx>, int a3@<ecx>, int a4@<ebx>, int a5@<edi>, int a6@<esi>);
-int __stdcall sub_101CEB6(LPBYTE lpData); // idb
-HWND __stdcall HtmlHelpA(HWND hwndCaller, LPCSTR pszFile, UINT uCommand, DWORD_PTR dwData);
-_WORD *__stdcall SessionToGlobalDataPtr(_WORD *a1);
-BOOL __stdcall IsValidLPMIXWAVE(int a1);
-bool __stdcall HasCurrentOutputFormat(const void *a1);
-int __stdcall DefaultPauseBlocks(int a1);
-unsigned int __stdcall DefaultGoodWavePos(UINT_PTR uDeviceID);
-DWORD __stdcall MyWaveOutGetPosition(HWAVEOUT hwo, int a2);
-int __stdcall AddFactor(int a1, int a2);
-int __stdcall SubFactor(int a1, int a2);
-unsigned int __stdcall SetWaveOutPosition(unsigned int a1);
-unsigned int __stdcall MyWaveOutReset(HWAVEOUT hwo);
-__int16 __stdcall cmixit(_BYTE *a1, char *a2, char *a3, int a4, unsigned __int16 a5);
-_DWORD *__stdcall InitChannelNodes();
-int __stdcall GetChannelNode();
-_DWORD *__stdcall FreeChannelNode(_DWORD *a1);
-struct wavehdr_tag *__stdcall FreeWaveBlocks(HWAVEOUT hwo, int a2);
-int __stdcall AllocWaveBlocks(HWAVEOUT hwo, int); // idb
-_DWORD *__stdcall SwapWaveBlocks();
-_DWORD *__stdcall GetWaveBlock();
-struct wavehdr_tag *__stdcall RemoveFromPlayingQueue(struct wavehdr_tag *a1);
-LPWAVEHDR __stdcall DestroyPlayQueue();
-int __stdcall ReleaseWaveDevice(int a1);
-signed int __stdcall GetWaveDevice();
-signed int __stdcall WaveMixOpenChannel(_WORD *a1, signed int a2, unsigned int a3);
-LPWAVEHDR __stdcall AddToPlayingQueue(struct wavehdr_tag *a1);
-int __stdcall MixerPlay(LPWAVEHDR pwh, int); // idb
-DWORD __stdcall FreePlayedBlocks();
-int __stdcall WaveMixPump();
-LRESULT __stdcall WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
-signed int __stdcall NoResetRemix(int a1, int a2);
-signed int __stdcall ResetRemix(int a1, int a2);
-void __stdcall ResetWavePosIfNoChannelData();
-signed int __stdcall WaveMixPlay(int a1);
-signed int __stdcall WaveMixFlushChannel(_WORD *a1, signed int a2, char a3);
-signed int __stdcall WaveMixCloseChannel(_WORD *a1, signed int a2, char a3);
-int __stdcall WaveMixFreeWave(int, LPCVOID pMem); // idb
-// _WORD *__userpurge BitsPerSampleAlign@<eax>(int a1@<eax>, LPCVOID pMem, int a3, __int16 a4, int a5);
-_BYTE *__stdcall ChannelAlign(LPCVOID pMem, __int16 a2, __int16 a3, __int16 a4, int a5);
-void __stdcall AvgSample(_WORD *a1, unsigned __int8 *a2, int a3, int a4, int a5);
-int __stdcall RepSample(_BYTE *a1, unsigned __int8 *a2, signed int a3, int a4, int a5);
-LPCVOID __stdcall SamplesPerSecAlign(LPCVOID pMem, int a2, int a3, __int16 a4, __int16 a5, int a6);
-LPCVOID __stdcall WaveFormatConvert(int a1, int a2, LPCVOID pMem, int a4);
-CHAR *__stdcall WaveMixOpenWave(LPCVOID pMem, LPCSTR lpName, HMODULE hModule, LONG cch);
-unsigned int __stdcall FigureOutDMABufferSize(unsigned int a1, int a2);
-int __stdcall RemoveInvalidIniNameCharacters(LPCSTR lpString); // idb
-UINT __stdcall ShowWaveOutDevices();
-const char *__stdcall GetOperatingSystemPrefix();
-int __stdcall ReadRegistryToGetMachineSpecificInfSection(int, LPSTR lpString1, int); // idb
-int __stdcall ReadRegistryInt(HKEY hKey, LPCSTR lpSubKey, int); // idb
-signed int __stdcall ReadRegistryForAppSpecificConfigs(int a1);
-int __stdcall ShowCurrentSettings();
-int __stdcall Settings_OnInitDialog(HWND hWnd, int, int); // idb
-int __stdcall Settings_OnCommand(HWND hWnd, int, int, int); // idb
-BOOL __stdcall SettingsDlgProc(HWND, UINT, WPARAM, LPARAM); // idb
-_DWORD *__stdcall MakeDlgTemplate(int a1, int a2, __int16 a3, __int16 a4, __int16 a5, __int16 a6, wchar_t *Str);
-_WORD *__stdcall AddDlgControl(int a1, LPCVOID pMem, __int16 a3, int a4, __int16 a5, __int16 a6, __int16 a7, __int16 a8, __int16 a9, wchar_t *Str);
-_WORD *__stdcall MakeSettingsDlgTemplate();
-void __stdcall DestroySettingsDlgTemplate(LPCVOID pMem);
-signed int __stdcall WaveMixGetConfig(_WORD *a1, int a2);
-BOOL __stdcall SaveConfigSettings(__int16 a1);
-DWORD __stdcall SetIniFileName(HMODULE hModule);
-int __stdcall InitVolumeTable();
-int __stdcall WaveMixStartup(HMODULE hModule); // idb
-signed int __stdcall WaveMixActivate(_WORD *a1, int a2);
-MMRESULT __stdcall WaveMixConfigure(int a1, HWND hWndParent, int a3, int a4, int a5);
-signed int __stdcall ReadConfigSettings(int a1);
-int __stdcall WaveMixConfigureInit(_WORD *a1);
-int __stdcall WaveMixInit();
-HLOCAL __stdcall WaveMixCloseSession(HLOCAL hMem);
+int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
+double normalize_2d(float *a1);
+double ray_intersect_circle(float *a1, float *a2);
+int line_init(int, float, float, float, float); // idb
+double ray_intersect_line(float *a1, float *a2);
+float *proj_matrix_vector_multiply(float *a1, float *a2, float *a3);
+float *cross(float *a1, float *a2, float *a3);
+double magnitude(float *a1);
+int proj_init(int a1, int a2, int a3, int a4);
+int proj_recenter(int a1, int a2);
+double proj_z_distance(DWORD); // weak
+double proj_xform_to_2d(float *a1, DWORD *a2);
+signed int loader_error(int a1, int a2);
+DWORD *loader_default_vsi(DWORD *a1);
+signed int loader_get_sound_id(int a1);
+void loader_unload();
+int loader_loadfrom(WORD *a1);
+int loader_query_handle(LPCSTR lpString); // idb
+signed int loader_query_visual_states(int a1);
+signed int loader_material(int a1, DWORD *a2);
+signed int loader_kicker(int a1, DWORD *a2);
+signed int loader_state_id(int a1, signed int a2);
+signed int loader_query_visual(int a1, signed int a2, DWORD *a3);
+int loader_query_name(int a1);
+int loader_query_float_attribute(int a1, signed int a2, int a3);
+int loader_query_iattribute(int a1, int a2, DWORD *a3);
+double loader_play_sound(int a1);
+void flasher_callback(int, void *); // idb
+void flasher_start(struct flasher_type *, int); // idb
+void flasher_stop(struct flasher_type *, int); // idb
+int midi_music_init(HWND a1);
+MCIERROR midi_music_shutdown();
+MCIERROR midi_music_stop();
+MCIERROR midi_play_pb_theme(int a1);
+HWND restart_midi_seq(int a1);
+void create(void *, unsigned int, int, void *(__thiscall *)(void *)); // idb
+void destroy(void *, unsigned int, int, void (__thiscall *)(void *)); // idb
+void edges_insert_circle(struct circle_type *, struct TEdgeSegment *, struct field_effect_type *); // idb
+void edges_insert_square(float, float, float, float, struct TEdgeSegment *, struct field_effect_type *); // idb
+struct TPinballComponent *make_component_link(struct component_tag *); // idb
+void control_make_links(struct TPinballTable *); // idb
+BOOL light_on(struct component_tag *a1);
+void table_control_handler(int); // idb
+// void table_set_replay(int a1, float a2);
+// void table_set_multiball(int a1);
+// void table_set_jackpot(int a1);
+// void table_set_bonus(int a1);
+// void table_set_flag_lights(int a1);
+// void table_set_bonus_hold(int a1);
+// void table_bump_ball_sink_lock(int a1);
+// void table_add_extra_ball(int a1, float a2);
+int SpecialAddScore(int); // idb
+void AdvanceWormHoleDestination(int); // idb
+void FlipperRebounderControl1(int, struct TPinballComponent *); // idb
+void FlipperRebounderControl2(int, struct TPinballComponent *); // idb
+void RebounderControl(int, struct TPinballComponent *); // idb
+void BumperControl(int, struct TPinballComponent *); // idb
+void LeftKickerControl(int, struct TPinballComponent *); // idb
+void RightKickerControl(int, struct TPinballComponent *); // idb
+void LeftKickerGateControl(int, struct TPinballComponent *); // idb
+void RightKickerGateControl(int, struct TPinballComponent *); // idb
+// void DeploymentChuteToEscapeChuteOneWayControl(int a1, int a2, int a3, struct TPinballComponent *a4);
+void DeploymentChuteToTableOneWayControl(int, struct TPinballComponent *); // idb
+void DrainBallBlockerControl(int, struct TPinballComponent *); // idb
+// void LaunchRampControl(int a1, int a2, struct TPinballComponent *a3);
+void LaunchRampHoleControl(int, struct TPinballComponent *); // idb
+void SpaceWarpRolloverControl(int, struct TPinballComponent *); // idb
+// void ReentryLanesRolloverControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+void BumperGroupControl(int, struct TPinballComponent *); // idb
+// void LaunchLanesRolloverControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+// void OutLaneRolloverControl(int a1, int a2, int a3, struct TPinballComponent *a4);
+void ExtraBallLightControl(int, struct TPinballComponent *); // idb
+// void ReturnLaneRolloverControl(int a1, int a2, struct TPinballComponent *a3);
+// void BonusLaneRolloverControl(int a1, int a2, struct TPinballComponent *a3);
+// void FuelRollover1Control(int a1, int a2, struct TPinballComponent *a3);
+// void FuelRollover2Control(int a1, int a2, struct TPinballComponent *a3);
+// void FuelRollover3Control(int a1, int a2, struct TPinballComponent *a3);
+// void FuelRollover4Control(int a1, int a2, struct TPinballComponent *a3);
+// void FuelRollover5Control(int a1, int a2, struct TPinballComponent *a3);
+// void FuelRollover6Control(int a1, int a2, struct TPinballComponent *a3);
+void HyperspaceLightGroupControl(int, struct TPinballComponent *); // idb
+// void WormHoleControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+void LeftFlipperControl(int, struct TPinballComponent *); // idb
+void RightFlipperControl(int, struct TPinballComponent *); // idb
+void JackpotLightControl(int, struct TPinballComponent *); // idb
+void BonusLightControl(int, struct TPinballComponent *); // idb
+void BoosterTargetControl(int, struct TPinballComponent *); // idb
+void MedalLightGroupControl(int, struct TPinballComponent *); // idb
+// void MultiplierLightGroupControl(int a1, int a2, struct TPinballComponent *a3);
+// void FuelSpotTargetControl(int a1, int a2, struct TPinballComponent *a3);
+// void MissionSpotTargetControl(int a1, int a2, struct TPinballComponent *a3);
+void LeftHazardSpotTargetControl(int, struct TPinballComponent *); // idb
+void RightHazardSpotTargetControl(int, struct TPinballComponent *); // idb
+// void WormHoleDestinationControl(int a1, int a2, struct TPinballComponent *a3);
+// void BlackHoleKickoutControl(int a1, int a2, struct TPinballComponent *a3);
+void FlagControl(int, struct TPinballComponent *); // idb
+// void GravityWellKickoutControl(int a1, int a2, struct TPinballComponent *a3);
+void SkillShotGate1Control(int, struct TPinballComponent *); // idb
+void SkillShotGate2Control(int, struct TPinballComponent *); // idb
+void SkillShotGate3Control(int, struct TPinballComponent *); // idb
+void SkillShotGate4Control(int, struct TPinballComponent *); // idb
+void SkillShotGate5Control(int, struct TPinballComponent *); // idb
+void SkillShotGate6Control(int, struct TPinballComponent *); // idb
+void ShootAgainLightControl(int, struct TPinballComponent *); // idb
+void EscapeChuteSinkControl(int, struct TPinballComponent *); // idb
+// int cheat_bump_rank(int a1);
+// void pbctrl_bdoor_controller(int a1, int a2);
+int AddRankProgress(int); // idb
+// void WaitingDeploymentController(int a1, int a2, struct TPinballComponent *a3);
+void SelectMissionController(int, struct TPinballComponent *); // idb
+// void PracticeMissionController(int a1, int a2, struct TPinballComponent *a3);
+// void LaunchTrainingController(int a1, int a2, struct TPinballComponent *a3);
+// void ReentryTrainingController(int a1, int a2, struct TPinballComponent *a3);
+// void ScienceMissionController(int a1, int a2, struct TPinballComponent *a3);
+// void StrayCometController(int a1, int a2, struct TPinballComponent *a3);
+// void SpaceRadiationController(int a1, int a2, struct TPinballComponent *a3);
+// void BlackHoleThreatController(int a1, int a2, struct TPinballComponent *a3);
+// void BugHuntController(int a1, int a2, struct TPinballComponent *a3);
+// void RescueMissionController(int a1, int a2, struct TPinballComponent *a3);
+// void AlienMenaceController(int a1, int a2, struct TPinballComponent *a3);
+// void AlienMenacePartTwoController(int a1, int a2, struct TPinballComponent *a3);
+// void SatelliteController(int a1, int a2, struct TPinballComponent *a3);
+// void ReconnaissanceController(int a1, int a2, struct TPinballComponent *a3);
+// void DoomsdayMachineController(int a1, int a2, struct TPinballComponent *a3);
+// void CosmicPlagueController(int a1, int a2, struct TPinballComponent *a3);
+// void CosmicPlaguePartTwoController(int a1, int a2, struct TPinballComponent *a3);
+// void SecretMissionYellowController(int a1, int a2, struct TPinballComponent *a3);
+// void SecretMissionRedController(int a1, int a2, struct TPinballComponent *a3);
+// void SecretMissionGreenController(int a1, int a2, struct TPinballComponent *a3);
+// void TimeWarpController(int a1, int a2, struct TPinballComponent *a3);
+// void TimeWarpPartTwoController(int a1, int a2, struct TPinballComponent *a3);
+// void MaelstromController(int a1, int a2, struct TPinballComponent *a3);
+// void MaelstromPartTwoController(int a1, int a2, struct TPinballComponent *a3);
+// void MaelstromPartThreeController(int a1, int a2, struct TPinballComponent *a3);
+// void MaelstromPartFourController(int a1, int a2, struct TPinballComponent *a3);
+// void MaelstromPartFiveController(int a1, int a2, struct TPinballComponent *a3);
+// void MaelstromPartSixController(int a1, int a2, struct TPinballComponent *a3);
+// void MaelstromPartSevenController(int a1, int a2, struct TPinballComponent *a3);
+// void MaelstromPartEightController(int a1, int a2, struct TPinballComponent *a3);
+void GameoverController(int, struct TPinballComponent *); // idb
+void UnselectMissionController(int, struct TPinballComponent *); // idb
+void MissionControl(int, struct TPinballComponent *); // idb
+void control_handler(int, struct TPinballComponent *); // idb
+void HyperspaceKickOutControl(int, struct TPinballComponent *); // idb
+// void PlungerControl(int a1, int a2, struct TPinballComponent *a3);
+// void MedalTargetControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+// void MultiplierTargetControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+void BallDrainControl(int, struct TPinballComponent *); // idb
+int objlist_add_object(DWORD *a1, int a2);
+signed int objlist_delete_object(int a1, int a2);
+DWORD *objlist_new(int a1);
+int *objlist_grow(int *a1, int a2);
+void build_occlude_list();
+void render_repaint(struct render_sprite_type_struct *); // idb
+void render_paint_balls(); // idb
+void render_unpaint_balls(); // idb
+int render_remove_sprite(struct render_sprite_type_struct *); // idb
+int render_remove_ball(struct render_sprite_type_struct *); // idb
+BOOL overlapping_box(struct rectangle_type *a1, struct rectangle_type *a2, struct rectangle_type *a3);
+void render_update();
+void render_uninit();
+char *render_init(DWORD *a1, float a2, float a3, int a4, int a5);
+int render_sprite_modified(int a1);
+int render_create_sprite(int a1, int a2, int a3, int a4, int a5, DWORD *a6);
+int render_set_background_zmap(struct zmap_header_type *a1, int a2, int a3);
+int render_sprite_set(DWORD *a1, int a2, int a3, int a4, int a5);
+void render_sprite_set_bitmap(DWORD *a1, int a2);
+void render_ball_set(int a1, int a2, float a3, int a4, int a5);
+void render_paint();
+void render_shift(int a1, int a2, int xSrc, int a4, int DestWidth, int DestHeight);
+DWORD *score_create(LPCSTR lpString, int a2);
+void *score_dup(const void *a1, int a2);
+void objlist_destroy(int a1);
+DWORD *score_set(DWORD *a1, int a2);
+// void *score_erase(int a1, DWORD *a2, int a3);
+// HDC score_update(int a1, int *a2);
+signed int score_init();
+void score_unload_msg_font();
+HRSRC score_load_msg_font(LPCSTR lpName);
+DWORD pb_paint(); // idb
+signed int pb_mode_change(int a1);
+signed int pb_mode_countdown(int a1);
+int pb_end_game();
+signed int pb_chk_highscore();
+long double pb_collide(struct TEdgeSegment *a1, float a2, struct TBall *a3);
+void pb_timed_frame(float, float, int); // idb
+// signed int pb_frame(int a1, int a2);
+void pb_firsttime_setup();
+// struct TPinballTable *pb_tilt_no_more(int a1);
+void pb_ballset(signed int a1, signed int a2);
+void nudge(float, float); // idb
+void un_nudge_left(int, void *); // idb
+void un_nudge_right(int, void *); // idb
+void nudge_left(); // idb
+void nudge_right(); // idb
+void un_nudge_up(int, void *); // idb
+void nudge_up(); // idb
+void pb_keydown(HKEY a1);
+void pb_keyup(HKEY a1);
+int pb_replay_level(int a1);
+INT_PTR pb_high_scores();
+DWORD *pb_window_size(DWORD *a1, DWORD *a2);
+int pb_init();
+int pb_uninit();
+int pb_loose_focus();
+// void pb_pause_continue(int a1);
+int pb_launch_ball();
+int pb_reset_table();
+// void pb_toggle_demo(int a1);
+DWORD gdrv_get_focus(); // idb
+void throw_ball(struct TBall *, struct vector_type *, float, float, float); // idb
+void find_closest_edge(struct ramp_plane_type *, int, struct wall_point_type *, struct vector_type **, struct vector_type **); // idb
+double basic_collision(struct TBall *a1, struct vector_type *a2, struct vector_type *a3, float a4, float a5, float a6, float a7);
+struct TEdgeSegment *install_wall(float *, struct TCollisionComponent *, char *, unsigned int, float, void *); // idb
+void vswap(struct vector_type *, struct vector_type *); // idb
+double distance_to_flipper(struct ray_type *a1, struct ray_type *a2);
+void vector_add(struct vector_type *, struct vector_type *); // idb
+void RotatePt(struct vector_type *, float, float, struct vector_type *); // idb
+long double Distance(struct vector_type *a1, struct vector_type *a2);
+double Distance_Squared(float a1, float a2, int a3, float a4, float a5, int a6);
+double DotProduct(const struct vector_type *a1, const struct vector_type *a2);
+void SinCos(float, float *, float *); // idb
+void RotateVector(struct vector_type *, float); // idb
+int sub_101CEB6(LPBYTE lpData); // idb
+HWND HtmlHelpA(HWND hwndCaller, LPCSTR pszFile, UINT uCommand, DWORD_PTR dwData);
+WORD *SessionToGlobalDataPtr(WORD *a1);
+BOOL IsValidLPMIXWAVE(int a1);
+bool HasCurrentOutputFormat(const void *a1);
+int DefaultPauseBlocks(int a1);
+unsigned int DefaultGoodWavePos(UINT_PTR uDeviceID);
+DWORD MyWaveOutGetPosition(HWAVEOUT hwo, int a2);
+int AddFactor(int a1, int a2);
+int SubFactor(int a1, int a2);
+unsigned int SetWaveOutPosition(unsigned int a1);
+unsigned int MyWaveOutReset(HWAVEOUT hwo);
+int cmixit(_BYTE *a1, char *a2, char *a3, int a4, unsigned int a5);
+DWORD *InitChannelNodes();
+int GetChannelNode();
+DWORD *FreeChannelNode(DWORD *a1);
+struct wavehdr_tag *FreeWaveBlocks(HWAVEOUT hwo, int a2);
+int AllocWaveBlocks(HWAVEOUT hwo, int); // idb
+DWORD *SwapWaveBlocks();
+DWORD *GetWaveBlock();
+struct wavehdr_tag *RemoveFromPlayingQueue(struct wavehdr_tag *a1);
+LPWAVEHDR DestroyPlayQueue();
+int ReleaseWaveDevice(int a1);
+signed int GetWaveDevice();
+signed int WaveMixOpenChannel(WORD *a1, signed int a2, unsigned int a3);
+LPWAVEHDR AddToPlayingQueue(struct wavehdr_tag *a1);
+int MixerPlay(LPWAVEHDR pwh, int); // idb
+DWORD FreePlayedBlocks();
+int WaveMixPump();
+LRESULT WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam);
+signed int NoResetRemix(int a1, int a2);
+signed int ResetRemix(int a1, int a2);
+void ResetWavePosIfNoChannelData();
+signed int WaveMixPlay(int a1);
+signed int WaveMixFlushChannel(WORD *a1, signed int a2, char a3);
+signed int WaveMixCloseChannel(WORD *a1, signed int a2, char a3);
+int WaveMixFreeWave(int, LPCVOID pMem); // idb
+// WORD *BitsPerSampleAlign(int a1, LPCVOID pMem, int a3, int a4, int a5);
+_BYTE *ChannelAlign(LPCVOID pMem, int a2, int a3, int a4, int a5);
+void AvgSample(WORD *a1, unsigned __int8 *a2, int a3, int a4, int a5);
+int RepSample(_BYTE *a1, unsigned __int8 *a2, signed int a3, int a4, int a5);
+LPCVOID SamplesPerSecAlign(LPCVOID pMem, int a2, int a3, int a4, int a5, int a6);
+LPCVOID WaveFormatConvert(int a1, int a2, LPCVOID pMem, int a4);
+CHAR *WaveMixOpenWave(LPCVOID pMem, LPCSTR lpName, HMODULE hModule, LONG cch);
+unsigned int FigureOutDMABufferSize(unsigned int a1, int a2);
+int RemoveInvalidIniNameCharacters(LPCSTR lpString); // idb
+UINT ShowWaveOutDevices();
+const char *GetOperatingSystemPrefix();
+int ReadRegistryToGetMachineSpecificInfSection(int, LPSTR lpString1, int); // idb
+int ReadRegistryInt(HKEY hKey, LPCSTR lpSubKey, int); // idb
+signed int ReadRegistryForAppSpecificConfigs(int a1);
+int ShowCurrentSettings();
+int Settings_OnInitDialog(HWND hWnd, int, int); // idb
+int Settings_OnCommand(HWND hWnd, int, int, int); // idb
+BOOL SettingsDlgProc(HWND, UINT, WPARAM, LPARAM); // idb
+DWORD *MakeDlgTemplate(int a1, int a2, int a3, int a4, int a5, int a6, wchar_t *Str);
+WORD *AddDlgControl(int a1, LPCVOID pMem, int a3, int a4, int a5, int a6, int a7, int a8, int a9, wchar_t *Str);
+WORD *MakeSettingsDlgTemplate();
+void DestroySettingsDlgTemplate(LPCVOID pMem);
+signed int WaveMixGetConfig(WORD *a1, int a2);
+BOOL SaveConfigSettings(int a1);
+DWORD SetIniFileName(HMODULE hModule);
+int InitVolumeTable();
+int WaveMixStartup(HMODULE hModule); // idb
+signed int WaveMixActivate(WORD *a1, int a2);
+MMRESULT WaveMixConfigure(int a1, HWND hWndParent, int a3, int a4, int a5);
+signed int ReadConfigSettings(int a1);
+int WaveMixConfigureInit(WORD *a1);
+int WaveMixInit();
+HLOCAL WaveMixCloseSession(HLOCAL hMem);
 int WinMainCRTStartup();
 // void __cdecl operator delete(void *); idb
 // void *__cdecl operator new(unsigned int); idb
-// int __cdecl _initterm(_DWORD, _DWORD); weak
+// int __cdecl _initterm(DWORD, DWORD); weak
 unsigned int _setdefaultprecision();
-int __stdcall check_expiration_date();
+int check_expiration_date();
 // unsigned int __cdecl _controlfp(unsigned int NewValue, unsigned int Mask);
 
 //-------------------------------------------------------------------------
@@ -481,9 +479,9 @@ char byte_1023459 = '\0'; // weak
 char byte_102345A = '\0'; // weak
 _UNKNOWN unk_102345F; // weak
 _UNKNOWN unk_1023460; // weak
-__int16 vk_list = 32833; // weak
+int vk_list = 32833; // weak
 _UNKNOWN unk_1023540; // weak
-__int16 field_size[14] =
+int field_size[14] =
         {
                 2,
                 65535,
@@ -967,8 +965,8 @@ char **off_1024470[142] =
                 &off_1023E10
         }; // weak
 int off_10246A0 = 16923984; // idb
-__int16 word_10246EC[] = { 84 }; // weak
-__int16 word_1024708[] = { 91 }; // weak
+int word_10246EC[] = { 84 }; // weak
+int word_1024708[] = { 91 }; // weak
 int render_blit = 1; // weak
 int dword_1024758[5] = { 1, 2, 3, 5, 10 }; // idb
 int __security_cookie_complement = 4294919359; // weak
@@ -1343,13 +1341,13 @@ int memory_use_total; // weak
 int memory_critical_allocation; // weak
 int (*memory_critical_callback)(void); // weak
 HMENU hMenu; // idb
-__int16 word_1024F18; // weak
+int word_1024F18; // weak
 int dword_1024F1C[8]; // idb
 int dword_1024F3C[8]; // idb
 LPCVOID pMem; // idb
 HMODULE dword_1024F60; // idb
 HWND dword_1024F64; // idb
-int (__stdcall *dword_1024F68)(_DWORD, _DWORD, _DWORD); // weak
+int (*dword_1024F68)(DWORD, DWORD, DWORD); // weak
 HINSTANCE hInstance; // idb
 int dword_1024F70; // weak
 int dword_1024F74; // weak
@@ -1382,7 +1380,7 @@ int dword_1025048; // weak
 int dword_102504C; // weak
 int dword_1025050; // weak
 _UNKNOWN zscreen; // weak
-__int16 word_102505A; // weak
+int word_102505A; // weak
 struct render_sprite_type_struct **render_dirty_list; // weak
 struct render_sprite_type_struct **render_ball_list; // weak
 int render_many_balls; // weak
@@ -1453,7 +1451,7 @@ _UNKNOWN T1; // weak
 int dword_102570C; // weak
 _UNKNOWN A1; // weak
 float flt_1025718; // weak
-HWND (__stdcall *pHtmlHelpA)(HWND, const char *, unsigned int, unsigned int); // weak
+HWND (*pHtmlHelpA)(HWND, const char *, unsigned int, unsigned int); // weak
 int dword_1025728; // weak
 HMODULE hModule; // idb
 int dword_1025730[16]; // idb
@@ -1462,8 +1460,8 @@ int dword_1025798; // weak
 int dword_10257A0[16]; // idb
 HINSTANCE dword_10257E0; // idb
 _UNKNOWN unk_10257E4; // weak
-__int16 word_1025810[]; // weak
-__int16 word_1025812[30]; // idb
+int word_1025810[]; // weak
+int word_1025812[30]; // idb
 CHAR FileName[276]; // idb
 int dword_1025964; // weak
 int dword_1025968; // weak
@@ -1526,12 +1524,12 @@ HKEY dword_1028240; // idb
 HKEY dword_1028244; // idb
 HKEY dword_1028248; // idb
 HKEY dword_102824C; // idb
-__int16 dword_1028250; // idb
-__int16 dword_1028254; // idb
-__int16 dword_1028258; // idb
-__int16 dword_102825C; // idb
-__int16 dword_1028260; // idb
-__int16 dword_1028264; // idb
+int dword_1028250; // idb
+int dword_1028254; // idb
+int dword_1028258; // idb
+int dword_102825C; // idb
+int dword_1028260; // idb
+int dword_1028264; // idb
 int high_score_dlg_score; // idb
 LPCSTR high_score_dlg_hst; // idb
 int high_score_dlg_enter_name; // weak

@@ -10,7 +10,7 @@
 /* 107 */
 struct TSoloTarget;
 
-void __stdcall TSoloTarget::TimerExpired(int, void*); // idb
+void TSoloTarget::TimerExpired(int, void*); // idb
 int __thiscall TSoloTarget::Message(TSoloTarget* this, int, float); // idb
 int __thiscall TSoloTarget::get_scoring(TSoloTarget* this, int); // idb
 void __thiscall TSoloTarget::put_scoring(TSoloTarget* this, int, int); // idb

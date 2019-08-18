@@ -5,7 +5,7 @@
 #include "../pinball.h"
 
 //----- (0100B9C7) --------------------------------------------------------
-void __stdcall edges_insert_circle(struct circle_type *a1, struct TEdgeSegment *a2, struct field_effect_type *a3)
+void edges_insert_circle(struct circle_type *a1, struct TEdgeSegment *a2, struct field_effect_type *a3)
 {
     struct circle_type *v3; // ebx
     long double v4; // st7
@@ -108,22 +108,22 @@ void __stdcall edges_insert_circle(struct circle_type *a1, struct TEdgeSegment *
                             v25 = v28;
                             v26 = v29;
                             v27 = v30;
-                            v11 = Distance_Squared(v28, v29, v30, *(float *)v3, *((float *)v3 + 1), *((_DWORD *)v3 + 2));
+                            v11 = Distance_Squared(v28, v29, v30, *(float *)v3, *((float *)v3 + 1), *((DWORD *)v3 + 2));
                             if ( v11 > v40 )
                             {
                                 v12 = *(float *)v3;
                                 v25 = v25 + *(float *)edge_manager;
-                                v13 = Distance_Squared(v25, v26, v27, v12, *((float *)v3 + 1), *((_DWORD *)v3 + 2));
+                                v13 = Distance_Squared(v25, v26, v27, v12, *((float *)v3 + 1), *((DWORD *)v3 + 2));
                                 if ( v13 > v40 )
                                 {
                                     v14 = *(float *)v3;
                                     v26 = v26 + *((float *)edge_manager + 1);
-                                    v15 = Distance_Squared(v25, v26, v27, v14, *((float *)v3 + 1), *((_DWORD *)v3 + 2));
+                                    v15 = Distance_Squared(v25, v26, v27, v14, *((float *)v3 + 1), *((DWORD *)v3 + 2));
                                     if ( v15 > v40 )
                                     {
                                         v16 = *(float *)v3;
                                         v25 = v25 - *(float *)edge_manager;
-                                        v17 = Distance_Squared(v25, v26, v27, v16, *((float *)v3 + 1), *((_DWORD *)v3 + 2));
+                                        v17 = Distance_Squared(v25, v26, v27, v16, *((float *)v3 + 1), *((DWORD *)v3 + 2));
                                         if ( v17 > v40 )
                                         {
                                             v19 = v28;
@@ -131,7 +131,7 @@ void __stdcall edges_insert_circle(struct circle_type *a1, struct TEdgeSegment *
                                             v21 = v30;
                                             v22 = 1.0;
                                             v23 = 0.0;
-                                            v24 = *(_DWORD *)edge_manager;
+                                            v24 = *(DWORD *)edge_manager;
                                             if ( ray_intersect_circle(&v19, (float *)v3) >= 1000000000.0 )
                                             {
                                                 v22 = -1.0;
@@ -140,7 +140,7 @@ void __stdcall edges_insert_circle(struct circle_type *a1, struct TEdgeSegment *
                                                 {
                                                     v22 = 0.0;
                                                     v23 = 1.0;
-                                                    v24 = *((_DWORD *)edge_manager + 1);
+                                                    v24 = *((DWORD *)edge_manager + 1);
                                                     if ( ray_intersect_circle(&v19, (float *)v3) >= 1000000000.0 )
                                                     {
                                                         v23 = -1.0;
@@ -149,7 +149,7 @@ void __stdcall edges_insert_circle(struct circle_type *a1, struct TEdgeSegment *
                                                         {
                                                             v23 = 0.0;
                                                             v22 = -1.0;
-                                                            v24 = *(_DWORD *)edge_manager;
+                                                            v24 = *(DWORD *)edge_manager;
                                                             if ( ray_intersect_circle(&v19, (float *)v3) >= 1000000000.0 )
                                                             {
                                                                 v22 = 1.0;
@@ -158,7 +158,7 @@ void __stdcall edges_insert_circle(struct circle_type *a1, struct TEdgeSegment *
                                                                 {
                                                                     v22 = 0.0;
                                                                     v23 = -1.0;
-                                                                    v24 = *((_DWORD *)edge_manager + 1);
+                                                                    v24 = *((DWORD *)edge_manager + 1);
                                                                     if ( ray_intersect_circle(&v19, (float *)v3) >= 1000000000.0 )
                                                                     {
                                                                         v23 = 1.0;
@@ -202,7 +202,7 @@ void __stdcall edges_insert_circle(struct circle_type *a1, struct TEdgeSegment *
 }
 
 //----- (0100BE21) --------------------------------------------------------
-void __stdcall edges_insert_square(float a1, float a2, float a3, float a4, struct TEdgeSegment *a5, struct field_effect_type *a6)
+void edges_insert_square(float a1, float a2, float a3, float a4, struct TEdgeSegment *a5, struct field_effect_type *a6)
 {
     double v6; // st7
     double v7; // st7
@@ -273,7 +273,7 @@ void __stdcall edges_insert_square(float a1, float a2, float a3, float a4, struc
 }
 
 //----- (01016B27) --------------------------------------------------------
-void __stdcall find_closest_edge(struct ramp_plane_type *a1, int a2, struct wall_point_type *a3, struct vector_type **a4, struct vector_type **a5)
+void find_closest_edge(struct ramp_plane_type *a1, int a2, struct wall_point_type *a3, struct vector_type **a4, struct vector_type **a5)
 {
 int v5; // ecx
 char *v6; // esi
@@ -292,10 +292,10 @@ float v18; // [esp+28h] [ebp+Ch]
 float v19; // [esp+28h] [ebp+Ch]
 struct wall_point_type *v20; // [esp+2Ch] [ebp+10h]
 
-v14 = *(_DWORD *)a3;
-v15 = *((_DWORD *)a3 + 1);
-v5 = *((_DWORD *)a3 + 2);
-v13 = *((_DWORD *)a3 + 3);
+v14 = *(DWORD *)a3;
+v15 = *((DWORD *)a3 + 1);
+v5 = *((DWORD *)a3 + 2);
+v13 = *((DWORD *)a3 + 3);
 v16 = 1000000000.0;
 v12 = v5;
 if ( a2 > 0 )

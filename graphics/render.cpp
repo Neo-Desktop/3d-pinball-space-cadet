@@ -1,7 +1,7 @@
 #include "../pinball.h"
 
 //----- (0101304D) --------------------------------------------------------
-void __stdcall render_repaint(struct render_sprite_type_struct *a1)
+void render_repaint(struct render_sprite_type_struct *a1)
 {
 int *v1; // edi
 bool v2; // zf
@@ -14,17 +14,17 @@ int v8; // [esp+14h] [ebp-4h]
 struct render_sprite_type_struct *v9; // [esp+20h] [ebp+8h]
 
 v1 = (int *)a1;
-if ( *((_DWORD *)a1 + 17) )
+if ( *((DWORD *)a1 + 17) )
 {
-v2 = *((_DWORD *)a1 + 18) == 0;
-v3 = *((_DWORD *)a1 + 18) < 0;
+v2 = *((DWORD *)a1 + 18) == 0;
+v3 = *((DWORD *)a1 + 18) < 0;
 v9 = 0;
 if ( !v3 && !v2 )
 {
 do
 {
-v4 = *(_DWORD *)(v1[17] + 4 * (_DWORD)v9);
-if ( !*(_BYTE *)(v4 + 24) && *(_DWORD *)(v4 + 16) )
+v4 = *(DWORD *)(v1[17] + 4 * (DWORD)v9);
+if ( !*(_BYTE *)(v4 + 24) && *(DWORD *)(v4 + 16) )
 {
 if ( rectangle_clip((int *)v4, v1 + 13, &v5) )
 zdrv_paint(
@@ -36,12 +36,12 @@ v6,
 (int)&zscreen,
 v5,
 v6,
-*(_DWORD **)(v4 + 16),
-v5 - *(_DWORD *)v4,
-v6 - *(_DWORD *)(v4 + 4),
-*(_DWORD *)(v4 + 20),
-v5 + *(_DWORD *)(v4 + 44) - *(_DWORD *)v4,
-v6 + *(_DWORD *)(v4 + 48) - *(_DWORD *)(v4 + 4));
+*(DWORD **)(v4 + 16),
+v5 - *(DWORD *)v4,
+v6 - *(DWORD *)(v4 + 4),
+*(DWORD *)(v4 + 20),
+v5 + *(DWORD *)(v4 + 44) - *(DWORD *)v4,
+v6 + *(DWORD *)(v4 + 48) - *(DWORD *)(v4 + 4));
 }
 v9 = (struct render_sprite_type_struct *)((char *)v9 + 1);
 }
@@ -51,7 +51,7 @@ while ( (signed int)v9 < v1[18] );
 }
 
 //----- (010130F3) --------------------------------------------------------
-void __stdcall render_paint_balls()
+void render_paint_balls()
 {
 int v0; // ecx
 int v1; // edi
@@ -65,7 +65,7 @@ int v8; // ebx
 int v9; // ST48_4
 int v10; // [esp+Ch] [ebp-10h]
 struct render_sprite_type_struct **v11; // [esp+10h] [ebp-Ch]
-_DWORD *v12; // [esp+14h] [ebp-8h]
+DWORD *v12; // [esp+14h] [ebp-8h]
 
 v0 = render_many_balls;
 if ( render_many_balls > 1 )
@@ -79,7 +79,7 @@ for ( i = v1; i < v0 / 2; ++i )
 {
 v3 = render_ball_list[i];
 v4 = &render_ball_list[v1];
-if ( *((_WORD *)*v4 + 13) > *((_WORD *)v3 + 13) )
+if ( *((WORD *)*v4 + 13) > *((WORD *)v3 + 13) )
 {
 v5 = *v4;
 *v4 = v3;
@@ -101,7 +101,7 @@ do
 {
 v6 = *v11;
 v7 = (int *)((char *)*v11 + 52);
-if ( *((_DWORD *)*v11 + 4) && rectangle_clip((int *)v6, (int *)&vscreen_rect, (_DWORD *)*v11 + 13) )
+if ( *((DWORD *)*v11 + 4) && rectangle_clip((int *)v6, (int *)&vscreen_rect, (DWORD *)*v11 + 13) )
 {
 v8 = *v7;
 v9 = v7[1];
@@ -115,17 +115,17 @@ v9,
 (int)&zscreen,
 v8,
 v9,
-*((_DWORD **)v6 + 4),
-v8 - *(_DWORD *)v6,
-v9 - *((_DWORD *)v6 + 1),
-*((_WORD *)v6 + 13));
+*((DWORD **)v6 + 4),
+v8 - *(DWORD *)v6,
+v9 - *((DWORD *)v6 + 1),
+*((WORD *)v6 + 13));
 }
 else
 {
 v7[2] = -1;
 }
 ++v10;
-v12 = (_DWORD *)((char *)v12 + 37);
+v12 = (DWORD *)((char *)v12 + 37);
 ++v11;
 }
 while ( v10 < render_many_balls );
@@ -135,14 +135,14 @@ while ( v10 < render_many_balls );
 // 1025070: using guessed type int render_many_balls;
 
 //----- (0101320D) --------------------------------------------------------
-void __stdcall render_unpaint_balls()
+void render_unpaint_balls()
 {
-_DWORD *v0; // ebx
+DWORD *v0; // ebx
 struct render_sprite_type_struct *v1; // edi
-_DWORD *v2; // esi
+DWORD *v2; // esi
 int v3; // eax
-_DWORD *v4; // edi
-_DWORD *v5; // esi
+DWORD *v4; // edi
+DWORD *v5; // esi
 bool v6; // zf
 int v7; // [esp+0h] [ebp-8h]
 struct render_sprite_type_struct **v8; // [esp+4h] [ebp-4h]
@@ -150,17 +150,17 @@ struct render_sprite_type_struct **v8; // [esp+4h] [ebp-4h]
 v8 = &render_ball_list[render_many_balls - 1];
 if ( render_many_balls - 1 >= 0 )
 {
-v0 = (_DWORD *)((char *)&ball_bitmap + 37 * (render_many_balls - 1));
+v0 = (DWORD *)((char *)&ball_bitmap + 37 * (render_many_balls - 1));
 v7 = render_many_balls;
 do
 {
 v1 = *v8;
-v2 = (_DWORD *)((char *)*v8 + 52);
-v3 = *((_DWORD *)*v8 + 15);
+v2 = (DWORD *)((char *)*v8 + 52);
+v3 = *((DWORD *)*v8 + 15);
 if ( v3 > 0 )
-gdrv_copy_bitmap(&vscreen, v3, *((_DWORD *)*v8 + 16), *((_DWORD *)*v8 + 13), *((_DWORD *)*v8 + 14), v0, 0, 0);
+gdrv_copy_bitmap(&vscreen, v3, *((DWORD *)*v8 + 16), *((DWORD *)*v8 + 13), *((DWORD *)*v8 + 14), v0, 0, 0);
 --v8;
-v4 = (_DWORD *)((char *)v1 + 28);
+v4 = (DWORD *)((char *)v1 + 28);
 *v4 = *v2;
 v5 = v2 + 1;
 ++v4;
@@ -168,7 +168,7 @@ v5 = v2 + 1;
 ++v5;
 ++v4;
 *v4 = *v5;
-v0 = (_DWORD *)((char *)v0 - 37);
+v0 = (DWORD *)((char *)v0 - 37);
 v6 = v7-- == 1;
 v4[1] = v5[1];
 }
@@ -179,7 +179,7 @@ while ( !v6 );
 // 1025070: using guessed type int render_many_balls;
 
 //----- (01013283) --------------------------------------------------------
-int __stdcall render_remove_sprite(struct render_sprite_type_struct *a1)
+int render_remove_sprite(struct render_sprite_type_struct *a1)
 {
 int v1; // eax
 int v2; // ecx
@@ -200,8 +200,8 @@ v1 = render_many_sprites;
 ++v2;
 }
 render_many_sprites = v1 - 1;
-if ( *((_DWORD *)a1 + 17) )
-memoryfree(*((_DWORD *)a1 + 17));
+if ( *((DWORD *)a1 + 17) )
+memoryfree(*((DWORD *)a1 + 17));
 memoryfree((int)a1);
 return 1;
 }
@@ -209,7 +209,7 @@ return 1;
 // 10250B4: using guessed type int render_many_sprites;
 
 //----- (010132E8) --------------------------------------------------------
-int __stdcall render_remove_ball(struct render_sprite_type_struct *a1)
+int render_remove_ball(struct render_sprite_type_struct *a1)
 {
 int v1; // eax
 int v2; // ecx
@@ -237,7 +237,7 @@ return 1;
 // 1025070: using guessed type int render_many_balls;
 
 //----- (010133C7) --------------------------------------------------------
-void __stdcall render_update()
+void render_update()
 {
 int i; // eax
 int *v1; // esi
@@ -293,7 +293,7 @@ v27 = v15;
 v26 = v16;
 zdrv_fill((int)&vscreen, (int)&zscreen, v16, v18, v17, v15, 0xFFFF);
 if ( render_background_bitmap )
-gdrv_copy_bitmap(&vscreen, v26, v18, v17, v27, (_DWORD *)render_background_bitmap, v17, v27);
+gdrv_copy_bitmap(&vscreen, v26, v18, v17, v27, (DWORD *)render_background_bitmap, v17, v27);
 else
 gdrv_fill_bitmap((int)&vscreen, &vscreen, v26, v18, v17, v27, 0);
 goto LABEL_8;
@@ -322,7 +322,7 @@ if ( i > 0 )
 do
 {
 v5 = *v3;
-if ( *((_DWORD *)*v3 + 15) > 0 && (!*((_BYTE *)v5 + 25) || *((_BYTE *)v5 + 25) == 1) )
+if ( *((DWORD *)*v3 + 15) > 0 && (!*((_BYTE *)v5 + 25) || *((_BYTE *)v5 + 25) == 1) )
 render_repaint(*v3);
 ++v4;
 ++v3;
@@ -340,7 +340,7 @@ for ( j = render_dirty_list; v28 < render_many_dirty; ++j )
 {
 v6 = *j;
 v7 = (int *)((char *)*j + 52);
-v8 = *((_DWORD *)*j + 15);
+v8 = *((DWORD *)*j + 15);
 v25 = *j;
 if ( v8 > 0 )
 gdrv_blit_sequence((int)&vscreen, *v7, v7[1], *v7 + v27, v7[1] + v26, v8, v7[3]);
@@ -365,7 +365,7 @@ for ( j = render_ball_list; v28 < render_many_balls; ++j )
 v13 = (int *)((char *)*j + 28);
 v14 = (int *)((char *)*j + 52);
 if ( overlapping_box((struct rectangle_type *)v14, (struct rectangle_type *)v13, (struct rectangle_type *)&xSrc)
-&& *((_DWORD *)*j + 15) > 0 )
+&& *((DWORD *)*j + 15) > 0 )
 {
 if ( v23 > 0 )
 gdrv_blit_sequence((int)&vscreen, xSrc, v22, xSrc + v27, v22 + v26, v23, v24);
@@ -395,7 +395,7 @@ render_unpaint_balls();
 // 10253B0: using guessed type int render_offset_y;
 
 //----- (01013670) --------------------------------------------------------
-void __stdcall render_uninit()
+void render_uninit()
 {
 int i; // esi
 int j; // esi
@@ -421,7 +421,7 @@ render_many_balls = 0;
 // 10250C0: using guessed type int render_many_dirty;
 
 //----- (01013705) --------------------------------------------------------
-char *__stdcall render_init(_DWORD *a1, float a2, float a3, int a4, int a5)
+char *render_init(DWORD *a1, float a2, float a3, int a4, int a5)
 {
 int v5; // edi
 char *result; // eax
@@ -460,7 +460,7 @@ result = (char *)gdrv_fill_bitmap((int)&vscreen, &vscreen, dword_1025094, dword_
 return result;
 }
 // 1024F04: using guessed type int memory_critical_allocation;
-// 102505A: using guessed type __int16 word_102505A;
+// 102505A: using guessed type int word_102505A;
 // 1025068: using guessed type struct render_sprite_type_struct **render_dirty_list;
 // 102506C: using guessed type struct render_sprite_type_struct **render_ball_list;
 // 1025078: using guessed type int dword_1025078;
@@ -475,7 +475,7 @@ return result;
 // 10253AC: using guessed type int render_offset_x;
 
 //----- (0101382A) --------------------------------------------------------
-int __stdcall render_sprite_modified(int a1)
+int render_sprite_modified(int a1)
 {
 int result; // eax
 
@@ -491,7 +491,7 @@ return result;
 // 10250C0: using guessed type int render_many_dirty;
 
 //----- (0101385C) --------------------------------------------------------
-int __stdcall render_create_sprite(int a1, int a2, int a3, int a4, int a5, _DWORD *a6)
+int render_create_sprite(int a1, int a2, int a3, int a4, int a5, DWORD *a6)
 {
 int v6; // ebx
 int result; // eax
@@ -500,50 +500,50 @@ v6 = memoryallocate(0x5Cu);
 result = 0;
 if ( v6 )
 {
-*(_DWORD *)(v6 + 4) = a5;
-*(_DWORD *)(v6 + 16) = a2;
-*(_DWORD *)v6 = a4;
+*(DWORD *)(v6 + 4) = a5;
+*(DWORD *)(v6 + 16) = a2;
+*(DWORD *)v6 = a4;
 *(_BYTE *)(v6 + 25) = a1;
 *(_BYTE *)(v6 + 24) = 0;
-*(_DWORD *)(v6 + 68) = 0;
-*(_DWORD *)(v6 + 72) = 0;
+*(DWORD *)(v6 + 68) = 0;
+*(DWORD *)(v6 + 72) = 0;
 if ( a6 )
 {
-*(_DWORD *)(v6 + 76) = *a6;
-*(_DWORD *)(v6 + 80) = a6[1];
-*(_DWORD *)(v6 + 84) = a6[2];
-*(_DWORD *)(v6 + 88) = a6[3];
+*(DWORD *)(v6 + 76) = *a6;
+*(DWORD *)(v6 + 80) = a6[1];
+*(DWORD *)(v6 + 84) = a6[2];
+*(DWORD *)(v6 + 88) = a6[3];
 }
 else
 {
-*(_DWORD *)(v6 + 84) = -1;
-*(_DWORD *)(v6 + 88) = -1;
-*(_DWORD *)(v6 + 76) = 0;
-*(_DWORD *)(v6 + 80) = 0;
+*(DWORD *)(v6 + 84) = -1;
+*(DWORD *)(v6 + 88) = -1;
+*(DWORD *)(v6 + 76) = 0;
+*(DWORD *)(v6 + 80) = 0;
 }
 if ( a2 )
 {
-*(_DWORD *)(v6 + 8) = *(_DWORD *)(a2 + 12);
-*(_DWORD *)(v6 + 12) = *(_DWORD *)(a2 + 16);
+*(DWORD *)(v6 + 8) = *(DWORD *)(a2 + 12);
+*(DWORD *)(v6 + 12) = *(DWORD *)(a2 + 16);
 }
 else
 {
-*(_DWORD *)(v6 + 8) = 0;
-*(_DWORD *)(v6 + 12) = 0;
+*(DWORD *)(v6 + 8) = 0;
+*(DWORD *)(v6 + 12) = 0;
 }
-*(_DWORD *)(v6 + 20) = a3;
-*(_DWORD *)(v6 + 48) = 0;
-*(_DWORD *)(v6 + 44) = 0;
+*(DWORD *)(v6 + 20) = a3;
+*(DWORD *)(v6 + 48) = 0;
+*(DWORD *)(v6 + 44) = 0;
 if ( !a3 && a1 != 2 )
 {
-*(_DWORD *)(v6 + 20) = render_background_zmap;
-*(_DWORD *)(v6 + 44) = a4 - render_zmap_offset;
-*(_DWORD *)(v6 + 48) = a5 - dword_10253C0;
+*(DWORD *)(v6 + 20) = render_background_zmap;
+*(DWORD *)(v6 + 44) = a4 - render_zmap_offset;
+*(DWORD *)(v6 + 48) = a5 - dword_10253C0;
 }
-*(_DWORD *)(v6 + 28) = *(_DWORD *)v6;
-*(_DWORD *)(v6 + 32) = *(_DWORD *)(v6 + 4);
-*(_DWORD *)(v6 + 36) = *(_DWORD *)(v6 + 8);
-*(_DWORD *)(v6 + 40) = *(_DWORD *)(v6 + 12);
+*(DWORD *)(v6 + 28) = *(DWORD *)v6;
+*(DWORD *)(v6 + 32) = *(DWORD *)(v6 + 4);
+*(DWORD *)(v6 + 36) = *(DWORD *)(v6 + 8);
+*(DWORD *)(v6 + 40) = *(DWORD *)(v6 + 12);
 if ( a1 == 2 )
 {
 render_ball_list[render_many_balls++] = (struct render_sprite_type_struct *)v6;
@@ -565,7 +565,7 @@ return result;
 // 10253C0: using guessed type int dword_10253C0;
 
 //----- (0101394E) --------------------------------------------------------
-int __stdcall render_set_background_zmap(struct zmap_header_type *a1, int a2, int a3)
+int render_set_background_zmap(struct zmap_header_type *a1, int a2, int a3)
 {
 int result; // eax
 
@@ -579,7 +579,7 @@ return result;
 // 10253C0: using guessed type int dword_10253C0;
 
 //----- (01013974) --------------------------------------------------------
-int __stdcall render_sprite_set(_DWORD *a1, int a2, int a3, int a4, int a5)
+int render_sprite_set(DWORD *a1, int a2, int a3, int a4, int a5)
 {
 int result; // eax
 
@@ -591,8 +591,8 @@ a1[1] = a5;
 a1[4] = a2;
 if ( a2 )
 {
-a1[2] = *(_DWORD *)(a2 + 12);
-a1[3] = *(_DWORD *)(a2 + 16);
+a1[2] = *(DWORD *)(a2 + 12);
+a1[3] = *(DWORD *)(a2 + 16);
 }
 a1[5] = a3;
 result = render_sprite_modified((int)a1);
@@ -601,46 +601,46 @@ return result;
 }
 
 //----- (010139B6) --------------------------------------------------------
-void __stdcall render_sprite_set_bitmap(_DWORD *a1, int a2)
+void render_sprite_set_bitmap(DWORD *a1, int a2)
 {
 if ( a1 && a1[4] != a2 )
 {
 a1[4] = a2;
 if ( a2 )
 {
-a1[2] = *(_DWORD *)(a2 + 12);
-a1[3] = *(_DWORD *)(a2 + 16);
+a1[2] = *(DWORD *)(a2 + 12);
+a1[3] = *(DWORD *)(a2 + 16);
 }
 render_sprite_modified((int)a1);
 }
 }
 
 //----- (010139EC) --------------------------------------------------------
-void __stdcall render_ball_set(int a1, int a2, float a3, int a4, int a5)
+void render_ball_set(int a1, int a2, float a3, int a4, int a5)
 {
 double v5; // st7
 
 if ( a1 )
 {
-*(_DWORD *)(a1 + 16) = a2;
+*(DWORD *)(a1 + 16) = a2;
 if ( a2 )
 {
-*(_DWORD *)a1 = a4;
-*(_DWORD *)(a1 + 4) = a5;
-*(_DWORD *)(a1 + 8) = *(_DWORD *)(a2 + 12);
-*(_DWORD *)(a1 + 12) = *(_DWORD *)(a2 + 16);
+*(DWORD *)a1 = a4;
+*(DWORD *)(a1 + 4) = a5;
+*(DWORD *)(a1 + 8) = *(DWORD *)(a2 + 12);
+*(DWORD *)(a1 + 12) = *(DWORD *)(a2 + 16);
 }
 if ( a3 >= (double)render_zmin )
 {
 v5 = (a3 - render_zmin) * render_zscaler;
 if ( v5 <= render_zmax )
-*(_WORD *)(a1 + 26) = (signed __int64)v5;
+*(WORD *)(a1 + 26) = (signed __int64)v5;
 else
-*(_WORD *)(a1 + 26) = -1;
+*(WORD *)(a1 + 26) = -1;
 }
 else
 {
-*(_WORD *)(a1 + 26) = 0;
+*(WORD *)(a1 + 26) = 0;
 }
 }
 }
@@ -649,7 +649,7 @@ else
 // 10250BC: using guessed type float render_zmin;
 
 //----- (01013A6A) --------------------------------------------------------
-void __stdcall render_paint()
+void render_paint()
 {
 render_paint_balls();
 gdrv_blat((int)&vscreen, xDest, yDest);
@@ -657,7 +657,7 @@ render_unpaint_balls();
 }
 
 //----- (01013A8F) --------------------------------------------------------
-void __stdcall render_shift(int a1, int a2, int xSrc, int a4, int DestWidth, int DestHeight)
+void render_shift(int a1, int a2, int xSrc, int a4, int DestWidth, int DestHeight)
 {
 render_offset_x += a1;
 render_offset_y += a2;

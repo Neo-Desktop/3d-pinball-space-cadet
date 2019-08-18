@@ -7,11 +7,11 @@ TCircle *v6; // ebx
 
 v6 = this;
 TEdgeSegment::TEdgeSegment(this, a2, a3, a4);
-*(_DWORD *)v6 = &TCircle::vftable;
+*(DWORD *)v6 = &TCircle::vftable;
 *(float *)((char *)v6 + 33) = a6 * a6;
-*(_DWORD *)((char *)v6 + 21) = *(_DWORD *)a5;
-*(_DWORD *)((char *)v6 + 25) = *((_DWORD *)a5 + 1);
-*(_DWORD *)((char *)v6 + 29) = *((_DWORD *)a5 + 2);
+*(DWORD *)((char *)v6 + 21) = *(DWORD *)a5;
+*(DWORD *)((char *)v6 + 25) = *((DWORD *)a5 + 1);
+*(DWORD *)((char *)v6 + 29) = *((DWORD *)a5 + 2);
 return v6;
 }
 // 1002454: using guessed type void *TCircle::vftable;
@@ -44,7 +44,7 @@ v8 = a3 * *(float *)((char *)a2 + 58) + *(float *)((char *)a2 + 46);
 v5 = v7 - *(float *)((char *)this + 21);
 v6 = v8 - *(float *)((char *)this + 25);
 normalize_2d(&v5);
-(*(void (__stdcall **)(int, float *, float *, _DWORD, TCircle *))(**((_DWORD **)v3 + 1) + 20))(
+(*(void (**)(int, float *, float *, DWORD, TCircle *))(**((DWORD **)v3 + 1) + 20))(
 v4,
 &v7,
 &v5,

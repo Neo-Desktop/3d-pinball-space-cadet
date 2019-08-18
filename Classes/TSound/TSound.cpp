@@ -19,7 +19,7 @@ return v2;
 //----- (0101797E) --------------------------------------------------------
 double __thiscall TSound::Play(TSound *this)
 {
-return loader_play_sound(*(_DWORD *)((char *)this + 42));
+return loader_play_sound(*(DWORD *)((char *)this + 42));
 }
 
 //----- (0101AA18) --------------------------------------------------------
@@ -31,9 +31,9 @@ int v6; // [esp+3Ch] [ebp-10h]
 
 v3 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 1);
-*(_DWORD *)v3 = &TSound::vftable;
+*(DWORD *)v3 = &TSound::vftable;
 loader_query_visual(a3, 0, &v5);
-*(_DWORD *)((char *)v3 + 42) = v6;
+*(DWORD *)((char *)v3 + 42) = v6;
 return v3;
 }
 // 10027A4: using guessed type void *TSound::vftable;

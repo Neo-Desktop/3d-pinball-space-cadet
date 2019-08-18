@@ -5,7 +5,7 @@
 #include "pinball.h"
 
 //----- (0100833A) --------------------------------------------------------
-int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
+int WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
 	WNDCLASSA WndClass; // [esp+14h] [ebp-13Ch]
 	INITCOMMONCONTROLSEX picce; // [esp+3Ch] [ebp-114h]
@@ -281,7 +281,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdL
 
 
 //----- (010079ED) --------------------------------------------------------
-HANDLE __stdcall adjust_priority(int a1)
+HANDLE adjust_priority(int a1)
 {
 	HANDLE result = GetCurrentThread();
 
@@ -305,7 +305,7 @@ HANDLE __stdcall adjust_priority(int a1)
 }
 
 //----- (01007A3E) --------------------------------------------------------
-LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
+LRESULT message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
 	struct tagRECT Rect; // [esp+8h] [ebp-64h]
 	int window_size; // [esp+18h] [ebp-54h]
@@ -437,7 +437,7 @@ LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lPa
 				}
 				return DefWindowProcA(hWnd, Msg, wParam, lParam);
 			case 0x24u:
-				fullscrn_getminmaxinfo((_DWORD*)lParam);
+				fullscrn_getminmaxinfo((DWORD*)lParam);
 				return DefWindowProcA(hWnd, Msg, wParam, lParam);
 			case 0x7Eu:
 				if (fullscrn_displaychange())
@@ -579,13 +579,13 @@ LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lPa
 							"select=",
 							hwnd_frame,
 							"confirm=",
-							(_DWORD)hwnd_frame
-							* (_DWORD)hwnd_frame
-							* (_DWORD)hwnd_frame
-							* (_DWORD)hwnd_frame
-							* (_DWORD)hwnd_frame
-							* (_DWORD)hwnd_frame
-							* (_DWORD)hwnd_frame);
+							(DWORD)hwnd_frame
+							* (DWORD)hwnd_frame
+							* (DWORD)hwnd_frame
+							* (DWORD)hwnd_frame
+							* (DWORD)hwnd_frame
+							* (DWORD)hwnd_frame
+							* (DWORD)hwnd_frame);
 						if ((signed int)WinExec(window_resize_string, 5u) < 32)
 						{
 							MessageBoxA(hwnd_frame, get_rc_string(171, 0), get_rc_string(170, 0), 0x2010u);
@@ -685,7 +685,7 @@ LRESULT __stdcall message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lPa
 				mouse_down = 1;
 				mouse_hsave = SetCursor(0);
 				lParam = fullscrn_convert_mouse_pos(lParam);
-				last_mouse_x = (unsigned __int16)lParam;
+				last_mouse_x = (unsigned int)lParam;
 				last_mouse_y = (unsigned int)lParam >> 16;
 				SetCapture(hWnd);
 			}

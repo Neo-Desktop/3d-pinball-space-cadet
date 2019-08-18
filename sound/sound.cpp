@@ -5,7 +5,7 @@
 #include "../pinball.h"
 
 //----- (010068F7) --------------------------------------------------------
-LRESULT __stdcall SoundCallBackWndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
+LRESULT SoundCallBackWndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
     signed int v5; // eax
     int v6; // esi
@@ -35,18 +35,18 @@ LRESULT __stdcall SoundCallBackWndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARA
     dword_1024F68(2, lParam, v5);
     return 0;
 }
-// 1024F68: using guessed type int (__stdcall *dword_1024F68)(_DWORD, _DWORD, _DWORD);
+// 1024F68: using guessed type int (*dword_1024F68)(DWORD, DWORD, DWORD);
 // 1028208: using guessed type int num_channels;
 
 
 //----- (01006973) --------------------------------------------------------
-int __stdcall Sound_Init(HINSTANCE hInstance, int a2, int a3)
+int Sound_Init(HINSTANCE hInstance, int a2, int a3)
 {
     int v3; // ecx
     int i; // eax
     FILE *v5; // eax
     CHAR *v6; // eax
-    _WORD *v7; // eax
+    WORD *v7; // eax
     WNDCLASSA WndClass; // [esp+8h] [ebp-158h]
     char Filename; // [esp+30h] [ebp-130h]
 
@@ -62,7 +62,7 @@ int __stdcall Sound_Init(HINSTANCE hInstance, int a2, int a3)
         dword_1024F1C[i] = 0;
         dword_1024F3C[i] = 0;
     }
-    dword_1024F68 = (int (__stdcall *)(_DWORD, _DWORD, _DWORD))a3;
+    dword_1024F68 = (int (*)(DWORD, DWORD, DWORD))a3;
     if ( !a3 )
         dword_1024F68 = nullsub_1;
     make_path_name(&Filename, "wavemix.inf", 0x12Cu);
@@ -91,20 +91,20 @@ int __stdcall Sound_Init(HINSTANCE hInstance, int a2, int a3)
     if ( !dword_1024F64 )
         return 0;
     dword_1024F60 = hInstance;
-    v7 = (_WORD *)WaveMixInit();
+    v7 = (WORD *)WaveMixInit();
     pMem = v7;
     if ( !v7 )
         return 0;
     WaveMixOpenChannel(v7, num_channels, 2u);
     return 1;
 }
-// 10068EF: using guessed type int __stdcall nullsub_1(int, int, int);
-// 1024F18: using guessed type __int16 word_1024F18;
-// 1024F68: using guessed type int (__stdcall *dword_1024F68)(_DWORD, _DWORD, _DWORD);
+// 10068EF: using guessed type int nullsub_1(int, int, int);
+// 1024F18: using guessed type int word_1024F18;
+// 1024F68: using guessed type int (*dword_1024F68)(DWORD, DWORD, DWORD);
 // 1028208: using guessed type int num_channels;
 
 //----- (010076BF) --------------------------------------------------------
-int __stdcall make_path_name(LPSTR lpFilename, LPCSTR lpString2, DWORD nSize)
+int make_path_name(LPSTR lpFilename, LPCSTR lpString2, DWORD nSize)
 {
 	CHAR* i; // ecx
 
@@ -131,7 +131,7 @@ int __stdcall make_path_name(LPSTR lpFilename, LPCSTR lpString2, DWORD nSize)
 }
 
 //----- (01006AF6) --------------------------------------------------------
-HLOCAL __stdcall Sound_Close()
+HLOCAL Sound_Close()
 {
     HLOCAL result; // eax
 
@@ -151,7 +151,7 @@ HLOCAL __stdcall Sound_Close()
 }
 
 //----- (01006B38) --------------------------------------------------------
-CHAR *__stdcall Sound_LoadWaveFile(LPCSTR lpName)
+CHAR *Sound_LoadWaveFile(LPCSTR lpName)
 {
     CHAR *result; // eax
 
@@ -163,7 +163,7 @@ CHAR *__stdcall Sound_LoadWaveFile(LPCSTR lpName)
 }
 
 //----- (01006B64) --------------------------------------------------------
-LPCVOID __stdcall Sound_FreeSound(LPCVOID pMem)
+LPCVOID Sound_FreeSound(LPCVOID pMem)
 {
     LPCVOID result; // eax
 
@@ -177,7 +177,7 @@ LPCVOID __stdcall Sound_FreeSound(LPCVOID pMem)
 }
 
 //----- (01006B8A) --------------------------------------------------------
-LPCVOID __stdcall Sound_Deactivate()
+LPCVOID Sound_Deactivate()
 {
     LPCVOID result; // eax
 
@@ -188,7 +188,7 @@ LPCVOID __stdcall Sound_Deactivate()
 }
 
 //----- (01006BA1) --------------------------------------------------------
-LPCVOID __stdcall Sound_Activate()
+LPCVOID Sound_Activate()
 {
     LPCVOID result; // eax
 
@@ -199,7 +199,7 @@ LPCVOID __stdcall Sound_Activate()
 }
 
 //----- (01006BB8) --------------------------------------------------------
-int __stdcall Sound_Idle()
+int Sound_Idle()
 {
     int result; // eax
 
@@ -209,7 +209,7 @@ int __stdcall Sound_Idle()
 }
 
 //----- (01006BCC) --------------------------------------------------------
-signed int __stdcall Sound_Flush(signed int a1, int a2)
+signed int Sound_Flush(signed int a1, int a2)
 {
     signed int result; // eax
     int v3; // edi
@@ -237,20 +237,20 @@ signed int __stdcall Sound_Flush(signed int a1, int a2)
 // 1028208: using guessed type int num_channels;
 
 //----- (01006C26) --------------------------------------------------------
-void __stdcall Sound_PlaySound(int a1, int a2, int a3, unsigned __int16 a4, __int16 a5)
+void Sound_PlaySound(int a1, int a2, int a3, unsigned int a4, int a5)
 {
     int v5; // ecx
     int v6; // edx
     int v7; // esi
     int v8; // edx
     int v9; // esi
-    __int16 v10; // [esp+4h] [ebp-1Ch]
+    int v10; // [esp+4h] [ebp-1Ch]
     LPCVOID v11; // [esp+6h] [ebp-1Ah]
     int v12; // [esp+Ah] [ebp-16h]
     int v13; // [esp+Eh] [ebp-12h]
     HWND v14; // [esp+12h] [ebp-Eh]
     int v15; // [esp+16h] [ebp-Ah]
-    __int16 v16; // [esp+1Ah] [ebp-6h]
+    int v16; // [esp+1Ah] [ebp-6h]
 
     v5 = a2;
     v6 = 0;
@@ -269,7 +269,7 @@ void __stdcall Sound_PlaySound(int a1, int a2, int a3, unsigned __int16 a4, __in
                     v8 = a2;
                     do
                     {
-                        if ( (1 << ++v5) & (unsigned __int16)word_1024F18 && dword_1024F1C[v5] < (unsigned int)dword_1024F1C[v8] )
+                        if ( (1 << ++v5) & (unsigned int)word_1024F18 && dword_1024F1C[v5] < (unsigned int)dword_1024F1C[v8] )
                         {
                             v7 = v5;
                             v8 = v5;
@@ -277,7 +277,7 @@ void __stdcall Sound_PlaySound(int a1, int a2, int a3, unsigned __int16 a4, __in
                     }
                     while ( v5 < a3 );
                 }
-                if ( (1 << v7) & (unsigned __int16)word_1024F18 )
+                if ( (1 << v7) & (unsigned int)word_1024F18 )
                 {
                     v11 = pMem;
                     v14 = dword_1024F64;
@@ -304,12 +304,12 @@ void __stdcall Sound_PlaySound(int a1, int a2, int a3, unsigned __int16 a4, __in
         }
     }
 }
-// 1024F18: using guessed type __int16 word_1024F18;
-// 1024F68: using guessed type int (__stdcall *dword_1024F68)(_DWORD, _DWORD, _DWORD);
+// 1024F18: using guessed type int word_1024F18;
+// 1024F68: using guessed type int (*dword_1024F68)(DWORD, DWORD, DWORD);
 // 1028208: using guessed type int num_channels;
 
 //----- (01006D34) --------------------------------------------------------
-void __stdcall Sound_Enable(signed int a1, int a2, int a3)
+void Sound_Enable(signed int a1, int a2, int a3)
 {
     int v3; // edi
     signed int v4; // esi
@@ -332,7 +332,7 @@ void __stdcall Sound_Enable(signed int a1, int a2, int a3)
                 }
                 else
                 {
-                    word_1024F18 &= ~(_WORD)v5;
+                    word_1024F18 &= ~(WORD)v5;
                     Sound_Flush(v4, v4);
                 }
                 ++v4;
@@ -340,5 +340,5 @@ void __stdcall Sound_Enable(signed int a1, int a2, int a3)
         }
     }
 }
-// 1024F18: using guessed type __int16 word_1024F18;
+// 1024F18: using guessed type int word_1024F18;
 // 1028208: using guessed type int num_channels;

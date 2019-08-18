@@ -10,7 +10,7 @@
 /* 102 */
 struct TWall;
 
-void __stdcall TWall::TimerExpired(int, void*); // idb
+void TWall::TimerExpired(int, void*); // idb
 int __thiscall TWall::Message(TWall* this, int, float); // idb
 int __thiscall TWall::get_scoring(TWall* this, int); // idb
 void __thiscall TWall::put_scoring(TWall* this, int, int); // idb

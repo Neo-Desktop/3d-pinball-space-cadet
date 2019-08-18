@@ -26,10 +26,10 @@ struct TPinballTable *v2; // edi
 TTableLayer *v3; // esi
 float *v4; // eax
 int v5; // eax
-_DWORD *v6; // eax
+DWORD *v6; // eax
 int v7; // eax
-_DWORD *v8; // eax
-_DWORD *v9; // eax
+DWORD *v8; // eax
+DWORD *v9; // eax
 float *v10; // ecx
 float *v11; // edi
 double v12; // st7
@@ -57,7 +57,7 @@ int v34; // [esp+54h] [ebp-2Ch]
 unsigned int v35; // [esp+58h] [ebp-28h]
 int v36; // [esp+5Ch] [ebp-24h]
 int v37; // [esp+60h] [ebp-20h]
-_DWORD *v38; // [esp+64h] [ebp-1Ch]
+DWORD *v38; // [esp+64h] [ebp-1Ch]
 struct zmap_header_type *v39; // [esp+68h] [ebp-18h]
 int v40; // [esp+6Ch] [ebp-14h]
 int v41; // [esp+70h] [ebp-10h]
@@ -70,52 +70,52 @@ struct TPinballTable *v46; // [esp+88h] [ebp+8h]
 v2 = a2;
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, -1, 0);
-*(_DWORD *)v3 = &TTableLayer::vftable;
+*(DWORD *)v3 = &TTableLayer::vftable;
 v45 = (struct TPinballTable *)loader_query_handle("table");
 loader_query_visual((int)v45, 0, &v30);
 v4 = (float *)loader_query_float_attribute((int)v45, 0, 700);
 proj_recenter(COERCE_INT(*v4), COERCE_INT(v4[1]));
 render_set_background_zmap(v39, 0, 0);
 v5 = (int)v38;
-*(_DWORD *)((char *)v3 + 78) = v38;
+*(DWORD *)((char *)v3 + 78) = v38;
 v40 = 0;
 v41 = 0;
-v42 = *(_DWORD *)(v5 + 12);
-v43 = *(_DWORD *)(v5 + 16);
+v42 = *(DWORD *)(v5 + 12);
+v43 = *(DWORD *)(v5 + 16);
 render_create_sprite(0, v5, (int)v39, 0, 0, &v40);
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 66) = v36;
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 70) = v37;
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 74) = v34;
-v6 = (_DWORD *)loader_query_float_attribute((int)v45, 0, 305);
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 66) = v36;
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 70) = v37;
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 74) = v34;
+v6 = (DWORD *)loader_query_float_attribute((int)v45, 0, 305);
 if ( v6 )
 {
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 270) = *v6;
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 274) = v6[1];
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 278) = v6[2];
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 270) = *v6;
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 274) = v6[1];
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 278) = v6[2];
 }
 else
 {
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 270) = 1103626240;
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 274) = 1056964608;
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 278) = 1070141400;
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 270) = 1103626240;
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 274) = 1056964608;
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 278) = 1070141400;
 }
-v7 = *(_DWORD *)((char *)v3 + 30);
+v7 = *(DWORD *)((char *)v3 + 30);
 *(float *)((char *)v3 + 98) = cos(*(float *)(v7 + 278)) * sin(*(float *)(v7 + 274)) * *(float *)(v7 + 270);
 *(float *)((char *)v3 + 102) = sin(*(float *)(v7 + 278)) * sin(*(float *)(v7 + 274)) * *(float *)(v7 + 270);
-v8 = (_DWORD *)loader_query_float_attribute((int)v45, 0, 701);
+v8 = (DWORD *)loader_query_float_attribute((int)v45, 0, 701);
 if ( v8 )
-*(_DWORD *)((char *)v3 + 110) = *v8;
+*(DWORD *)((char *)v3 + 110) = *v8;
 else
-*(_DWORD *)((char *)v3 + 110) = 1045220557;
+*(DWORD *)((char *)v3 + 110) = 1045220557;
 v9 = v38;
-*(_DWORD *)((char *)v2 + 234) = *(_DWORD *)((char *)v38 + 29);
-*(_DWORD *)((char *)v2 + 238) = *(_DWORD *)((char *)v9 + 33);
-*(_DWORD *)((char *)v2 + 242) = v9[3];
+*(DWORD *)((char *)v2 + 234) = *(DWORD *)((char *)v38 + 29);
+*(DWORD *)((char *)v2 + 238) = *(DWORD *)((char *)v9 + 33);
+*(DWORD *)((char *)v2 + 242) = v9[3];
 v10 = v32;
-*(_DWORD *)((char *)v2 + 246) = v9[4];
+*(DWORD *)((char *)v2 + 246) = v9[4];
 v44 = v31;
-*(_DWORD *)((char *)v3 + 66) = v33;
-*(_DWORD *)((char *)v3 + 62) = 1097859072;
+*(DWORD *)((char *)v3 + 66) = v33;
+*(DWORD *)((char *)v3 + 62) = 1097859072;
 v11 = v10;
 v46 = (struct TPinballTable *)v10;
 if ( v10[2] >= (double)v10[4] )
@@ -205,7 +205,7 @@ v23 = (TLine *)operator new(0x55u);
 v24 = v23 ? TLine::TLine(v23, v3, (char *)v3 + 5, v35, v11[2], v11[3], *v11, v11[1]) : 0;
 if ( v24 )
 {
-(*(void (__thiscall **)(TLine *))(*(_DWORD *)v24 + 8))(v24);
+(*(void (__thiscall **)(TLine *))(*(DWORD *)v24 + 8))(v24);
 objlist_class::Add((TTableLayer *)((char *)v3 + 42), (void *)v24);
 }
 v46 = (struct TPinballTable *)((char *)v46 + 8);
@@ -215,12 +215,12 @@ v11 = (float *)v46;
 }
 }
 v25 = *(float *)((char *)v3 + 90);
-*(_DWORD *)((char *)v3 + 118) = -1;
+*(DWORD *)((char *)v3 + 118) = -1;
 v26 = v25;
 v27 = *(float *)((char *)v3 + 94);
-*(_DWORD *)((char *)v3 + 114) = (char *)v3 + 5;
+*(DWORD *)((char *)v3 + 114) = (char *)v3 + 5;
 v28 = v27;
-*(_DWORD *)((char *)v3 + 122) = v3;
+*(DWORD *)((char *)v3 + 122) = v3;
 edges_insert_square(
 *(float *)((char *)v3 + 86),
 *(float *)((char *)v3 + 82),
@@ -238,7 +238,7 @@ TZmapList *__thiscall TTableLayer::~TTableLayer(TTableLayer *this)
 TCollisionComponent *v1; // esi
 
 v1 = this;
-*(_DWORD *)this = &TTableLayer::vftable;
+*(DWORD *)this = &TTableLayer::vftable;
 if ( edge_manager )
 TEdgeManager::destroy(edge_manager, 1);
 return TCollisionComponent::~TCollisionComponent(v1);

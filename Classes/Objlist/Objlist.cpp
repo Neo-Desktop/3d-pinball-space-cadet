@@ -1,7 +1,7 @@
 #include "pinball.h"
 
 //----- (01012E51) --------------------------------------------------------
-int __stdcall objlist_add_object(_DWORD *a1, int a2)
+int objlist_add_object(DWORD *a1, int a2)
 {
 int v2; // ecx
 
@@ -13,17 +13,17 @@ return ++a1[1];
 }
 
 //----- (01012E7A) --------------------------------------------------------
-signed int __stdcall objlist_delete_object(int a1, int a2)
+signed int objlist_delete_object(int a1, int a2)
 {
 int v2; // edx
 int v3; // ecx
-_DWORD *v4; // esi
+DWORD *v4; // esi
 
-v2 = *(_DWORD *)(a1 + 4);
+v2 = *(DWORD *)(a1 + 4);
 v3 = v2 - 1;
 if ( v2 - 1 < 0 )
 return 0;
-v4 = (_DWORD *)(a1 + 4 * v3 + 8);
+v4 = (DWORD *)(a1 + 4 * v3 + 8);
 while ( *v4 != a2 )
 {
 --v3;
@@ -31,17 +31,17 @@ while ( *v4 != a2 )
 if ( v3 < 0 )
 return 0;
 }
-*(_DWORD *)(a1 + 4 * v3 + 8) = *(_DWORD *)(a1 + 4 * v2 + 4);
---*(_DWORD *)(a1 + 4);
+*(DWORD *)(a1 + 4 * v3 + 8) = *(DWORD *)(a1 + 4 * v2 + 4);
+--*(DWORD *)(a1 + 4);
 return 1;
 }
 
 //----- (01012EBE) --------------------------------------------------------
-_DWORD *__stdcall objlist_new(int a1)
+DWORD *objlist_new(int a1)
 {
-_DWORD *result; // eax
+DWORD *result; // eax
 
-result = (_DWORD *)memoryallocate(4 * a1 + 12);
+result = (DWORD *)memoryallocate(4 * a1 + 12);
 if ( result )
 {
 result[1] = 0;
@@ -51,7 +51,7 @@ return result;
 }
 
 //----- (01012EE8) --------------------------------------------------------
-int *__stdcall objlist_grow(int *a1, int a2)
+int *objlist_grow(int *a1, int a2)
 {
 int *v2; // esi
 int v3; // eax
@@ -75,7 +75,7 @@ return v2;
 }
 
 //----- (01013C6F) --------------------------------------------------------
-void __stdcall objlist_destroy(int a1)
+void objlist_destroy(int a1)
 {
 if ( a1 )
 memoryfree(a1);

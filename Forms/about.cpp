@@ -5,7 +5,7 @@
 #include "../pinball.h"
 
 //----- (0100789A) --------------------------------------------------------
-INT __stdcall a_dialog(HINSTANCE hInstance, HWND hWnd, int a3)
+INT a_dialog(HINSTANCE hInstance, HWND hWnd, int a3)
 {
     CHAR *v3; // eax
     CHAR *v4; // eax

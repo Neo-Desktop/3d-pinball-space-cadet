@@ -10,8 +10,8 @@ TZmapList *__thiscall TLightBargraph::~TLightBargraph(TLightBargraph *this)
     int v2; // eax
 
     v1 = this;
-    v2 = *(_DWORD *)((char *)this + 138);
-    *(_DWORD *)this = &TLightBargraph::vftable;
+    v2 = *(DWORD *)((char *)this + 138);
+    *(DWORD *)this = &TLightBargraph::vftable;
     if ( v2 )
         memoryfree(v2);
     return TLightGroup::~TLightGroup(v1);
@@ -22,36 +22,36 @@ TZmapList *__thiscall TLightBargraph::~TLightBargraph(TLightBargraph *this)
 void __thiscall TLightBargraph::Reset(TLightBargraph *this)
 {
     TLightBargraph *v1; // edi
-    _DWORD *v2; // esi
+    DWORD *v2; // esi
 
     v1 = this;
-    v2 = (_DWORD *)((char *)this + 142);
-    if ( *(_DWORD *)((char *)this + 142) )
+    v2 = (DWORD *)((char *)this + 142);
+    if ( *(DWORD *)((char *)this + 142) )
     {
-        timer_kill(*(_DWORD *)((char *)this + 142));
+        timer_kill(*(DWORD *)((char *)this + 142));
         *v2 = 0;
     }
-    *(_DWORD *)((char *)v1 + 146) = 0;
+    *(DWORD *)((char *)v1 + 146) = 0;
     TLightGroup::Reset(v1);
 }
 
 //----- (0100AAD9) --------------------------------------------------------
-void __stdcall TLightBargraph::BargraphTimerExpired(int a1, void *a2)
+void TLightBargraph::BargraphTimerExpired(int a1, void *a2)
 {
     int v2; // eax
     float v3; // ST04_4
 
-    v2 = *(_DWORD *)((char *)a2 + 146);
-    *(_DWORD *)((char *)a2 + 142) = 0;
+    v2 = *(DWORD *)((char *)a2 + 146);
+    *(DWORD *)((char *)a2 + 142) = 0;
     if ( v2 )
     {
         v3 = (double)(v2 - 1);
-        (**(void (__thiscall ***)(void *, signed int, _DWORD))a2)(a2, 45, LODWORD(v3));
+        (**(void (__thiscall ***)(void *, signed int, DWORD))a2)(a2, 45, LODWORD(v3));
         control_handler(60, (struct TPinballComponent *)a2);
     }
     else
     {
-        (**(void (__thiscall ***)(void *, signed int, _DWORD))a2)(a2, 20, 0.0);
+        (**(void (__thiscall ***)(void *, signed int, DWORD))a2)(a2, 20, 0.0);
         control_handler(47, (struct TPinballComponent *)a2);
     }
 }
@@ -61,8 +61,8 @@ int __thiscall TLightBargraph::Message(TLightBargraph *this, int a2, float a3)
 {
 TLightBargraph *v3; // esi
 int v4; // ecx
-_DWORD *v5; // eax
-_DWORD *v6; // edi
+DWORD *v5; // eax
+DWORD *v6; // edi
 float v7; // ST0C_4
 int v8; // ebx
 int v9; // eax
@@ -74,15 +74,15 @@ v3 = this;
 switch ( a2 )
 {
 case 37:
-return *(_DWORD *)((char *)this + 146);
+return *(DWORD *)((char *)this + 146);
 case 45:
-if ( *(_DWORD *)((char *)this + 142) )
+if ( *(DWORD *)((char *)this + 142) )
 {
-timer_kill(*(_DWORD *)((char *)this + 142));
-*(_DWORD *)((char *)v3 + 142) = 0;
+timer_kill(*(DWORD *)((char *)this + 142));
+*(DWORD *)((char *)v3 + 142) = 0;
 }
 v8 = (signed __int64)_floor(a3);
-v9 = 2 * *(_DWORD *)(*(_DWORD *)((char *)v3 + 46) + 4);
+v9 = 2 * *(DWORD *)(*(DWORD *)((char *)v3 + 46) + 4);
 if ( v8 >= v9 )
 v8 = v9 - 1;
 if ( v8 >= 0 )
@@ -91,34 +91,34 @@ v10 = (double)(v8 / 2);
 TLightGroup::Message(v3, 45, v10);
 if ( !(v8 & 1) )
 TLightGroup::Message(v3, 46, 0.0);
-v11 = *(_DWORD *)((char *)v3 + 138);
+v11 = *(DWORD *)((char *)v3 + 138);
 if ( v11 )
-*(_DWORD *)((char *)v3 + 142) = timer_set(
+*(DWORD *)((char *)v3 + 142) = timer_set(
 *(float *)(v11 + 4 * v8),
 (int)v3,
 (int)TLightBargraph::BargraphTimerExpired);
-*(_DWORD *)((char *)v3 + 146) = v8;
+*(DWORD *)((char *)v3 + 146) = v8;
 }
 else
 {
 TLightGroup::Message(v3, 20, 0.0);
-*(_DWORD *)((char *)v3 + 146) = 0;
+*(DWORD *)((char *)v3 + 146) = 0;
 }
 break;
 case 1011:
-(*(void (**)(void))(*(_DWORD *)this + 20))();
+(*(void (**)(void))(*(DWORD *)this + 20))();
 break;
 case 1020:
-v6 = (_DWORD *)((char *)this + 142);
-if ( *(_DWORD *)((char *)this + 142) )
+v6 = (DWORD *)((char *)this + 142);
+if ( *(DWORD *)((char *)this + 142) )
 {
-timer_kill(*(_DWORD *)((char *)this + 142));
+timer_kill(*(DWORD *)((char *)this + 142));
 *v6 = 0;
 }
-*(_DWORD *)((char *)v3 + 4 * *(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 218) + 150) = *(_DWORD *)((char *)v3 + 146);
-(*(void (__thiscall **)(TLightBargraph *))(*(_DWORD *)v3 + 20))(v3);
-v13 = *(_DWORD *)((char *)v3 + 4 * (unsigned __int64)(signed __int64)_floor(a3) + 150);
-*(_DWORD *)((char *)v3 + 146) = v13;
+*(DWORD *)((char *)v3 + 4 * *(DWORD *)(*(DWORD *)((char *)v3 + 30) + 218) + 150) = *(DWORD *)((char *)v3 + 146);
+(*(void (__thiscall **)(TLightBargraph *))(*(DWORD *)v3 + 20))(v3);
+v13 = *(DWORD *)((char *)v3 + 4 * (unsigned __int64)(signed __int64)_floor(a3) + 150);
+*(DWORD *)((char *)v3 + 146) = v13;
 if ( v13 )
 {
 v7 = (double)v13;
@@ -126,18 +126,18 @@ TLightBargraph::Message(v3, 45, v7);
 }
 break;
 case 1024:
-(*(void (**)(void))(*(_DWORD *)this + 20))();
+(*(void (**)(void))(*(DWORD *)this + 20))();
 v4 = 0;
-if ( *(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 214) > 0 )
+if ( *(DWORD *)(*(DWORD *)((char *)v3 + 30) + 214) > 0 )
 {
-v5 = (_DWORD *)((char *)v3 + 150);
+v5 = (DWORD *)((char *)v3 + 150);
 do
 {
-*v5 = *(_DWORD *)((char *)v3 + 146);
+*v5 = *(DWORD *)((char *)v3 + 146);
 ++v4;
 ++v5;
 }
-while ( v4 < *(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 214) );
+while ( v4 < *(DWORD *)(*(DWORD *)((char *)v3 + 30) + 214) );
 }
 TLightGroup::Message(v3, 1024, a3);
 break;
@@ -159,21 +159,21 @@ int i; // eax
 
 v3 = this;
 TLightGroup::TLightGroup(this, a2, a3);
-*(_DWORD *)v3 = &TLightBargraph::vftable;
-*(_DWORD *)((char *)v3 + 138) = 0;
+*(DWORD *)v3 = &TLightBargraph::vftable;
+*(DWORD *)((char *)v3 + 138) = 0;
 TLightBargraph::Reset(v3);
 if ( a3 > 0 )
 {
 v4 = (float *)loader_query_float_attribute(a3, 0, 904);
 if ( v4 )
 {
-v5 = 2 * *(_DWORD *)(*(_DWORD *)((char *)v3 + 46) + 4);
-v6 = memoryallocate(8 * *(_DWORD *)(*(_DWORD *)((char *)v3 + 46) + 4));
-*(_DWORD *)((char *)v3 + 138) = v6;
+v5 = 2 * *(DWORD *)(*(DWORD *)((char *)v3 + 46) + 4);
+v6 = memoryallocate(8 * *(DWORD *)(*(DWORD *)((char *)v3 + 46) + 4));
+*(DWORD *)((char *)v3 + 138) = v6;
 if ( v6 )
 {
 for ( i = 0; i < v5; ++v4 )
-*(float *)(*(_DWORD *)((char *)v3 + 138) + 4 * i++) = *v4;
+*(float *)(*(DWORD *)((char *)v3 + 138) + 4 * i++) = *v4;
 }
 }
 }

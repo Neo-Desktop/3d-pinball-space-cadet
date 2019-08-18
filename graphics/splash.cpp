@@ -5,7 +5,7 @@
 #include "../pinball.h"
 
 //----- (01006D96) --------------------------------------------------------
-HPALETTE __stdcall splash_init_palette(LOGPALETTE *plpal)
+HPALETTE splash_init_palette(LOGPALETTE *plpal)
 {
     LOGPALETTE *v1; // edi
     HWND v2; // eax
@@ -75,7 +75,7 @@ HPALETTE __stdcall splash_init_palette(LOGPALETTE *plpal)
 }
 
 //----- (01006EB9) --------------------------------------------------------
-HBITMAP __stdcall load_title_bitmap(HMODULE hModule, HDC hdc, LPCSTR lpName, UINT iStart, int a5, int a6)
+HBITMAP load_title_bitmap(HMODULE hModule, HDC hdc, LPCSTR lpName, UINT iStart, int a5, int a6)
 {
     HRSRC v6; // eax
     HGLOBAL v7; // eax
@@ -111,7 +111,7 @@ HBITMAP __stdcall load_title_bitmap(HMODULE hModule, HDC hdc, LPCSTR lpName, UIN
     if ( !v12 && !v13 )
     {
         lpNamea = splash_init_palette(&plpal);
-        *(_DWORD *)a6 = lpNamea;
+        *(DWORD *)a6 = lpNamea;
         if ( lpNamea )
         {
             hModulea = 0;
@@ -144,7 +144,7 @@ HBITMAP __stdcall load_title_bitmap(HMODULE hModule, HDC hdc, LPCSTR lpName, UIN
 }
 
 //----- (01006FCB) --------------------------------------------------------
-int __stdcall splash_bitmap_setup(int a1)
+int splash_bitmap_setup(int a1)
 {
     HWND v1; // eax
     HDC v2; // eax
@@ -165,7 +165,7 @@ int __stdcall splash_bitmap_setup(int a1)
     v3 = v2;
     if ( v2 )
     {
-        *(_DWORD *)(a1 + 12) = CreateCompatibleDC(v2);
+        *(DWORD *)(a1 + 12) = CreateCompatibleDC(v2);
         v4 = CreateCompatibleBitmap(v3, 10, 10);
         v5 = *(HWND *)a1;
         h = v4;
@@ -180,15 +180,15 @@ int __stdcall splash_bitmap_setup(int a1)
                     v7 = load_title_bitmap(hInstance, *(HDC *)(a1 + 12), (LPCSTR)(a1 + 32), 0xAu, 236, a1 + 4);
                 else
                     v7 = LoadBitmapA(hInstance, (LPCSTR)(a1 + 232));
-                *(_DWORD *)(a1 + 8) = v7;
+                *(DWORD *)(a1 + 8) = v7;
                 if ( v7 )
                 {
                     SelectObject(*(HDC *)(a1 + 12), v7);
                     DeleteObject(h);
                     GetObjectA(*(HANDLE *)(a1 + 8), 24, &pv);
-                    *(_DWORD *)(a1 + 16) = v10;
+                    *(DWORD *)(a1 + 16) = v10;
                     result = v11;
-                    *(_DWORD *)(a1 + 20) = v11;
+                    *(DWORD *)(a1 + 20) = v11;
                     return result;
                 }
             }
@@ -198,43 +198,43 @@ int __stdcall splash_bitmap_setup(int a1)
             GetLastError();
         }
     }
-    if ( *(_DWORD *)(a1 + 4) )
+    if ( *(DWORD *)(a1 + 4) )
         DeleteObject(*(HGDIOBJ *)(a1 + 4));
-    if ( *(_DWORD *)a1 )
+    if ( *(DWORD *)a1 )
         DestroyWindow(*(HWND *)a1);
     if ( h )
         DeleteObject(h);
-    result = *(_DWORD *)(a1 + 12);
+    result = *(DWORD *)(a1 + 12);
     if ( result )
         result = DeleteDC(*(HDC *)(a1 + 12));
-    *(_DWORD *)(a1 + 8) = 0;
+    *(DWORD *)(a1 + 8) = 0;
     return result;
 }
 
 //----- (01007103) --------------------------------------------------------
-void __stdcall splash_paint(int a1, HDC hdc)
+void splash_paint(int a1, HDC hdc)
 {
     HWND v2; // eax
     HPALETTE v3; // ST1C_4
     struct tagRECT Rect; // [esp+4h] [ebp-10h]
 
-    if ( *(_DWORD *)(a1 + 8) )
+    if ( *(DWORD *)(a1 + 8) )
     {
         v2 = GetDesktopWindow();
         GetWindowRect(v2, &Rect);
         v3 = *(HPALETTE *)(a1 + 4);
-        *(_DWORD *)(a1 + 24) = (Rect.right - Rect.left - *(_DWORD *)(a1 + 16)) / 2;
-        *(_DWORD *)(a1 + 28) = (Rect.bottom - Rect.top - *(_DWORD *)(a1 + 20)) / 2;
+        *(DWORD *)(a1 + 24) = (Rect.right - Rect.left - *(DWORD *)(a1 + 16)) / 2;
+        *(DWORD *)(a1 + 28) = (Rect.bottom - Rect.top - *(DWORD *)(a1 + 20)) / 2;
         SelectPalette(hdc, v3, 0);
         RealizePalette(hdc);
         SelectPalette(*(HDC *)(a1 + 12), *(HPALETTE *)(a1 + 4), 0);
         RealizePalette(*(HDC *)(a1 + 12));
         BitBlt(
                 hdc,
-                *(_DWORD *)(a1 + 24),
-                *(_DWORD *)(a1 + 28),
-                *(_DWORD *)(a1 + 16),
-                *(_DWORD *)(a1 + 20),
+                *(DWORD *)(a1 + 24),
+                *(DWORD *)(a1 + 28),
+                *(DWORD *)(a1 + 16),
+                *(DWORD *)(a1 + 20),
                 *(HDC *)(a1 + 12),
                 0,
                 0,
@@ -243,23 +243,23 @@ void __stdcall splash_paint(int a1, HDC hdc)
 }
 
 //----- (010071A5) --------------------------------------------------------
-void __stdcall splash_hide(int a1)
+void splash_hide(int a1)
 {
     HDC v1; // edi
 
     if ( a1 )
     {
-        if ( *(_DWORD *)a1 )
+        if ( *(DWORD *)a1 )
         {
             v1 = _GetDC(*(HWND *)a1);
-            BitBlt(v1, 0, 0, *(_DWORD *)(a1 + 24), *(_DWORD *)(a1 + 28), v1, 0, 0, 0x42u);
+            BitBlt(v1, 0, 0, *(DWORD *)(a1 + 24), *(DWORD *)(a1 + 28), v1, 0, 0, 0x42u);
             ReleaseDC(*(HWND *)a1, v1);
         }
     }
 }
 
 //----- (010071ED) --------------------------------------------------------
-HINSTANCE __stdcall splash_destroy(int a1)
+HINSTANCE splash_destroy(int a1)
 {
     void *v1; // eax
     HDC v2; // eax
@@ -267,18 +267,18 @@ HINSTANCE __stdcall splash_destroy(int a1)
 
     if ( a1 )
     {
-        if ( *(_DWORD *)a1 )
+        if ( *(DWORD *)a1 )
         {
             DestroyWindow(*(HWND *)a1);
             v1 = *(void **)(a1 + 4);
-            *(_DWORD *)a1 = 0;
+            *(DWORD *)a1 = 0;
             if ( v1 )
                 DeleteObject(v1);
             v2 = *(HDC *)(a1 + 12);
-            *(_DWORD *)(a1 + 4) = 0;
+            *(DWORD *)(a1 + 4) = 0;
             if ( v2 )
                 DeleteDC(v2);
-            if ( *(_DWORD *)(a1 + 8) )
+            if ( *(DWORD *)(a1 + 8) )
                 DeleteObject(*(HGDIOBJ *)(a1 + 8));
         }
         memoryfree(a1);
@@ -293,7 +293,7 @@ HINSTANCE __stdcall splash_destroy(int a1)
 }
 
 //----- (01007264) --------------------------------------------------------
-LRESULT __stdcall splash_message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
+LRESULT splash_message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
     HDC v5; // eax
     HDC v6; // esi
@@ -325,7 +325,7 @@ LRESULT __stdcall splash_message_handler(HWND hWnd, UINT Msg, WPARAM wParam, LPA
 }
 
 //----- (01007308) --------------------------------------------------------
-int __stdcall splash_screen(int a1, LPCSTR lpString2, LPCSTR a3)
+int splash_screen(int a1, LPCSTR lpString2, LPCSTR a3)
 {
     int v3; // esi
     HINSTANCE v4; // ST28_4
@@ -355,9 +355,9 @@ int __stdcall splash_screen(int a1, LPCSTR lpString2, LPCSTR a3)
         RegisterClassA(&WndClass);
     }
     v4 = hInstance;
-    *(_DWORD *)(v3 + 8) = 0;
+    *(DWORD *)(v3 + 8) = 0;
     v5 = CreateWindowExA(0, "3DPB_SPLASH_CLASS", WindowName, 0x80000000, -10, -10, 1, 1, 0, 0, v4, 0);
-    *(_DWORD *)v3 = v5;
+    *(DWORD *)v3 = v5;
     if ( !v5 )
     {
         memoryfree(v3);

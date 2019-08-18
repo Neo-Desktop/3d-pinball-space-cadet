@@ -14,7 +14,7 @@ double v6; // [esp+Ch] [ebp-8h]
 double v7; // [esp+Ch] [ebp-8h]
 
 v2 = this;
-v6 = (double)(*((_DWORD *)this + 4) - 1);
+v6 = (double)(*((DWORD *)this + 4) - 1);
 if ( _floor((a2 - *((float *)this + 6)) * *((float *)this + 2)) >= v6 )
 v3 = v6;
 else
@@ -25,7 +25,7 @@ v4 = 0.0;
 }
 else
 {
-v7 = (double)(*((_DWORD *)v2 + 4) - 1);
+v7 = (double)(*((DWORD *)v2 + 4) - 1);
 if ( _floor((a2 - *((float *)v2 + 6)) * *((float *)v2 + 2)) >= v7 )
 v4 = v7;
 else
@@ -44,7 +44,7 @@ double v6; // [esp+Ch] [ebp-8h]
 double v7; // [esp+Ch] [ebp-8h]
 
 v2 = this;
-v6 = (double)(*((_DWORD *)this + 5) - 1);
+v6 = (double)(*((DWORD *)this + 5) - 1);
 if ( _floor((a2 - *((float *)this + 7)) * *((float *)this + 3)) >= v6 )
 v3 = v6;
 else
@@ -55,7 +55,7 @@ v4 = 0.0;
 }
 else
 {
-v7 = (double)(*((_DWORD *)v2 + 5) - 1);
+v7 = (double)(*((DWORD *)v2 + 5) - 1);
 if ( _floor((a2 - *((float *)v2 + 7)) * *((float *)v2 + 3)) >= v7 )
 v4 = v7;
 else
@@ -69,7 +69,7 @@ int __thiscall TEdgeManager::increment_box_x(TEdgeManager *this, int a2)
 {
 int result; // eax
 
-result = *((_DWORD *)this + 4) - 1;
+result = *((DWORD *)this + 4) - 1;
 if ( a2 + 1 < result )
 result = a2 + 1;
 return result;
@@ -80,7 +80,7 @@ int __thiscall TEdgeManager::increment_box_y(TEdgeManager *this, int a2)
 {
 int result; // eax
 
-result = *((_DWORD *)this + 5) - 1;
+result = *((DWORD *)this + 5) - 1;
 if ( a2 + 1 < result )
 result = a2 + 1;
 return result;
@@ -88,7 +88,7 @@ return result;
 
 
 //----- (0100B2A0) --------------------------------------------------------
-void __stdcall `vector constructor iterator`(void *a1, unsigned int a2, int a3, void *(__thiscall *a4)(void *))
+void create(void *a1, unsigned int a2, int a3, void *(__thiscall *a4)(void *))
 {
 char *v4; // esi
 int v5; // edi
@@ -108,7 +108,7 @@ while ( v5 );
 }
 
 //----- (0100B2E5) --------------------------------------------------------
-void __stdcall `vector destructor iterator`(void *a1, unsigned int a2, int a3, void (__thiscall *a4)(void *))
+void destroy(void *a1, unsigned int a2, int a3, void (__thiscall *a4)(void *))
 {
 char *v4; // edi
 int v5; // esi
@@ -143,20 +143,20 @@ struct TBall *v11; // [esp+24h] [ebp+8h]
 v3 = a2;
 v4 = this;
 v5 = TEdgeManager::box_x(this, *(float *)((char *)a2 + 42));
-v6 = *((_DWORD *)v4 + 8)
-     + 16 * (v5 + (unsigned __int64)TEdgeManager::box_y(v4, *(float *)((char *)a2 + 46)) * *((_DWORD *)v4 + 4));
-v7 = *(_DWORD *)(*(_DWORD *)(v6 + 12) + 4) - 1;
+v6 = *((DWORD *)v4 + 8)
+     + 16 * (v5 + (unsigned __int64)TEdgeManager::box_y(v4, *(float *)((char *)a2 + 46)) * *((DWORD *)v4 + 4));
+v7 = *(DWORD *)(*(DWORD *)(v6 + 12) + 4) - 1;
 if ( v7 >= 0 )
 {
 v8 = 4 * v7 + 8;
-v11 = *(struct TBall **)(*(_DWORD *)(v6 + 12) + 4);
+v11 = *(struct TBall **)(*(DWORD *)(v6 + 12) + 4);
 do
 {
-v9 = *(_DWORD *)(v8 + *(_DWORD *)(v6 + 12));
-if ( **(_BYTE **)v9 && *(_DWORD *)((_BYTE *)v3 + 110) & *(_DWORD *)(v9 + 4) )
+v9 = *(DWORD *)(v8 + *(DWORD *)(v6 + 12));
+if ( **(_BYTE **)v9 && *(DWORD *)((_BYTE *)v3 + 110) & *(DWORD *)(v9 + 4) )
 {
-if ( (*(int (__thiscall **)(_DWORD, struct TBall *, char *))(**(_DWORD **)(v9 + 8) + 24))(
-*(_DWORD *)(v9 + 8),
+if ( (*(int (__thiscall **)(DWORD, struct TBall *, char *))(**(DWORD **)(v9 + 8) + 24))(
+*(DWORD *)(v9 + 8),
 v3,
 &v10) )
 {
@@ -171,7 +171,7 @@ while ( v11 );
 }
 
 //----- (0100B3AE) --------------------------------------------------------
-int __userpurge TEdgeManager::TestGridBox@<eax>(TEdgeManager *this@<ecx>, double a2@<st0>, int a3, int a4, float *a5, struct TEdgeSegment **a6, struct ray_type *a7, struct TBall *a8, int a9)
+int TEdgeManager::TestGridBox(TEdgeManager *this, double a2@<st0>, int a3, int a4, float *a5, struct TEdgeSegment **a6, struct ray_type *a7, struct TBall *a8, int a9)
 {
 int v9; // edi
 int v10; // eax
@@ -184,21 +184,21 @@ int v17; // [esp+Ch] [ebp+Ch]
 
 if ( a3 >= 0 && a3 < 10 && a4 >= 0 && a4 < 15 )
 {
-v9 = *((_DWORD *)this + 8) + 16 * (a3 + a4 * *((_DWORD *)this + 4));
-v10 = *(_DWORD *)(*(_DWORD *)(v9 + 4) + 4) - 1;
+v9 = *((DWORD *)this + 8) + 16 * (a3 + a4 * *((DWORD *)this + 4));
+v10 = *(DWORD *)(*(DWORD *)(v9 + 4) + 4) - 1;
 if ( v10 >= 0 )
 {
 v17 = 4 * v10 + 8;
 v11 = (int **)((char *)this + 4 * a9 + 36);
-v16 = *(_DWORD *)(*(_DWORD *)(v9 + 4) + 4);
+v16 = *(DWORD *)(*(DWORD *)(v9 + 4) + 4);
 do
 {
-v12 = *(int **)(v17 + *(_DWORD *)(v9 + 4));
+v12 = *(int **)(v17 + *(DWORD *)(v9 + 4));
 if ( !*((_BYTE *)v12 + 12) )
 {
 if ( *(_BYTE *)v12[2] )
 {
-if ( *(int *)((char *)v12 + 17) & *((_DWORD *)a7 + 10) )
+if ( *(int *)((char *)v12 + 17) & *((DWORD *)a7 + 10) )
 {
 LOBYTE(v13) = TBall::already_hit(a8, (struct TEdgeSegment *)v12);
 if ( !v13 )
@@ -499,7 +499,7 @@ TEdgeManager *__thiscall TEdgeManager::TEdgeManager(TEdgeManager *this, float a2
 double v5; // st7
 TEdgeManager *v6; // esi
 double v7; // st6
-_DWORD *v8; // eax
+DWORD *v8; // eax
 int v9; // edi
 
 v5 = a4 * 0.1;
@@ -508,9 +508,9 @@ v6 = this;
 *(float *)this = v5;
 v7 = a5 * 0.06666667;
 *((float *)this + 7) = a3;
-*((_DWORD *)this + 4) = 10;
+*((DWORD *)this + 4) = 10;
 *((float *)this + 1) = v7;
-*((_DWORD *)this + 5) = 15;
+*((DWORD *)this + 5) = 15;
 *((float *)this + 2) = 1.0 / v5;
 *((float *)this + 3) = 1.0 / v7;
 v8 = operator new(0x964u);
@@ -518,13 +518,13 @@ if ( v8 )
 {
 v9 = (int)(v8 + 1);
 *v8 = 150;
-`vector constructor iterator`(v8 + 1, 0x10u, 150, (void *(__thiscall *)(void *))TEdgeBox::TEdgeBox);
+create(v8 + 1, 0x10u, 150, (void *(__thiscall *)(void *))TEdgeBox::TEdgeBox);
 }
 else
 {
 v9 = 0;
 }
-*((_DWORD *)v6 + 8) = v9;
+*((DWORD *)v6 + 8) = v9;
 return v6;
 }
 

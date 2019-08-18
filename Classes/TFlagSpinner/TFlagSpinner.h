@@ -10,7 +10,7 @@
 /* 105 */
 struct TFlagSpinner;
 
-void __stdcall TFlagSpinner::SpinTimer(int, void*); // idb
+void TFlagSpinner::SpinTimer(int, void*); // idb
 void __thiscall TFlagSpinner::NextFrame(TFlagSpinner* this); // idb
 int __thiscall TFlagSpinner::Message(TFlagSpinner* this, int, float); // idb
 int __thiscall TFlagSpinner::get_scoring(TFlagSpinner* this, int); // idb

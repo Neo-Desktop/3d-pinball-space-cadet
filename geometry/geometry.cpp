@@ -5,7 +5,7 @@
 #include "../pinball.h"
 
 //----- (0100400B) --------------------------------------------------------
-signed int __stdcall rectangle_clip(int *a1, int *a2, _DWORD *a3)
+signed int rectangle_clip(int *a1, int *a2, DWORD *a3)
 {
     int v3; // edi
     int v4; // edx
@@ -57,7 +57,7 @@ signed int __stdcall rectangle_clip(int *a1, int *a2, _DWORD *a3)
 }
 
 //----- (010040C2) --------------------------------------------------------
-int __stdcall enclosing_box(_DWORD *a1, _DWORD *a2, _DWORD *a3)
+int enclosing_box(DWORD *a1, DWORD *a2, DWORD *a3)
 {
     int v3; // esi
     int v4; // edi
@@ -108,7 +108,7 @@ int __stdcall enclosing_box(_DWORD *a1, _DWORD *a2, _DWORD *a3)
 }
 
 //----- (010077C4) --------------------------------------------------------
-BOOL __stdcall center_in(HWND hWnd, HWND a2)
+BOOL center_in(HWND hWnd, HWND a2)
 {
     HWND v2; // eax
     LONG v3; // ebx
@@ -155,7 +155,7 @@ BOOL __stdcall center_in(HWND hWnd, HWND a2)
 // 1024EF4: using guessed type int fullscrn_display_changed;
 
 //----- (01008AE9) --------------------------------------------------------
-double __stdcall normalize_2d(float *a1)
+double normalize_2d(float *a1)
 {
     double result; // st7
 
@@ -169,7 +169,7 @@ double __stdcall normalize_2d(float *a1)
 }
 
 //----- (01008B34) --------------------------------------------------------
-double __stdcall ray_intersect_circle(float *a1, float *a2)
+double ray_intersect_circle(float *a1, float *a2)
 {
     double v2; // st7
     double v3; // st7
@@ -198,7 +198,7 @@ double __stdcall ray_intersect_circle(float *a1, float *a2)
 }
 
 //----- (01008BEB) --------------------------------------------------------
-int __stdcall line_init(int a1, float a2, float a3, float a4, float a5)
+int line_init(int a1, float a2, float a3, float a4, float a5)
 {
     float *v5; // esi
     int v6; // edx
@@ -233,18 +233,18 @@ int __stdcall line_init(int a1, float a2, float a3, float a4, float a5)
     if ( v10 )
     {
         *(float *)(v6 + 28) = v9;
-        *(_DWORD *)(v6 + 32) = result;
+        *(DWORD *)(v6 + 32) = result;
     }
     else
     {
         *(float *)(v6 + 32) = v9;
-        *(_DWORD *)(v6 + 28) = result;
+        *(DWORD *)(v6 + 28) = result;
     }
     return result;
 }
 
 //----- (01008C8F) --------------------------------------------------------
-double __stdcall ray_intersect_line(float *a1, float *a2)
+double ray_intersect_line(float *a1, float *a2)
 {
     double v2; // st7
     double result; // st7
@@ -287,7 +287,7 @@ double __stdcall ray_intersect_line(float *a1, float *a2)
 }
 
 //----- (01008D4E) --------------------------------------------------------
-float *__stdcall proj_matrix_vector_multiply(float *a1, float *a2, float *a3)
+float *proj_matrix_vector_multiply(float *a1, float *a2, float *a3)
 {
     double v3; // st7
     double v4; // st6
@@ -305,7 +305,7 @@ float *__stdcall proj_matrix_vector_multiply(float *a1, float *a2, float *a3)
 }
 
 //----- (01008DB8) --------------------------------------------------------
-float *__stdcall cross(float *a1, float *a2, float *a3)
+float *cross(float *a1, float *a2, float *a3)
 {
     float *v3; // ecx
     float *result; // eax
@@ -319,7 +319,7 @@ float *__stdcall cross(float *a1, float *a2, float *a3)
 }
 
 //----- (01008DFF) --------------------------------------------------------
-double __stdcall magnitude(float *a1)
+double magnitude(float *a1)
 {
     long double v1; // st7
     double result; // st7
@@ -333,7 +333,7 @@ double __stdcall magnitude(float *a1)
 }
 
 //----- (01008E4B) --------------------------------------------------------
-int __stdcall proj_init(int a1, int a2, int a3, int a4)
+int proj_init(int a1, int a2, int a3, int a4)
 {
     float *v4; // edx
     float *v5; // eax
@@ -347,7 +347,7 @@ int __stdcall proj_init(int a1, int a2, int a3, int a4)
         v6 = 4;
         do
         {
-            *v5 = *(float *)((char *)v5 + a1 - (_DWORD)&proj_matrix);
+            *v5 = *(float *)((char *)v5 + a1 - (DWORD)&proj_matrix);
             v5 += 4;
             --v6;
         }
@@ -374,7 +374,7 @@ int __stdcall proj_init(int a1, int a2, int a3, int a4)
 // 102819C: using guessed type float flt_102819C;
 
 //----- (01008EBA) --------------------------------------------------------
-int __stdcall proj_recenter(int a1, int a2)
+int proj_recenter(int a1, int a2)
 {
     int result; // eax
 
@@ -387,7 +387,7 @@ int __stdcall proj_recenter(int a1, int a2)
 // 102813C: using guessed type int proj_centerx;
 
 //----- (01008ED8) --------------------------------------------------------
-void __stdcall proj_z_distance(float *a1)
+void proj_z_distance(float *a1)
 {
     char v1; // [esp+0h] [ebp-Ch]
 
@@ -396,7 +396,7 @@ void __stdcall proj_z_distance(float *a1)
 }
 
 //----- (01008F03) --------------------------------------------------------
-double __stdcall proj_xform_to_2d(float *a1, _DWORD *a2)
+double proj_xform_to_2d(float *a1, DWORD *a2)
 {
     double v2; // st7
     double v3; // st6
@@ -422,7 +422,7 @@ double __stdcall proj_xform_to_2d(float *a1, _DWORD *a2)
 
 
 //----- (01013340) --------------------------------------------------------
-BOOL __stdcall overlapping_box(struct rectangle_type *a1, struct rectangle_type *a2, struct rectangle_type *a3)
+BOOL overlapping_box(struct rectangle_type *a1, struct rectangle_type *a2, struct rectangle_type *a3)
 {
 int v3; // esi
 int v4; // edi
@@ -430,39 +430,39 @@ int v5; // esi
 int v6; // esi
 int v7; // edi
 
-if ( *(_DWORD *)a1 >= *(_DWORD *)a2 )
+if ( *(DWORD *)a1 >= *(DWORD *)a2 )
 {
-*(_DWORD *)a3 = *(_DWORD *)a2;
-v3 = *((_DWORD *)a1 + 2) - *(_DWORD *)a2;
-v4 = *(_DWORD *)a1;
+*(DWORD *)a3 = *(DWORD *)a2;
+v3 = *((DWORD *)a1 + 2) - *(DWORD *)a2;
+v4 = *(DWORD *)a1;
 }
 else
 {
-*(_DWORD *)a3 = *(_DWORD *)a1;
-v3 = *((_DWORD *)a2 + 2) - *(_DWORD *)a1;
-v4 = *(_DWORD *)a2;
+*(DWORD *)a3 = *(DWORD *)a1;
+v3 = *((DWORD *)a2 + 2) - *(DWORD *)a1;
+v4 = *(DWORD *)a2;
 }
-*((_DWORD *)a3 + 2) = v3 + v4 + 1;
-v5 = *((_DWORD *)a1 + 1);
-if ( v5 >= *((_DWORD *)a2 + 1) )
+*((DWORD *)a3 + 2) = v3 + v4 + 1;
+v5 = *((DWORD *)a1 + 1);
+if ( v5 >= *((DWORD *)a2 + 1) )
 {
-*((_DWORD *)a3 + 1) = *((_DWORD *)a2 + 1);
-v6 = *((_DWORD *)a1 + 3) - *((_DWORD *)a2 + 1);
-v7 = *((_DWORD *)a1 + 1);
+*((DWORD *)a3 + 1) = *((DWORD *)a2 + 1);
+v6 = *((DWORD *)a1 + 3) - *((DWORD *)a2 + 1);
+v7 = *((DWORD *)a1 + 1);
 }
 else
 {
-*((_DWORD *)a3 + 1) = v5;
-v6 = *((_DWORD *)a2 + 3) - *((_DWORD *)a1 + 1);
-v7 = *((_DWORD *)a2 + 1);
+*((DWORD *)a3 + 1) = v5;
+v6 = *((DWORD *)a2 + 3) - *((DWORD *)a1 + 1);
+v7 = *((DWORD *)a2 + 1);
 }
-*((_DWORD *)a3 + 3) = v6 + v7 + 1;
-return *((_DWORD *)a3 + 2) <= *((_DWORD *)a2 + 2) + *((_DWORD *)a1 + 2)
-&& *((_DWORD *)a3 + 3) <= *((_DWORD *)a2 + 3) + *((_DWORD *)a1 + 3);
+*((DWORD *)a3 + 3) = v6 + v7 + 1;
+return *((DWORD *)a3 + 2) <= *((DWORD *)a2 + 2) + *((DWORD *)a1 + 2)
+&& *((DWORD *)a3 + 3) <= *((DWORD *)a2 + 3) + *((DWORD *)a1 + 3);
 }
 
 //----- (01015935) --------------------------------------------------------
-void __stdcall throw_ball(struct TBall *a1, struct vector_type *a2, float a3, float a4, float a5)
+void throw_ball(struct TBall *a1, struct vector_type *a2, float a3, float a4, float a5)
 {
 struct TBall *v5; // ebx
 int v6; // eax
@@ -470,10 +470,10 @@ float v7; // ST04_4
 struct TBall *v8; // [esp+18h] [ebp+8h]
 
 v5 = a1;
-*(_DWORD *)((char *)a1 + 106) = 0;
-*(_DWORD *)((char *)a1 + 54) = *(_DWORD *)a2;
-*(_DWORD *)((char *)a1 + 58) = *((_DWORD *)a2 + 1);
-*(_DWORD *)((char *)a1 + 62) = *((_DWORD *)a2 + 2);
+*(DWORD *)((char *)a1 + 106) = 0;
+*(DWORD *)((char *)a1 + 54) = *(DWORD *)a2;
+*(DWORD *)((char *)a1 + 58) = *((DWORD *)a2 + 1);
+*(DWORD *)((char *)a1 + 62) = *((DWORD *)a2 + 2);
 v6 = _rand();
 v7 = (1.0 - ((double)v6 * 0.00003051850947599719 + (double)v6 * 0.00003051850947599719)) * a3;
 RotateVector((struct TBall *)((char *)a1 + 54), v7);
@@ -487,7 +487,7 @@ v8 = (struct TBall *)_rand();
 }
 
 //----- (0101B43A) --------------------------------------------------------
-double __stdcall distance_to_flipper(struct ray_type *a1, struct ray_type *a2)
+double distance_to_flipper(struct ray_type *a1, struct ray_type *a2)
 {
 signed int v2; // edi
 double v3; // st7
@@ -496,8 +496,8 @@ double v5; // st7
 double v6; // st7
 float *v7; // eax
 double v8; // st7
-_DWORD *v10; // esi
-_DWORD *v11; // esi
+DWORD *v10; // esi
+DWORD *v11; // esi
 float v12; // [esp+8h] [ebp-4h]
 
 v12 = 1000000000.0;
@@ -556,22 +556,22 @@ v8 = *((float *)a2 + 1) - *(float *)&dword_1025674;
 normalize_2d(v7);
 return v12;
 }
-*((_DWORD *)a2 + 3) = lineB;
-*((_DWORD *)a2 + 4) = *((_DWORD *)&lineB + 1);
-*((_DWORD *)a2 + 5) = *((_DWORD *)&lineB + 2);
+*((DWORD *)a2 + 3) = lineB;
+*((DWORD *)a2 + 4) = *((DWORD *)&lineB + 1);
+*((DWORD *)a2 + 5) = *((DWORD *)&lineB + 2);
 v10 = &unk_10256E4;
 }
 else
 {
-*((_DWORD *)a2 + 3) = lineA;
-*((_DWORD *)a2 + 4) = *((_DWORD *)&lineA + 1);
-*((_DWORD *)a2 + 5) = *((_DWORD *)&lineA + 2);
+*((DWORD *)a2 + 3) = lineA;
+*((DWORD *)a2 + 4) = *((DWORD *)&lineA + 1);
+*((DWORD *)a2 + 5) = *((DWORD *)&lineA + 2);
 v10 = &unk_10256A4;
 }
-*(_DWORD *)a2 = *v10;
+*(DWORD *)a2 = *v10;
 v11 = v10 + 1;
-*((_DWORD *)a2 + 1) = *v11;
-*((_DWORD *)a2 + 2) = v11[1];
+*((DWORD *)a2 + 1) = *v11;
+*((DWORD *)a2 + 2) = v11[1];
 return v12;
 }
 return 1000000000.0;
@@ -580,7 +580,7 @@ return 1000000000.0;
 // 1025674: using guessed type int dword_1025674;
 
 //----- (0101CBB1) --------------------------------------------------------
-void __stdcall RotatePt(struct vector_type *a1, float a2, float a3, struct vector_type *a4)
+void RotatePt(struct vector_type *a1, float a2, float a3, struct vector_type *a4)
 {
 double v4; // st7
 double v5; // st6
@@ -592,7 +592,7 @@ v5 = *((float *)a1 + 1) - *((float *)a4 + 1);
 }
 
 //----- (0101CBF5) --------------------------------------------------------
-long double __stdcall Distance(struct vector_type *a1, struct vector_type *a2)
+long double Distance(struct vector_type *a1, struct vector_type *a2)
 {
 double v2; // st7
 double v3; // st6
@@ -603,19 +603,19 @@ return sqrt(v3 * v3 + v2 * v2);
 }
 
 //----- (0101CC23) --------------------------------------------------------
-double __stdcall Distance_Squared(float a1, float a2, int a3, float a4, float a5, int a6)
+double Distance_Squared(float a1, float a2, int a3, float a4, float a5, int a6)
 {
 return (a2 - a5) * (a2 - a5) + (a1 - a4) * (a1 - a4);
 }
 
 //----- (0101CC4B) --------------------------------------------------------
-double __stdcall DotProduct(const struct vector_type *a1, const struct vector_type *a2)
+double DotProduct(const struct vector_type *a1, const struct vector_type *a2)
 {
 return *((float *)a1 + 1) * *((float *)a2 + 1) + *(float *)a1 * *(float *)a2;
 }
 
 //----- (0101CC6B) --------------------------------------------------------
-void __stdcall SinCos(float a1, float *a2, float *a3)
+void SinCos(float a1, float *a2, float *a3)
 {
 *a2 = sin(a1);
 *a3 = cos(a1);

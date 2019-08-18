@@ -10,7 +10,7 @@ bool __thiscall TBall::already_hit(TBall *this, struct TEdgeSegment *a2)
 int v2; // esi
 bool result; // al
 
-v2 = *(_DWORD *)((char *)this + 134);
+v2 = *(DWORD *)((char *)this + 134);
 if ( !v2 )
 return 0;
 result = 1;
@@ -34,7 +34,7 @@ if ( *(struct TEdgeSegment **)((char *)this + 130) != a2 )
 {
 result = 0;
 if ( v2 != 5 )
-result = v2 == (_DWORD)a2;
+result = v2 == (DWORD)a2;
 }
 }
 return result;
@@ -45,11 +45,11 @@ void __thiscall TBall::not_again(TBall *this, struct TEdgeSegment *a2)
 {
 signed int v2; // edx
 
-v2 = *(_DWORD *)((char *)this + 134);
+v2 = *(DWORD *)((char *)this + 134);
 if ( v2 < 5 )
 {
-*(_DWORD *)((char *)this + 4 * v2 + 114) = a2;
-++*(_DWORD *)((char *)this + 134);
+*(DWORD *)((char *)this + 4 * v2 + 114) = a2;
+++*(DWORD *)((char *)this + 134);
 }
 }
 
@@ -62,16 +62,16 @@ int v4; // eax
 v3 = this;
 if ( a2 == 1024 )
 {
-render_ball_set(*(_DWORD *)((char *)this + 26), 0, 0.0, 0, 0);
-v4 = *(_DWORD *)((char *)v3 + 154);
+render_ball_set(*(DWORD *)((char *)this + 26), 0, 0.0, 0, 0);
+v4 = *(DWORD *)((char *)v3 + 154);
 *(float *)((char *)v3 + 42) = 0.0;
-*(_DWORD *)((char *)v3 + 106) = 0;
+*(DWORD *)((char *)v3 + 106) = 0;
 *(float *)((char *)v3 + 46) = 0.0;
 *((_BYTE *)v3 + 5) = 0;
-*(_DWORD *)((char *)v3 + 150) = 0;
-*(_DWORD *)((char *)v3 + 110) = 1;
+*(DWORD *)((char *)v3 + 150) = 0;
+*(DWORD *)((char *)v3 + 110) = 1;
 *(float *)((char *)v3 + 58) = 0.0;
-*(_DWORD *)((char *)v3 + 50) = v4;
+*(DWORD *)((char *)v3 + 50) = v4;
 *(float *)((char *)v3 + 54) = 0.0;
 *(float *)((char *)v3 + 66) = 0.0;
 *(float *)((char *)v3 + 70) = 0.0;
@@ -93,16 +93,16 @@ int v8; // [esp+14h] [ebp-8h]
 int v9; // [esp+18h] [ebp-4h]
 
 v1 = this;
-if ( *(_DWORD *)((char *)this + 150) )
+if ( *(DWORD *)((char *)this + 150) )
 *(float *)((char *)this + 50) = *(float *)((char *)this + 142) * *(float *)((char *)this + 46)
 + *(float *)((char *)this + 138) * *(float *)((char *)this + 42)
 + *(float *)((char *)this + 154)
 + *(float *)((char *)this + 146);
 proj_xform_to_2d((float *)((char *)this + 42), &v8);
 v2 = proj_z_distance((char *)v1 + 42);
-v3 = *(_DWORD *)(*(_DWORD *)((char *)v1 + 34) + 4);
+v3 = *(DWORD *)(*(DWORD *)((char *)v1 + 34) + 4);
 v4 = 0;
-if ( *(_DWORD *)(v3 + 4) - 1 > 0 )
+if ( *(DWORD *)(v3 + 4) - 1 > 0 )
 {
 v5 = (float *)((char *)v1 + 162);
 do
@@ -112,15 +112,15 @@ break;
 ++v4;
 ++v5;
 }
-while ( v4 < *(_DWORD *)(v3 + 4) - 1 );
+while ( v4 < *(DWORD *)(v3 + 4) - 1 );
 }
-v6 = *(_DWORD *)(v3 + 4 * v4 + 8);
-v8 += *(_DWORD *)(v6 + 12) / -2;
-v9 += *(_DWORD *)(v6 + 16) / -2;
+v6 = *(DWORD *)(v3 + 4 * v4 + 8);
+v8 += *(DWORD *)(v6 + 12) / -2;
+v9 += *(DWORD *)(v6 + 16) / -2;
 v7 = v2;
-render_ball_set(*(_DWORD *)((char *)v1 + 26), v6, v7, v8, v9);
+render_ball_set(*(DWORD *)((char *)v1 + 26), v6, v7, v8, v9);
 }
-// 1008ED8: using guessed type double __stdcall proj_z_distance(_DWORD);
+// 1008ED8: using guessed type double proj_z_distance(DWORD);
 
 //----- (01019309) --------------------------------------------------------
 TBall *__thiscall TBall::TBall(TBall *this, struct TPinballTable *a2)
@@ -144,14 +144,14 @@ struct TPinballTable *v17; // [esp+64h] [ebp+8h]
 v2 = this;
 TPinballComponent::TPinballComponent(this, a2, -1, 0);
 *(float *)((char *)v2 + 78) = 0.0;
-*(_DWORD *)v2 = &TBall::vftable;
+*(DWORD *)v2 = &TBall::vftable;
 *(float *)((char *)v2 + 70) = 0.0;
 *((_BYTE *)v2 + 5) = 1;
-*(_DWORD *)((char *)v2 + 106) = 0;
-*(_DWORD *)((char *)v2 + 134) = 0;
+*(DWORD *)((char *)v2 + 106) = 0;
+*(DWORD *)((char *)v2 + 134) = 0;
 *(float *)((char *)v2 + 74) = 0.0;
-*(_DWORD *)((char *)v2 + 110) = 1;
-*(_DWORD *)((char *)v2 + 150) = 0;
+*(DWORD *)((char *)v2 + 110) = 1;
+*(DWORD *)((char *)v2 + 150) = 0;
 *(float *)((char *)v2 + 66) = 0.0;
 *(float *)((char *)v2 + 58) = 0.0;
 *(float *)((char *)v2 + 54) = 0.0;
@@ -170,9 +170,9 @@ else
 {
 v5 = 0;
 }
-*(_DWORD *)((char *)v2 + 34) = v5;
+*(DWORD *)((char *)v2 + 34) = v5;
 v6 = loader_query_handle("ball");
-*(_DWORD *)((char *)v2 + 154) = *(_DWORD *)loader_query_float_attribute(v6, 0, 500);
+*(DWORD *)((char *)v2 + 154) = *(DWORD *)loader_query_float_attribute(v6, 0, 500);
 v15 = loader_query_visual_states(v6);
 v17 = 0;
 if ( v15 > 0 )
@@ -193,11 +193,11 @@ v17 = (struct TPinballTable *)((char *)v17 + 1);
 while ( (signed int)v17 < v15 );
 }
 v10 = render_create_sprite(2, 0, 0, 0, 0, 0);
-v11 = *(_DWORD *)((char *)v2 + 154);
-*(_DWORD *)((char *)v2 + 26) = v10;
-*(_DWORD *)(*(_DWORD *)((char *)v2 + 30) + 282) = v11;
-*(_DWORD *)((char *)v2 + 50) = *(_DWORD *)((char *)v2 + 154);
+v11 = *(DWORD *)((char *)v2 + 154);
+*(DWORD *)((char *)v2 + 26) = v10;
+*(DWORD *)(*(DWORD *)((char *)v2 + 30) + 282) = v11;
+*(DWORD *)((char *)v2 + 50) = *(DWORD *)((char *)v2 + 154);
 return v2;
 }
 // 1002554: using guessed type void *TBall::vftable;
-// 1008ED8: using guessed type double __stdcall proj_z_distance(_DWORD);
+// 1008ED8: using guessed type double proj_z_distance(DWORD);

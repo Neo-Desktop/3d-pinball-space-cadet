@@ -11,7 +11,7 @@
 struct TLight;
 
 void __thiscall TLight::Reset(TLight* __hidden this); // idb
-void __stdcall TLight::TimerExpired(int, void*); // idb
+void TLight::TimerExpired(int, void*); // idb
 void __thiscall TLight::schedule_timeout(TLight* this, float); // idb
 int __thiscall TLight::Message(TLight* this, int, float); // idb
 TLight* __thiscall TLight::TLight(TLight* this, struct TPinballTable* a2, int a3);

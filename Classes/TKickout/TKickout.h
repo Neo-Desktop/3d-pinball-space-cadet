@@ -11,8 +11,8 @@
 struct TKickout;
 
 void __thiscall TKickout::Collision(TKickout* this, struct TBall*, struct vector_type*, struct vector_type*, float, struct TEdgeSegment*); // idb
-void __stdcall TKickout::ResetTimerExpired(int, void*); // idb
-void __stdcall TKickout::TimerExpired(int, void*); // idb
+void TKickout::ResetTimerExpired(int, void*); // idb
+void TKickout::TimerExpired(int, void*); // idb
 int __thiscall TKickout::FieldEffect(TKickout* this, struct TBall*, struct vector_type*); // idb
 int __thiscall TKickout::Message(TKickout* this, int, float); // idb
 int __thiscall TKickout::get_scoring(TKickout* this, int); // idb

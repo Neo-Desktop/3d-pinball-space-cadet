@@ -8,18 +8,18 @@ TDrain *v3; // esi
 v3 = this;
 if ( a2 == 1024 )
 {
-if ( *(_DWORD *)((char *)this + 86) )
+if ( *(DWORD *)((char *)this + 86) )
 {
-timer_kill(*(_DWORD *)((char *)this + 86));
-*(_DWORD *)((char *)v3 + 86) = 0;
+timer_kill(*(DWORD *)((char *)this + 86));
+*(DWORD *)((char *)v3 + 86) = 0;
 }
-*(_DWORD *)(*(_DWORD *)((char *)v3 + 30) + 78) = 0;
+*(DWORD *)(*(DWORD *)((char *)v3 + 30) + 78) = 0;
 }
 return 0;
 }
 
 //----- (010172D8) --------------------------------------------------------
-void __stdcall TDrain::TimerCallback(int a1, struct TPinballComponent *a2)
+void TDrain::TimerCallback(int a1, struct TPinballComponent *a2)
 {
 control_handler(60, a2);
 }
@@ -30,9 +30,9 @@ void __thiscall TDrain::Collision(TDrain *this, struct TBall *a2, struct vector_
 TDrain *v6; // esi
 
 v6 = this;
-(**(void (__stdcall ***)(signed int, _DWORD))a2)(1024, 0.0);
-*(_DWORD *)(*(_DWORD *)((char *)v6 + 30) + 78) = 1;
-*(_DWORD *)((char *)v6 + 86) = timer_set(*(float *)((char *)v6 + 78), (int)v6, (int)TDrain::TimerCallback);
+(**(void (***)(signed int, DWORD))a2)(1024, 0.0);
+*(DWORD *)(*(DWORD *)((char *)v6 + 30) + 78) = 1;
+*(DWORD *)((char *)v6 + 86) = timer_set(*(float *)((char *)v6 + 78), (int)v6, (int)TDrain::TimerCallback);
 control_handler(63, v6);
 }
 
@@ -43,9 +43,9 @@ TDrain *v3; // esi
 
 v3 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 1);
-*(_DWORD *)((char *)v3 + 86) = 0;
-*(_DWORD *)v3 = &TDrain::vftable;
-*(_DWORD *)((char *)v3 + 78) = *(_DWORD *)loader_query_float_attribute(a3, 0, 407);
+*(DWORD *)((char *)v3 + 86) = 0;
+*(DWORD *)v3 = &TDrain::vftable;
+*(DWORD *)((char *)v3 + 78) = *(DWORD *)loader_query_float_attribute(a3, 0, 407);
 return v3;
 }
 // 1002720: using guessed type void *TDrain::vftable;

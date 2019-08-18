@@ -55,7 +55,7 @@ LONG sub_100399D()
 }
 
 //----- (010039C5) --------------------------------------------------------
-BOOL __stdcall fullscrn_set_menu_mode(int a1)
+BOOL fullscrn_set_menu_mode(int a1)
 {
     BOOL result; // eax
 
@@ -145,7 +145,7 @@ int sub_1003B66()
 // 1024EF4: using guessed type int fullscrn_display_changed;
 
 //----- (01003BE4) --------------------------------------------------------
-LONG __stdcall fullscrn_set_screen_mode(int a1)
+LONG fullscrn_set_screen_mode(int a1)
 {
     LONG result; // eax
 
@@ -178,14 +178,14 @@ LONG __stdcall fullscrn_set_screen_mode(int a1)
 // 1024EEC: using guessed type int dword_1024EEC;
 
 //----- (01003C87) --------------------------------------------------------
-void __stdcall fullscrn_force_redraw()
+void fullscrn_force_redraw()
 {
     BYTE1(dword_1024EEC) |= 0x80u;
 }
 // 1024EEC: using guessed type int dword_1024EEC;
 
 //----- (01003C94) --------------------------------------------------------
-signed int __stdcall fullscrn_displaychange()
+signed int fullscrn_displaychange()
 {
     signed int v0; // esi
     signed int result; // eax
@@ -228,7 +228,7 @@ signed int __stdcall fullscrn_displaychange()
 // 1024EF4: using guessed type int fullscrn_display_changed;
 
 //----- (01003D65) --------------------------------------------------------
-BOOL __stdcall fullscrn_init(int a1, int a2, int a3, HWND a4, int a5, int a6)
+BOOL fullscrn_init(int a1, int a2, int a3, HWND a4, int a5, int a6)
 {
     HWND v6; // eax
     int v7; // ebx
@@ -269,7 +269,7 @@ BOOL __stdcall fullscrn_init(int a1, int a2, int a3, HWND a4, int a5, int a6)
 // 1024EF8: using guessed type int dword_1024EF8;
 
 //----- (01003E53) --------------------------------------------------------
-LONG __stdcall fullscrn_shutdown()
+LONG fullscrn_shutdown()
 {
     LONG result; // eax
 
@@ -280,7 +280,7 @@ LONG __stdcall fullscrn_shutdown()
 // 1024EF4: using guessed type int fullscrn_display_changed;
 
 //----- (01003E69) --------------------------------------------------------
-BOOL __stdcall fullscrn_activate(int a1)
+BOOL fullscrn_activate(int a1)
 {
     BOOL result; // eax
 
@@ -297,15 +297,15 @@ BOOL __stdcall fullscrn_activate(int a1)
 // 1024EE4: using guessed type int fullscrn_screen_mode;
 
 //----- (01003EA2) --------------------------------------------------------
-int __stdcall fullscrn_convert_mouse_pos(int a1)
+int fullscrn_convert_mouse_pos(int a1)
 {
-    return (unsigned __int16)(a1 - xDest) | ((unsigned __int16)(HIWORD(a1) - yDest) << 16);
+    return (unsigned int)(a1 - xDest) | ((unsigned int)(HIWORD(a1) - yDest) << 16);
 }
 
 //----- (01003ECF) --------------------------------------------------------
-_DWORD *__stdcall fullscrn_getminmaxinfo(_DWORD *a1)
+DWORD *fullscrn_getminmaxinfo(DWORD *a1)
 {
-    _DWORD *result; // eax
+    DWORD *result; // eax
 
     result = a1;
     a1[2] = X.right - X.left;
@@ -316,7 +316,7 @@ _DWORD *__stdcall fullscrn_getminmaxinfo(_DWORD *a1)
 }
 
 //----- (01003F98) --------------------------------------------------------
-void __stdcall fullscrn_paint()
+void fullscrn_paint()
 {
     int v0; // ST04_4
     int v1; // eax

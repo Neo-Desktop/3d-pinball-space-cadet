@@ -11,7 +11,7 @@ TEdgeSegment::TEdgeSegment(this, a2, a3, a4);
 *(float *)((char *)v8 + 73) = a6;
 *(float *)((char *)v8 + 77) = a7;
 *(float *)((char *)v8 + 81) = a8;
-*(_DWORD *)v8 = &TLine::vftable;
+*(DWORD *)v8 = &TLine::vftable;
 line_init((int)v8 + 21, a5, a6, a7, a8);
 return v8;
 }
@@ -32,10 +32,10 @@ float v8; // ST10_4
 
 v6 = this;
 TEdgeSegment::TEdgeSegment(this, a2, a3, a4);
-*(_DWORD *)v6 = &TLine::vftable;
-*(_DWORD *)((char *)v6 + 69) = *(_DWORD *)a5;
-*(_DWORD *)((char *)v6 + 73) = *((_DWORD *)a5 + 1);
-*(_DWORD *)((char *)v6 + 77) = *(_DWORD *)a6;
+*(DWORD *)v6 = &TLine::vftable;
+*(DWORD *)((char *)v6 + 69) = *(DWORD *)a5;
+*(DWORD *)((char *)v6 + 73) = *((DWORD *)a5 + 1);
+*(DWORD *)((char *)v6 + 77) = *(DWORD *)a6;
 v7 = *((float *)a6 + 1);
 *(float *)((char *)v6 + 81) = *((float *)a6 + 1);
 v8 = v7;
@@ -47,7 +47,7 @@ return v6;
 //----- (0101C7E6) --------------------------------------------------------
 void __thiscall TLine::EdgeCollision(TLine *this, struct TBall *a2, float a3)
 {
-(*(void (__stdcall **)(struct TBall *, char *, char *, _DWORD, TLine *))(**((_DWORD **)this + 1) + 20))(
+(*(void (**)(struct TBall *, char *, char *, DWORD, TLine *))(**((DWORD **)this + 1) + 20))(
 a2,
 (char *)this + 57,
 (char *)this + 21,

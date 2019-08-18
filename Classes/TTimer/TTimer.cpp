@@ -1,9 +1,9 @@
 #include "../../pinball.h"
 
 //----- (0101798C) --------------------------------------------------------
-void __stdcall TTimer::TimerExpired(int a1, struct TPinballComponent *a2)
+void TTimer::TimerExpired(int a1, struct TPinballComponent *a2)
 {
-*(_DWORD *)((char *)a2 + 42) = 0;
+*(DWORD *)((char *)a2 + 42) = 0;
 control_handler(60, a2);
 }
 
@@ -15,16 +15,16 @@ TTimer *v3; // esi
 v3 = this;
 if ( a2 == 59 )
 {
-if ( *(_DWORD *)((char *)this + 42) )
-timer_kill(*(_DWORD *)((char *)this + 42));
-*(_DWORD *)((char *)v3 + 42) = timer_set(a3, (int)v3, (int)TTimer::TimerExpired);
+if ( *(DWORD *)((char *)this + 42) )
+timer_kill(*(DWORD *)((char *)this + 42));
+*(DWORD *)((char *)v3 + 42) = timer_set(a3, (int)v3, (int)TTimer::TimerExpired);
 }
 else if ( a2 == 1011 || a2 == 1022 || a2 == 1024 )
 {
-if ( *(_DWORD *)((char *)this + 42) )
+if ( *(DWORD *)((char *)this + 42) )
 {
-timer_kill(*(_DWORD *)((char *)this + 42));
-*(_DWORD *)((char *)v3 + 42) = 0;
+timer_kill(*(DWORD *)((char *)this + 42));
+*(DWORD *)((char *)v3 + 42) = 0;
 }
 }
 return 0;
@@ -37,8 +37,8 @@ TTimer *v3; // esi
 
 v3 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 1);
-*(_DWORD *)((char *)v3 + 42) = 0;
-*(_DWORD *)v3 = &TTimer::vftable;
+*(DWORD *)((char *)v3 + 42) = 0;
+*(DWORD *)v3 = &TTimer::vftable;
 return v3;
 }
 // 10027BC: using guessed type void *TTimer::vftable;

@@ -1,7 +1,7 @@
 #include "../pinball.h"
 
 //----- (0101CFD0) --------------------------------------------------------
-_WORD *__stdcall SessionToGlobalDataPtr(_WORD *a1)
+WORD *SessionToGlobalDataPtr(WORD *a1)
 {
 if ( a1 && *a1 == 21554 && a1[222] == 21554 )
 return a1;
@@ -12,24 +12,24 @@ return 0;
 }
 
 //----- (0101D02C) --------------------------------------------------------
-BOOL __stdcall IsValidLPMIXWAVE(int a1)
+BOOL IsValidLPMIXWAVE(int a1)
 {
 BOOL result; // eax
 
 result = a1;
 if ( a1 )
-result = *(_WORD *)(a1 + 64) == 21554;
+result = *(WORD *)(a1 + 64) == 21554;
 return result;
 }
 
 //----- (0101D04E) --------------------------------------------------------
-bool __stdcall HasCurrentOutputFormat(const void *a1)
+bool HasCurrentOutputFormat(const void *a1)
 {
 return memcmp(a1, (const void *)(hMem + 380), 0x10u) == 0;
 }
 
 //----- (0101D079) --------------------------------------------------------
-int __stdcall DefaultPauseBlocks(int a1)
+int DefaultPauseBlocks(int a1)
 {
 int result; // eax
 
@@ -41,7 +41,7 @@ return result;
 }
 
 //----- (0101D0A5) --------------------------------------------------------
-unsigned int __stdcall DefaultGoodWavePos(UINT_PTR uDeviceID)
+unsigned int DefaultGoodWavePos(UINT_PTR uDeviceID)
 {
 signed int v1; // eax
 unsigned int result; // eax
@@ -56,31 +56,31 @@ return result;
 }
 
 //----- (0101D0FC) --------------------------------------------------------
-DWORD __stdcall MyWaveOutGetPosition(HWAVEOUT hwo, int a2)
+DWORD MyWaveOutGetPosition(HWAVEOUT hwo, int a2)
 {
 struct mmtime_tag pmmt; // [esp+0h] [ebp-10h]
 
 if ( !a2 )
-return (timeGetTime() - *(_DWORD *)(hMem + 416)) * *(_DWORD *)(hMem + 388) / 0x3E8 & 0xFFFFFFF8;
+return (timeGetTime() - *(DWORD *)(hMem + 416)) * *(DWORD *)(hMem + 388) / 0x3E8 & 0xFFFFFFF8;
 pmmt.wType = 4;
 waveOutGetPosition(hwo, &pmmt, 0xCu);
-return (*(int (__stdcall **)(DWORD, _DWORD))(hMem + 436))(pmmt.u.ms, *(_DWORD *)(hMem + 424));
+return (*(int (**)(DWORD, DWORD))(hMem + 436))(pmmt.u.ms, *(DWORD *)(hMem + 424));
 }
 
 //----- (0101D178) --------------------------------------------------------
-int __stdcall AddFactor(int a1, int a2)
+int AddFactor(int a1, int a2)
 {
 return a1 + a2;
 }
 
 //----- (0101D18E) --------------------------------------------------------
-int __stdcall SubFactor(int a1, int a2)
+int SubFactor(int a1, int a2)
 {
 return a1 - a2;
 }
 
 //----- (0101D1A2) --------------------------------------------------------
-unsigned int __stdcall SetWaveOutPosition(unsigned int a1)
+unsigned int SetWaveOutPosition(unsigned int a1)
 {
 LPARAM v1; // eax
 HWAVEOUT v2; // ecx
@@ -107,35 +107,35 @@ pmmt.u.ms = 0;
 }
 if ( v3 < a1 )
 {
-*(_DWORD *)(v1 + 424) = a1 - v3;
-*(_DWORD *)(v1 + 436) = AddFactor;
+*(DWORD *)(v1 + 424) = a1 - v3;
+*(DWORD *)(v1 + 436) = AddFactor;
 }
 else
 {
-*(_DWORD *)(v1 + 424) = v3 - a1;
-*(_DWORD *)(v1 + 436) = SubFactor;
+*(DWORD *)(v1 + 424) = v3 - a1;
+*(DWORD *)(v1 + 436) = SubFactor;
 }
 v4 = timeGetTime();
 v5 = hMem;
 v6 = v4;
-result = 1000 * a1 / *(_DWORD *)(hMem + 388);
-*(_DWORD *)(hMem + 412) = a1;
-*(_DWORD *)(v5 + 416) = v6 - result;
+result = 1000 * a1 / *(DWORD *)(hMem + 388);
+*(DWORD *)(hMem + 412) = a1;
+*(DWORD *)(v5 + 416) = v6 - result;
 return result;
 }
 
 //----- (0101D251) --------------------------------------------------------
-unsigned int __stdcall MyWaveOutReset(HWAVEOUT hwo)
+unsigned int MyWaveOutReset(HWAVEOUT hwo)
 {
 unsigned int v1; // esi
 
-v1 = MyWaveOutGetPosition(hwo, *(_DWORD *)(hMem + 420));
+v1 = MyWaveOutGetPosition(hwo, *(DWORD *)(hMem + 420));
 waveOutReset(hwo);
 return SetWaveOutPosition(v1);
 }
 
 //----- (0101D285) --------------------------------------------------------
-__int16 __stdcall cmixit(_BYTE *a1, char *a2, char *a3, int a4, unsigned __int16 a5)
+int cmixit(_BYTE *a1, char *a2, char *a3, int a4, unsigned int a5)
 {
 int v5; // eax
 unsigned __int8 *v6; // esi
@@ -146,7 +146,7 @@ _BYTE *v10; // edi
 unsigned __int8 *v11; // esi
 int v12; // edx
 int v13; // ebx
-unsigned __int16 *v14; // eax
+unsigned int *v14; // eax
 int v15; // ecx
 unsigned __int8 *v16; // ecx
 int v17; // ecx
@@ -155,28 +155,28 @@ unsigned __int8 *v19; // esi
 int v20; // edi
 _BYTE *v21; // ecx
 int v22; // ebx
-unsigned __int16 *v23; // ecx
+unsigned int *v23; // ecx
 int v24; // eax
 int v26; // [esp+10h] [ebp-8h]
 int v27; // [esp+10h] [ebp-8h]
-unsigned __int16 v28; // [esp+14h] [ebp-4h]
-unsigned __int16 v29; // [esp+14h] [ebp-4h]
+unsigned int v28; // [esp+14h] [ebp-4h]
+unsigned int v29; // [esp+14h] [ebp-4h]
 int v30; // [esp+30h] [ebp+18h]
 int v31; // [esp+30h] [ebp+18h]
 
 LOWORD(v5) = hMem;
-if ( *(_WORD *)(hMem + 382) == 2 )
+if ( *(WORD *)(hMem + 382) == 2 )
 {
 if ( a4 == 1 )
 {
 v6 = *(unsigned __int8 **)a2;
-LOWORD(v5) = (_WORD)a3;
+LOWORD(v5) = (WORD)a3;
 if ( a5 )
 {
 v7 = a1;
-v5 = *(unsigned __int16 *)a3 << 8;
-v8 = *((unsigned __int16 *)a3 + 1) << 8;
-v9 = (unsigned __int16)(((unsigned __int16)(a5 - 1) >> 1) + 1);
+v5 = *(unsigned int *)a3 << 8;
+v8 = *((unsigned int *)a3 + 1) << 8;
+v9 = (unsigned int)(((unsigned int)(a5 - 1) >> 1) + 1);
 do
 {
 *v7 = byte_1025970[*v6 + v5];
@@ -196,19 +196,19 @@ v28 = 0;
 LOWORD(v5) = a5;
 if ( a5 )
 {
-v26 = (unsigned __int16)(((unsigned __int16)(a5 - 1) >> 1) + 1);
+v26 = (unsigned int)(((unsigned int)(a5 - 1) >> 1) + 1);
 do
 {
 v12 = 128;
 v13 = 128;
 if ( a4 > 0 )
 {
-v14 = (unsigned __int16 *)a3;
+v14 = (unsigned int *)a3;
 v15 = a2 - a3;
 v30 = a4;
 while ( 1 )
 {
-v16 = (unsigned __int8 *)(*(_DWORD *)((char *)v14 + v15) + v28);
+v16 = (unsigned __int8 *)(*(DWORD *)((char *)v14 + v15) + v28);
 v13 = v13 + (unsigned __int8)byte_1025970[256 * *v14 + *v16] - 128;
 v17 = (unsigned __int8)byte_1025970[256 * v14[1] + v16[1]];
 v14 += 2;
@@ -240,7 +240,7 @@ LOBYTE(v12) = 0;
 v28 += 2;
 *a1 = v13;
 a1[1] = v12;
-LOWORD(v5) = (_WORD)a1 + 2;
+LOWORD(v5) = (WORD)a1 + 2;
 v18 = v26-- == 1;
 a1 += 2;
 }
@@ -251,12 +251,12 @@ while ( !v18 );
 else if ( a4 == 1 )
 {
 v19 = *(unsigned __int8 **)a2;
-v5 = (*(unsigned __int16 *)a3 + *((unsigned __int16 *)a3 + 1)) / 2;
+v5 = (*(unsigned int *)a3 + *((unsigned int *)a3 + 1)) / 2;
 if ( a5 )
 {
 v20 = a5;
 v21 = a1;
-v5 = (unsigned __int16)v5 << 8;
+v5 = (unsigned int)v5 << 8;
 do
 {
 *v21++ = byte_1025970[*v19++ + v5];
@@ -276,12 +276,12 @@ do
 v22 = 128;
 if ( a4 > 0 )
 {
-v23 = (unsigned __int16 *)a3;
+v23 = (unsigned int *)a3;
 v31 = a4;
 do
 {
-v24 = (unsigned __int8)byte_1025970[256 * (unsigned __int16)((*v23 + v23[1]) / 2)
-+ *(unsigned __int8 *)(*(_DWORD *)((char *)v23 + a2 - a3) + v29)];
+v24 = (unsigned __int8)byte_1025970[256 * (unsigned int)((*v23 + v23[1]) / 2)
++ *(unsigned __int8 *)(*(DWORD *)((char *)v23 + a2 - a3) + v29)];
 v23 += 2;
 v18 = v31-- == 1;
 v22 = v22 + v24 - 128;
@@ -309,9 +309,9 @@ return v5;
 }
 
 //----- (0101D491) --------------------------------------------------------
-_DWORD *__stdcall InitChannelNodes()
+DWORD *InitChannelNodes()
 {
-_DWORD *result; // eax
+DWORD *result; // eax
 
 result = &unk_1026470;
 do
@@ -328,7 +328,7 @@ return result;
 // 1027BA4: using guessed type int dword_1027BA4;
 
 //----- (0101D4B9) --------------------------------------------------------
-int __stdcall GetChannelNode()
+int GetChannelNode()
 {
 int result; // eax
 int v1; // ecx
@@ -336,8 +336,8 @@ int v1; // ecx
 result = dword_1025964;
 if ( dword_1025964 )
 {
-v1 = *(_DWORD *)dword_1025964;
-*(_DWORD *)dword_1025964 = 0;
+v1 = *(DWORD *)dword_1025964;
+*(DWORD *)dword_1025964 = 0;
 dword_1025964 = v1;
 }
 return result;
@@ -345,9 +345,9 @@ return result;
 // 1025964: using guessed type int dword_1025964;
 
 //----- (0101D4D4) --------------------------------------------------------
-_DWORD *__stdcall FreeChannelNode(_DWORD *a1)
+DWORD *FreeChannelNode(DWORD *a1)
 {
-_DWORD *result; // eax
+DWORD *result; // eax
 
 result = a1;
 if ( a1 )
@@ -360,7 +360,7 @@ return result;
 // 1025964: using guessed type int dword_1025964;
 
 //----- (0101D4F6) --------------------------------------------------------
-struct wavehdr_tag *__stdcall FreeWaveBlocks(HWAVEOUT hwo, int a2)
+struct wavehdr_tag *FreeWaveBlocks(HWAVEOUT hwo, int a2)
 {
 signed int v2; // ebx
 LPCVOID *v3; // esi
@@ -389,11 +389,11 @@ return result;
 }
 
 //----- (0101D549) --------------------------------------------------------
-int __stdcall AllocWaveBlocks(HWAVEOUT hwo, int a2)
+int AllocWaveBlocks(HWAVEOUT hwo, int a2)
 {
 signed int v2; // edi
 HGLOBAL v3; // eax
-_DWORD *v4; // eax
+DWORD *v4; // eax
 int v5; // ecx
 signed int v6; // edi
 int i; // edi
@@ -406,7 +406,7 @@ do
 v3 = GlobalAlloc(0x2000u, 0x2B41u);
 v4 = GlobalLock(v3);
 v5 = a2 + 4 * v2;
-*(_DWORD *)v5 = v4;
+*(DWORD *)v5 = v4;
 if ( !v4 )
 {
 if ( dword_1027BE4 )
@@ -421,23 +421,23 @@ v9 = GlobalHandle(*(LPCVOID *)(a2 + 4 * i));
 GlobalUnlock(v9);
 v10 = GlobalHandle(*(LPCVOID *)(a2 + 4 * i));
 GlobalFree(v10);
-*(_DWORD *)(a2 + 4 * i) = 0;
+*(DWORD *)(a2 + 4 * i) = 0;
 }
 return 0;
 }
 *v4 = v4 + 12;
-*(_DWORD *)(*(_DWORD *)v5 + 4) = *(_DWORD *)(hMem + 396);
-*(_DWORD *)(*(_DWORD *)v5 + 16) = 0;
-*(_DWORD *)(*(_DWORD *)v5 + 20) = 0;
-*(_DWORD *)(*(_DWORD *)v5 + 32) = 1;
+*(DWORD *)(*(DWORD *)v5 + 4) = *(DWORD *)(hMem + 396);
+*(DWORD *)(*(DWORD *)v5 + 16) = 0;
+*(DWORD *)(*(DWORD *)v5 + 20) = 0;
+*(DWORD *)(*(DWORD *)v5 + 32) = 1;
 ++v2;
-*(_DWORD *)(*(_DWORD *)v5 + 36) = 0;
+*(DWORD *)(*(DWORD *)v5 + 36) = 0;
 }
 while ( v2 < 10 );
 v6 = 0;
 while ( !waveOutPrepareHeader(hwo, *(LPWAVEHDR *)(a2 + 4 * v6), 0x20u) )
 {
-*(_DWORD *)(*(_DWORD *)(a2 + 4 * v6++) + 16) |= 1u;
+*(DWORD *)(*(DWORD *)(a2 + 4 * v6++) + 16) |= 1u;
 if ( v6 >= 10 )
 return 1;
 }
@@ -449,11 +449,11 @@ return 0;
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (0101D649) --------------------------------------------------------
-_DWORD *__stdcall SwapWaveBlocks()
+DWORD *SwapWaveBlocks()
 {
-_DWORD *result; // eax
+DWORD *result; // eax
 
-result = (_DWORD *)(hMem + 408);
+result = (DWORD *)(hMem + 408);
 if ( *(_UNKNOWN **)(hMem + 408) == &unk_10257E4 )
 *result = &unk_1025770;
 else
@@ -462,22 +462,22 @@ return result;
 }
 
 //----- (0101D66B) --------------------------------------------------------
-_DWORD *__stdcall GetWaveBlock()
+DWORD *GetWaveBlock()
 {
 int v0; // edx
 int v1; // eax
 int v2; // esi
-_DWORD *result; // eax
+DWORD *result; // eax
 int v4; // ecx
 
-v0 = *(_DWORD *)(hMem + 400);
+v0 = *(DWORD *)(hMem + 400);
 v1 = 0;
 if ( v0 > 0 )
 {
-v2 = *(_DWORD *)(hMem + 408);
+v2 = *(DWORD *)(hMem + 408);
 do
 {
-if ( *(_DWORD *)(*(_DWORD *)v2 + 32) )
+if ( *(DWORD *)(*(DWORD *)v2 + 32) )
 break;
 ++v1;
 v2 += 4;
@@ -486,8 +486,8 @@ while ( v1 < v0 );
 }
 if ( v1 >= v0 )
 return 0;
-v4 = *(_DWORD *)(hMem + 396);
-result = *(_DWORD **)(*(_DWORD *)(hMem + 408) + 4 * v1);
+v4 = *(DWORD *)(hMem + 396);
+result = *(DWORD **)(*(DWORD *)(hMem + 408) + 4 * v1);
 result[8] = 0;
 result[1] = v4;
 *result = result + 12;
@@ -497,7 +497,7 @@ return result;
 // 1025798: using guessed type int dword_1025798;
 
 //----- (0101D6C8) --------------------------------------------------------
-struct wavehdr_tag *__stdcall RemoveFromPlayingQueue(struct wavehdr_tag *a1)
+struct wavehdr_tag *RemoveFromPlayingQueue(struct wavehdr_tag *a1)
 {
 struct wavehdr_tag *result; // eax
 LPWAVEHDR v2; // edx
@@ -518,13 +518,13 @@ do
 if ( (struct wavehdr_tag *)v3 == a1 )
 break;
 v2 = (LPWAVEHDR)v3;
-v3 = *(_DWORD *)(v3 + 44);
+v3 = *(DWORD *)(v3 + 44);
 }
 while ( v3 );
 if ( v3 )
 {
 v4 = v3 == dword_1027BF0;
-v2[1].dwUser = *(_DWORD *)(v3 + 44);
+v2[1].dwUser = *(DWORD *)(v3 + 44);
 if ( v4 )
 dword_1027BF0 = (int)v2;
 goto LABEL_12;
@@ -542,7 +542,7 @@ return result;
 // 1027BF0: using guessed type int dword_1027BF0;
 
 //----- (0101D734) --------------------------------------------------------
-LPWAVEHDR __stdcall DestroyPlayQueue()
+LPWAVEHDR DestroyPlayQueue()
 {
 struct wavehdr_tag *v0; // ST00_4
 LPWAVEHDR result; // eax
@@ -560,14 +560,14 @@ return result;
 }
 
 //----- (0101D752) --------------------------------------------------------
-int __stdcall ReleaseWaveDevice(int a1)
+int ReleaseWaveDevice(int a1)
 {
 int result; // eax
 HWND v2; // ST04_4
 
-if ( *(_DWORD *)(a1 + 16) )
+if ( *(DWORD *)(a1 + 16) )
 {
-result = *(_DWORD *)(a1 + 12);
+result = *(DWORD *)(a1 + 12);
 if ( result )
 {
 MyWaveOutReset(*(HWAVEOUT *)(a1 + 12));
@@ -576,16 +576,16 @@ FreeWaveBlocks(*(HWAVEOUT *)(a1 + 12), (int)&unk_10257E4);
 FreeWaveBlocks(*(HWAVEOUT *)(a1 + 12), (int)&unk_1025770);
 waveOutClose(*(HWAVEOUT *)(a1 + 12));
 v2 = *(HWND *)(a1 + 4);
-*(_DWORD *)(a1 + 12) = 0;
+*(DWORD *)(a1 + 12) = 0;
 result = DestroyWindow(v2);
-*(_DWORD *)(a1 + 4) = 0;
+*(DWORD *)(a1 + 4) = 0;
 }
 }
 return result;
 }
 
 //----- (0101D7B1) --------------------------------------------------------
-signed int __stdcall GetWaveDevice()
+signed int GetWaveDevice()
 {
 HWND v0; // eax
 LPARAM v1; // ecx
@@ -593,56 +593,56 @@ MMRESULT v2; // edi
 HWND v4; // ST2C_4
 WAVEFORMATEX pwfx; // [esp+Ch] [ebp-14h]
 
-if ( *(_DWORD *)(hMem + 12) )
+if ( *(DWORD *)(hMem + 12) )
 return 0;
 v0 = CreateWindowExA(0, "WavMix32", WindowName, 0x8000000u, 0, 0, 0, 0, 0, 0, dword_10257E0, 0);
 v1 = hMem;
-*(_DWORD *)(hMem + 4) = v0;
+*(DWORD *)(hMem + 4) = v0;
 if ( !v0 )
 {
 if ( dword_1027BE4 )
 MessageBoxA(0, "Failed to create callback window.", "WavMix32", 0x30u);
 return 1;
 }
-pwfx.wFormatTag = *(_WORD *)(v1 + 380);
-pwfx.nChannels = *(_WORD *)(v1 + 382);
-pwfx.nSamplesPerSec = *(_DWORD *)(v1 + 384);
-pwfx.nAvgBytesPerSec = *(_DWORD *)(v1 + 388);
-pwfx.nBlockAlign = *(_WORD *)(v1 + 392);
-pwfx.wBitsPerSample = *(_WORD *)(v1 + 394);
+pwfx.wFormatTag = *(WORD *)(v1 + 380);
+pwfx.nChannels = *(WORD *)(v1 + 382);
+pwfx.nSamplesPerSec = *(DWORD *)(v1 + 384);
+pwfx.nAvgBytesPerSec = *(DWORD *)(v1 + 388);
+pwfx.nBlockAlign = *(WORD *)(v1 + 392);
+pwfx.wBitsPerSample = *(WORD *)(v1 + 394);
 pwfx.cbSize = 0;
-v2 = waveOutOpen((LPHWAVEOUT)(v1 + 12), 0xFFFFFFFF, &pwfx, *(_DWORD *)(v1 + 4), 0, 0x10000u);
+v2 = waveOutOpen((LPHWAVEOUT)(v1 + 12), 0xFFFFFFFF, &pwfx, *(DWORD *)(v1 + 4), 0, 0x10000u);
 if ( v2 )
 {
 DestroyWindow(*(HWND *)(hMem + 4));
-*(_DWORD *)(hMem + 4) = 0;
+*(DWORD *)(hMem + 4) = 0;
 return v2;
 }
 if ( AllocWaveBlocks(*(HWAVEOUT *)(hMem + 12), (int)&unk_10257E4)
 && AllocWaveBlocks(*(HWAVEOUT *)(hMem + 12), (int)&unk_1025770) )
 {
-*(_DWORD *)(hMem + 408) = &unk_10257E4;
+*(DWORD *)(hMem + 408) = &unk_10257E4;
 return 0;
 }
 FreeWaveBlocks(*(HWAVEOUT *)(hMem + 12), (int)&unk_10257E4);
 FreeWaveBlocks(*(HWAVEOUT *)(hMem + 12), (int)&unk_1025770);
 waveOutClose(*(HWAVEOUT *)(hMem + 12));
 v4 = *(HWND *)(hMem + 4);
-*(_DWORD *)(hMem + 12) = 0;
+*(DWORD *)(hMem + 12) = 0;
 DestroyWindow(v4);
 return 1;
 }
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (0101D918) --------------------------------------------------------
-signed int __stdcall WaveMixOpenChannel(_WORD *a1, signed int a2, unsigned int a3)
+signed int WaveMixOpenChannel(WORD *a1, signed int a2, unsigned int a3)
 {
-_WORD *v3; // eax
+WORD *v3; // eax
 signed int v4; // ecx
 int v6; // ecx
-_DWORD *v7; // edx
+DWORD *v7; // edx
 int v8; // ecx
-_DWORD *v9; // edx
+DWORD *v9; // edx
 
 v3 = SessionToGlobalDataPtr(a1);
 hMem = (LPARAM)v3;
@@ -680,9 +680,9 @@ do
 if ( *v7 == -1 )
 {
 *v7 = 0;
-*((_WORD *)v7 - 32) = v3[88];
-*((_WORD *)v7 - 31) = v3[89];
-++*((_DWORD *)v3 + 77);
+*((WORD *)v7 - 32) = v3[88];
+*((WORD *)v7 - 31) = v3[89];
+++*((DWORD *)v3 + 77);
 }
 --v7;
 --v8;
@@ -698,13 +698,13 @@ return 4;
 *v9 = 0;
 v3[2 * a2 + 90] = v3[88];
 v3[2 * a2 + 91] = v3[89];
-++*((_DWORD *)v3 + 77);
+++*((DWORD *)v3 + 77);
 }
 return 0;
 }
 
 //----- (0101D9E7) --------------------------------------------------------
-LPWAVEHDR __stdcall AddToPlayingQueue(struct wavehdr_tag *a1)
+LPWAVEHDR AddToPlayingQueue(struct wavehdr_tag *a1)
 {
 LPWAVEHDR result; // eax
 
@@ -712,7 +712,7 @@ result = pwh;
 a1[1].dwUser = 0;
 if ( result )
 {
-*(_DWORD *)(dword_1027BF0 + 44) = a1;
+*(DWORD *)(dword_1027BF0 + 44) = a1;
 }
 else
 {
@@ -725,13 +725,13 @@ return result;
 // 1027BF0: using guessed type int dword_1027BF0;
 
 //----- (0101DA1D) --------------------------------------------------------
-int __stdcall MixerPlay(LPWAVEHDR pwh, int a2)
+int MixerPlay(LPWAVEHDR pwh, int a2)
 {
 LPWAVEHDR v2; // edi
 LPARAM v4; // esi
-_DWORD *v5; // ecx
+DWORD *v5; // ecx
 signed int v6; // ebx
-_DWORD *v7; // eax
+DWORD *v7; // eax
 int v8; // edx
 unsigned int v9; // ebx
 int v10; // eax
@@ -763,18 +763,18 @@ return 0;
 v30 = -1;
 v31 = 0;
 v4 = hMem;
-v5 = (_DWORD *)(hMem + 244);
+v5 = (DWORD *)(hMem + 244);
 v6 = 16;
 do
 {
-v7 = (_DWORD *)*v5;
+v7 = (DWORD *)*v5;
 if ( *v5 != -1 && v7 )
 {
 do
 {
-if ( v7[11] > *(_DWORD *)(v4 + 412) )
+if ( v7[11] > *(DWORD *)(v4 + 412) )
 break;
-v7 = (_DWORD *)*v7;
+v7 = (DWORD *)*v7;
 }
 while ( v7 );
 if ( v7 )
@@ -795,32 +795,32 @@ if ( a2 )
 pwh[1].lpData = (LPSTR)1;
 return 0;
 }
-v9 = *(_DWORD *)(v4 + 412);
+v9 = *(DWORD *)(v4 + 412);
 v28 = pwh->lpData;
-LOWORD(v10) = *(_WORD *)(v4 + 396);
-v25 = *(_DWORD *)(v4 + 412);
-v27 = *(unsigned __int16 *)(v4 + 396);
-while ( (_WORD)v10 )
+LOWORD(v10) = *(WORD *)(v4 + 396);
+v25 = *(DWORD *)(v4 + 412);
+v27 = *(unsigned int *)(v4 + 396);
+while ( (WORD)v10 )
 {
 if ( v9 >= v30 )
 {
 v26 = 0;
 v29 = 0;
-v11 = v9 + (unsigned __int16)v10;
+v11 = v9 + (unsigned int)v10;
 if ( !v31 )
 goto LABEL_47;
 do
 {
 v12 = dword_1025730[v26];
-v13 = *(_DWORD *)(v12 + 40);
+v13 = *(DWORD *)(v12 + 40);
 if ( v13 <= v9 )
 {
-if ( *(_DWORD *)(v12 + 44) < v11 )
-v11 = *(_DWORD *)(v12 + 44);
+if ( *(DWORD *)(v12 + 44) < v11 )
+v11 = *(DWORD *)(v12 + 44);
 v14 = v9 - v13;
-if ( *(_WORD *)(v12 + 26) )
+if ( *(WORD *)(v12 + 26) )
 {
-v15 = *(_DWORD *)(v12 + 36);
+v15 = *(DWORD *)(v12 + 36);
 v14 %= v15;
 v16 = v15 - v14;
 v9 = v25;
@@ -828,15 +828,15 @@ v17 = v25 + v16;
 if ( v17 < v11 )
 v11 = v17;
 }
-v18 = v14 + *(_DWORD *)(v12 + 48);
+v18 = v14 + *(DWORD *)(v12 + 48);
 v19 = v29++;
 dword_10257A0[v19] = v18;
-word_1025810[2 * v19] = *(_WORD *)(v12 + 56);
-word_1025812[2 * v19] = *(_WORD *)(v12 + 58);
+word_1025810[2 * v19] = *(WORD *)(v12 + 56);
+word_1025812[2 * v19] = *(WORD *)(v12 + 58);
 }
 else if ( v13 < v11 )
 {
-v11 = *(_DWORD *)(v12 + 40);
+v11 = *(DWORD *)(v12 + 40);
 }
 ++v26;
 }
@@ -844,7 +844,7 @@ while ( v26 < v31 );
 if ( v29 )
 {
 v20 = v11 - v9;
-(*(void (__stdcall **)(LPSTR, int *, __int16 *, int, unsigned int))(v4 + 428))(
+(*(void (**)(LPSTR, int *, int *, int, unsigned int))(v4 + 428))(
 v28,
 dword_10257A0,
 word_1025810,
@@ -863,16 +863,16 @@ if ( !*v22 )
 goto LABEL_57;
 do
 {
-if ( *(_DWORD *)(*v22 + 44) > v9 )
+if ( *(DWORD *)(*v22 + 44) > v9 )
 break;
-v23 = *(_DWORD *)*v22;
+v23 = *(DWORD *)*v22;
 *v22 = v23;
 }
 while ( v23 );
 if ( *v22 )
 {
-if ( *(_DWORD *)(*v22 + 40) < v30 )
-v30 = *(_DWORD *)(*v22 + 40);
+if ( *(DWORD *)(*v22 + 40) < v30 )
+v30 = *(DWORD *)(*v22 + 40);
 ++v21;
 ++v22;
 }
@@ -891,10 +891,10 @@ v4 = hMem;
 }
 else
 {
-v10 = (unsigned __int16)v10;
-if ( (unsigned __int16)v10 + v9 >= v30 )
+v10 = (unsigned int)v10;
+if ( (unsigned int)v10 + v9 >= v30 )
 v10 = v30 - v9;
-memset(v28, 0x80u, (unsigned __int16)v10);
+memset(v28, 0x80u, (unsigned int)v10);
 v28 += v10;
 v9 += v10;
 v27 -= v10;
@@ -904,8 +904,8 @@ v2 = pwh;
 LABEL_47:
 LOWORD(v10) = v27;
 }
-v2[1].dwBufferLength = *(_DWORD *)(v4 + 412);
-*(_DWORD *)(v4 + 412) += *(_DWORD *)(v4 + 396);
+v2[1].dwBufferLength = *(DWORD *)(v4 + 412);
+*(DWORD *)(v4 + 412) += *(DWORD *)(v4 + 396);
 if ( a2 )
 {
 AddToPlayingQueue(v2);
@@ -919,37 +919,37 @@ RemoveFromPlayingQueue(v2);
 }
 return 1;
 }
-// 1025810: using guessed type __int16 word_1025810[];
+// 1025810: using guessed type int word_1025810[];
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (0101DC8C) --------------------------------------------------------
-DWORD __stdcall FreePlayedBlocks()
+DWORD FreePlayedBlocks()
 {
 DWORD result; // eax
 LPARAM v1; // esi
 signed int v2; // ebx
-_DWORD *v3; // edi
+DWORD *v3; // edi
 HWND v4; // eax
 signed int v5; // edi
 DWORD v6; // [esp+Ch] [ebp-8h]
 WPARAM wParam; // [esp+10h] [ebp-4h]
 
-result = MyWaveOutGetPosition(*(HWAVEOUT *)(hMem + 12), *(_DWORD *)(hMem + 420));
+result = MyWaveOutGetPosition(*(HWAVEOUT *)(hMem + 12), *(DWORD *)(hMem + 420));
 wParam = 0;
 v1 = hMem;
 v6 = result;
 v2 = 244;
 do
 {
-v3 = *(_DWORD **)(v2 + v1);
-if ( v3 && v3 != (_DWORD *)-1 )
+v3 = *(DWORD **)(v2 + v1);
+if ( v3 && v3 != (DWORD *)-1 )
 {
 do
 {
 result = v6;
 if ( v6 < v3[11] )
 break;
-*(_DWORD *)(v2 + v1) = *v3;
+*(DWORD *)(v2 + v1) = *v3;
 v4 = *(HWND *)((char *)v3 + 18);
 if ( v4 )
 {
@@ -957,7 +957,7 @@ PostMessageA(v4, 0x3BDu, wParam, v3[8]);
 v1 = hMem;
 }
 result = (DWORD)FreeChannelNode(v3);
-v3 = *(_DWORD **)(v2 + v1);
+v3 = *(DWORD **)(v2 + v1);
 }
 while ( v3 );
 }
@@ -965,12 +965,12 @@ while ( v3 );
 v2 += 4;
 }
 while ( v2 < 308 );
-if ( !*(_DWORD *)(v1 + 420) && !pwh )
+if ( !*(DWORD *)(v1 + 420) && !pwh )
 {
 v5 = 244;
 do
 {
-result = *(_DWORD *)(v5 + v1);
+result = *(DWORD *)(v5 + v1);
 if ( result )
 {
 if ( result != -1 )
@@ -987,7 +987,7 @@ return result;
 }
 
 //----- (0101DD5D) --------------------------------------------------------
-int __stdcall WaveMixPump()
+int WaveMixPump()
 {
 int result; // eax
 LPWAVEHDR i; // esi
@@ -1020,7 +1020,7 @@ return result;
 // 1025798: using guessed type int dword_1025798;
 
 //----- (0101DDAD) --------------------------------------------------------
-LRESULT __stdcall WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
+LRESULT WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
 if ( Msg != 957 && Msg != 1024 )
 return DefWindowProcA(hWnd, Msg, wParam, lParam);
@@ -1029,14 +1029,14 @@ return 0;
 }
 
 //----- (0101DDD8) --------------------------------------------------------
-signed int __stdcall NoResetRemix(int a1, int a2)
+signed int NoResetRemix(int a1, int a2)
 {
 WaveMixPump();
 return 1;
 }
 
 //----- (0101DDE8) --------------------------------------------------------
-signed int __stdcall ResetRemix(int a1, int a2)
+signed int ResetRemix(int a1, int a2)
 {
 struct wavehdr_tag *v2; // eax
 struct wavehdr_tag *v3; // esi
@@ -1050,7 +1050,7 @@ int v11; // [esp+10h] [ebp-4h]
 
 v10 = 0;
 v11 = 0;
-*(_DWORD *)(hMem + 412) = a1;
+*(DWORD *)(hMem + 412) = a1;
 DestroyPlayQueue();
 SwapWaveBlocks();
 while ( 1 )
@@ -1066,12 +1066,12 @@ break;
 }
 AddToPlayingQueue(v3);
 }
-v4 = *(_DWORD *)(hMem + 412);
+v4 = *(DWORD *)(hMem + 412);
 MyWaveOutReset(*(HWAVEOUT *)(hMem + 12));
 v5 = hMem;
-v6 = *(_DWORD *)(hMem + 404) == 0;
-v7 = *(_DWORD *)(hMem + 404) < 0;
-*(_DWORD *)(hMem + 412) = v4;
+v6 = *(DWORD *)(hMem + 404) == 0;
+v7 = *(DWORD *)(hMem + 404) < 0;
+*(DWORD *)(hMem + 412) = v4;
 if ( !v7 && !v6 )
 {
 waveOutPause(*(HWAVEOUT *)(v5 + 12));
@@ -1091,7 +1091,7 @@ RemoveFromPlayingQueue(i);
 v5 = hMem;
 if ( v10 )
 {
-if ( ++v11 >= *(_DWORD *)(hMem + 404) )
+if ( ++v11 >= *(DWORD *)(hMem + 404) )
 {
 waveOutRestart(*(HWAVEOUT *)(hMem + 12));
 v5 = hMem;
@@ -1106,15 +1106,15 @@ return 1;
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (0101DF07) --------------------------------------------------------
-void __stdcall ResetWavePosIfNoChannelData()
+void ResetWavePosIfNoChannelData()
 {
 signed int v0; // edx
-_DWORD *v1; // eax
+DWORD *v1; // eax
 
 if ( !pwh )
 {
 v0 = 0;
-v1 = (_DWORD *)(hMem + 244);
+v1 = (DWORD *)(hMem + 244);
 while ( !*v1 || *v1 == -1 )
 {
 ++v0;
@@ -1129,36 +1129,36 @@ return;
 }
 
 //----- (0101DF3D) --------------------------------------------------------
-signed int __stdcall WaveMixPlay(int a1)
+signed int WaveMixPlay(int a1)
 {
-_WORD *v1; // ebx
+WORD *v1; // ebx
 const void *v2; // edi
 int v3; // eax
 signed int v4; // edx
 signed int v5; // ecx
-_DWORD *v6; // eax
+DWORD *v6; // eax
 bool v7; // zf
 int v8; // eax
 int v9; // edx
 int v10; // ecx
 int v11; // ecx
 int v12; // esi
-_DWORD **v13; // ebx
+DWORD **v13; // ebx
 LPARAM v14; // esi
 DWORD v15; // eax
-_DWORD *v16; // eax
-_DWORD *v17; // edi
+DWORD *v16; // eax
+DWORD *v17; // edi
 int v18; // ecx
 int v19; // eax
-__int16 v20; // bx
-_DWORD **v21; // ebx
-_DWORD *i; // eax
-_DWORD *v23; // ST24_4
+int v20; // bx
+DWORD **v21; // ebx
+DWORD *i; // eax
+DWORD *v23; // ST24_4
 DWORD v24; // eax
-_DWORD *v25; // ecx
-_DWORD *v26; // eax
+DWORD *v25; // ecx
+DWORD *v26; // eax
 DWORD v27; // eax
-unsigned __int16 v28; // ax
+unsigned int v28; // ax
 int v29; // ebx
 signed int v30; // edi
 struct wavehdr_tag *v31; // eax
@@ -1181,7 +1181,7 @@ MessageBoxA(0, "NULL parameters pointer passed to WaveMixPlay!", "WavMix32", 0x3
 v37 = 5;
 goto LABEL_97;
 }
-v1 = SessionToGlobalDataPtr(*(_WORD **)(a1 + 2));
+v1 = SessionToGlobalDataPtr(*(WORD **)(a1 + 2));
 hMem = (LPARAM)v1;
 if ( !v1 )
 {
@@ -1197,7 +1197,7 @@ MessageBoxA(0, v35, "WavMix32", 0x30u);
 goto LABEL_10;
 }
 v2 = *(const void **)(a1 + 10);
-if ( !IsValidLPMIXWAVE(*(_DWORD *)(a1 + 10)) )
+if ( !IsValidLPMIXWAVE(*(DWORD *)(a1 + 10)) )
 {
 if ( dword_1027BE4 )
 MessageBoxA(0, "Invalid or NULL wave pointer passed to WaveMixPlay!", "WavMix32", 0x30u);
@@ -1215,9 +1215,9 @@ MessageBoxA(0, aWavemixV23ByAn, "WavMix32", 0x30u);
 v37 = 8;
 goto LABEL_97;
 }
-if ( *((_DWORD *)v1 + 4) )
+if ( *((DWORD *)v1 + 4) )
 {
-if ( !*((_DWORD *)v1 + 77) )
+if ( !*((DWORD *)v1 + 77) )
 {
 if ( !dword_1027BE4 )
 goto LABEL_10;
@@ -1233,98 +1233,98 @@ do
 {
 if ( *(v6 - 17) != -1 )
 {
-if ( !*(_DWORD *)&v1[2 * v4 + 122] )
+if ( !*(DWORD *)&v1[2 * v4 + 122] )
 break;
-if ( v5 != v4 && *v6 < *(_DWORD *)&v1[2 * v4 + 156] )
+if ( v5 != v4 && *v6 < *(DWORD *)&v1[2 * v4 + 156] )
 v4 = v5;
 }
 ++v5;
 ++v6;
 }
 while ( v5 < 16 );
-*(_DWORD *)(a1 + 6) = v4;
+*(DWORD *)(a1 + 6) = v4;
 }
 else
 {
-v4 = *(_DWORD *)(a1 + 6);
+v4 = *(DWORD *)(a1 + 6);
 }
-++*((_DWORD *)v1 + 94);
-v7 = *(_DWORD *)&v1[2 * v4 + 122] == -1;
-*(_DWORD *)&v1[2 * v4 + 156] = *((_DWORD *)v1 + 94);
+++*((DWORD *)v1 + 94);
+v7 = *(DWORD *)&v1[2 * v4 + 122] == -1;
+*(DWORD *)&v1[2 * v4 + 156] = *((DWORD *)v1 + 94);
 if ( v7 )
 goto LABEL_10;
 v8 = GetChannelNode();
 if ( !v8 )
 goto LABEL_97;
 qmemcpy((void *)(v8 + 4), (const void *)a1, 0x1Cu);
-v10 = *(_DWORD *)(v8 + 14);
-*(_DWORD *)(v8 + 32) = v10;
-*(_DWORD *)(v8 + 36) = *(_DWORD *)(v10 + 20);
-v11 = *(_DWORD *)(v10 + 16);
-*(_DWORD *)(v8 + 48) = v11;
-v12 = (unsigned __int16)v1[196];
-v13 = (_DWORD **)(v1 + 220);
-*(_DWORD *)(v8 + 52) = *(_DWORD *)(v8 + 36) + v11 - v12;
-*(_DWORD *)(v8 + 10) = v9;
+v10 = *(DWORD *)(v8 + 14);
+*(DWORD *)(v8 + 32) = v10;
+*(DWORD *)(v8 + 36) = *(DWORD *)(v10 + 20);
+v11 = *(DWORD *)(v10 + 16);
+*(DWORD *)(v8 + 48) = v11;
+v12 = (unsigned int)v1[196];
+v13 = (DWORD **)(v1 + 220);
+*(DWORD *)(v8 + 52) = *(DWORD *)(v8 + 36) + v11 - v12;
+*(DWORD *)(v8 + 10) = v9;
 if ( *v13 )
 {
-*(_DWORD *)v8 = **v13;
+*(DWORD *)v8 = **v13;
 **v13 = v8;
-*v13 = (_DWORD *)v8;
+*v13 = (DWORD *)v8;
 }
 else
 {
-*v13 = (_DWORD *)v8;
-*(_DWORD *)v8 = v8;
+*v13 = (DWORD *)v8;
+*(DWORD *)v8 = v8;
 }
 if ( !(*(_BYTE *)(v8 + 22) & 8) )
 {
 ResetWavePosIfNoChannelData();
 v14 = hMem;
-if ( *(signed int (__stdcall **)(int, int))(hMem + 432) == ResetRemix )
+if ( *(signed int (**)(int, int))(hMem + 432) == ResetRemix )
 {
-v15 = MyWaveOutGetPosition(*(HWAVEOUT *)(hMem + 12), *(_DWORD *)(hMem + 420));
+v15 = MyWaveOutGetPosition(*(HWAVEOUT *)(hMem + 12), *(DWORD *)(hMem + 420));
 v14 = hMem;
 }
 else
 {
-v15 = *(_DWORD *)(hMem + 412);
+v15 = *(DWORD *)(hMem + 412);
 }
 v38 = v15;
-if ( !*(_DWORD *)(v14 + 440) )
+if ( !*(DWORD *)(v14 + 440) )
 goto LABEL_84;
 do
 {
-v16 = *(_DWORD **)(v14 + 440);
-v17 = (_DWORD *)*v16;
-if ( (_DWORD *)*v16 == v16 )
-*(_DWORD *)(v14 + 440) = 0;
+v16 = *(DWORD **)(v14 + 440);
+v17 = (DWORD *)*v16;
+if ( (DWORD *)*v16 == v16 )
+*(DWORD *)(v14 + 440) = 0;
 else
 *v16 = *v17;
-v18 = *(_DWORD *)((char *)v17 + 22);
-v19 = *(_DWORD *)((char *)v17 + 10);
+v18 = *(DWORD *)((char *)v17 + 22);
+v19 = *(DWORD *)((char *)v17 + 10);
 *v17 = 0;
 if ( v18 & 0x10 )
 {
-*((_WORD *)v17 + 28) = *((_WORD *)v17 + 14);
-v20 = *((_WORD *)v17 + 15);
+*((WORD *)v17 + 28) = *((WORD *)v17 + 14);
+v20 = *((WORD *)v17 + 15);
 }
 else
 {
-*((_WORD *)v17 + 28) = *(_WORD *)(v14 + 4 * v19 + 180);
-v20 = *(_WORD *)(v14 + 4 * v19 + 182);
+*((WORD *)v17 + 28) = *(WORD *)(v14 + 4 * v19 + 180);
+v20 = *(WORD *)(v14 + 4 * v19 + 182);
 }
-*((_WORD *)v17 + 29) = v20;
-if ( *((_WORD *)v17 + 28) > 0xAu )
-*((_WORD *)v17 + 28) = 10;
-if ( *((_WORD *)v17 + 29) > 0xAu )
-*((_WORD *)v17 + 29) = 10;
+*((WORD *)v17 + 29) = v20;
+if ( *((WORD *)v17 + 28) > 0xAu )
+*((WORD *)v17 + 28) = 10;
+if ( *((WORD *)v17 + 29) > 0xAu )
+*((WORD *)v17 + 29) = 10;
 if ( v18 & 1 )
 {
-v21 = (_DWORD **)(v14 + 4 * v19 + 244);
+v21 = (DWORD **)(v14 + 4 * v19 + 244);
 for ( i = *v21; i; i = v23 )
 {
-v23 = (_DWORD *)*i;
+v23 = (DWORD *)*i;
 FreeChannelNode(i);
 }
 v7 = pwh == 0;
@@ -1334,17 +1334,17 @@ v36 = 1;
 if ( *((_BYTE *)v17 + 22) & 4 )
 v24 = v38;
 else
-v24 = *(_DWORD *)(v14 + 412);
+v24 = *(DWORD *)(v14 + 412);
 v17[10] = v24;
 }
 else
 {
-v25 = (_DWORD *)(v14 + 4 * v19 + 244);
-v26 = (_DWORD *)*v25;
+v25 = (DWORD *)(v14 + 4 * v19 + 244);
+v26 = (DWORD *)*v25;
 if ( *v25 )
 {
 while ( *v26 )
-v26 = (_DWORD *)*v26;
+v26 = (DWORD *)*v26;
 *v26 = v17;
 v27 = v26[11];
 if ( *((_BYTE *)v17 + 22) & 4 )
@@ -1352,9 +1352,9 @@ if ( *((_BYTE *)v17 + 22) & 4 )
 if ( v27 <= v38 )
 v27 = v38;
 }
-else if ( *(_DWORD *)(v14 + 412) > v27 )
+else if ( *(DWORD *)(v14 + 412) > v27 )
 {
-v27 = *(_DWORD *)(v14 + 412);
+v27 = *(DWORD *)(v14 + 412);
 }
 }
 else
@@ -1362,27 +1362,27 @@ else
 v27 = v38;
 *v25 = v17;
 if ( !(*((_BYTE *)v17 + 22) & 4) )
-v27 = *(_DWORD *)(v14 + 412);
+v27 = *(DWORD *)(v14 + 412);
 }
 v17[10] = v27;
-if ( *(_DWORD *)(v14 + 412) > v17[10] )
+if ( *(DWORD *)(v14 + 412) > v17[10] )
 v36 = 1;
 }
-v28 = *((_WORD *)v17 + 13);
+v28 = *((WORD *)v17 + 13);
 if ( v28 == -1 )
 v17[11] = -1;
 else
-v17[11] = v17[10] + v17[9] * (v28 + 1) - *(unsigned __int16 *)(v14 + 392);
+v17[11] = v17[10] + v17[9] * (v28 + 1) - *(unsigned int *)(v14 + 392);
 }
-while ( *(_DWORD *)(v14 + 440) );
+while ( *(DWORD *)(v14 + 440) );
 if ( !v36 )
 goto LABEL_84;
-if ( !(*(int (__stdcall **)(DWORD, _DWORD))(v14 + 432))(v38, 0) )
+if ( !(*(int (**)(DWORD, DWORD))(v14 + 432))(v38, 0) )
 {
 v14 = hMem;
 LABEL_84:
 v29 = 0;
-if ( pwh || *(_DWORD *)(v14 + 404) <= 0 )
+if ( pwh || *(DWORD *)(v14 + 404) <= 0 )
 {
 v30 = 0;
 }
@@ -1396,7 +1396,7 @@ for ( j = MixerPlay(v31, 1); j; j = MixerPlay(v33, 1) )
 {
 if ( v30 )
 {
-if ( ++v29 >= *(_DWORD *)(hMem + 404) )
+if ( ++v29 >= *(DWORD *)(hMem + 404) )
 {
 waveOutRestart(*(HWAVEOUT *)(hMem + 12));
 v30 = 0;
@@ -1424,15 +1424,15 @@ return v37;
 // 1027BF8: using guessed type int dword_1027BF8;
 
 //----- (0101E373) --------------------------------------------------------
-signed int __stdcall WaveMixFlushChannel(_WORD *a1, signed int a2, char a3)
+signed int WaveMixFlushChannel(WORD *a1, signed int a2, char a3)
 {
-_DWORD *v3; // ebx
-_WORD *v4; // eax
-_WORD *v5; // esi
+DWORD *v3; // ebx
+WORD *v4; // eax
+WORD *v5; // esi
 signed int v6; // ecx
 int v7; // eax
-_DWORD **v8; // edi
-_DWORD *v9; // eax
+DWORD **v8; // edi
+DWORD *v9; // eax
 DWORD v10; // eax
 signed int v13; // [esp+8h] [ebp-4h]
 int v14; // [esp+14h] [ebp+8h]
@@ -1453,18 +1453,18 @@ goto LABEL_9;
 v6 = a2;
 if ( a2 < 0 || a2 >= 16 )
 return 11;
-if ( *(_DWORD *)&v4[2 * a2 + 122] != -1 )
+if ( *(DWORD *)&v4[2 * a2 + 122] != -1 )
 {
 v7 = a2 + 1;
 if ( !(__OFSUB__(a2, a2 + 1) ^ 1) )
 return 0;
 LABEL_9:
-v8 = (_DWORD **)&v5[2 * v6 + 122];
+v8 = (DWORD **)&v5[2 * v6 + 122];
 v14 = v7 - v6;
 do
 {
 v9 = *v8;
-if ( *v8 != (_DWORD *)-1 )
+if ( *v8 != (DWORD *)-1 )
 {
 *v8 = v3;
 if ( v9 != v3 )
@@ -1472,7 +1472,7 @@ if ( v9 != v3 )
 v13 = 1;
 do
 {
-v3 = (_DWORD *)*v9;
+v3 = (DWORD *)*v9;
 FreeChannelNode(v9);
 v9 = v3;
 }
@@ -1483,10 +1483,10 @@ while ( v3 );
 --v14;
 }
 while ( v14 );
-if ( (_DWORD *)v13 != v3 && !(a3 & 2) && *((_DWORD **)v5 + 4) != v3 )
+if ( (DWORD *)v13 != v3 && !(a3 & 2) && *((DWORD **)v5 + 4) != v3 )
 {
-v10 = MyWaveOutGetPosition(*((HWAVEOUT *)v5 + 3), *((_DWORD *)v5 + 105));
-(*((void (__stdcall **)(DWORD, _DWORD *))v5 + 108))(v10, v3);
+v10 = MyWaveOutGetPosition(*((HWAVEOUT *)v5 + 3), *((DWORD *)v5 + 105));
+(*((void (**)(DWORD, DWORD *))v5 + 108))(v10, v3);
 }
 return 0;
 }
@@ -1495,13 +1495,13 @@ return 5;
 }
 
 //----- (0101E434) --------------------------------------------------------
-signed int __stdcall WaveMixCloseChannel(_WORD *a1, signed int a2, char a3)
+signed int WaveMixCloseChannel(WORD *a1, signed int a2, char a3)
 {
 signed int result; // eax
 signed int v4; // esi
 int v5; // ecx
 LPARAM v6; // eax
-_DWORD *v7; // edx
+DWORD *v7; // edx
 int v8; // ecx
 
 hMem = (LPARAM)SessionToGlobalDataPtr(a1);
@@ -1523,14 +1523,14 @@ if ( !(__OFSUB__(a2, a2 + 1) ^ 1) )
 return 0;
 }
 v6 = hMem;
-v7 = (_DWORD *)(hMem + 4 * v4 + 244);
+v7 = (DWORD *)(hMem + 4 * v4 + 244);
 v8 = v5 - v4;
 do
 {
 if ( *v7 != -1 )
 {
 *v7 = -1;
---*(_DWORD *)(v6 + 308);
+--*(DWORD *)(v6 + 308);
 }
 ++v7;
 --v8;
@@ -1542,31 +1542,31 @@ return result;
 }
 
 //----- (0101E4A9) --------------------------------------------------------
-int __stdcall WaveMixFreeWave(int a1, LPCVOID pMem)
+int WaveMixFreeWave(int a1, LPCVOID pMem)
 {
-_WORD *v2; // ebx
+WORD *v2; // ebx
 LPCVOID *v4; // edi
-_DWORD **v5; // ebx
-_DWORD *v6; // esi
+DWORD **v5; // ebx
+DWORD *v6; // esi
 HGLOBAL v7; // eax
 HGLOBAL v8; // eax
 HGLOBAL v9; // eax
 HGLOBAL v10; // eax
-_DWORD *v11; // [esp+Ch] [ebp+8h]
+DWORD *v11; // [esp+Ch] [ebp+8h]
 char *pMema; // [esp+10h] [ebp+Ch]
 
-v2 = SessionToGlobalDataPtr((_WORD *)a1);
+v2 = SessionToGlobalDataPtr((WORD *)a1);
 if ( !v2 )
 return 5;
 v4 = (LPCVOID *)pMem;
 if ( !IsValidLPMIXWAVE((int)pMem) )
 return 5;
-v5 = (_DWORD **)(v2 + 122);
+v5 = (DWORD **)(v2 + 122);
 pMema = (char *)16;
 do
 {
 v6 = *v5;
-if ( *v5 != (_DWORD *)-1 )
+if ( *v5 != (DWORD *)-1 )
 {
 v11 = 0;
 while ( v6 )
@@ -1577,11 +1577,11 @@ if ( v11 )
 {
 *v11 = *v6;
 FreeChannelNode(v6);
-v6 = (_DWORD *)*v11;
+v6 = (DWORD *)*v11;
 }
 else
 {
-v6 = (_DWORD *)*v6;
+v6 = (DWORD *)*v6;
 FreeChannelNode(*v5);
 *v5 = v6;
 }
@@ -1589,7 +1589,7 @@ FreeChannelNode(*v5);
 else
 {
 v11 = v6;
-v6 = (_DWORD *)*v6;
+v6 = (DWORD *)*v6;
 }
 }
 }
@@ -1604,7 +1604,7 @@ GlobalUnlock(v7);
 v8 = GlobalHandle(v4[4]);
 GlobalFree(v8);
 }
-*((_WORD *)v4 + 32) = 0;
+*((WORD *)v4 + 32) = 0;
 v9 = GlobalHandle(v4);
 GlobalUnlock(v9);
 v10 = GlobalHandle(v4);
@@ -1613,37 +1613,37 @@ return 0;
 }
 
 //----- (0101E579) --------------------------------------------------------
-_WORD *__userpurge BitsPerSampleAlign@<eax>(int a1@<eax>, LPCVOID pMem, int a3, __int16 a4, int a5)
+WORD *BitsPerSampleAlign(int a1, LPCVOID pMem, int a3, int a4, int a5)
 {
-_WORD *v6; // edi
+WORD *v6; // edi
 int v7; // edi
 unsigned int v8; // esi
 SIZE_T v9; // eax
 HGLOBAL v10; // eax
-_WORD *v11; // eax
-_WORD *v12; // ecx
-_WORD *v13; // ebx
+WORD *v11; // eax
+WORD *v12; // ecx
+WORD *v13; // ebx
 _BYTE *v14; // edi
 char *i; // edx
 HGLOBAL v16; // eax
 HGLOBAL v17; // eax
 int v18; // [esp+Ch] [ebp+Ch]
 
-if ( (_WORD)a3 == a4 )
+if ( (WORD)a3 == a4 )
 return pMem;
-if ( ((_WORD)a3 == 8 || (_WORD)a3 == 16) && (a4 == 8 || a4 == 16) )
+if ( ((WORD)a3 == 8 || (WORD)a3 == 16) && (a4 == 8 || a4 == 16) )
 {
-LOWORD(a1) = (unsigned __int16)a3 >> 3;
+LOWORD(a1) = (unsigned int)a3 >> 3;
 v7 = a1;
-v8 = *(_DWORD *)a5 / (unsigned int)((unsigned __int16)a3 >> 3);
-v9 = v8 * ((unsigned __int16)a4 >> 3);
-*(_DWORD *)a5 = v9;
+v8 = *(DWORD *)a5 / (unsigned int)((unsigned int)a3 >> 3);
+v9 = v8 * ((unsigned int)a4 >> 3);
+*(DWORD *)a5 = v9;
 v10 = GlobalAlloc(0x2002u, v9);
 v11 = GlobalLock(v10);
 v12 = v11;
 if ( v11 )
 {
-if ( (unsigned __int16)v7 <= (unsigned __int16)((unsigned __int16)a4 >> 3) )
+if ( (unsigned int)v7 <= (unsigned int)((unsigned int)a4 >> 3) )
 {
 for ( i = (char *)pMem; v8; --v8 )
 {
@@ -1696,7 +1696,7 @@ return v6;
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (0101E686) --------------------------------------------------------
-_BYTE *__stdcall ChannelAlign(LPCVOID pMem, __int16 a2, __int16 a3, __int16 a4, int a5)
+_BYTE *ChannelAlign(LPCVOID pMem, int a2, int a3, int a4, int a5)
 {
 unsigned int v6; // edi
 SIZE_T v7; // eax
@@ -1705,23 +1705,23 @@ _BYTE *v9; // eax
 _BYTE *v10; // ebx
 unsigned __int8 *v11; // ecx
 _BYTE *v12; // eax
-_WORD *v13; // eax
-_WORD *v14; // esi
+WORD *v13; // eax
+WORD *v14; // esi
 HGLOBAL v15; // eax
 HGLOBAL v16; // eax
 
 if ( a2 == a3 )
 return pMem;
-v6 = *(_DWORD *)a5 / (unsigned int)(unsigned __int16)a4 / (unsigned __int16)a2;
-v7 = v6 * (unsigned __int16)a4 * (unsigned __int16)a3;
-*(_DWORD *)a5 = v7;
+v6 = *(DWORD *)a5 / (unsigned int)(unsigned int)a4 / (unsigned int)a2;
+v7 = v6 * (unsigned int)a4 * (unsigned int)a3;
+*(DWORD *)a5 = v7;
 v8 = GlobalAlloc(0x2002u, v7);
 v9 = GlobalLock(v8);
 v10 = v9;
 if ( v9 )
 {
 v11 = (unsigned __int8 *)pMem;
-if ( (unsigned __int16)a2 >= (unsigned __int16)a3 )
+if ( (unsigned int)a2 >= (unsigned int)a3 )
 {
 v14 = v9;
 if ( a4 == 1 )
@@ -1729,7 +1729,7 @@ if ( a4 == 1 )
 for ( ; v6; --v6 )
 {
 *(_BYTE *)v14 = (*v11 + v11[1]) / 2;
-v14 = (_WORD *)((char *)v14 + 1);
+v14 = (WORD *)((char *)v14 + 1);
 v11 += 2;
 }
 }
@@ -1737,7 +1737,7 @@ else
 {
 for ( ; v6; --v6 )
 {
-*v14 = (*(signed __int16 *)v11 + *((signed __int16 *)v11 + 1)) / 2;
+*v14 = (*(signed int *)v11 + *((signed int *)v11 + 1)) / 2;
 ++v14;
 v11 += 4;
 }
@@ -1758,9 +1758,9 @@ else
 {
 for ( ; v6; --v6 )
 {
-*(_WORD *)v9 = *(_WORD *)v11;
+*(WORD *)v9 = *(WORD *)v11;
 v13 = v9 + 2;
-*v13 = *(_WORD *)v11;
+*v13 = *(WORD *)v11;
 v9 = v13 + 1;
 v11 += 2;
 }
@@ -1785,7 +1785,7 @@ return v10;
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (0101E7B0) --------------------------------------------------------
-void __stdcall AvgSample(_WORD *a1, unsigned __int8 *a2, int a3, int a4, int a5)
+void AvgSample(WORD *a1, unsigned __int8 *a2, int a3, int a4, int a5)
 {
 int v5; // edi
 _BYTE *v6; // esi
@@ -1794,8 +1794,8 @@ int v8; // eax
 int v9; // edx
 int v10; // ebx
 int v11; // edx
-signed __int16 *v12; // edi
-signed __int16 *v13; // ecx
+signed int *v12; // edi
+signed int *v13; // ecx
 int v14; // eax
 int v15; // esi
 int v16; // edx
@@ -1833,7 +1833,7 @@ while ( v5 );
 else
 {
 v11 = a5;
-v12 = (signed __int16 *)a2;
+v12 = (signed int *)a2;
 if ( a5 > 0 )
 {
 v18 = a5;
@@ -1849,7 +1849,7 @@ v16 = 2 * v11;
 do
 {
 v14 += *v13;
-v13 = (signed __int16 *)((char *)v13 + v16);
+v13 = (signed int *)((char *)v13 + v16);
 --v15;
 }
 while ( v15 );
@@ -1865,7 +1865,7 @@ v11 = a5;
 }
 
 //----- (0101E83A) --------------------------------------------------------
-int __stdcall RepSample(_BYTE *a1, unsigned __int8 *a2, signed int a3, int a4, int a5)
+int RepSample(_BYTE *a1, unsigned __int8 *a2, signed int a3, int a4, int a5)
 {
 int v5; // ebx
 int result; // eax
@@ -1875,12 +1875,12 @@ _BYTE *v9; // esi
 _BYTE *v10; // esi
 int v11; // edx
 int v12; // ebx
-_WORD *v13; // esi
-_WORD *v14; // edi
+WORD *v13; // esi
+WORD *v14; // edi
 int v15; // ecx
 int v16; // edx
 int v17; // [esp+14h] [ebp+8h]
-_WORD *v18; // [esp+18h] [ebp+Ch]
+WORD *v18; // [esp+18h] [ebp+Ch]
 unsigned __int8 *v19; // [esp+20h] [ebp+14h]
 
 if ( a4 == 1 )
@@ -1927,12 +1927,12 @@ v17 = a5;
 do
 {
 v13 = v18;
-LOWORD(v15) = *(_WORD *)v19;
+LOWORD(v15) = *(WORD *)v19;
 ++v18;
 v14 = &v13[v12];
-result = ((signed __int16)v13[v12] - *(signed __int16 *)v19) / a3;
-*v13 = *(_WORD *)v19;
-v15 = (signed __int16)v15;
+result = ((signed int)v13[v12] - *(signed int *)v19) / a3;
+*v13 = *(WORD *)v19;
+v15 = (signed int)v15;
 if ( a3 > 1 )
 {
 v16 = a3 - 1;
@@ -1940,7 +1940,7 @@ do
 {
 v15 += result;
 *v14 = v15;
-v14 = (_WORD *)((char *)v14 + v12 * 2);
+v14 = (WORD *)((char *)v14 + v12 * 2);
 --v16;
 }
 while ( v16 );
@@ -1955,10 +1955,10 @@ return result;
 }
 
 //----- (0101E8F5) --------------------------------------------------------
-LPCVOID __stdcall SamplesPerSecAlign(LPCVOID pMem, int a2, int a3, __int16 a4, __int16 a5, int a6)
+LPCVOID SamplesPerSecAlign(LPCVOID pMem, int a2, int a3, int a4, int a5, int a6)
 {
 LPCVOID result; // eax
-_DWORD *v7; // ecx
+DWORD *v7; // ecx
 int v8; // edi
 unsigned int v9; // eax
 int v10; // esi
@@ -1983,9 +1983,9 @@ unsigned int v28; // [esp+2Ch] [ebp+1Ch]
 
 if ( a2 == a3 )
 return pMem;
-v7 = (_DWORD *)a6;
-v8 = (unsigned __int16)a4 * (unsigned __int16)a5;
-v28 = *(_DWORD *)a6 / (unsigned int)v8;
+v7 = (DWORD *)a6;
+v8 = (unsigned int)a4 * (unsigned int)a5;
+v28 = *(DWORD *)a6 / (unsigned int)v8;
 if ( a3 <= (unsigned int)a2 )
 {
 v11 = a2 / (unsigned int)a3;
@@ -2014,7 +2014,7 @@ if ( v10 != 1 )
 v25 = v10 - 1;
 do
 {
-AvgSample(v13, (unsigned __int8 *)pMem, v26, (unsigned __int16)a4, (unsigned __int16)a5);
+AvgSample(v13, (unsigned __int8 *)pMem, v26, (unsigned int)a4, (unsigned int)a5);
 pMem = (char *)pMem + v8 * v26;
 v13 += v8;
 --v25;
@@ -2039,7 +2039,7 @@ if ( v28 != 1 )
 v27 = v28 - 1;
 do
 {
-RepSample(v13, (unsigned __int8 *)pMem, v24, (unsigned __int16)a4, (unsigned __int16)a5);
+RepSample(v13, (unsigned __int8 *)pMem, v24, (unsigned int)a4, (unsigned int)a5);
 pMem = (char *)pMem + v8;
 v13 += v8 * v24;
 --v27;
@@ -2054,7 +2054,7 @@ do
 v17 = pMem;
 if ( v8 > 0 )
 {
-v18 = (unsigned __int16)a4 * (unsigned __int16)a5;
+v18 = (unsigned int)a4 * (unsigned int)a5;
 do
 {
 *v13++ = *v17++;
@@ -2092,26 +2092,26 @@ return result;
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (0101EA82) --------------------------------------------------------
-LPCVOID __stdcall WaveFormatConvert(int a1, int a2, LPCVOID pMem, int a4)
+LPCVOID WaveFormatConvert(int a1, int a2, LPCVOID pMem, int a4)
 {
 LPCVOID result; // eax
-_WORD *v5; // eax
+WORD *v5; // eax
 _BYTE *v6; // eax
 
-if ( *(_WORD *)(a2 + 2) == *(_WORD *)(a1 + 2)
-&& *(_DWORD *)(a2 + 4) == *(_DWORD *)(a1 + 4)
-&& *(_WORD *)(a2 + 14) == *(_WORD *)(a1 + 14) )
+if ( *(WORD *)(a2 + 2) == *(WORD *)(a1 + 2)
+&& *(DWORD *)(a2 + 4) == *(DWORD *)(a1 + 4)
+&& *(WORD *)(a2 + 14) == *(WORD *)(a1 + 14) )
 {
 return pMem;
 }
-v5 = BitsPerSampleAlign(*(unsigned __int16 *)(a2 + 14), pMem, *(unsigned __int16 *)(a2 + 14), *(_WORD *)(a1 + 14), a4);
-if ( v5 && (v6 = ChannelAlign(v5, *(_WORD *)(a2 + 2), *(_WORD *)(a1 + 2), *(_WORD *)(a1 + 14) >> 3, a4)) != 0 )
+v5 = BitsPerSampleAlign(*(unsigned int *)(a2 + 14), pMem, *(unsigned int *)(a2 + 14), *(WORD *)(a1 + 14), a4);
+if ( v5 && (v6 = ChannelAlign(v5, *(WORD *)(a2 + 2), *(WORD *)(a1 + 2), *(WORD *)(a1 + 14) >> 3, a4)) != 0 )
 result = SamplesPerSecAlign(
 v6,
-*(_DWORD *)(a2 + 4),
-*(_DWORD *)(a1 + 4),
-*(_WORD *)(a1 + 14) >> 3,
-*(_WORD *)(a1 + 2),
+*(DWORD *)(a2 + 4),
+*(DWORD *)(a1 + 4),
+*(WORD *)(a1 + 14) >> 3,
+*(WORD *)(a1 + 2),
 a4);
 else
 result = 0;
@@ -2119,9 +2119,9 @@ return result;
 }
 
 //----- (0101EB23) --------------------------------------------------------
-CHAR *__stdcall WaveMixOpenWave(LPCVOID pMem, LPCSTR lpName, HMODULE hModule, LONG cch)
+CHAR *WaveMixOpenWave(LPCVOID pMem, LPCSTR lpName, HMODULE hModule, LONG cch)
 {
-_WORD *v4; // eax
+WORD *v4; // eax
 WORD v5; // cx
 HGLOBAL v7; // eax
 CHAR *v8; // edi
@@ -2155,8 +2155,8 @@ v30 = 0;
 v4 = SessionToGlobalDataPtr(pMem);
 pwfx.wFormatTag = v4[190];
 pwfx.nChannels = v4[191];
-pwfx.nSamplesPerSec = *((_DWORD *)v4 + 96);
-pwfx.nAvgBytesPerSec = *((_DWORD *)v4 + 97);
+pwfx.nSamplesPerSec = *((DWORD *)v4 + 96);
+pwfx.nAvgBytesPerSec = *((DWORD *)v4 + 97);
 v5 = v4[196];
 hMem = (LPARAM)v4;
 pwfx.nBlockAlign = v5;
@@ -2189,7 +2189,7 @@ if ( !v9 || (hResData = LoadResource(hModule, v9)) == 0 )
 if ( HIWORD(lpName) )
 _wsprintfA(aWavemixV23ByAn, "Failed to open 'WAVE' resource '%s'.", lpName);
 else
-_wsprintfA(aWavemixV23ByAn, "Failed to open 'WAVE' resource %u.", (unsigned __int16)lpName);
+_wsprintfA(aWavemixV23ByAn, "Failed to open 'WAVE' resource %u.", (unsigned int)lpName);
 if ( dword_1027BE4 )
 MessageBoxA(0, aWavemixV23ByAn, "WavMix32", 0x30u);
 goto LABEL_31;
@@ -2283,7 +2283,7 @@ if ( dword_1027BE4 )
 MessageBoxA(0, "Failed to read format chunk.", "WavMix32", 0x30u);
 goto LABEL_29;
 }
-if ( *(_WORD *)v8 != 1 )
+if ( *(WORD *)v8 != 1 )
 {
 if ( dword_1027BE4 )
 MessageBoxA(0, "The file is not a PCM file.", "WavMix32", 0x30u);
@@ -2336,13 +2336,13 @@ goto LABEL_29;
 mmioClose(hModulea, 0);
 if ( hResData )
 FreeResource(hResData);
-*((_DWORD *)v8 + 5) = cch;
+*((DWORD *)v8 + 5) = cch;
 v20 = (const void *)(hMem + 380);
-*((_DWORD *)v8 + 4) = v19;
-*((_DWORD *)v8 + 8) = 0;
-*((_DWORD *)v8 + 9) = 0;
-*((_DWORD *)v8 + 7) = 0;
-*((_WORD *)v8 + 32) = 21554;
+*((DWORD *)v8 + 4) = v19;
+*((DWORD *)v8 + 8) = 0;
+*((DWORD *)v8 + 9) = 0;
+*((DWORD *)v8 + 7) = 0;
+*((WORD *)v8 + 32) = 21554;
 _memmove(v8, v20, 0x10u);
 if ( HIWORD(lpName) )
 {
@@ -2355,21 +2355,21 @@ lstrcpyA(v8 + 48, &lpName[v22]);
 }
 else
 {
-_wsprintfA(v8 + 48, "res#%u", (unsigned __int16)lpName);
+_wsprintfA(v8 + 48, "res#%u", (unsigned int)lpName);
 }
 return v8;
 }
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (0101F093) --------------------------------------------------------
-unsigned int __stdcall FigureOutDMABufferSize(unsigned int a1, int a2)
+unsigned int FigureOutDMABufferSize(unsigned int a1, int a2)
 {
 unsigned int result; // eax
 signed int v3; // ecx
 
 result = a1;
 if ( !a1 )
-result = *(_DWORD *)(a2 + 4) * *(unsigned __int16 *)(a2 + 2) * ((unsigned int)*(unsigned __int16 *)(a2 + 14) >> 3) >> 4;
+result = *(DWORD *)(a2 + 4) * *(unsigned int *)(a2 + 2) * ((unsigned int)*(unsigned int *)(a2 + 14) >> 3) >> 4;
 v3 = 344;
 if ( result < 0x158 || (v3 = 11025, result > 0x2B11) )
 result = v3;
@@ -2377,7 +2377,7 @@ return result;
 }
 
 //----- (0101F0D4) --------------------------------------------------------
-int __stdcall RemoveInvalidIniNameCharacters(LPCSTR lpString)
+int RemoveInvalidIniNameCharacters(LPCSTR lpString)
 {
 CHAR *v1; // esi
 
@@ -2398,7 +2398,7 @@ return lstrlenA(lpString);
 }
 
 //----- (0101F13D) --------------------------------------------------------
-UINT __stdcall ShowWaveOutDevices()
+UINT ShowWaveOutDevices()
 {
 UINT result; // eax
 signed int v1; // [esp+0h] [ebp-40h]
@@ -2431,7 +2431,7 @@ return result;
 }
 
 //----- (0101F20F) --------------------------------------------------------
-const char *__stdcall GetOperatingSystemPrefix()
+const char *GetOperatingSystemPrefix()
 {
 const char *result; // eax
 bool v1; // cf
@@ -2446,7 +2446,7 @@ return result;
 }
 
 //----- (0101F25C) --------------------------------------------------------
-int __stdcall ReadRegistryToGetMachineSpecificInfSection(int a1, LPSTR lpString1, int a3)
+int ReadRegistryToGetMachineSpecificInfSection(int a1, LPSTR lpString1, int a3)
 {
 const char *v3; // eax
 int v4; // esi
@@ -2474,7 +2474,7 @@ return v8;
 }
 
 //----- (0101F315) --------------------------------------------------------
-int __stdcall ReadRegistryInt(HKEY hKey, LPCSTR lpSubKey, int a3)
+int ReadRegistryInt(HKEY hKey, LPCSTR lpSubKey, int a3)
 {
 int result; // eax
 LONG cbData; // [esp+0h] [ebp-14h]
@@ -2488,7 +2488,7 @@ return result;
 }
 
 //----- (0101F36B) --------------------------------------------------------
-signed int __stdcall ReadRegistryForAppSpecificConfigs(int a1)
+signed int ReadRegistryForAppSpecificConfigs(int a1)
 {
 int v1; // ebx
 int v3; // eax
@@ -2498,69 +2498,69 @@ UINT_PTR v6; // ST00_4
 HKEY phkResult; // [esp+8h] [ebp-3Ch]
 CHAR SubKey; // [esp+Ch] [ebp-38h]
 
-v1 = *(_DWORD *)(a1 + 2);
-if ( !(v1 & 0x400) || !*(_DWORD *)(a1 + 26) )
+v1 = *(DWORD *)(a1 + 2);
+if ( !(v1 & 0x400) || !*(DWORD *)(a1 + 26) )
 return 0;
 if ( (v1 & 0x80u) == 0 )
 {
-*(_WORD *)(a1 + 20) = *(_WORD *)(hMem + 24);
+*(WORD *)(a1 + 20) = *(WORD *)(hMem + 24);
 }
-else if ( *(unsigned __int16 *)(a1 + 20) >= waveOutGetNumDevs() )
+else if ( *(unsigned int *)(a1 + 20) >= waveOutGetNumDevs() )
 {
-*(_WORD *)(a1 + 20) = 0;
+*(WORD *)(a1 + 20) = 0;
 }
-_wsprintfA(&SubKey, "WaveMix\\Device%u", *(unsigned __int16 *)(a1 + 20));
+_wsprintfA(&SubKey, "WaveMix\\Device%u", *(unsigned int *)(a1 + 20));
 if ( RegOpenKeyA(*(HKEY *)(a1 + 26), &SubKey, &phkResult) )
 return 0;
 if ( !(v1 & 1) )
-*(_WORD *)(a1 + 6) = ReadRegistryInt(phkResult, "Channels", 1);
+*(WORD *)(a1 + 6) = ReadRegistryInt(phkResult, "Channels", 1);
 if ( !(v1 & 2) )
-*(_WORD *)(a1 + 8) = ReadRegistryInt(phkResult, "SamplesPerSec", 11);
+*(WORD *)(a1 + 8) = ReadRegistryInt(phkResult, "SamplesPerSec", 11);
 if ( !(v1 & 4) )
-*(_WORD *)(a1 + 10) = ReadRegistryInt(phkResult, "WaveBlocks", 3);
+*(WORD *)(a1 + 10) = ReadRegistryInt(phkResult, "WaveBlocks", 3);
 if ( !(v1 & 8) )
-*(_WORD *)(a1 + 12) = ReadRegistryInt(phkResult, "WaveBlockLen", 0);
-*(_WORD *)(a1 + 14) = 1;
+*(WORD *)(a1 + 12) = ReadRegistryInt(phkResult, "WaveBlockLen", 0);
+*(WORD *)(a1 + 14) = 1;
 if ( !(v1 & 0x20) )
-*(_WORD *)(a1 + 16) = (unsigned __int16)ReadRegistryInt(phkResult, "Remix", 1) != 2;
+*(WORD *)(a1 + 16) = (unsigned int)ReadRegistryInt(phkResult, "Remix", 1) != 2;
 if ( !(v1 & 0x40) )
 {
-v3 = DefaultGoodWavePos(*(unsigned __int16 *)(a1 + 20));
-*(_WORD *)(a1 + 18) = (unsigned __int16)ReadRegistryInt(phkResult, "GoodWavePos", v3) != 0;
+v3 = DefaultGoodWavePos(*(unsigned int *)(a1 + 20));
+*(WORD *)(a1 + 18) = (unsigned int)ReadRegistryInt(phkResult, "GoodWavePos", v3) != 0;
 }
 if ( !(v1 & 0x100) )
-*(_WORD *)(a1 + 24) = ReadRegistryInt(phkResult, "ShowDebugDialogs", 0);
+*(WORD *)(a1 + 24) = ReadRegistryInt(phkResult, "ShowDebugDialogs", 0);
 if ( !(v1 & 0x200) )
 {
-v4 = DefaultPauseBlocks(*(unsigned __int16 *)(a1 + 10));
-*(_WORD *)(a1 + 22) = ReadRegistryInt(phkResult, "PauseBlocks", v4);
+v4 = DefaultPauseBlocks(*(unsigned int *)(a1 + 10));
+*(WORD *)(a1 + 22) = ReadRegistryInt(phkResult, "PauseBlocks", v4);
 }
 v5 = (struct tagWAVEOUTCAPSA *)(hMem + 124);
-v6 = *(unsigned __int16 *)(a1 + 20);
-*(_DWORD *)(a1 + 2) = 1023;
+v6 = *(unsigned int *)(a1 + 20);
+*(DWORD *)(a1 + 2) = 1023;
 waveOutGetDevCapsA(v6, v5, 0x34u);
 RegCloseKey(phkResult);
 return 1;
 }
 
 //----- (0101F50B) --------------------------------------------------------
-int __stdcall ShowCurrentSettings()
+int ShowCurrentSettings()
 {
 const char *v0; // esi
 const char *v1; // edx
 const char *v2; // ecx
 struct tagWAVEOUTCAPSA pwoc; // [esp+0h] [ebp-38h]
 
-if ( waveOutGetDevCapsA(*(_DWORD *)(hMem + 24), &pwoc, 0x34u) || !RemoveInvalidIniNameCharacters(pwoc.szPname) )
+if ( waveOutGetDevCapsA(*(DWORD *)(hMem + 24), &pwoc, 0x34u) || !RemoveInvalidIniNameCharacters(pwoc.szPname) )
 lstrcpyA(pwoc.szPname, "Unknown Device");
 v0 = "cmixit";
-if ( *(__int16 (__stdcall **)(_BYTE *, char *, char *, int, unsigned __int16))(hMem + 428) != cmixit )
+if ( *(int (**)(_BYTE *, char *, char *, int, unsigned int))(hMem + 428) != cmixit )
 v0 = "386 mixit";
 v1 = "TRUE";
-if ( !*(_DWORD *)(hMem + 420) )
+if ( !*(DWORD *)(hMem + 420) )
 v1 = "FALSE";
 v2 = "Reset";
-if ( *(signed int (__stdcall **)(int, int))(hMem + 432) != ResetRemix )
+if ( *(signed int (**)(int, int))(hMem + 432) != ResetRemix )
 v2 = "NoReset";
 _wsprintfA(
 aWavemixV23ByAn,
@@ -2576,17 +2576,17 @@ aWavemixV23ByAn,
 pwoc.szPname,
 v2,
 v1,
-*(_DWORD *)(hMem + 400),
-*(_DWORD *)(hMem + 396),
+*(DWORD *)(hMem + 400),
+*(DWORD *)(hMem + 396),
 v0,
-*(_DWORD *)(hMem + 384),
-*(unsigned __int16 *)(hMem + 382),
-*(_DWORD *)(hMem + 404));
+*(DWORD *)(hMem + 384),
+*(unsigned int *)(hMem + 382),
+*(DWORD *)(hMem + 404));
 return MessageBoxA(0, aWavemixV23ByAn, "WavMix32", 0x40u);
 }
 
 //----- (0101F5F1) --------------------------------------------------------
-int __stdcall Settings_OnInitDialog(HWND hWnd, int a2, int a3)
+int Settings_OnInitDialog(HWND hWnd, int a2, int a3)
 {
 BOOL v3; // ST0C_4
 HWND v4; // eax
@@ -2628,19 +2628,19 @@ GetWindowTextA(hWnd, &String, 256);
 _wsprintfA(aWavemixV23ByAn, &String, 2, 81);
 SetWindowTextA(hWnd, aWavemixV23ByAn);
 SetWindowLongA(hWnd, -21, a3);
-v3 = *(_WORD *)(a3 + 6) > 1u;
+v3 = *(WORD *)(a3 + 6) > 1u;
 v4 = GetDlgItem(hWnd, 1000);
 SendMessageA(v4, 0xF1u, v3, 0);
-v5 = *(_WORD *)(a3 + 16) != 0;
+v5 = *(WORD *)(a3 + 16) != 0;
 v6 = GetDlgItem(hWnd, 1001);
 SendMessageA(v6, 0xF1u, v5, 0);
-v7 = *(_WORD *)(a3 + 18) != 0;
+v7 = *(WORD *)(a3 + 18) != 0;
 v8 = GetDlgItem(hWnd, 1004);
 SendMessageA(v8, 0xF1u, v7, 0);
-v9 = *(_WORD *)(a3 + 14) != 0;
+v9 = *(WORD *)(a3 + 14) != 0;
 v10 = GetDlgItem(hWnd, 1005);
 SendMessageA(v10, 0xF1u, v9, 0);
-v11 = *(_WORD *)(a3 + 24) != 0;
+v11 = *(WORD *)(a3 + 24) != 0;
 v12 = GetDlgItem(hWnd, 1010);
 SendMessageA(v12, 0xF1u, v11, 0);
 v13 = GetDlgItem(hWnd, 1005);
@@ -2673,16 +2673,16 @@ GetWindowTextA(v24, &String, 100);
 _wsprintfA(aWavemixV23ByAn, &String, 16);
 v25 = GetDlgItem(hWnd, 1015);
 SetWindowTextA(v25, aWavemixV23ByAn);
-_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned __int16 *)(a3 + 10));
+_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned int *)(a3 + 10));
 v26 = GetDlgItem(hWnd, 1003);
 SetWindowTextA(v26, aWavemixV23ByAn);
-_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned __int16 *)(a3 + 12));
+_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned int *)(a3 + 12));
 v27 = GetDlgItem(hWnd, 1007);
 SetWindowTextA(v27, aWavemixV23ByAn);
-_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned __int16 *)(a3 + 8));
+_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned int *)(a3 + 8));
 v28 = GetDlgItem(hWnd, 1008);
 SetWindowTextA(v28, aWavemixV23ByAn);
-_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned __int16 *)(a3 + 22));
+_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned int *)(a3 + 22));
 v29 = GetDlgItem(hWnd, 1011);
 SetWindowTextA(v29, aWavemixV23ByAn);
 uDeviceID = 0;
@@ -2707,16 +2707,16 @@ SendMessageA(v31, 0x143u, 0, (LPARAM)aWavemixV23ByAn);
 }
 while ( uDeviceID < v35 );
 }
-v32 = *(unsigned __int16 *)(a3 + 20);
+v32 = *(unsigned int *)(a3 + 20);
 v33 = GetDlgItem(hWnd, 1009);
 SendMessageA(v33, 0x14Eu, v32, 0);
 return 1;
 }
 
 //----- (0101FA63) --------------------------------------------------------
-int __stdcall Settings_OnCommand(HWND hWnd, int a2, int a3, int a4)
+int Settings_OnCommand(HWND hWnd, int a2, int a3, int a4)
 {
-_WORD *v4; // ebx
+WORD *v4; // ebx
 HWND v6; // eax
 HWND v7; // eax
 HWND v8; // eax
@@ -2727,9 +2727,9 @@ HWND v12; // eax
 HWND v13; // eax
 HWND v14; // eax
 HWND v15; // eax
-__int16 v16; // ax
+int v16; // ax
 
-v4 = (_WORD *)GetWindowLongA(hWnd, -21);
+v4 = (WORD *)GetWindowLongA(hWnd, -21);
 if ( a2 == 1 )
 {
 if ( v4 )
@@ -2776,45 +2776,45 @@ return 1;
 }
 
 //----- (0101FC24) --------------------------------------------------------
-BOOL __stdcall SettingsDlgProc(HWND hWnd, UINT a2, WPARAM a3, LPARAM a4)
+BOOL SettingsDlgProc(HWND hWnd, UINT a2, WPARAM a3, LPARAM a4)
 {
 if ( a2 == 272 )
 return Settings_OnInitDialog(hWnd, a3, a4);
 if ( a2 != 273 )
 return 0;
-Settings_OnCommand(hWnd, (unsigned __int16)a3, a4, a3 >> 16);
+Settings_OnCommand(hWnd, (unsigned int)a3, a4, a3 >> 16);
 return 1;
 }
 
 //----- (0101FC6D) --------------------------------------------------------
-_DWORD *__stdcall MakeDlgTemplate(int a1, int a2, __int16 a3, __int16 a4, __int16 a5, __int16 a6, wchar_t *Str)
+DWORD *MakeDlgTemplate(int a1, int a2, int a3, int a4, int a5, int a6, wchar_t *Str)
 {
 size_t v7; // eax
 HGLOBAL v8; // eax
-_DWORD *v9; // ebx
+DWORD *v9; // ebx
 
 v7 = 2 * _wcslen(Str) + 24;
-*(_DWORD *)a1 = v7;
+*(DWORD *)a1 = v7;
 if ( v7 & 3 )
-*(_DWORD *)a1 = v7 - (v7 & 3) + 4;
-v8 = GlobalAlloc(0x42u, *(_DWORD *)a1);
+*(DWORD *)a1 = v7 - (v7 & 3) + 4;
+v8 = GlobalAlloc(0x42u, *(DWORD *)a1);
 v9 = GlobalLock(v8);
 if ( v9 )
 {
 v9[1] = 0;
-*((_WORD *)v9 + 4) = 0;
+*((WORD *)v9 + 4) = 0;
 *v9 = a2 | 0x10000000;
-*((_WORD *)v9 + 5) = a3;
-*((_WORD *)v9 + 6) = a4;
-*((_WORD *)v9 + 7) = a5;
-*((_WORD *)v9 + 8) = a6;
+*((WORD *)v9 + 5) = a3;
+*((WORD *)v9 + 6) = a4;
+*((WORD *)v9 + 7) = a5;
+*((WORD *)v9 + 8) = a6;
 qmemcpy((char *)v9 + 22, Str, 2 * _wcslen(Str) + 2);
 }
 return v9;
 }
 
 //----- (0101FD0E) --------------------------------------------------------
-_WORD *__stdcall AddDlgControl(int a1, LPCVOID pMem, __int16 a3, int a4, __int16 a5, __int16 a6, __int16 a7, __int16 a8, __int16 a9, wchar_t *Str)
+WORD *AddDlgControl(int a1, LPCVOID pMem, int a3, int a4, int a5, int a6, int a7, int a8, int a9, wchar_t *Str)
 {
 const void *v10; // edi
 HGLOBAL v11; // eax
@@ -2828,54 +2828,54 @@ v10 = pMem;
 if ( pMem )
 {
 pMema = *(char **)a1;
-*(_DWORD *)a1 += 2 * _wcslen(Str) + 25;
-if ( *(_DWORD *)a1 & 3 )
-*(_DWORD *)a1 = *(_DWORD *)a1 - (*(_DWORD *)a1 & 3) + 4;
+*(DWORD *)a1 += 2 * _wcslen(Str) + 25;
+if ( *(DWORD *)a1 & 3 )
+*(DWORD *)a1 = *(DWORD *)a1 - (*(DWORD *)a1 & 3) + 4;
 v11 = GlobalHandle(v10);
 GlobalUnlock(v11);
-v12 = *(_DWORD *)a1;
+v12 = *(DWORD *)a1;
 v13 = GlobalHandle(v10);
 v14 = GlobalReAlloc(v13, v12, 0x42u);
 v10 = GlobalLock(v14);
 if ( v10 )
 {
-v15 = (int)&pMema[(_DWORD)v10];
-*(_DWORD *)(v15 + 4) = 0;
-*(_DWORD *)v15 = a4 | 0x50000000;
-*(_WORD *)(v15 + 8) = a6;
-*(_WORD *)(v15 + 10) = a7;
-*(_WORD *)(v15 + 12) = a8;
-*(_WORD *)(v15 + 14) = a9;
-*(_WORD *)(v15 + 16) = a5;
-*(_DWORD *)(v15 + 18) = ((unsigned __int16)a3 << 16) | 0xFFFF;
-_wcscpy((wchar_t *)&pMema[(_DWORD)v10 + 22], Str);
-++*((_WORD *)v10 + 4);
+v15 = (int)&pMema[(DWORD)v10];
+*(DWORD *)(v15 + 4) = 0;
+*(DWORD *)v15 = a4 | 0x50000000;
+*(WORD *)(v15 + 8) = a6;
+*(WORD *)(v15 + 10) = a7;
+*(WORD *)(v15 + 12) = a8;
+*(WORD *)(v15 + 14) = a9;
+*(WORD *)(v15 + 16) = a5;
+*(DWORD *)(v15 + 18) = ((unsigned int)a3 << 16) | 0xFFFF;
+_wcscpy((wchar_t *)&pMema[(DWORD)v10 + 22], Str);
+++*((WORD *)v10 + 4);
 }
 }
 return v10;
 }
 
 //----- (0101FDE1) --------------------------------------------------------
-_WORD *__stdcall MakeSettingsDlgTemplate()
+WORD *MakeSettingsDlgTemplate()
 {
-_DWORD *v0; // eax
-_WORD *v1; // eax
-_WORD *v2; // eax
-_WORD *v3; // eax
-_WORD *v4; // eax
-_WORD *v5; // eax
-_WORD *v6; // eax
-_WORD *v7; // eax
-_WORD *v8; // eax
-_WORD *v9; // eax
-_WORD *v10; // eax
-_WORD *v11; // eax
-_WORD *v12; // eax
-_WORD *v13; // eax
-_WORD *v14; // eax
-_WORD *v15; // eax
-_WORD *v16; // eax
-_WORD *v17; // eax
+DWORD *v0; // eax
+WORD *v1; // eax
+WORD *v2; // eax
+WORD *v3; // eax
+WORD *v4; // eax
+WORD *v5; // eax
+WORD *v6; // eax
+WORD *v7; // eax
+WORD *v8; // eax
+WORD *v9; // eax
+WORD *v10; // eax
+WORD *v11; // eax
+WORD *v12; // eax
+WORD *v13; // eax
+WORD *v14; // eax
+WORD *v15; // eax
+WORD *v16; // eax
+WORD *v17; // eax
 int v19; // [esp+Ch] [ebp-4h]
 
 v19 = 0;
@@ -2901,7 +2901,7 @@ return AddDlgControl((int)&v19, v17, 128, 65539, 1004, 55, 117, 75, 10, L"Good G
 }
 
 //----- (01020059) --------------------------------------------------------
-void __stdcall DestroySettingsDlgTemplate(LPCVOID pMem)
+void DestroySettingsDlgTemplate(LPCVOID pMem)
 {
 HGLOBAL v1; // eax
 HGLOBAL v2; // eax
@@ -2916,9 +2916,9 @@ GlobalFree(v2);
 }
 
 //----- (0102008D) --------------------------------------------------------
-signed int __stdcall WaveMixGetConfig(_WORD *a1, int a2)
+signed int WaveMixGetConfig(WORD *a1, int a2)
 {
-_WORD *v2; // eax
+WORD *v2; // eax
 int v4; // ebx
 
 v2 = SessionToGlobalDataPtr(a1);
@@ -2927,74 +2927,74 @@ if ( !v2 )
 return 5;
 if ( !a2 )
 return 11;
-v4 = *(_DWORD *)(a2 + 2);
+v4 = *(DWORD *)(a2 + 2);
 if ( v4 & 1 )
-*(_WORD *)(a2 + 6) = v2[191];
+*(WORD *)(a2 + 6) = v2[191];
 if ( v4 & 2 )
-*(_WORD *)(a2 + 8) = 11 * (*((_DWORD *)v2 + 96) / 0x2B11u);
+*(WORD *)(a2 + 8) = 11 * (*((DWORD *)v2 + 96) / 0x2B11u);
 if ( v4 & 4 )
-*(_WORD *)(a2 + 10) = v2[200];
+*(WORD *)(a2 + 10) = v2[200];
 if ( v4 & 8 )
-*(_WORD *)(a2 + 12) = v2[198];
+*(WORD *)(a2 + 12) = v2[198];
 if ( v4 & 0x10 )
-*(_WORD *)(a2 + 14) = *((_DWORD *)v2 + 107) == (_DWORD)cmixit;
+*(WORD *)(a2 + 14) = *((DWORD *)v2 + 107) == (DWORD)cmixit;
 if ( v4 & 0x20 )
-*(_WORD *)(a2 + 16) = *((_DWORD *)v2 + 108) == (_DWORD)ResetRemix;
+*(WORD *)(a2 + 16) = *((DWORD *)v2 + 108) == (DWORD)ResetRemix;
 if ( v4 & 0x40 )
-*(_WORD *)(a2 + 18) = v2[210];
+*(WORD *)(a2 + 18) = v2[210];
 if ( (v4 & 0x80u) != 0 )
-*(_WORD *)(a2 + 20) = v2[12];
+*(WORD *)(a2 + 20) = v2[12];
 if ( v4 & 0x100 )
-*(_WORD *)(a2 + 24) = dword_1027BE4 != 0;
+*(WORD *)(a2 + 24) = dword_1027BE4 != 0;
 if ( v4 & 0x200 )
-*(_WORD *)(a2 + 22) = v2[202];
+*(WORD *)(a2 + 22) = v2[202];
 return 0;
 }
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (0102018C) --------------------------------------------------------
-BOOL __stdcall SaveConfigSettings(__int16 a1)
+BOOL SaveConfigSettings(int a1)
 {
 BOOL result; // eax
 
 if ( (a1 & 0x80u) != 0 )
 {
-_wsprintfA(aWavemixV23ByAn, "%d", *(_DWORD *)(hMem + 24));
+_wsprintfA(aWavemixV23ByAn, "%d", *(DWORD *)(hMem + 24));
 result = WritePrivateProfileStringA("general", "WaveOutDevice", aWavemixV23ByAn, FileName);
 }
 if ( a1 & 1 )
 {
-_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned __int16 *)(hMem + 382));
+_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned int *)(hMem + 382));
 result = WritePrivateProfileStringA((LPCSTR)(hMem + 28), "Channels", aWavemixV23ByAn, FileName);
 }
 if ( a1 & 2 )
 {
-_wsprintfA(aWavemixV23ByAn, "%d", (unsigned __int16)(11 * (*(_DWORD *)(hMem + 384) / 0x2B11u)));
+_wsprintfA(aWavemixV23ByAn, "%d", (unsigned int)(11 * (*(DWORD *)(hMem + 384) / 0x2B11u)));
 result = WritePrivateProfileStringA((LPCSTR)(hMem + 28), "SamplesPerSec", aWavemixV23ByAn, FileName);
 }
 if ( a1 & 4 )
 {
-_wsprintfA(aWavemixV23ByAn, "%d", *(_DWORD *)(hMem + 400));
+_wsprintfA(aWavemixV23ByAn, "%d", *(DWORD *)(hMem + 400));
 result = WritePrivateProfileStringA((LPCSTR)(hMem + 28), "WaveBlocks", aWavemixV23ByAn, FileName);
 }
 if ( a1 & 8 )
 {
-_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned __int16 *)(hMem + 396));
+_wsprintfA(aWavemixV23ByAn, "%d", *(unsigned int *)(hMem + 396));
 result = WritePrivateProfileStringA((LPCSTR)(hMem + 28), "WaveBlockLen", aWavemixV23ByAn, FileName);
 }
 if ( a1 & 0x10 )
 {
-_wsprintfA(aWavemixV23ByAn, "%d", *(_DWORD *)(hMem + 428) == (_DWORD)cmixit);
+_wsprintfA(aWavemixV23ByAn, "%d", *(DWORD *)(hMem + 428) == (DWORD)cmixit);
 result = WritePrivateProfileStringA((LPCSTR)(hMem + 28), "CMixit", aWavemixV23ByAn, FileName);
 }
 if ( a1 & 0x20 )
 {
-_wsprintfA(aWavemixV23ByAn, "%d", (*(_DWORD *)(hMem + 432) != (_DWORD)ResetRemix) + 1);
+_wsprintfA(aWavemixV23ByAn, "%d", (*(DWORD *)(hMem + 432) != (DWORD)ResetRemix) + 1);
 result = WritePrivateProfileStringA((LPCSTR)(hMem + 28), "Remix", aWavemixV23ByAn, FileName);
 }
 if ( a1 & 0x40 )
 {
-_wsprintfA(aWavemixV23ByAn, "%d", *(_DWORD *)(hMem + 420) == 0);
+_wsprintfA(aWavemixV23ByAn, "%d", *(DWORD *)(hMem + 420) == 0);
 result = WritePrivateProfileStringA((LPCSTR)(hMem + 28), "GoodWavePos", aWavemixV23ByAn, FileName);
 }
 if ( a1 & 0x100 )
@@ -3004,7 +3004,7 @@ result = WritePrivateProfileStringA("general", "ShowDebugDialogs", aWavemixV23By
 }
 if ( a1 & 0x200 )
 {
-_wsprintfA(aWavemixV23ByAn, "%d", *(_DWORD *)(hMem + 404));
+_wsprintfA(aWavemixV23ByAn, "%d", *(DWORD *)(hMem + 404));
 result = WritePrivateProfileStringA((LPCSTR)(hMem + 28), "PauseBlocks", aWavemixV23ByAn, FileName);
 }
 return result;
@@ -3012,7 +3012,7 @@ return result;
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (010203CD) --------------------------------------------------------
-DWORD __stdcall SetIniFileName(HMODULE hModule)
+DWORD SetIniFileName(HMODULE hModule)
 {
 DWORD result; // eax
 CHAR *i; // eax
@@ -3030,7 +3030,7 @@ return result;
 }
 
 //----- (01020412) --------------------------------------------------------
-int __stdcall InitVolumeTable()
+int InitVolumeTable()
 {
 char *v0; // edi
 signed int v1; // esi
@@ -3063,7 +3063,7 @@ return result;
 }
 
 //----- (0102046F) --------------------------------------------------------
-int __stdcall WaveMixStartup(HMODULE hModule)
+int WaveMixStartup(HMODULE hModule)
 {
 WNDCLASSA WndClass; // [esp+4h] [ebp-28h]
 
@@ -3096,9 +3096,9 @@ return 1;
 // 1027BF4: using guessed type int dword_1027BF4;
 
 //----- (0102053B) --------------------------------------------------------
-signed int __stdcall WaveMixActivate(_WORD *a1, int a2)
+signed int WaveMixActivate(WORD *a1, int a2)
 {
-_WORD *v2; // eax
+WORD *v2; // eax
 int v3; // ecx
 signed int result; // eax
 unsigned int v5; // ST04_4
@@ -3114,8 +3114,8 @@ return 5;
 if ( a2 )
 {
 if ( dword_1025798 )
-return dword_1025798 != (_DWORD)v2 ? 4 : 0;
-if ( *((_DWORD *)v2 + 5) )
+return dword_1025798 != (DWORD)v2 ? 4 : 0;
+if ( *((DWORD *)v2 + 5) )
 return 12;
 dword_1025798 = (int)v2;
 sndPlaySoundA(0, 0);
@@ -3125,8 +3125,8 @@ if ( result )
 dword_1025798 = 0;
 return result;
 }
-v5 = *(_DWORD *)(hMem + 412);
-*(_DWORD *)(hMem + 16) = 1;
+v5 = *(DWORD *)(hMem + 412);
+*(DWORD *)(hMem + 16) = 1;
 SetWaveOutPosition(v5);
 do
 v6 = (struct wavehdr_tag *)GetWaveBlock();
@@ -3134,15 +3134,15 @@ while ( MixerPlay(v6, 1) );
 }
 else
 {
-if ( *((_DWORD *)v2 + 4) )
+if ( *((DWORD *)v2 + 4) )
 {
-v7 = MyWaveOutGetPosition(*((HWAVEOUT *)v2 + 3), *((_DWORD *)v2 + 105));
+v7 = MyWaveOutGetPosition(*((HWAVEOUT *)v2 + 3), *((DWORD *)v2 + 105));
 v3 = hMem;
-*(_DWORD *)(hMem + 412) = v7;
+*(DWORD *)(hMem + 412) = v7;
 }
 ReleaseWaveDevice(v3);
 v8 = hMem == dword_1025798;
-*(_DWORD *)(hMem + 16) = 0;
+*(DWORD *)(hMem + 16) = 0;
 if ( v8 )
 dword_1025798 = 0;
 }
@@ -3151,15 +3151,15 @@ return 0;
 // 1025798: using guessed type int dword_1025798;
 
 //----- (01020615) --------------------------------------------------------
-MMRESULT __stdcall WaveMixConfigure(int a1, HWND hWndParent, int a3, int a4, int a5)
+MMRESULT WaveMixConfigure(int a1, HWND hWndParent, int a3, int a4, int a5)
 {
-_WORD *v5; // esi
-_WORD *v6; // eax
+WORD *v5; // esi
+WORD *v6; // eax
 const DLGTEMPLATE *v7; // esi
 INT_PTR v8; // edi
 LPARAM v9; // eax
 MMRESULT result; // eax
-_WORD *v11; // esi
+WORD *v11; // esi
 LPARAM *v12; // edi
 UINT_PTR v13; // eax
 LPARAM v14; // eax
@@ -3169,60 +3169,60 @@ const char *v17; // eax
 int v18; // eax
 int v19; // eax
 int v20; // eax
-_DWORD *v21; // eax
+DWORD *v21; // eax
 int v22; // eax
 signed int v23; // eax
 signed int v24; // ecx
-_DWORD *v25; // eax
+DWORD *v25; // eax
 int v26; // ecx
 int v27; // edx
-unsigned __int16 v28; // ax
+unsigned int v28; // ax
 unsigned int v29; // edx
 signed int v30; // ecx
-__int16 v31; // cx
-signed int (__stdcall *v32)(int, int); // eax
+int v31; // cx
+signed int (*v32)(int, int); // eax
 int v33; // ecx
-_DWORD *v34; // eax
+DWORD *v34; // eax
 int v35; // esi
 LPARAM dwInitParam; // [esp+Ch] [ebp-6Ch]
-unsigned __int16 v38; // [esp+18h] [ebp-60h]
-_DWORD *v39; // [esp+2Ch] [ebp-4Ch]
-_WORD *v40; // [esp+30h] [ebp-48h]
+unsigned int v38; // [esp+18h] [ebp-60h]
+DWORD *v39; // [esp+2Ch] [ebp-4Ch]
+WORD *v40; // [esp+30h] [ebp-48h]
 int v41; // [esp+34h] [ebp-44h]
 LPARAM *v42; // [esp+38h] [ebp-40h]
 int v43; // [esp+3Ch] [ebp-3Ch]
 struct tagWAVEOUTCAPSA pwoc; // [esp+40h] [ebp-38h]
 
-v5 = (_WORD *)a1;
+v5 = (WORD *)a1;
 v42 = (LPARAM *)a3;
-v40 = (_WORD *)a1;
-v39 = (_DWORD *)a4;
+v40 = (WORD *)a1;
+v39 = (DWORD *)a4;
 v43 = 0;
-v6 = SessionToGlobalDataPtr((_WORD *)a1);
+v6 = SessionToGlobalDataPtr((WORD *)a1);
 hMem = (LPARAM)v6;
 if ( !v6 )
 return 5;
-if ( *((_DWORD *)v6 + 4) )
+if ( *((DWORD *)v6 + 4) )
 return 4;
-if ( *((_DWORD *)v6 + 5) )
+if ( *((DWORD *)v6 + 5) )
 return 12;
-WaveMixFlushChannel((_WORD *)a1, -1, 1);
+WaveMixFlushChannel((WORD *)a1, -1, 1);
 if ( !v42 )
 {
 LOWORD(dwInitParam) = 30;
 *(LPARAM *)((char *)&dwInitParam + 2) = 1023;
-WaveMixGetConfig((_WORD *)a1, (int)&dwInitParam);
+WaveMixGetConfig((WORD *)a1, (int)&dwInitParam);
 v7 = (const DLGTEMPLATE *)MakeSettingsDlgTemplate();
 if ( !v7 )
 return 1;
-*(_DWORD *)(hMem + 20) = 1;
+*(DWORD *)(hMem + 20) = 1;
 v8 = DialogBoxIndirectParamA(dword_10257E0, v7, hWndParent, SettingsDlgProc, (LPARAM)&dwInitParam);
 DestroySettingsDlgTemplate(v7);
 v9 = hMem;
-*(_DWORD *)(hMem + 20) = 0;
+*(DWORD *)(hMem + 20) = 0;
 if ( v8 != 1 )
 return 1;
-if ( *(_DWORD *)(v9 + 396) == v38 )
+if ( *(DWORD *)(v9 + 396) == v38 )
 *(LPARAM *)((char *)&dwInitParam + 2) &= 0xFFFFFFF7;
 v5 = v40;
 v42 = &dwInitParam;
@@ -3236,48 +3236,48 @@ return 5;
 v12 = v42;
 v41 = *(LPARAM *)((char *)v42 + 2);
 if ( v41 & 0x100 )
-dword_1027BE4 = *((_WORD *)v42 + 12) != 0;
+dword_1027BE4 = *((WORD *)v42 + 12) != 0;
 if ( (v41 & 0x80u) != 0 )
 {
-v13 = *((unsigned __int16 *)v42 + 10);
-if ( v13 != *((_DWORD *)v11 + 6) )
+v13 = *((unsigned int *)v42 + 10);
+if ( v13 != *((DWORD *)v11 + 6) )
 {
 result = waveOutGetDevCapsA(v13, &pwoc, 0x34u);
 if ( result )
 return result;
 v14 = hMem;
 qmemcpy((void *)(hMem + 124), &pwoc, 0x34u);
-v15 = *(_WORD *)(v14 + 168) == 1;
-*(_DWORD *)(v14 + 24) = *((unsigned __int16 *)v42 + 10);
-if ( v15 && *(_WORD *)(v14 + 382) == 2 )
+v15 = *(WORD *)(v14 + 168) == 1;
+*(DWORD *)(v14 + 24) = *((unsigned int *)v42 + 10);
+if ( v15 && *(WORD *)(v14 + 382) == 2 )
 {
-*(_WORD *)(v14 + 382) = 1;
-v16 = *(_DWORD *)(v14 + 384);
+*(WORD *)(v14 + 382) = 1;
+v16 = *(DWORD *)(v14 + 384);
 v43 = 1;
-*(_WORD *)(v14 + 392) = 1;
-*(_DWORD *)(v14 + 388) = v16;
+*(WORD *)(v14 + 392) = 1;
+*(DWORD *)(v14 + 388) = v16;
 }
 lstrcpyA((LPSTR)(v14 + 28), pwoc.szPname);
 if ( !RemoveInvalidIniNameCharacters((LPCSTR)(hMem + 28)) )
 lstrcpyA((LPSTR)(hMem + 28), "Unkown Device");
-if ( !ReadRegistryToGetMachineSpecificInfSection(*(_DWORD *)(hMem + 24), (LPSTR)(hMem + 28), 96) )
+if ( !ReadRegistryToGetMachineSpecificInfSection(*(DWORD *)(hMem + 24), (LPSTR)(hMem + 28), 96) )
 {
 v17 = GetOperatingSystemPrefix();
 lstrcpyA((LPSTR)(hMem + 28), v17);
 lstrcatA((LPSTR)(hMem + 28), (LPCSTR)(hMem + 132));
 }
-v11 = (_WORD *)hMem;
+v11 = (WORD *)hMem;
 v12 = v42;
 }
 }
 if ( v41 & 1 )
 {
-if ( *((_WORD *)v12 + 3) <= 1u )
+if ( *((WORD *)v12 + 3) <= 1u )
 {
 if ( v11[191] == 2 )
 v43 = 1;
 v11[191] = 1;
-v19 = *((_DWORD *)v11 + 96);
+v19 = *((DWORD *)v11 + 96);
 v11[196] = 1;
 goto LABEL_39;
 }
@@ -3286,24 +3286,24 @@ if ( v11[84] > 1u )
 if ( v11[191] == 1 )
 v43 = 1;
 v11[191] = 2;
-v18 = *((_DWORD *)v11 + 96);
+v18 = *((DWORD *)v11 + 96);
 v11[196] = 2;
 v19 = 2 * v18;
 LABEL_39:
-*((_DWORD *)v11 + 97) = v19;
+*((DWORD *)v11 + 97) = v19;
 goto LABEL_40;
 }
 }
 LABEL_40:
 if ( v41 & 2 )
 {
-v20 = *((unsigned __int16 *)v12 + 4);
+v20 = *((unsigned int *)v12 + 4);
 if ( v20 == 22 )
 {
-if ( *((_DWORD *)v11 + 96) != 22050 )
+if ( *((DWORD *)v11 + 96) != 22050 )
 v43 = 1;
-*((_DWORD *)v11 + 96) = 22050;
-v22 = 22050 * (unsigned __int16)v11[191];
+*((DWORD *)v11 + 96) = 22050;
+v22 = 22050 * (unsigned int)v11[191];
 }
 else
 {
@@ -3314,30 +3314,30 @@ if ( v15 )
 if ( *v21 != 44100 )
 v43 = 1;
 *v21 = 44100;
-v22 = 44100 * (unsigned __int16)v11[191];
+v22 = 44100 * (unsigned int)v11[191];
 }
 else
 {
 if ( *v21 != 11025 )
 v43 = 1;
 *v21 = 11025;
-v22 = 11025 * (unsigned __int16)v11[191];
+v22 = 11025 * (unsigned int)v11[191];
 }
 }
-*((_DWORD *)v11 + 97) = v22;
+*((DWORD *)v11 + 97) = v22;
 }
 if ( v41 & 4 )
 {
-v23 = *((unsigned __int16 *)v12 + 5);
+v23 = *((unsigned int *)v12 + 5);
 v24 = 2;
-*((_DWORD *)v11 + 100) = v23;
+*((DWORD *)v11 + 100) = v23;
 if ( v23 < 2 || (v24 = 10, v23 > 10) )
-*((_DWORD *)v11 + 100) = v24;
+*((DWORD *)v11 + 100) = v24;
 v25 = v11 + 202;
-v26 = *((_DWORD *)v11 + 101);
+v26 = *((DWORD *)v11 + 101);
 if ( v26 >= 0 )
 {
-v27 = *((_DWORD *)v11 + 100);
+v27 = *((DWORD *)v11 + 100);
 if ( v26 > v27 )
 *v25 = v27;
 }
@@ -3347,37 +3347,37 @@ else
 }
 }
 if ( v43 )
-*((_DWORD *)v11 + 99) = FigureOutDMABufferSize(0, (int)(v11 + 190));
+*((DWORD *)v11 + 99) = FigureOutDMABufferSize(0, (int)(v11 + 190));
 if ( v41 & 8 )
 {
-v28 = *((_WORD *)v12 + 6);
+v28 = *((WORD *)v12 + 6);
 if ( v28 )
-*((_DWORD *)v11 + 99) = v28;
+*((DWORD *)v11 + 99) = v28;
 }
-v29 = *((_DWORD *)v11 + 99);
+v29 = *((DWORD *)v11 + 99);
 v30 = 344;
 if ( v29 < 0x158 || (v30 = 11025, v29 > 0x2B11) )
-*((_DWORD *)v11 + 99) = v30;
+*((DWORD *)v11 + 99) = v30;
 v31 = v41;
 if ( v41 & 0x10 )
-*((_DWORD *)v11 + 107) = cmixit;
+*((DWORD *)v11 + 107) = cmixit;
 if ( v31 & 0x20 )
 {
 v32 = ResetRemix;
-if ( !*((_WORD *)v12 + 8) )
+if ( !*((WORD *)v12 + 8) )
 v32 = NoResetRemix;
-*((_DWORD *)v11 + 108) = v32;
+*((DWORD *)v11 + 108) = v32;
 }
 if ( v31 & 0x40 )
-*((_DWORD *)v11 + 105) = *((_WORD *)v12 + 9) != 0;
+*((DWORD *)v11 + 105) = *((WORD *)v12 + 9) != 0;
 if ( v31 & 0x200 )
 {
-v33 = *((unsigned __int16 *)v12 + 11);
+v33 = *((unsigned int *)v12 + 11);
 v34 = v11 + 202;
-*((_DWORD *)v11 + 101) = v33;
+*((DWORD *)v11 + 101) = v33;
 if ( v33 >= 0 )
 {
-v35 = *((_DWORD *)v11 + 100);
+v35 = *((DWORD *)v11 + 100);
 if ( v33 > v35 )
 *v34 = v35;
 }
@@ -3398,14 +3398,14 @@ return 0;
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (01020A36) --------------------------------------------------------
-signed int __stdcall ReadConfigSettings(int a1)
+signed int ReadConfigSettings(int a1)
 {
 UINT v2; // eax
 UINT_PTR *v3; // ebx
 const char *v4; // eax
 unsigned int v5; // eax
 UINT v6; // eax
-signed int (__stdcall *v7)(int, int); // ecx
+signed int (*v7)(int, int); // ecx
 LPARAM v8; // eax
 UINT v9; // ecx
 LPARAM v10; // eax
@@ -3416,7 +3416,7 @@ int v14; // eax
 signed int v15; // eax
 LPARAM v16; // ecx
 signed int v17; // edx
-unsigned __int16 v18; // ax
+unsigned int v18; // ax
 LPARAM v19; // ecx
 int v20; // eax
 int v21; // eax
@@ -3446,7 +3446,7 @@ v2 = GetPrivateProfileIntA("general", "WaveOutDevice", 0, FileName);
 }
 else
 {
-v2 = *(unsigned __int16 *)(a1 + 20);
+v2 = *(unsigned int *)(a1 + 20);
 v3 = (UINT_PTR *)(hMem + 24);
 }
 *v3 = v2;
@@ -3457,14 +3457,14 @@ if ( waveOutGetDevCapsA(*v3, (LPWAVEOUTCAPSA)(hMem + 124), 0x34u)
 {
 lstrcpyA((LPSTR)(hMem + 132), "Unkown Device");
 }
-if ( !ReadRegistryToGetMachineSpecificInfSection(*(_DWORD *)(hMem + 24), (LPSTR)(hMem + 28), 96) )
+if ( !ReadRegistryToGetMachineSpecificInfSection(*(DWORD *)(hMem + 24), (LPSTR)(hMem + 28), 96) )
 {
 v4 = GetOperatingSystemPrefix();
 lstrcpyA((LPSTR)(hMem + 28), v4);
 lstrcatA((LPSTR)(hMem + 28), (LPCSTR)(hMem + 132));
 }
 nDefaulta = GetPrivateProfileIntA("default", "Remix", 1, FileName);
-v5 = DefaultGoodWavePos(*(_DWORD *)(hMem + 24));
+v5 = DefaultGoodWavePos(*(DWORD *)(hMem + 24));
 v28 = GetPrivateProfileIntA("default", "GoodWavePos", v5, FileName);
 v27 = GetPrivateProfileIntA("default", "WaveBlocks", 3, FileName);
 v26 = GetPrivateProfileIntA("default", "SamplesPerSec", 11, FileName);
@@ -3492,81 +3492,81 @@ v7 = NoResetRemix;
 if ( v6 != 2 )
 v7 = ResetRemix;
 v8 = hMem;
-*(_DWORD *)(hMem + 432) = v7;
+*(DWORD *)(hMem + 432) = v7;
 v9 = GetPrivateProfileIntA((LPCSTR)(v8 + 28), "GoodWavePos", v28, FileName);
 v10 = hMem;
-*(_DWORD *)(hMem + 420) = v9 != 0;
+*(DWORD *)(hMem + 420) = v9 != 0;
 v11 = GetPrivateProfileIntA((LPCSTR)(v10 + 28), "WaveBlocks", v27, FileName);
 v12 = hMem;
 v13 = 2;
-*(_DWORD *)(hMem + 400) = v11;
+*(DWORD *)(hMem + 400) = v11;
 if ( v11 < 2 || (v13 = 10, v11 > 10) )
-*(_DWORD *)(v12 + 400) = v13;
-v14 = DefaultPauseBlocks(*(_DWORD *)(v12 + 400));
+*(DWORD *)(v12 + 400) = v13;
+v14 = DefaultPauseBlocks(*(DWORD *)(v12 + 400));
 v15 = GetPrivateProfileIntA((LPCSTR)(hMem + 28), "PauseBlocks", v14, FileName);
 v16 = hMem;
-*(_DWORD *)(hMem + 404) = v15;
+*(DWORD *)(hMem + 404) = v15;
 if ( v15 >= 0 )
 {
-v17 = *(_DWORD *)(v16 + 400);
+v17 = *(DWORD *)(v16 + 400);
 if ( v15 > v17 )
-*(_DWORD *)(v16 + 404) = v17;
+*(DWORD *)(v16 + 404) = v17;
 }
 else
 {
-*(_DWORD *)(v16 + 404) = 0;
+*(DWORD *)(v16 + 404) = 0;
 }
 nDefaultb = GetPrivateProfileIntA((LPCSTR)(v16 + 28), "SamplesPerSec", v26, FileName);
 v18 = GetPrivateProfileIntA((LPCSTR)(hMem + 28), "Channels", 1, FileName);
 v19 = hMem;
-*(_WORD *)(hMem + 382) = v18;
+*(WORD *)(hMem + 382) = v18;
 if ( v18 >= 1u )
 {
 if ( v18 > 2u )
-*(_WORD *)(v19 + 382) = 2;
+*(WORD *)(v19 + 382) = 2;
 }
 else
 {
-*(_WORD *)(v19 + 382) = 1;
+*(WORD *)(v19 + 382) = 1;
 }
-v20 = *(unsigned __int16 *)(v19 + 382);
+v20 = *(unsigned int *)(v19 + 382);
 if ( nDefaultb == 22 )
 {
-*(_DWORD *)(v19 + 384) = 22050;
+*(DWORD *)(v19 + 384) = 22050;
 v21 = 22050 * v20;
 }
 else if ( nDefaultb == 44 )
 {
-*(_DWORD *)(v19 + 384) = 44100;
+*(DWORD *)(v19 + 384) = 44100;
 v21 = 44100 * v20;
 }
 else
 {
 v21 = 11025 * v20;
 }
-*(_DWORD *)(v19 + 388) = v21;
+*(DWORD *)(v19 + 388) = v21;
 v22 = GetPrivateProfileIntA("default", "WaveBlockLen", 0, FileName);
 v23 = hMem;
-*(_DWORD *)(v23 + 396) = FigureOutDMABufferSize(v22, hMem + 380);
+*(DWORD *)(v23 + 396) = FigureOutDMABufferSize(v22, hMem + 380);
 WaveMixConfigure(v23, 0, a1, 0, 0);
 return 1;
 }
 // 1027BE4: using guessed type int dword_1027BE4;
 
 //----- (01020D99) --------------------------------------------------------
-int __stdcall WaveMixConfigureInit(_WORD *a1)
+int WaveMixConfigureInit(WORD *a1)
 {
 unsigned int v1; // ecx
 HMODULE v2; // eax
 int result; // eax
 BOOL v4; // eax
-_DWORD *v5; // eax
-_WORD *v6; // eax
+DWORD *v5; // eax
+WORD *v6; // eax
 void *v7; // ST0C_4
-__int16 v8; // [esp+8h] [ebp-20h]
+int v8; // [esp+8h] [ebp-20h]
 char v9; // [esp+Bh] [ebp-1Dh]
-__int16 v10; // [esp+20h] [ebp-8h]
-__int16 v11; // [esp+24h] [ebp-4h]
+int v10; // [esp+20h] [ebp-8h]
+int v11; // [esp+24h] [ebp-4h]
 
 memset(&v8, 0, 0x1Cu);
 v1 = 30;
@@ -3575,7 +3575,7 @@ v8 = 30;
 if ( a1 )
 {
 if ( *a1 < 0x1Eu )
-v1 = (unsigned __int16)*a1;
+v1 = (unsigned int)*a1;
 qmemcpy(&v8, a1, v1);
 }
 if ( dword_1027BF4 || (v2 = GetModuleHandleA(0), (result = WaveMixStartup(v2)) != 0) )
@@ -3601,19 +3601,19 @@ hMem = (LPARAM)v5;
 if ( !v5 )
 return 0;
 v5[107] = dword_1025968;
-*((_WORD *)v5 + 222) = 21554;
-*(_WORD *)v5 = 21554;
+*((WORD *)v5 + 222) = 21554;
+*(WORD *)v5 = 21554;
 v5[102] = 0;
 v5[5] = 0;
-*((_WORD *)v5 + 88) = 10;
-*((_WORD *)v5 + 89) = 10;
+*((WORD *)v5 + 88) = 10;
+*((WORD *)v5 + 89) = 10;
 memset(v5 + 61, 0xFFu, 0x40u);
 _memmove(v5 + 95, gpFormat, 0x10u);
 if ( !ReadConfigSettings((int)&v8) )
 {
-v6 = (_WORD *)hMem;
+v6 = (WORD *)hMem;
 v7 = (void *)hMem;
-*(_WORD *)(hMem + 444) = 0;
+*(WORD *)(hMem + 444) = 0;
 *v6 = 0;
 LocalFree(v7);
 hMem = 0;
@@ -3628,13 +3628,13 @@ return result;
 // 1027BF4: using guessed type int dword_1027BF4;
 
 //----- (01020F2D) --------------------------------------------------------
-int __stdcall WaveMixInit()
+int WaveMixInit()
 {
 return WaveMixConfigureInit(0);
 }
 
 //----- (01020F3A) --------------------------------------------------------
-HLOCAL __stdcall WaveMixCloseSession(HLOCAL hMem)
+HLOCAL WaveMixCloseSession(HLOCAL hMem)
 {
 void *v1; // edi
 HLOCAL result; // eax

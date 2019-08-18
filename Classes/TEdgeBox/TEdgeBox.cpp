@@ -21,8 +21,8 @@ void __thiscall TEdgeBox::~TEdgeBox(TEdgeBox *this)
     TEdgeBox *v1; // esi
 
     v1 = this;
-    objlist_destroy(*((_DWORD *)this + 3));
-    objlist_destroy(*((_DWORD *)v1 + 1));
+    objlist_destroy(*((DWORD *)this + 3));
+    objlist_destroy(*((DWORD *)v1 + 1));
 }
 
 //----- (0100B90E) --------------------------------------------------------
@@ -34,10 +34,10 @@ TEdgeBox *result; // eax
 v2 = this;
 if ( a2 & 2 )
 {
-`vector destructor iterator'(
+destroy(
 (void *)this,
 0x10u,
-*((_DWORD *)this - 1),
+*((DWORD *)this - 1),
 (void (__thiscall *)(void *))TEdgeBox::~TEdgeBox);
 if ( a2 & 1 )
 operator delete((char *)v2 - 4);

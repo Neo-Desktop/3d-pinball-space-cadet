@@ -5,7 +5,7 @@
 #include "../pinball.h"
 
 //----- (0100AF1F) --------------------------------------------------------
-int __stdcall midi_music_init(HWND a1)
+int midi_music_init(HWND a1)
 {
     CHAR *v1; // eax
 
@@ -25,7 +25,7 @@ int __stdcall midi_music_init(HWND a1)
 // 1025018: using guessed type int dword_1025018;
 
 //----- (0100AF8E) --------------------------------------------------------
-MCIERROR __stdcall midi_music_shutdown()
+MCIERROR midi_music_shutdown()
 {
     MCIERROR result; // eax
 
@@ -37,7 +37,7 @@ MCIERROR __stdcall midi_music_shutdown()
 // 1025000: using guessed type int midi_seq1_open;
 
 //----- (0100AFB9) --------------------------------------------------------
-MCIERROR __stdcall midi_music_stop()
+MCIERROR midi_music_stop()
 {
     MCIERROR result; // eax
 
@@ -49,7 +49,7 @@ MCIERROR __stdcall midi_music_stop()
 // 1025004: using guessed type int midi_seq1_playing;
 
 //----- (0100AFDC) --------------------------------------------------------
-MCIERROR __stdcall midi_play_pb_theme(int a1)
+MCIERROR midi_play_pb_theme(int a1)
 {
     MCIERROR v1; // esi
     DWORD_PTR dwParam2; // [esp+4h] [ebp-Ch]
@@ -71,7 +71,7 @@ MCIERROR __stdcall midi_play_pb_theme(int a1)
 // 1025008: using guessed type HWND midi_notify_hwnd;
 
 //----- (0100B035) --------------------------------------------------------
-HWND __stdcall restart_midi_seq(int a1)
+HWND restart_midi_seq(int a1)
 {
     HWND result; // eax
     DWORD_PTR dwParam2; // [esp+0h] [ebp-Ch]

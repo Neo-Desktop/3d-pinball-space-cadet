@@ -9,14 +9,14 @@ int v3; // esi
 int v4; // ebx
 
 v1 = this;
-v2 = *(_DWORD *)(*(_DWORD *)((char *)this + 46) + 4) - 1;
+v2 = *(DWORD *)(*(DWORD *)((char *)this + 46) + 4) - 1;
 if ( v2 >= 0 )
 {
 v3 = 4 * v2 + 8;
-v4 = *(_DWORD *)(*(_DWORD *)((char *)this + 46) + 4);
+v4 = *(DWORD *)(*(DWORD *)((char *)this + 46) + 4);
 do
 {
-(*(void (**)(void))(**(_DWORD **)(v3 + *(_DWORD *)((char *)v1 + 46)) + 4))();
+(*(void (**)(void))(**(DWORD **)(v3 + *(DWORD *)((char *)v1 + 46)) + 4))();
 v3 -= 4;
 --v4;
 }
@@ -25,7 +25,7 @@ while ( v4 );
 }
 
 //----- (01017883) --------------------------------------------------------
-double __stdcall basic_collision(struct TBall *a1, struct vector_type *a2, struct vector_type *a3, float a4, float a5, float a6, float a7)
+double basic_collision(struct TBall *a1, struct vector_type *a2, struct vector_type *a3, float a4, float a5, float a6, float a7)
 {
 int v7; // ST30_4
 float *v8; // esi
@@ -45,10 +45,10 @@ float v23; // [esp+3Ch] [ebp+Ch]
 float v24; // [esp+3Ch] [ebp+Ch]
 
 *(float *)((char *)a1 + 42) = *(float *)a2;
-*(_DWORD *)((char *)a1 + 46) = *((_DWORD *)a2 + 1);
+*(DWORD *)((char *)a1 + 46) = *((DWORD *)a2 + 1);
 v21 = *(float *)a3;
 v22 = *((float *)a3 + 1);
-v7 = *((_DWORD *)a3 + 2);
+v7 = *((DWORD *)a3 + 2);
 v8 = (float *)((char *)a1 + 54);
 v9 = -(v22 * *(float *)((char *)a1 + 58) + *(float *)a3 * *(float *)((char *)a1 + 54));
 v23 = v9;
@@ -81,7 +81,7 @@ return v24;
 }
 
 //----- (010179A9) --------------------------------------------------------
-struct TEdgeSegment *__stdcall install_wall(float *a1, struct TCollisionComponent *a2, char *a3, unsigned int a4, float a5, void *a6)
+struct TEdgeSegment *install_wall(float *a1, struct TCollisionComponent *a2, char *a3, unsigned int a4, float a5, void *a6)
 {
 signed __int64 v6; // rax
 float *v7; // esi
@@ -130,7 +130,7 @@ v7 = a1 + 1;
 v8 = a1 + 1;
 v45 = v6;
 v44 = a1 + 1;
-if ( !(_DWORD)v6 )
+if ( !(DWORD)v6 )
 {
 v41 = *(int *)v7;
 v42 = a1[2];
@@ -148,19 +148,19 @@ v12 = 0;
 v46 = v12;
 if ( !v12 )
 goto LABEL_14;
-*(_DWORD *)((char *)v12 + 13) = a6;
+*(DWORD *)((char *)v12 + 13) = a6;
 LABEL_13:
-(*(void (__thiscall **)(TCircle *))(*(_DWORD *)v12 + 8))(v12);
+(*(void (__thiscall **)(TCircle *))(*(DWORD *)v12 + 8))(v12);
 LABEL_14:
 objlist_class::Add((struct TCollisionComponent *)((char *)v10 + 42), (void *)v12);
 return v46;
 }
-if ( (_DWORD)v6 == 1 )
+if ( (DWORD)v6 == 1 )
 {
-v37 = *(_DWORD *)v7;
-v38 = *((_DWORD *)a1 + 2);
-v39 = *((_DWORD *)a1 + 3);
-v40 = *((_DWORD *)a1 + 4);
+v37 = *(DWORD *)v7;
+v38 = *((DWORD *)a1 + 2);
+v39 = *((DWORD *)a1 + 3);
+v40 = *((DWORD *)a1 + 4);
 v13 = (TLine *)operator new(0x55u);
 v10 = a2;
 if ( v13 )
@@ -170,19 +170,19 @@ v12 = 0;
 v46 = v12;
 if ( v12 )
 {
-*(_DWORD *)((char *)v12 + 13) = a6;
+*(DWORD *)((char *)v12 + 13) = a6;
 TLine::Offset(v12, a5);
 goto LABEL_13;
 }
 }
 else
 {
-*((float *)&v6 + 1) = v7[2 * (_DWORD)v6 - 2];
+*((float *)&v6 + 1) = v7[2 * (DWORD)v6 - 2];
 v47 = 0;
 v33 = 0.0;
 v34 = *((float *)&v6 + 1);
 v30 = 0.0;
-v35 = v7[2 * (_DWORD)v6 - 1];
+v35 = v7[2 * (DWORD)v6 - 1];
 if ( (signed int)v6 > 0 )
 {
 while ( 1 )
@@ -225,17 +225,17 @@ v20 = 0;
 }
 if ( v20 )
 {
-*(_DWORD *)((char *)v20 + 13) = a6;
-(*(void (__thiscall **)(TCircle *))(*(_DWORD *)v20 + 8))(v20);
+*(DWORD *)((char *)v20 + 13) = a6;
+(*(void (__thiscall **)(TCircle *))(*(DWORD *)v20 + 8))(v20);
 objlist_class::Add((struct TCollisionComponent *)((char *)a2 + 42), (void *)v20);
 }
 }
 }
-v37 = *(_DWORD *)v7;
-v38 = *((_DWORD *)v7 + 1);
+v37 = *(DWORD *)v7;
+v38 = *((DWORD *)v7 + 1);
 v21 = (int)(v7 + 2);
-v39 = *((_DWORD *)v7 + 2);
-v40 = *((_DWORD *)v7 + 3);
+v39 = *((DWORD *)v7 + 2);
+v40 = *((DWORD *)v7 + 3);
 v22 = (TLine *)operator new(0x55u);
 if ( v22 )
 v23 = TLine::TLine(v22, a2, a3, a4, (struct vector_type *)&v37, (struct vector_type *)&v39);
@@ -244,9 +244,9 @@ v23 = 0;
 v46 = v23;
 if ( v23 )
 {
-*(_DWORD *)((char *)v23 + 13) = a6;
+*(DWORD *)((char *)v23 + 13) = a6;
 TLine::Offset(v23, a5);
-(*(void (__thiscall **)(TLine *))(*(_DWORD *)v23 + 8))(v23);
+(*(void (__thiscall **)(TLine *))(*(DWORD *)v23 + 8))(v23);
 objlist_class::Add((struct TCollisionComponent *)((char *)a2 + 42), (void *)v23);
 }
 v47 = (float *)((char *)v47 + 1);
@@ -272,7 +272,7 @@ double v7; // st7
 int v8; // esi
 
 v6 = this;
-if ( *(_DWORD *)(*(_DWORD *)((char *)this + 30) + 370) )
+if ( *(DWORD *)(*(DWORD *)((char *)this + 30) + 370) )
 {
 basic_collision(a2, a3, a4, *(float *)((char *)this + 54), *(float *)((char *)this + 58), 1000000000.0, 0.0);
 return;
@@ -289,11 +289,11 @@ if ( v7 <= *(float *)((char *)v6 + 66) )
 {
 if ( v7 <= 0.2 )
 return;
-v8 = *(_DWORD *)((char *)v6 + 70);
+v8 = *(DWORD *)((char *)v6 + 70);
 }
 else
 {
-v8 = *(_DWORD *)((char *)v6 + 74);
+v8 = *(DWORD *)((char *)v6 + 74);
 }
 if ( v8 )
 loader_play_sound(v8);
@@ -308,7 +308,7 @@ int v6; // esi
 int v8; // esi
 
 v4 = this;
-if ( *(_DWORD *)(*(_DWORD *)((char *)this + 30) + 370) )
+if ( *(DWORD *)(*(DWORD *)((char *)this + 30) + 370) )
 {
 basic_collision(a2, a3, a4, *(float *)((char *)this + 54), *(float *)((char *)this + 58), 1000000000.0, 0.0);
 return 0;
@@ -325,13 +325,13 @@ if ( v5 <= *(float *)((char *)v4 + 66) )
 {
 if ( v5 > 0.2 )
 {
-v8 = *(_DWORD *)((char *)v4 + 70);
+v8 = *(DWORD *)((char *)v4 + 70);
 if ( v8 )
 loader_play_sound(v8);
 }
 return 0;
 }
-v6 = *(_DWORD *)((char *)v4 + 74);
+v6 = *(DWORD *)((char *)v4 + 74);
 if ( v6 )
 loader_play_sound(v6);
 return 1;
@@ -355,9 +355,9 @@ unsigned int v16; // [esp+48h] [ebp-14h]
 
 v4 = this;
 TPinballComponent::TPinballComponent(this, a2, a3, 1);
-*(_DWORD *)v4 = &TCollisionComponent::vftable;
+*(DWORD *)v4 = &TCollisionComponent::vftable;
 objlist_class::objlist_class((TCollisionComponent *)((char *)v4 + 42), 4, 4);
-v5 = *(_DWORD *)((char *)v4 + 10) == 0;
+v5 = *(DWORD *)((char *)v4 + 10) == 0;
 *((_BYTE *)v4 + 5) = 1;
 if ( !v5 )
 *((_BYTE *)v4 + 4) = 1;
@@ -376,13 +376,13 @@ v8 = (float *)loader_query_float_attribute(a3, 0, 600);
 install_wall(v8, v4, (char *)v4 + 5, v7, v6, 0);
 }
 }
-*(_DWORD *)((char *)v4 + 66) = v13;
-*(_DWORD *)((char *)v4 + 54) = v11;
-*(_DWORD *)((char *)v4 + 58) = v10;
-*(_DWORD *)((char *)v4 + 62) = v14;
-*(_DWORD *)((char *)v4 + 74) = v15;
-*(_DWORD *)((char *)v4 + 70) = v12;
-*(_DWORD *)((char *)v4 + 22) = a3;
+*(DWORD *)((char *)v4 + 66) = v13;
+*(DWORD *)((char *)v4 + 54) = v11;
+*(DWORD *)((char *)v4 + 58) = v10;
+*(DWORD *)((char *)v4 + 62) = v14;
+*(DWORD *)((char *)v4 + 74) = v15;
+*(DWORD *)((char *)v4 + 70) = v12;
+*(DWORD *)((char *)v4 + 22) = a3;
 return v4;
 }
 // 10024EC: using guessed type void *TCollisionComponent::vftable;
@@ -396,20 +396,20 @@ int v3; // eax
 void *v4; // edi
 
 v1 = this;
-v2 = *(_DWORD *)((char *)this + 46);
-*(_DWORD *)this = &TCollisionComponent::vftable;
-if ( *(_DWORD *)(v2 + 4) )
+v2 = *(DWORD *)((char *)this + 46);
+*(DWORD *)this = &TCollisionComponent::vftable;
+if ( *(DWORD *)(v2 + 4) )
 {
 do
 {
-v3 = *(_DWORD *)((char *)v1 + 46);
+v3 = *(DWORD *)((char *)v1 + 46);
 v4 = *(void **)(v3 + 8);
-objlist_delete_object(*(_DWORD *)((char *)v1 + 46), *(_DWORD *)(v3 + 8));
+objlist_delete_object(*(DWORD *)((char *)v1 + 46), *(DWORD *)(v3 + 8));
 operator delete(v4);
 }
-while ( *(_DWORD *)(*(_DWORD *)((char *)v1 + 46) + 4) );
+while ( *(DWORD *)(*(DWORD *)((char *)v1 + 46) + 4) );
 }
-objlist_destroy(*(_DWORD *)((char *)v1 + 46));
+objlist_destroy(*(DWORD *)((char *)v1 + 46));
 return TPinballComponent::~TPinballComponent(v1);
 }
 // 10024EC: using guessed type void *TCollisionComponent::vftable;

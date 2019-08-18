@@ -8,7 +8,7 @@ int result; // eax
 if ( a2 >= 6 )
 result = 0;
 else
-result = *(_DWORD *)((char *)this + 4 * a2 + 86);
+result = *(DWORD *)((char *)this + 4 * a2 + 86);
 return result;
 }
 
@@ -16,7 +16,7 @@ return result;
 void __thiscall TOneway::put_scoring(TOneway *this, int a2, int a3)
 {
 if ( a2 < 6 )
-*(_DWORD *)((char *)this + 4 * a2 + 86) = a3;
+*(DWORD *)((char *)this + 4 * a2 + 86) = a3;
 }
 
 //----- (01018032) --------------------------------------------------------
@@ -32,18 +32,18 @@ if ( a6 == *(struct TEdgeSegment **)((char *)this + 82) )
 {
 TBall::not_again(a2, a6);
 v8 = *(float *)((char *)a2 + 70) - a5;
-*(_DWORD *)((char *)a2 + 42) = *(_DWORD *)a3;
-v9 = *((_DWORD *)a3 + 1);
+*(DWORD *)((char *)a2 + 42) = *(DWORD *)a3;
+v9 = *((DWORD *)a3 + 1);
 *(float *)((char *)a2 + 70) = v8;
-*(_DWORD *)((char *)a2 + 46) = v9;
-if ( !*(_DWORD *)(*(_DWORD *)((char *)v6 + 30) + 370) )
+*(DWORD *)((char *)a2 + 46) = v9;
+if ( !*(DWORD *)(*(DWORD *)((char *)v6 + 30) + 370) )
 {
-if ( *(_DWORD *)((char *)v6 + 74) )
-loader_play_sound(*(_DWORD *)((char *)v6 + 74));
+if ( *(DWORD *)((char *)v6 + 74) )
+loader_play_sound(*(DWORD *)((char *)v6 + 74));
 control_handler(63, v6);
 }
 }
-else if ( *(_DWORD *)(*(_DWORD *)((char *)this + 30) + 370) )
+else if ( *(DWORD *)(*(DWORD *)((char *)this + 30) + 370) )
 {
 basic_collision(a2, a3, a4, *(float *)((char *)this + 54), *(float *)((char *)this + 58), 1000000000.0, 0.0);
 }
@@ -56,7 +56,7 @@ a4,
 *(float *)((char *)this + 66),
 *(float *)((char *)this + 62)) > 0.2 )
 {
-v7 = *(_DWORD *)((char *)v6 + 70);
+v7 = *(DWORD *)((char *)v6 + 70);
 if ( v7 )
 loader_play_sound(v7);
 }
@@ -83,7 +83,7 @@ int v17; // [esp+68h] [ebp-8h]
 v3 = 0;
 v4 = this;
 TCollisionComponent::TCollisionComponent(this, a2, a3, 0);
-*(_DWORD *)v4 = &TOneway::vftable;
+*(DWORD *)v4 = &TOneway::vftable;
 loader_query_visual(a3, 0, &v10);
 if ( v11 == 2 )
 {
@@ -97,7 +97,7 @@ v3 = TLine::TLine(v5, v4, (char *)v4 + 5, v13, (struct vector_type *)&v16, (stru
 if ( v3 )
 {
 TLine::Offset(v3, *(float *)((char *)a2 + 282));
-(*(void (__thiscall **)(TLine *))(*(_DWORD *)v3 + 8))(v3);
+(*(void (__thiscall **)(TLine *))(*(DWORD *)v3 + 8))(v3);
 objlist_class::Add((TOneway *)((char *)v4 + 42), (void *)v3);
 }
 v6 = (TLine *)operator new(0x55u);
@@ -105,12 +105,12 @@ if ( v6 )
 v7 = TLine::TLine(v6, v4, (char *)v4 + 5, v13, (struct vector_type *)&v14, (struct vector_type *)&v16);
 else
 v7 = 0;
-*(_DWORD *)((char *)v4 + 82) = v7;
+*(DWORD *)((char *)v4 + 82) = v7;
 if ( v7 )
 {
 v8 = -(*(float *)((char *)a2 + 282) * 0.8);
 TLine::Offset(v7, v8);
-(*(void (**)(void))(**(_DWORD **)((char *)v4 + 82) + 8))();
+(*(void (**)(void))(**(DWORD **)((char *)v4 + 82) + 8))();
 objlist_class::Add((TOneway *)((char *)v4 + 42), *(void **)((char *)v4 + 82));
 }
 }

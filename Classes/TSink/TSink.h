@@ -10,7 +10,7 @@
 /* 114 */
 struct TSink;
 
-void __stdcall TSink::TimerExpired(int, void*); // idb
+void TSink::TimerExpired(int, void*); // idb
 int __thiscall TSink::Message(TSink* this, int, float); // idb
 int __thiscall TSink::get_scoring(TSink* this, int); // idb
 void __thiscall TSink::put_scoring(TSink* this, int, int); // idb

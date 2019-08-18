@@ -5,7 +5,7 @@
 #include "../pinball.h"
 
 //----- (01004C3C) --------------------------------------------------------
-int __stdcall high_score_clear_table(int a1)
+int high_score_clear_table(int a1)
 {
     int result; // eax
     signed int v2; // ecx
@@ -14,7 +14,7 @@ int __stdcall high_score_clear_table(int a1)
     v2 = 5;
     do
     {
-        *(_DWORD *)(result + 32) = -999;
+        *(DWORD *)(result + 32) = -999;
         *(_BYTE *)result = 0;
         result += 36;
         --v2;
@@ -24,15 +24,15 @@ int __stdcall high_score_clear_table(int a1)
 }
 
 //----- (01004C60) --------------------------------------------------------
-signed int __stdcall high_score_get_score_position(int a1, int a2)
+signed int high_score_get_score_position(int a1, int a2)
 {
     signed int result; // eax
-    _DWORD *v3; // ecx
+    DWORD *v3; // ecx
 
     if ( a2 <= 0 )
         return -1;
     result = 0;
-    v3 = (_DWORD *)(a1 + 32);
+    v3 = (DWORD *)(a1 + 32);
     while ( a2 <= *v3 )
     {
         ++result;
@@ -44,7 +44,7 @@ signed int __stdcall high_score_get_score_position(int a1, int a2)
 }
 
 //----- (01004C8D) --------------------------------------------------------
-int __stdcall high_score_place_new_score_into(int a1, int a2, LPCSTR lpString, int a4)
+int high_score_place_new_score_into(int a1, int a2, LPCSTR lpString, int a4)
 {
     char *v4; // edi
     int v5; // eax
@@ -65,7 +65,7 @@ int __stdcall high_score_place_new_score_into(int a1, int a2, LPCSTR lpString, i
             while ( v5 );
         }
         v6 = a1 + 36 * a4;
-        *(_DWORD *)(v6 + 32) = a2;
+        *(DWORD *)(v6 + 32) = a2;
         if ( lstrlenA(lpString) >= 31 )
             *((_BYTE *)lpString + 31) = 0;
         lstrcpyA((LPSTR)v6, lpString);
@@ -75,13 +75,13 @@ int __stdcall high_score_place_new_score_into(int a1, int a2, LPCSTR lpString, i
 }
 
 //----- (01004CF9) --------------------------------------------------------
-char *__stdcall scramble_number_string(int Val, char *DstBuf)
+char *scramble_number_string(int Val, char *DstBuf)
 {
     return __ltoa(Val, DstBuf, 10);
 }
 
 //----- (01004D18) --------------------------------------------------------
-signed int __stdcall high_score_read(int a1, int a2)
+signed int high_score_read(int a1, int a2)
 {
     int i; // eax
     CHAR *dwDisposition; // [esp+10h] [ebp-30h]
@@ -111,10 +111,10 @@ signed int __stdcall high_score_read(int a1, int a2)
         __itoa(Val, &DstBuf, 10);
         lstrcatA(&DstBuf, ".Score");
         options_get_string((DWORD)dwDisposition, &DstBuf, lpString2, WindowName, 300);
-        *((_DWORD *)lpString1 + 8) = _atol(lpString2);
+        *((DWORD *)lpString1 + 8) = _atol(lpString2);
         for ( i = lstrlenA(lpString1); --i >= 0; v7 += lpString1[i] )
             ;
-        v7 += *((_DWORD *)lpString1 + 8);
+        v7 += *((DWORD *)lpString1 + 8);
         ++Val;
         lpString1 += 36;
     }
@@ -129,7 +129,7 @@ signed int __stdcall high_score_read(int a1, int a2)
 }
 
 //----- (01004E87) --------------------------------------------------------
-int __stdcall high_score_write(LPCSTR lpString, int a2)
+int high_score_write(LPCSTR lpString, int a2)
 {
     LPCSTR v2; // ebx
     int i; // eax
@@ -153,11 +153,11 @@ int __stdcall high_score_write(LPCSTR lpString, int a2)
         options_set_string(phkResult, &DstBuf, v2);
         __itoa(Val, &DstBuf, 10);
         lstrcatA(&DstBuf, ".Score");
-        __ltoa(*((_DWORD *)v2 + 8), v8, 10);
+        __ltoa(*((DWORD *)v2 + 8), v8, 10);
         options_set_string(phkResult, &DstBuf, v8);
         for ( i = lstrlenA(v2); --i >= 0; v7 += v2[i] )
             ;
-        v7 += *((_DWORD *)v2 + 8);
+        v7 += *((DWORD *)v2 + 8);
         ++Val;
         v2 += 36;
     }
@@ -169,7 +169,7 @@ int __stdcall high_score_write(LPCSTR lpString, int a2)
 }
 
 //----- (01004F99) --------------------------------------------------------
-char *__stdcall score_string_format(int a1, char *a2)
+char *score_string_format(int a1, char *a2)
 {
     char *result; // eax
     DWORD dwDisposition; // [esp+4h] [ebp-20h]
@@ -236,7 +236,7 @@ char *__stdcall score_string_format(int a1, char *a2)
 }
 
 //----- (010050E2) --------------------------------------------------------
-void __stdcall hsdlg_show_score(HWND hDlg, LPCSTR lpString, int a3, int a4)
+void hsdlg_show_score(HWND hDlg, LPCSTR lpString, int a3, int a4)
 {
     HWND v4; // eax
     HWND v5; // eax
@@ -256,7 +256,7 @@ void __stdcall hsdlg_show_score(HWND hDlg, LPCSTR lpString, int a3, int a4)
 }
 
 //----- (01005159) --------------------------------------------------------
-void __stdcall show_high_scores(HWND hDlg, LPCSTR lpString)
+void show_high_scores(HWND hDlg, LPCSTR lpString)
 {
     LPCSTR v2; // edi
     signed int v3; // ebx
@@ -272,7 +272,7 @@ void __stdcall show_high_scores(HWND hDlg, LPCSTR lpString)
             hsdlg_show_score(hDlg, " ", high_score_dlg_score, v4);
             v3 = 1;
         }
-        hsdlg_show_score(hDlg, v2, *((_DWORD *)v2 + 8), v4++ + v3);
+        hsdlg_show_score(hDlg, v2, *((DWORD *)v2 + 8), v4++ + v3);
         v2 += 36;
     }
     while ( v4 < 5 );
@@ -280,7 +280,7 @@ void __stdcall show_high_scores(HWND hDlg, LPCSTR lpString)
 // 1028270: using guessed type int high_score_dlg_enter_name;
 
 //----- (010051B5) --------------------------------------------------------
-BOOL __stdcall HighScore(HWND hWnd, UINT a2, WPARAM a3, LPARAM a4)
+BOOL HighScore(HWND hWnd, UINT a2, WPARAM a3, LPARAM a4)
 {
     CHAR *v4; // eax
     CHAR *v5; // eax
@@ -376,7 +376,7 @@ BOOL __stdcall HighScore(HWND hWnd, UINT a2, WPARAM a3, LPARAM a4)
 // 1028270: using guessed type int high_score_dlg_enter_name;
 
 //----- (01005412) --------------------------------------------------------
-INT_PTR __stdcall show_high_score_dialog(const CHAR *a1)
+INT_PTR show_high_score_dialog(const CHAR *a1)
 {
     high_score_dlg_enter_name = 0;
     high_score_dlg_score = 0;
@@ -386,7 +386,7 @@ INT_PTR __stdcall show_high_score_dialog(const CHAR *a1)
 // 1028270: using guessed type int high_score_dlg_enter_name;
 
 //----- (01005452) --------------------------------------------------------
-INT_PTR __stdcall show_and_set_high_score_dialog(const CHAR *a1, int a2, int a3, const CHAR *a4)
+INT_PTR show_and_set_high_score_dialog(const CHAR *a1, int a2, int a3, const CHAR *a4)
 {
     INT_PTR result; // eax
 

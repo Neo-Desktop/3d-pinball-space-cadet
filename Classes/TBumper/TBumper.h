@@ -10,7 +10,7 @@
 /* 104 */
 struct TBumper;
 
-void __stdcall TBumper::TimerExpired(int, void*); // idb
+void TBumper::TimerExpired(int, void*); // idb
 void __thiscall TBumper::Fire(TBumper* this); // idb
 int __thiscall TBumper::Message(TBumper* this, int, float); // idb
 int __thiscall TBumper::get_scoring(TBumper* this, int); // idb

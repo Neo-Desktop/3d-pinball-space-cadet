@@ -5,7 +5,7 @@
 #include "../pinball.h"
 
 //----- (01008F7A) --------------------------------------------------------
-signed int __stdcall loader_error(int a1, int a2)
+signed int loader_error(int a1, int a2)
 {
     int v2; // eax
     const CHAR *v3; // esi
@@ -39,9 +39,9 @@ signed int __stdcall loader_error(int a1, int a2)
 // 10235F8: using guessed type int loader_errors[];
 
 //----- (01008FE0) --------------------------------------------------------
-_DWORD *__stdcall loader_default_vsi(_DWORD *a1)
+DWORD *loader_default_vsi(DWORD *a1)
 {
-    _DWORD *result; // eax
+    DWORD *result; // eax
 
     result = a1;
     a1[13] = 0;
@@ -59,15 +59,15 @@ _DWORD *__stdcall loader_default_vsi(_DWORD *a1)
 }
 
 //----- (0100901F) --------------------------------------------------------
-signed int __stdcall loader_get_sound_id(int a1)
+signed int loader_get_sound_id(int a1)
 {
-    signed __int16 v1; // dx
+    signed int v1; // dx
     signed int v2; // eax
     signed int result; // eax
     signed int v4; // edi
     int v5; // esi
     int v6; // eax
-    _WORD *v7; // eax
+    WORD *v7; // eax
     const CHAR *lpName; // ST18_4
     HFILE hFile; // ST1C_4
     int v10; // [esp+10h] [ebp+8h]
@@ -97,7 +97,7 @@ signed int __stdcall loader_get_sound_id(int a1)
             v10 = v6;
             if ( v6 > 0 && !play_midi_music )
             {
-                v7 = (_WORD *)partman_field(loader_table, v6, 0);
+                v7 = (WORD *)partman_field(loader_table, v6, 0);
                 if ( v7 )
                 {
                     if ( *v7 == 202 )
@@ -123,7 +123,7 @@ signed int __stdcall loader_get_sound_id(int a1)
 // 1027C28: using guessed type int dword_1027C28[];
 
 //----- (0100911D) --------------------------------------------------------
-void __stdcall loader_unload()
+void loader_unload()
 {
     signed int v0; // esi
     LPCVOID *v1; // edi
@@ -148,11 +148,11 @@ void __stdcall loader_unload()
 // 1027C30: using guessed type int dword_1027C30[];
 
 //----- (0100916A) --------------------------------------------------------
-int __stdcall loader_loadfrom(_WORD *a1)
+int loader_loadfrom(WORD *a1)
 {
-    _WORD *v1; // edx
-    __int16 v2; // di
-    _WORD *v3; // eax
+    WORD *v1; // edx
+    int v2; // di
+    WORD *v3; // eax
     int result; // eax
     int v5; // ecx
 
@@ -167,8 +167,8 @@ int __stdcall loader_loadfrom(_WORD *a1)
     {
         do
         {
-            v3 = (_WORD *)partman_field((int)v1, v2, 0);
-            v1 = (_WORD *)loader_table;
+            v3 = (WORD *)partman_field((int)v1, v2, 0);
+            v1 = (WORD *)loader_table;
             if ( v3 && *v3 == 202 )
             {
                 result = sound_count;
@@ -200,36 +200,36 @@ int __stdcall loader_loadfrom(_WORD *a1)
 // 1028134: using guessed type int loader_sound_count;
 
 //----- (010091EB) --------------------------------------------------------
-int __stdcall loader_query_handle(LPCSTR lpString)
+int loader_query_handle(LPCSTR lpString)
 {
     return partman_record_labeled(loader_table, lpString);
 }
 
 //----- (01009207) --------------------------------------------------------
-signed int __stdcall loader_query_visual_states(int a1)
+signed int loader_query_visual_states(int a1)
 {
     signed int result; // eax
-    _WORD *v2; // eax
+    WORD *v2; // eax
 
     if ( a1 < 0 )
         return loader_error(0, 17);
-    v2 = (_WORD *)partman_field(loader_table, a1, 10);
+    v2 = (WORD *)partman_field(loader_table, a1, 10);
     if ( v2 && *v2 == 100 )
-        result = (signed __int16)v2[1];
+        result = (signed int)v2[1];
     else
     result = 1;
     return result;
 }
 
 //----- (01009249) --------------------------------------------------------
-signed int __stdcall loader_material(int a1, _DWORD *a2)
+signed int loader_material(int a1, DWORD *a2)
 {
     int v2; // edi
-    _WORD *v4; // eax
+    WORD *v4; // eax
     float *v5; // esi
     unsigned int v6; // ebx
     double v7; // st7
-    _DWORD *v8; // esi
+    DWORD *v8; // esi
     double v9; // st7
     signed __int64 v10; // rax
     int v11; // [esp+1Ch] [ebp+8h]
@@ -238,7 +238,7 @@ signed int __stdcall loader_material(int a1, _DWORD *a2)
     v2 = a1;
     if ( a1 < 0 )
         return loader_error(0, 21);
-    v4 = (_WORD *)partman_field(loader_table, a1, 0);
+    v4 = (WORD *)partman_field(loader_table, a1, 0);
     if ( !v4 )
         return loader_error(1, 21);
     if ( *v4 == 300 )
@@ -248,7 +248,7 @@ signed int __stdcall loader_material(int a1, _DWORD *a2)
             return loader_error(11, 21);
         v11 = 0;
         v6 = (unsigned int)partman_field_size(loader_table, v2, 11) >> 2;
-        if ( (signed __int16)v6 <= 0 )
+        if ( (signed int)v6 <= 0 )
         return 0;
         while ( 1 )
         {
@@ -256,7 +256,7 @@ signed int __stdcall loader_material(int a1, _DWORD *a2)
             v8 = v5 + 1;
             v12 = v11 + 1;
             v9 = _floor(v7);
-            switch ( (signed __int16)(signed __int64)v9 )
+            switch ( (signed int)(signed __int64)v9 )
             {
                 case 301:
                     *a2 = *v8;
@@ -266,14 +266,14 @@ signed int __stdcall loader_material(int a1, _DWORD *a2)
                 break;
                 case 304:
                     v10 = (signed __int64)_floor(*(float *)v8);
-                a2[4] = loader_get_sound_id((signed __int16)v10);
+                a2[4] = loader_get_sound_id((signed int)v10);
                 break;
                 default:
                     return loader_error(9, 21);
             }
             v5 = (float *)(v8 + 1);
             v11 = v12 + 1;
-            if ( (signed __int16)v11 >= (signed __int16)v6 )
+            if ( (signed int)v11 >= (signed int)v6 )
             return 0;
         }
     }
@@ -281,16 +281,16 @@ signed int __stdcall loader_material(int a1, _DWORD *a2)
 }
 
 //----- (01009349) --------------------------------------------------------
-signed int __stdcall loader_kicker(int a1, _DWORD *a2)
+signed int loader_kicker(int a1, DWORD *a2)
 {
-    _WORD *v3; // eax
+    WORD *v3; // eax
     float *v4; // esi
     double v5; // st7
-    _DWORD *v6; // esi
+    DWORD *v6; // esi
     double v7; // st7
     signed __int64 v8; // rax
     int v9; // eax
-    _DWORD *v10; // esi
+    DWORD *v10; // esi
     int v11; // eax
     int v12; // eax
     unsigned int v13; // [esp+14h] [ebp-4h]
@@ -299,7 +299,7 @@ signed int __stdcall loader_kicker(int a1, _DWORD *a2)
 
     if ( a1 < 0 )
         return loader_error(0, 20);
-    v3 = (_WORD *)partman_field(loader_table, a1, 0);
+    v3 = (WORD *)partman_field(loader_table, a1, 0);
     if ( !v3 )
         return loader_error(1, 20);
     if ( *v3 != 400 )
@@ -309,7 +309,7 @@ signed int __stdcall loader_kicker(int a1, _DWORD *a2)
         return loader_error(11, 20);
     v13 = (unsigned int)partman_field_size(loader_table, a1, 11) >> 2;
     v14 = 0;
-    if ( (signed __int16)v13 <= 0 )
+    if ( (signed int)v13 <= 0 )
     return 0;
     while ( 1 )
     {
@@ -317,7 +317,7 @@ signed int __stdcall loader_kicker(int a1, _DWORD *a2)
         v6 = v4 + 1;
         v15 = v14 + 1;
         v7 = _floor(v5);
-        switch ( (signed __int16)(signed __int64)v7 )
+        switch ( (signed int)(signed __int64)v7 )
         {
             case 401:
                 *a2 = *v6;
@@ -329,7 +329,7 @@ signed int __stdcall loader_kicker(int a1, _DWORD *a2)
                 a2[2] = *v6;
             goto LABEL_24;
         }
-        if ( (signed __int16)(signed __int64)v7 != 404 )
+        if ( (signed int)(signed __int64)v7 != 404 )
         break;
         v9 = *v6;
         v10 = v6 + 1;
@@ -342,18 +342,18 @@ signed int __stdcall loader_kicker(int a1, _DWORD *a2)
         v14 = v15 + 3;
         a2[5] = v12;
         LABEL_25:
-        if ( (signed __int16)v14 >= (signed __int16)v13 )
+        if ( (signed int)v14 >= (signed int)v13 )
         return 0;
     }
-    if ( (signed __int16)(signed __int64)v7 == 405 )
+    if ( (signed int)(signed __int64)v7 == 405 )
     {
         a2[6] = *v6;
         goto LABEL_24;
     }
-    if ( (signed __int16)(signed __int64)v7 == 406 )
+    if ( (signed int)(signed __int64)v7 == 406 )
     {
         v8 = (signed __int64)_floor(*(float *)v6);
-        a2[7] = loader_get_sound_id((signed __int16)v8);
+        a2[7] = loader_get_sound_id((signed int)v8);
         LABEL_24:
         v4 = (float *)(v6 + 1);
         v14 = v15 + 1;
@@ -363,18 +363,18 @@ signed int __stdcall loader_kicker(int a1, _DWORD *a2)
 }
 
 //----- (01009486) --------------------------------------------------------
-signed int __stdcall loader_state_id(int a1, signed int a2)
+signed int loader_state_id(int a1, signed int a2)
 {
     int v2; // esi
-    __int16 v3; // di
-    _WORD *v5; // eax
-    _WORD *v6; // eax
+    int v3; // di
+    WORD *v5; // eax
+    WORD *v6; // eax
 
     v2 = a1;
     v3 = loader_query_visual_states(a1);
     if ( v3 <= 0 )
         return loader_error(12, 24);
-    v5 = (_WORD *)partman_field(loader_table, a1, 0);
+    v5 = (WORD *)partman_field(loader_table, a1, 0);
     if ( !v5 )
         return loader_error(1, 24);
     if ( *v5 != 200 )
@@ -384,7 +384,7 @@ signed int __stdcall loader_state_id(int a1, signed int a2)
     if ( !a2 )
         return v2;
     v2 = a2 + a1;
-    v6 = (_WORD *)partman_field(loader_table, a2 + a1, 0);
+    v6 = (WORD *)partman_field(loader_table, a2 + a1, 0);
     if ( !v6 )
         return loader_error(1, 24);
     if ( *v6 == 201 )
@@ -393,13 +393,13 @@ signed int __stdcall loader_state_id(int a1, signed int a2)
 }
 
 //----- (0100950A) --------------------------------------------------------
-signed int __stdcall loader_query_visual(int a1, signed int a2, _DWORD *a3)
+signed int loader_query_visual(int a1, signed int a2, DWORD *a3)
 {
-    _DWORD *v3; // edi
+    DWORD *v3; // edi
     int v5; // eax
     int v6; // ebx
     int v7; // eax
-    signed __int16 *v8; // esi
+    signed int *v8; // esi
     unsigned int v9; // eax
     int v10; // ebx
     signed int v11; // ecx
@@ -432,16 +432,16 @@ signed int __stdcall loader_query_visual(int a1, signed int a2, _DWORD *a3)
     a3[17] = v7;
     if ( v7 )
     {
-        *(_DWORD *)(v7 + 6) = v7 + 14;
-        *(_DWORD *)(a3[17] + 10) = *(_DWORD *)(a3[17] + 6);
+        *(DWORD *)(v7 + 6) = v7 + 14;
+        *(DWORD *)(a3[17] + 10) = *(DWORD *)(a3[17] + 6);
     }
-    v8 = (signed __int16 *)partman_field(loader_table, v6, 10);
+    v8 = (signed int *)partman_field(loader_table, v6, 10);
     if ( v8 )
     {
         v9 = partman_field_size(loader_table, v6, 10);
         v10 = 0;
         v25 = v9 >> 1;
-        if ( (signed __int16)(v9 >> 1) > 0 )
+        if ( (signed int)(v9 >> 1) > 0 )
         {
             while ( 1 )
             {
@@ -452,7 +452,7 @@ signed int __stdcall loader_query_visual(int a1, signed int a2, _DWORD *a3)
                 {
                     if ( v11 == 406 )
                     {
-                        v3[12] = loader_get_sound_id(*(signed __int16 *)v12);
+                        v3[12] = loader_get_sound_id(*(signed int *)v12);
                     }
                     else
                     {
@@ -467,15 +467,15 @@ signed int __stdcall loader_query_visual(int a1, signed int a2, _DWORD *a3)
                                 {
                                     if ( v16 != 96 )
                                         return loader_error(9, 18);
-                                    if ( loader_kicker(*(signed __int16 *)v12, v3 + 5) )
+                                    if ( loader_kicker(*(signed int *)v12, v3 + 5) )
                                     return loader_error(14, 18);
                                 }
                                 else
                                 {
-                                    v3[4] = loader_get_sound_id(*(signed __int16 *)v12);
+                                    v3[4] = loader_get_sound_id(*(signed int *)v12);
                                 }
                             }
-                            else if ( loader_material(*(signed __int16 *)v12, v3) )
+                            else if ( loader_material(*(signed int *)v12, v3) )
                             {
                                 return loader_error(15, 18);
                             }
@@ -499,21 +499,21 @@ signed int __stdcall loader_query_visual(int a1, signed int a2, _DWORD *a3)
                 v19 = v18 - 1;
                 if ( !v19 )
                 {
-                    v3[15] = loader_get_sound_id(*(signed __int16 *)v12);
+                    v3[15] = loader_get_sound_id(*(signed int *)v12);
                     LABEL_32:
-                    v8 = (signed __int16 *)(v12 + 2);
+                    v8 = (signed int *)(v12 + 2);
                     v10 = v13 + 1;
                     goto LABEL_33;
                 }
                 if ( v19 != 399 )
                     return loader_error(9, 18);
-                v8 = (signed __int16 *)(v12 + 16);
+                v8 = (signed int *)(v12 + 16);
                 v10 = v13 + 8;
                 LABEL_33:
-                if ( (signed __int16)v10 >= (signed __int16)v25 )
+                if ( (signed int)v10 >= (signed int)v25 )
                 goto LABEL_34;
             }
-            v3[14] = loader_get_sound_id(*(signed __int16 *)v12);
+            v3[14] = loader_get_sound_id(*(signed int *)v12);
             goto LABEL_32;
         }
     }
@@ -526,28 +526,28 @@ signed int __stdcall loader_query_visual(int a1, signed int a2, _DWORD *a3)
     v21 = v20 + 1;
     if ( *v20 != 600.0 )
         return 0;
-    v3[2] = (signed __int16)((unsigned int)partman_field_size(loader_table, v24, 11) >> 2) / 2 - 2;
+    v3[2] = (signed int)((unsigned int)partman_field_size(loader_table, v24, 11) >> 2) / 2 - 2;
     v22 = (signed __int64)(_floor(*v21) - 1.0);
     v23 = (int)(v21 + 1);
-    if ( !(_WORD)v22 )
+    if ( !(WORD)v22 )
     {
         v3[2] = 1;
         LABEL_40:
         v3[3] = v23;
         return 0;
     }
-    if ( (_WORD)v22 == 1 )
+    if ( (WORD)v22 == 1 )
     {
         v3[2] = 2;
         goto LABEL_40;
     }
-    if ( (signed __int16)v22 == v3[2] )
+    if ( (signed int)v22 == v3[2] )
     goto LABEL_40;
     return loader_error(8, 18);
 }
 
 //----- (0100975D) --------------------------------------------------------
-int __stdcall loader_query_name(int a1)
+int loader_query_name(int a1)
 {
     if ( a1 >= 0 )
         return partman_field(loader_table, a1, 3);
@@ -556,9 +556,9 @@ int __stdcall loader_query_name(int a1)
 }
 
 //----- (0100978E) --------------------------------------------------------
-int __stdcall loader_query_float_attribute(int a1, signed int a2, int a3)
+int loader_query_float_attribute(int a1, signed int a2, int a3)
 {
-    __int16 v3; // bx
+    int v3; // bx
     int result; // eax
     int v5; // edi
     float *v6; // eax
@@ -576,7 +576,7 @@ int __stdcall loader_query_float_attribute(int a1, signed int a2, int a3)
                 v7 = v6;
                 if ( !v6 )
                     break;
-                if ( (signed __int16)(signed __int64)_floor(*v6) == a3 )
+                if ( (signed int)(signed __int64)_floor(*v6) == a3 )
                 return (int)(v7 + 1);
                 ++v3;
             }
@@ -598,19 +598,19 @@ int __stdcall loader_query_float_attribute(int a1, signed int a2, int a3)
 }
 
 //----- (0100981A) --------------------------------------------------------
-int __stdcall loader_query_iattribute(int a1, int a2, _DWORD *a3)
+int loader_query_iattribute(int a1, int a2, DWORD *a3)
 {
-    __int16 v3; // di
+    int v3; // di
     int result; // eax
-    signed __int16 *v5; // eax
-    signed __int16 *v6; // esi
+    signed int *v5; // eax
+    signed int *v6; // esi
 
     v3 = 0;
     if ( a1 >= 0 )
     {
         while ( 1 )
         {
-            v5 = (signed __int16 *)partman_field_nth(loader_table, a1, 10, v3);
+            v5 = (signed int *)partman_field_nth(loader_table, a1, 10, v3);
             v6 = v5;
             if ( !v5 )
                 break;
@@ -634,7 +634,7 @@ int __stdcall loader_query_iattribute(int a1, int a2, _DWORD *a3)
 }
 
 //----- (01009895) --------------------------------------------------------
-double __stdcall loader_play_sound(int a1)
+double loader_play_sound(int a1)
 {
     if ( a1 <= 0 )
         return 0.0;

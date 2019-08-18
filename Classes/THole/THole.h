@@ -10,7 +10,7 @@
 /* 112 */
 struct THole;
 
-void __stdcall THole::TimerExpired(int, void*); // idb
+void THole::TimerExpired(int, void*); // idb
 int __thiscall THole::FieldEffect(THole* this, struct TBall*, struct vector_type*); // idb
 int __thiscall THole::Message(THole* this, int, float); // idb
 void __thiscall THole::Collision(THole* this, struct TBall*, struct vector_type*, struct vector_type*, float, struct TEdgeSegment*); // idb

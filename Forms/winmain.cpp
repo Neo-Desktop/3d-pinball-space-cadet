@@ -1,7 +1,7 @@
 #include "../pinball.h"
 
 //----- (01007918) --------------------------------------------------------
-void __usercall winmain_pause(int a1) {
+void winmain_pause(int a1) {
 	if (fullscrn_screen_mode)
 	{
 		if (single_step)
@@ -17,7 +17,7 @@ void __usercall winmain_pause(int a1) {
 // 1024FF4: using guessed type int no_time_loss;
 
 //----- (01007949) --------------------------------------------------------
-void __usercall winmain_end_pause(int a1)
+void winmain_end_pause(int a1)
 {
 	if (single_step)
 	{
@@ -32,7 +32,7 @@ void __usercall winmain_end_pause(int a1)
 // 1024FF4: using guessed type int no_time_loss;
 
 //----- (01007976) --------------------------------------------------------
-HCURSOR __usercall winmain_new_game(int a1)
+HCURSOR winmain_new_game(int a1)
 {
 	HCURSOR v1; // eax
 	HCURSOR v2; // edi
@@ -45,7 +45,7 @@ HCURSOR __usercall winmain_new_game(int a1)
 }
 
 //----- (010079A9) --------------------------------------------------------
-void __stdcall __noreturn winmain_memalloc_failure()
+void winmain_memalloc_failure()
 {
 	CHAR* v0; // ST08_4
 	CHAR* v1; // eax

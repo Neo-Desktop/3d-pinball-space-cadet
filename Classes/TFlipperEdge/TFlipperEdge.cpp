@@ -64,7 +64,7 @@ int v2; // edx
 double v4; // st7
 double v5; // st7
 
-v2 = *(_DWORD *)((char *)this + 21);
+v2 = *(DWORD *)((char *)this + 21);
 if ( !v2 )
 return *(float *)((char *)this + 77);
 v4 = (*(float *)((char *)this + 77) - *(float *)((char *)this + 73))
@@ -93,10 +93,10 @@ TFlipperEdge *v1; // esi
 v1 = this;
 line_init((int)&lineA, A1, flt_1025718, A2, flt_10256B8);
 line_init((int)&lineB, B1, flt_10256F4, B2, flt_1025700);
-dword_102566C = *(_DWORD *)((char *)v1 + 53);
-circlebase = *(_DWORD *)((char *)v1 + 33);
-dword_1025664 = *(_DWORD *)((char *)v1 + 37);
-dword_102567C = *(_DWORD *)((char *)v1 + 57);
+dword_102566C = *(DWORD *)((char *)v1 + 53);
+circlebase = *(DWORD *)((char *)v1 + 33);
+dword_1025664 = *(DWORD *)((char *)v1 + 37);
+dword_102567C = *(DWORD *)((char *)v1 + 57);
 circleT1 = T1;
 dword_1025674 = dword_102570C;
 }
@@ -122,21 +122,21 @@ v2 = this;
 v3 = TFlipperEdge::flipper_angle(this, a2);
 SinCos(v3, &flipper_sin_angle, &flipper_cos_angle);
 v4 = flipper_cos_angle;
-A1 = *(_DWORD *)((char *)v2 + 101);
-*((_DWORD *)&A1 + 1) = *(_DWORD *)((char *)v2 + 105);
-*((_DWORD *)&A1 + 2) = *(_DWORD *)((char *)v2 + 109);
-A2 = *(_DWORD *)((char *)v2 + 113);
-*((_DWORD *)&A2 + 1) = *(_DWORD *)((char *)v2 + 117);
-*((_DWORD *)&A2 + 2) = *(_DWORD *)((char *)v2 + 121);
-B1 = *(_DWORD *)((char *)v2 + 125);
-*((_DWORD *)&B1 + 1) = *(_DWORD *)((char *)v2 + 129);
-*((_DWORD *)&B1 + 2) = *(_DWORD *)((char *)v2 + 133);
-B2 = *(_DWORD *)((char *)v2 + 137);
-*((_DWORD *)&B2 + 1) = *(_DWORD *)((char *)v2 + 141);
-*((_DWORD *)&B2 + 2) = *(_DWORD *)((char *)v2 + 145);
-T1 = *(_DWORD *)((char *)v2 + 153);
-*((_DWORD *)&T1 + 1) = *(_DWORD *)((char *)v2 + 157);
-*((_DWORD *)&T1 + 2) = *(_DWORD *)((char *)v2 + 161);
+A1 = *(DWORD *)((char *)v2 + 101);
+*((DWORD *)&A1 + 1) = *(DWORD *)((char *)v2 + 105);
+*((DWORD *)&A1 + 2) = *(DWORD *)((char *)v2 + 109);
+A2 = *(DWORD *)((char *)v2 + 113);
+*((DWORD *)&A2 + 1) = *(DWORD *)((char *)v2 + 117);
+*((DWORD *)&A2 + 2) = *(DWORD *)((char *)v2 + 121);
+B1 = *(DWORD *)((char *)v2 + 125);
+*((DWORD *)&B1 + 1) = *(DWORD *)((char *)v2 + 129);
+*((DWORD *)&B1 + 2) = *(DWORD *)((char *)v2 + 133);
+B2 = *(DWORD *)((char *)v2 + 137);
+*((DWORD *)&B2 + 1) = *(DWORD *)((char *)v2 + 141);
+*((DWORD *)&B2 + 2) = *(DWORD *)((char *)v2 + 145);
+T1 = *(DWORD *)((char *)v2 + 153);
+*((DWORD *)&T1 + 1) = *(DWORD *)((char *)v2 + 157);
+*((DWORD *)&T1 + 2) = *(DWORD *)((char *)v2 + 161);
 v5 = v4;
 RotatePt((struct vector_type *)&A1, flipper_sin_angle, v5, (TFlipperEdge *)((char *)v2 + 33));
 RotatePt((struct vector_type *)&A2, flipper_sin_angle, flipper_cos_angle, (TFlipperEdge *)((char *)v2 + 33));
@@ -181,7 +181,7 @@ v10 = *(float *)((char *)this + 37) - a3,
 v10 * v10 + v9 * v9 <= *(float *)((char *)this + 53))
 || (*(float *)&dword_102570C - a3) * (*(float *)&dword_102570C - a3) + (T1 - a2) * (T1 - a2) < *(float *)((char *)this + 57) )
 {
-v11 = *(_DWORD *)((char *)this + 21);
+v11 = *(DWORD *)((char *)this + 21);
 if ( *(float *)((char *)this + 69) < 0.0 )
 {
 v19 = v11 - 1;
@@ -251,20 +251,20 @@ double __thiscall TFlipperEdge::FindCollisionDistance(TFlipperEdge *this, struct
 {
 struct ray_type *v2; // esi
 TFlipperEdge *v3; // ebx
-_DWORD *v4; // eax
+DWORD *v4; // eax
 double result; // st7
 int v6; // eax
 int v7; // ecx
 float *v8; // esi
 double v9; // st7
 float *v10; // eax
-_DWORD *v11; // edi
+DWORD *v11; // edi
 char *v12; // esi
 float v13; // eax
 char *v14; // esi
-_DWORD *v15; // edi
-_DWORD *v16; // edi
-_DWORD *v17; // esi
+DWORD *v15; // edi
+DWORD *v16; // edi
+DWORD *v17; // esi
 double v18; // st7
 float v19; // eax
 double v20; // st7
@@ -272,12 +272,12 @@ int v21; // eax
 int v22; // esi
 int v23; // eax
 int v24; // edx
-_DWORD *v25; // esi
+DWORD *v25; // esi
 double v26; // st7
-_DWORD *v27; // esi
+DWORD *v27; // esi
 double v28; // st7
-_DWORD *v29; // edi
-_DWORD *v30; // esi
+DWORD *v29; // edi
+DWORD *v30; // esi
 double v31; // st7
 double v32; // st7
 float v33; // eax
@@ -285,7 +285,7 @@ double v34; // st7
 double v35; // st6
 double v36; // st5
 double v37; // st4
-__int16 v38; // fps
+int v38; // fps
 double v39; // st6
 char v40; // ah
 bool v41; // c0
@@ -315,14 +315,14 @@ float v63; // [esp+80h] [ebp-4h]
 v2 = a2;
 v3 = this;
 if ( *((float *)a2 + 8) > (double)*(float *)((char *)this + 205) )
-*(_DWORD *)((char *)this + 21) = 0;
-v4 = (_DWORD *)((char *)this + 197);
-if ( *(_DWORD *)((char *)this + 197) )
+*(DWORD *)((char *)this + 21) = 0;
+v4 = (DWORD *)((char *)this + 197);
+if ( *(DWORD *)((char *)this + 197) )
 {
 *v4 = 0;
 return 1000000000.0;
 }
-if ( *(_DWORD *)((char *)this + 21) )
+if ( *(DWORD *)((char *)this + 21) )
 {
 v18 = *(float *)((char *)this + 181) * *((float *)a2 + 6);
 v63 = *(float *)a2;
@@ -346,19 +346,19 @@ v22 = (int)v2 + 12;
 v53 = *(float *)v22;
 v22 += 4;
 v54 = *(float *)v22;
-v55 = *(_DWORD *)(v22 + 4);
-v23 = *((_DWORD *)a2 + 7);
+v55 = *(DWORD *)(v22 + 4);
+v23 = *((DWORD *)a2 + 7);
 v50 = *(float *)a2;
 v51 = *((float *)a2 + 1);
-v52 = *((_DWORD *)a2 + 2);
+v52 = *((DWORD *)a2 + 2);
 v57 = v23;
 v56 = v60;
 result = distance_to_flipper((struct ray_type *)&v50, (struct ray_type *)&v44);
 if ( result < 1000000000.0 )
 {
-*(_DWORD *)((char *)v3 + 221) = *(_DWORD *)&v44;
-*(_DWORD *)((char *)v3 + 225) = v45;
-*(_DWORD *)((char *)v3 + 229) = v46;
+*(DWORD *)((char *)v3 + 221) = *(DWORD *)&v44;
+*(DWORD *)((char *)v3 + 225) = v45;
+*(DWORD *)((char *)v3 + 229) = v46;
 v35 = *(float *)((char *)v3 + 221) - v53 * 0.00001;
 *(float *)((char *)v3 + 221) = v35;
 v36 = *(float *)((char *)v3 + 225) - v54 * 0.00001;
@@ -383,15 +383,15 @@ goto LABEL_47;
 LABEL_49:
 v43 = 0;
 }
-v15 = (_DWORD *)((char *)v3 + 89);
-if ( *(_DWORD *)((char *)v3 + 21) == 2 )
+v15 = (DWORD *)((char *)v3 + 89);
+if ( *(DWORD *)((char *)v3 + 21) == 2 )
 {
 v14 = (char *)&lineB;
-*(_DWORD *)((char *)v3 + 81) = v43 == 0;
+*(DWORD *)((char *)v3 + 81) = v43 == 0;
 }
 else
 {
-*(_DWORD *)((char *)v3 + 81) = v43;
+*(DWORD *)((char *)v3 + 81) = v43;
 v14 = (char *)&lineA;
 }
 goto LABEL_25;
@@ -403,14 +403,14 @@ if ( *((float *)a2 + 9) + *((float *)a2 + 8) <= v61 )
 return 1000000000.0;
 v2 = a2;
 }
-v24 = *(_DWORD *)((char *)v3 + 21);
+v24 = *(DWORD *)((char *)v3 + 21);
 if ( v24 != 1 || v21 == 5 )
 {
 if ( v24 != 2 || v21 == 4 )
 {
 v31 = *(float *)((char *)v3 + 33) - v63;
-*(_DWORD *)((char *)v3 + 81) = 0;
-*(_DWORD *)((char *)v3 + 85) = 1;
+*(DWORD *)((char *)v3 + 81) = 0;
+*(DWORD *)((char *)v3 + 85) = 1;
 v53 = v31;
 v54 = *(float *)((char *)v3 + 37) - v62;
 normalize_2d(&v53);
@@ -439,27 +439,27 @@ v53 = -lineA;
 v26 = flt_1025684;
 }
 v54 = -v26;
-*(_DWORD *)((char *)v3 + 89) = *v25;
+*(DWORD *)((char *)v3 + 89) = *v25;
 v27 = v25 + 1;
-*(_DWORD *)((char *)v3 + 93) = *v27;
-*(_DWORD *)((char *)v3 + 97) = v27[1];
-*(_DWORD *)((char *)v3 + 85) = 0;
-*(_DWORD *)((char *)v3 + 81) = 1;
+*(DWORD *)((char *)v3 + 93) = *v27;
+*(DWORD *)((char *)v3 + 97) = v27[1];
+*(DWORD *)((char *)v3 + 85) = 0;
+*(DWORD *)((char *)v3 + 81) = 1;
 v57 = 990057071;
 v50 = *(float *)a2 - v53 * 5.0;
 v51 = *((float *)a2 + 1) - v54 * 5.0;
 v56 = *((float *)a2 + 6) + 10.0;
 v28 = distance_to_flipper((struct ray_type *)&v50, (struct ray_type *)&v44);
-*(_DWORD *)((char *)v3 + 185) = *(_DWORD *)&v47;
-*(_DWORD *)((char *)v3 + 189) = v48;
-*(_DWORD *)((char *)v3 + 193) = v49;
+*(DWORD *)((char *)v3 + 185) = *(DWORD *)&v47;
+*(DWORD *)((char *)v3 + 189) = v48;
+*(DWORD *)((char *)v3 + 193) = v49;
 if ( v28 >= 1000000000.0 )
 return 1000000000.0;
 v10 = (float *)((char *)v3 + 221);
 v12 = &v44;
-v11 = (_DWORD *)((char *)v3 + 221);
+v11 = (DWORD *)((char *)v3 + 221);
 LABEL_41:
-*v11 = *(_DWORD *)v12;
+*v11 = *(DWORD *)v12;
 v30 = v12 + 4;
 v29 = v11 + 1;
 *v29 = *v30;
@@ -469,12 +469,12 @@ v29[1] = v30[1];
 return 0.0;
 }
 *v4 = 0;
-*(_DWORD *)((char *)this + 81) = 0;
-*(_DWORD *)((char *)this + 85) = 0;
+*(DWORD *)((char *)this + 81) = 0;
+*(DWORD *)((char *)this + 85) = 0;
 TFlipperEdge::set_control_points(this, *((float *)a2 + 8));
 TFlipperEdge::build_edges_in_motion(v3);
 *(float *)&v6 = COERCE_FLOAT(TFlipperEdge::is_ball_inside(v3, *(float *)a2, *((float *)a2 + 1)));
-v7 = *((_DWORD *)a2 + 7);
+v7 = *((DWORD *)a2 + 7);
 v61 = *(float *)&v6;
 v57 = v7;
 if ( *(float *)&v6 != 0.0 )
@@ -482,18 +482,18 @@ if ( *(float *)&v6 != 0.0 )
 if ( Distance_Squared(
 *(float *)a2,
 *((float *)a2 + 1),
-*((_DWORD *)a2 + 2),
+*((DWORD *)a2 + 2),
 *(float *)((char *)v3 + 33),
 *(float *)((char *)v3 + 37),
-*(_DWORD *)((char *)v3 + 41)) >= *(float *)((char *)v3 + 61) )
+*(DWORD *)((char *)v3 + 41)) >= *(float *)((char *)v3 + 61) )
 {
 if ( Distance_Squared(
 *(float *)a2,
 *((float *)a2 + 1),
-*((_DWORD *)a2 + 2),
+*((DWORD *)a2 + 2),
 T1,
 *((float *)&T1 + 1),
-*((_DWORD *)&T1 + 2)) >= *(float *)((char *)v3 + 65) )
+*((DWORD *)&T1 + 2)) >= *(float *)((char *)v3 + 65) )
 {
 if ( LODWORD(v61) == 4 )
 {
@@ -537,44 +537,44 @@ return 1000000000.0;
 }
 LABEL_20:
 v10 = (float *)((char *)v3 + 221);
-*(_DWORD *)((char *)v3 + 221) = *(_DWORD *)&v44;
-*(_DWORD *)((char *)v3 + 225) = v45;
-*(_DWORD *)((char *)v3 + 229) = v46;
-v11 = (_DWORD *)((char *)v3 + 185);
+*(DWORD *)((char *)v3 + 221) = *(DWORD *)&v44;
+*(DWORD *)((char *)v3 + 225) = v45;
+*(DWORD *)((char *)v3 + 229) = v46;
+v11 = (DWORD *)((char *)v3 + 185);
 v12 = &v47;
 goto LABEL_41;
 }
 v53 = *((float *)a2 + 3);
 v54 = *((float *)a2 + 4);
-v55 = *((_DWORD *)a2 + 5);
+v55 = *((DWORD *)a2 + 5);
 v13 = *((float *)a2 + 6);
 v50 = *(float *)a2;
 v51 = *((float *)a2 + 1);
-v52 = *((_DWORD *)a2 + 2);
+v52 = *((DWORD *)a2 + 2);
 v56 = v13;
 result = distance_to_flipper((struct ray_type *)&v50, (struct ray_type *)&v44);
 v14 = &v44;
 if ( result == 0.0 )
 {
-*(_DWORD *)((char *)v3 + 221) = *(_DWORD *)&v44;
-*(_DWORD *)((char *)v3 + 225) = v45;
-*(_DWORD *)((char *)v3 + 229) = v46;
+*(DWORD *)((char *)v3 + 221) = *(DWORD *)&v44;
+*(DWORD *)((char *)v3 + 225) = v45;
+*(DWORD *)((char *)v3 + 229) = v46;
 *(float *)((char *)v3 + 221) = *(float *)((char *)v3 + 221) - v53 * 0.00001;
 *(float *)((char *)v3 + 225) = *(float *)((char *)v3 + 225) - v54 * 0.00001;
 }
 else
 {
-v15 = (_DWORD *)((char *)v3 + 221);
+v15 = (DWORD *)((char *)v3 + 221);
 LABEL_25:
-*v15 = *(_DWORD *)v14;
+*v15 = *(DWORD *)v14;
 v17 = v14 + 4;
 v16 = v15 + 1;
 *v16 = *v17;
 v16[1] = v17[1];
 }
-*(_DWORD *)((char *)v3 + 185) = *(_DWORD *)&v47;
-*(_DWORD *)((char *)v3 + 189) = v48;
-*(_DWORD *)((char *)v3 + 193) = v49;
+*(DWORD *)((char *)v3 + 185) = *(DWORD *)&v47;
+*(DWORD *)((char *)v3 + 189) = v48;
+*(DWORD *)((char *)v3 + 193) = v49;
 return result;
 }
 // 1025684: using guessed type float flt_1025684;
@@ -604,11 +604,11 @@ float v19; // ST14_4
 float v20; // [esp+14h] [ebp-4h]
 
 v3 = this;
-v4 = *(_DWORD *)((char *)this + 21);
-*(_DWORD *)((char *)this + 197) = 1;
+v4 = *(DWORD *)((char *)this + 21);
+*(DWORD *)((char *)this + 197) = 1;
 if ( !v4 )
 goto LABEL_4;
-if ( *(_DWORD *)((char *)this + 81) )
+if ( *(DWORD *)((char *)this + 81) )
 {
 v5 = *(float *)((char *)this + 221) - *(float *)((char *)this + 33);
 v6 = *(float *)((char *)this + 225) - *(float *)((char *)this + 37);
@@ -645,7 +645,7 @@ v19,
 v18);
 return;
 }
-if ( !v4 || !*(_DWORD *)((char *)this + 85) )
+if ( !v4 || !*(DWORD *)((char *)this + 85) )
 goto LABEL_4;
 v12 = (TFlipperEdge *)((char *)this + 221);
 v13 = *(float *)((char *)v3 + 221) - *(float *)((char *)v3 + 33);
@@ -673,28 +673,28 @@ switch ( a2 )
 {
 case 1:
 v5 = TFlipperEdge::flipper_angle(this, a3);
-v6 = *(_DWORD *)((char *)this + 69);
+v6 = *(DWORD *)((char *)this + 69);
 *(float *)((char *)this + 73) = v5;
-*(_DWORD *)((char *)this + 77) = v6;
-v4 = *(_DWORD *)((char *)this + 213);
+*(DWORD *)((char *)this + 77) = v6;
+v4 = *(DWORD *)((char *)this + 213);
 goto LABEL_7;
 case 2:
 v3 = TFlipperEdge::flipper_angle(this, a3);
-v4 = *(_DWORD *)((char *)this + 217);
+v4 = *(DWORD *)((char *)this + 217);
 *(float *)((char *)this + 73) = v3;
 *(float *)((char *)this + 77) = 0.0;
 LABEL_7:
-*(_DWORD *)((char *)this + 209) = v4;
+*(DWORD *)((char *)this + 209) = v4;
 break;
 case 1024:
-*(_DWORD *)((char *)this + 21) = 0;
+*(DWORD *)((char *)this + 21) = 0;
 *(float *)((char *)this + 77) = 0.0;
 return;
 }
-if ( !*(_DWORD *)((char *)this + 21) )
+if ( !*(DWORD *)((char *)this + 21) )
 *(float *)((char *)this + 201) = a3;
 v7 = *(float *)((char *)this + 209);
-*(_DWORD *)((char *)this + 21) = a2;
+*(DWORD *)((char *)this + 21) = a2;
 *(float *)((char *)this + 205) = v7 + *(float *)((char *)this + 201);
 }
 
@@ -758,7 +758,7 @@ v13 = this;
 TEdgeSegment::TEdgeSegment(this, a2, a3, a4);
 *(float *)((char *)v13 + 25) = a12;
 *(float *)((char *)v13 + 29) = a13;
-*(_DWORD *)v13 = &TFlipperEdge::vftable;
+*(DWORD *)v13 = &TFlipperEdge::vftable;
 v46 = *(float *)a6;
 v47 = *((float *)a6 + 1);
 v48 = *((float *)a6 + 2);
@@ -776,10 +776,10 @@ v15 = v48 + *(float *)((char *)a5 + 282);
 v16 = v46;
 *(float *)((char *)v13 + 153) = v49;
 v52 = v15;
-*(_DWORD *)((char *)v13 + 157) = LODWORD(v50);
+*(DWORD *)((char *)v13 + 157) = LODWORD(v50);
 *(float *)((char *)v13 + 45) = v15;
 v17 = *(float *)((char *)v13 + 49) * 1.01;
-*(_DWORD *)((char *)v13 + 161) = HIDWORD(v50);
+*(DWORD *)((char *)v13 + 161) = HIDWORD(v50);
 *(float *)((char *)v13 + 65) = v17 * v17;
 *(float *)((char *)v13 + 165) = v36;
 *(float *)((char *)v13 + 169) = v37;
@@ -807,7 +807,7 @@ v43 = 0.0;
 cross(&v39, &v41, &v33);
 if ( v35 < 0.0 )
 *(float *)((char *)v13 + 69) = -*(float *)((char *)v13 + 69);
-*(_DWORD *)((char *)v13 + 21) = 0;
+*(DWORD *)((char *)v13 + 21) = 0;
 *(float *)((char *)v13 + 77) = 0.0;
 v44 = v53;
 v45 = v51;
@@ -849,9 +849,9 @@ v50 = v30;
 v31 = Distance((struct vector_type *)&v39, (struct vector_type *)&v33);
 *(float *)((char *)v13 + 181) = v50 / (v31 / *(float *)((char *)v13 + 49) + v31 / *(float *)((char *)v13 + 49));
 TFlipperEdge::place_in_grid(v13);
-*(_DWORD *)((char *)v13 + 197) = 0;
+*(DWORD *)((char *)v13 + 197) = 0;
 *(float *)((char *)v13 + 201) = 0.0;
-*(_DWORD *)((char *)v13 + 81) = 0;
+*(DWORD *)((char *)v13 + 81) = 0;
 *(float *)((char *)v13 + 205) = 0.0;
 result = v13;
 *(float *)((char *)v13 + 209) = 0.0;

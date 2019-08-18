@@ -8,7 +8,7 @@
 #include "pinball.h"
 
 //----- (0101461A) --------------------------------------------------------
-signed int __stdcall pb_mode_change(int a1)
+signed int pb_mode_change(int a1)
 {
 	switch (a1)
 	{
@@ -20,7 +20,7 @@ signed int __stdcall pb_mode_change(int a1)
 			options_menu_check(0x194u, 1);
 			if (MainTable)
 			{
-				int v2 = *(_DWORD*)((char*)MainTable + 230);
+				int v2 = *(DWORD*)((char*)MainTable + 230);
 				if (v2)
 					* (_BYTE*)(v2 + 5) = 1;
 			}
@@ -32,7 +32,7 @@ signed int __stdcall pb_mode_change(int a1)
 			options_menu_check(0x194u, 0);
 			if (MainTable)
 			{
-				int v1 = *(_DWORD*)((char*)MainTable + 230);
+				int v1 = *(DWORD*)((char*)MainTable + 230);
 				if (v1)
 					* (_BYTE*)(v1 + 5) = 0;
 			}
@@ -45,9 +45,9 @@ signed int __stdcall pb_mode_change(int a1)
 			options_menu_set(0x67u, 1);
 			options_menu_check(0x194u, 0);
 		}
-		if (MainTable && *(_DWORD*)((char*)MainTable + 266))
-			(***(void(__thiscall * ***)(_DWORD, signed int, _DWORD))((char*)MainTable + 266))(
-				*(_DWORD*)((char*)MainTable + 266),
+		if (MainTable && *(DWORD*)((char*)MainTable + 266))
+			(***(void(__thiscall * ***)(DWORD, signed int, DWORD))((char*)MainTable + 266))(
+				*(DWORD*)((char*)MainTable + 266),
 				29,
 				1.4);
 		break;
@@ -66,7 +66,7 @@ signed int __stdcall pb_mode_change(int a1)
 // 1025574: using guessed type int dword_1025574;
 
 //----- (01014743) --------------------------------------------------------
-signed int __stdcall pb_mode_countdown(int a1)
+signed int pb_mode_countdown(int a1)
 {
 	if (!dword_1025568 || dword_1025568 <= 0)
 		return 1;
@@ -92,7 +92,7 @@ signed int __stdcall pb_mode_countdown(int a1)
 // 1025574: using guessed type int dword_1025574;
 
 //----- (0101479B) --------------------------------------------------------
-int __stdcall pb_end_game()
+int pb_end_game()
 {
 	struct TPinballTable* v0; // edx
 	int v1; // esi
@@ -120,7 +120,7 @@ int __stdcall pb_end_game()
 	pb_mode_change(2);
 	v0 = MainTable;
 	v2 = 0;
-	v18 = *(_DWORD*)((char*)MainTable + 214);
+	v18 = *(DWORD*)((char*)MainTable + 214);
 	v1 = v18;
 	if (v18 > 0)
 	{
@@ -163,7 +163,7 @@ int __stdcall pb_end_game()
 		v4 = i + 1;
 	}
 	result = 0;
-	if (!dword_1025570 && !*(_DWORD*)((char*)v0 + 62))
+	if (!dword_1025570 && !*(DWORD*)((char*)v0 + 62))
 	{
 		i = 0;
 		if (v1 > 0)
@@ -189,18 +189,18 @@ int __stdcall pb_end_game()
 // 101479B: using guessed type int var_E8[4];
 
 //----- (01014908) --------------------------------------------------------
-signed int __stdcall pb_chk_highscore()
+signed int pb_chk_highscore()
 {
 	int v0; // esi
 	int v1; // edi
 
 	if (dword_1025570)
 		return 0;
-	v0 = *(_DWORD*)((char*)MainTable + 214) - 1;
+	v0 = *(DWORD*)((char*)MainTable + 214) - 1;
 	if (v0 < 0)
 		return 0;
 	v1 = 28 * v0;
-	while (high_score_get_score_position((int)byte_1025578, **(_DWORD * *)((char*)MainTable + v1 + 102)) < 0)
+	while (high_score_get_score_position((int)byte_1025578, **(DWORD * *)((char*)MainTable + v1 + 102)) < 0)
 	{
 		--v0;
 		v1 -= 28;
@@ -212,7 +212,7 @@ signed int __stdcall pb_chk_highscore()
 // 1025570: using guessed type int dword_1025570;
 
 //----- (01014956) --------------------------------------------------------
-long double __stdcall pb_collide(struct TEdgeSegment* a1, float a2, struct TBall* a3)
+long double pb_collide(struct TEdgeSegment* a1, float a2, struct TBall* a3)
 {
 	struct TBall* v3; // ebx
 	double v4; // st7
@@ -241,7 +241,7 @@ long double __stdcall pb_collide(struct TEdgeSegment* a1, float a2, struct TBall
 	float v28; // [esp+44h] [ebp-4h]
 
 	v3 = a3;
-	if (*((_BYTE*)a3 + 5) && !*(_DWORD*)((char*)a3 + 106))
+	if (*((_BYTE*)a3 + 5) && !*(DWORD*)((char*)a3 + 106))
 	{
 		if (ball_speed_limit < (double) * (float*)((char*)a3 + 66))
 			* (float*)((char*)a3 + 66) = ball_speed_limit;
@@ -250,24 +250,24 @@ long double __stdcall pb_collide(struct TEdgeSegment* a1, float a2, struct TBall
 		*(float*)((char*)v3 + 74) = a2;
 		v6 = v4 * *(float*)((char*)v3 + 66);
 		v27 = (struct TBall*)((char*)v3 + 42);
-		v13 = *(_DWORD*)((char*)v3 + 42);
+		v13 = *(DWORD*)((char*)v3 + 42);
 		*(float*)((char*)v3 + 70) = v6;
 		v7 = *(float*)& a1;
-		v14 = *(_DWORD*)((char*)v3 + 46);
+		v14 = *(DWORD*)((char*)v3 + 46);
 		*(float*)((char*)v3 + 78) = *(float*)& a1;
-		v15 = *(_DWORD*)((char*)v3 + 50);
-		v16 = *(_DWORD*)((char*)v3 + 54);
-		v17 = *(_DWORD*)((char*)v3 + 58);
+		v15 = *(DWORD*)((char*)v3 + 50);
+		v16 = *(DWORD*)((char*)v3 + 54);
+		v17 = *(DWORD*)((char*)v3 + 58);
 		v28 = v5;
-		v8 = *(_DWORD*)((char*)v3 + 110);
-		v18 = *(_DWORD*)((char*)v3 + 62);
+		v8 = *(DWORD*)((char*)v3 + 110);
+		v18 = *(DWORD*)((char*)v3 + 62);
 		v19 = v6;
 		v23 = v8;
 		v21 = v7;
 		v22 = v4;
 		v20 = 990057071;
 		v9 = TEdgeManager::FindCollisionDistance(edge_manager, (struct ray_type*) & v13, v3, &a1);
-		*(_DWORD*)((char*)v3 + 134) = 0;
+		*(DWORD*)((char*)v3 + 134) = 0;
 		*(float*)& a3 = v9;
 		if (*(float*)& a3 >= 1000000000.0)
 		{
@@ -281,7 +281,7 @@ long double __stdcall pb_collide(struct TEdgeSegment* a1, float a2, struct TBall
 		}
 		else
 		{
-			(**(void(__stdcall * **)(struct TBall*, struct TBall*))a1)(v3, a3);
+			(**(void(* **)(struct TBall*, struct TBall*))a1)(v3, a3);
 			if (v28 > 0.000000001)
 				return fabs(*(float*)& a3 / v28);
 		}
@@ -291,7 +291,7 @@ long double __stdcall pb_collide(struct TEdgeSegment* a1, float a2, struct TBall
 // 10253D0: using guessed type float ball_speed_limit;
 
 //----- (01014A68) --------------------------------------------------------
-void __stdcall pb_timed_frame(float a1, float a2, int a3)
+void pb_timed_frame(float a1, float a2, int a3)
 {
 	int v3; // eax
 	int v4; // edi
@@ -314,8 +314,8 @@ void __stdcall pb_timed_frame(float a1, float a2, int a3)
 	float v21; // [esp+3Ch] [ebp-8h]
 	float v22; // [esp+40h] [ebp-4h]
 
-	v3 = *(_DWORD*)((char*)MainTable + 262);
-	v18 = *(_DWORD*)(v3 + 4);
+	v3 = *(DWORD*)((char*)MainTable + 262);
+	v18 = *(DWORD*)(v3 + 4);
 	v4 = v18;
 	v5 = v3 + 8;
 	if (v18 > 0)
@@ -323,16 +323,16 @@ void __stdcall pb_timed_frame(float a1, float a2, int a3)
 		v19 = v18;
 		do
 		{
-			v6 = *(_DWORD*)v5;
-			v7 = *(_BYTE*)(*(_DWORD*)v5 + 5) == 0;
+			v6 = *(DWORD*)v5;
+			v7 = *(_BYTE*)(*(DWORD*)v5 + 5) == 0;
 			v22 = a2;
 			if (!v7)
 			{
-				v8 = *(_DWORD*)(v6 + 106);
+				v8 = *(DWORD*)(v6 + 106);
 				if (v8)
 				{
 					*(float*)(v6 + 74) = a2;
-					(*(void(__stdcall * *)(int, char*))(*(_DWORD*)v8 + 24))(v6, &v14);
+					(*(void(* *)(int, char*))(*(DWORD*)v8 + 24))(v6, &v14);
 				}
 				else
 				{
@@ -379,13 +379,13 @@ void __stdcall pb_timed_frame(float a1, float a2, int a3)
 	}
 	if (a3)
 	{
-		v13 = *(_DWORD*)((char*)MainTable + 262) + 8;
+		v13 = *(DWORD*)((char*)MainTable + 262) + 8;
 		if (v4 > 0)
 		{
 			do
 			{
-				if (*(_BYTE*)(*(_DWORD*)v13 + 5))
-					(*(void (**)(void))(**(_DWORD * *)v13 + 20))();
+				if (*(_BYTE*)(*(DWORD*)v13 + 5))
+					(*(void (**)(void))(**(DWORD * *)v13 + 20))();
 				v13 += 4;
 				--v4;
 			} while (v4);
@@ -394,7 +394,7 @@ void __stdcall pb_timed_frame(float a1, float a2, int a3)
 }
 
 //----- (01014BF9) --------------------------------------------------------
-signed int __userpurge pb_frame@<eax > (int a1@<ebx > , int a2)
+signed int pb_frame@<eax > (int a1@<ebx > , int a2)
 {
 	double v2; // st7
 	char* v3; // eax
@@ -423,7 +423,7 @@ signed int __userpurge pb_frame@<eax > (int a1@<ebx > , int a2)
 		timer_check();
 		render_update();
 		score_update(a1, *(int**)((char*)MainTable + 50));
-		if (!*(_DWORD*)((char*)MainTable + 370))
+		if (!*(DWORD*)((char*)MainTable + 370))
 		{
 			if (nudge_count > 0.5)
 			{
@@ -445,7 +445,7 @@ signed int __userpurge pb_frame@<eax > (int a1@<ebx > , int a2)
 // 102564C: using guessed type float nudge_count;
 
 //----- (01014D3D) --------------------------------------------------------
-void __stdcall pb_firsttime_setup()
+void pb_firsttime_setup()
 {
 	render_blit = 0;
 	render_update();
@@ -454,32 +454,32 @@ void __stdcall pb_firsttime_setup()
 // 1024754: using guessed type int render_blit;
 
 //----- (01014D59) --------------------------------------------------------
-struct TPinballTable* __usercall pb_tilt_no_more@<eax > (int a1@<ebx > )
+struct TPinballTable* pb_tilt_no_more@<eax > (int a1@<ebx > )
 {
 	struct TPinballTable* result; // eax
 
-	if (*(_DWORD*)((char*)MainTable + 370))
+	if (*(DWORD*)((char*)MainTable + 370))
 		TTextBox::Clear(InfoTextBox, a1);
 	result = MainTable;
-	*(_DWORD*)((char*)MainTable + 370) = 0;
+	*(DWORD*)((char*)MainTable + 370) = 0;
 	nudge_count = -2.0;
 	return result;
 }
 // 102564C: using guessed type float nudge_count;
 
 //----- (01014D8E) --------------------------------------------------------
-void __stdcall pb_ballset(signed int a1, signed int a2)
+void pb_ballset(signed int a1, signed int a2)
 {
 	int v2; // esi
 
-	v2 = *(_DWORD*)(*(_DWORD*)((char*)MainTable + 262) + 8);
+	v2 = *(DWORD*)(*(DWORD*)((char*)MainTable + 262) + 8);
 	*(float*)(v2 + 54) = (double)a1 * 30.0;
 	*(float*)(v2 + 58) = (double)a2 * 30.0;
 	*(float*)(v2 + 66) = normalize_2d((float*)(v2 + 54));
 }
 
 //----- (01014DCF) --------------------------------------------------------
-void __stdcall nudge(float a1, float a2)
+void nudge(float a1, float a2)
 {
 	struct TPinballTable* v2; // eax
 	int v3; // ecx
@@ -497,8 +497,8 @@ void __stdcall nudge(float a1, float a2)
 	int v15; // [esp+2Ch] [ebp-4h]
 
 	v2 = MainTable;
-	v3 = *(_DWORD*)((char*)MainTable + 262);
-	v4 = *(_DWORD*)(v3 + 4);
+	v3 = *(DWORD*)((char*)MainTable + 262);
+	v4 = *(DWORD*)(v3 + 4);
 	v13 = a1 * 0.5;
 	v5 = v3 + 8;
 	v14 = a2 * 0.5;
@@ -507,8 +507,8 @@ void __stdcall nudge(float a1, float a2)
 		v15 = v4;
 		do
 		{
-			v6 = *(_DWORD*)v5;
-			if (*(_BYTE*)(*(_DWORD*)v5 + 5) && !*(_DWORD*)(v6 + 106))
+			v6 = *(DWORD*)v5;
+			if (*(_BYTE*)(*(DWORD*)v5 + 5) && !*(DWORD*)(v6 + 106))
 			{
 				*(float*)(v6 + 54) = *(float*)(v6 + 54) * *(float*)(v6 + 66);
 				*(float*)(v6 + 58) = *(float*)(v6 + 58) * *(float*)(v6 + 66);
@@ -530,15 +530,15 @@ void __stdcall nudge(float a1, float a2)
 			--v15;
 		} while (v15);
 	}
-	v9 = *(_DWORD*)((char*)v2 + 246);
-	v10 = *(_DWORD*)((char*)v2 + 242);
+	v9 = *(DWORD*)((char*)v2 + 246);
+	v10 = *(DWORD*)((char*)v2 + 242);
 	v11 = (signed __int64)_floor(0.5 - a2);
 	v12 = _floor(a1 + 0.5);
 	render_shift((signed __int64)v12, v11, 0, 0, v10, v9);
 }
 
 //----- (01014EEE) --------------------------------------------------------
-void __stdcall un_nudge_left(int a1, void* a2)
+void un_nudge_left(int a1, void* a2)
 {
 	if (nudged_left)
 		nudge(2.0, -1.0);
@@ -547,7 +547,7 @@ void __stdcall un_nudge_left(int a1, void* a2)
 // 102563C: using guessed type int nudged_left;
 
 //----- (01014F20) --------------------------------------------------------
-void __stdcall un_nudge_right(int a1, void* a2)
+void un_nudge_right(int a1, void* a2)
 {
 	if (nudged_right)
 		nudge(-2.0, -1.0);
@@ -556,7 +556,7 @@ void __stdcall un_nudge_right(int a1, void* a2)
 // 1025640: using guessed type int nudged_right;
 
 //----- (01014F52) --------------------------------------------------------
-void __stdcall nudge_left()
+void nudge_left()
 {
 	nudge(-2.0, 1.0);
 	if (nudge_timer)
@@ -568,7 +568,7 @@ void __stdcall nudge_left()
 // 1025648: using guessed type int nudge_timer;
 
 //----- (01014FA4) --------------------------------------------------------
-void __stdcall nudge_right()
+void nudge_right()
 {
 	nudge(2.0, 1.0);
 	if (nudge_timer)
@@ -580,7 +580,7 @@ void __stdcall nudge_right()
 // 1025648: using guessed type int nudge_timer;
 
 //----- (01014FF6) --------------------------------------------------------
-void __stdcall un_nudge_up(int a1, void* a2)
+void un_nudge_up(int a1, void* a2)
 {
 	if (nudged_up)
 		nudge(0.0, -1.0);
@@ -589,7 +589,7 @@ void __stdcall un_nudge_up(int a1, void* a2)
 // 1025644: using guessed type int nudged_up;
 
 //----- (01015024) --------------------------------------------------------
-void __stdcall nudge_up()
+void nudge_up()
 {
 	nudge(0.0, 1.0);
 	if (nudge_timer)
@@ -601,7 +601,7 @@ void __stdcall nudge_up()
 // 1025648: using guessed type int nudge_timer;
 
 //----- (01015072) --------------------------------------------------------
-void __stdcall pb_keydown(HKEY a1)
+void pb_keydown(HKEY a1)
 {
 	CHAR* v1; // eax
 	int v2; // eax
@@ -624,35 +624,35 @@ void __stdcall pb_keydown(HKEY a1)
 	pbctrl_bdoor_controller(0, (int)a1);
 	if (a1 == dword_1028238)
 	{
-		(**(void(__stdcall * **)(signed int, _DWORD))MainTable)(1000, LODWORD(time_now));
+		(**(void(* **)(signed int, DWORD))MainTable)(1000, LODWORD(time_now));
 		return;
 	}
 	if (a1 == dword_102823C)
 	{
-		(**(void(__stdcall * **)(signed int, _DWORD))MainTable)(1002, LODWORD(time_now));
+		(**(void(* **)(signed int, DWORD))MainTable)(1002, LODWORD(time_now));
 	}
 	else
 	{
 		if (a1 == dword_1028240)
 		{
-			(**(void(__stdcall * **)(signed int, _DWORD))MainTable)(1004, LODWORD(time_now));
+			(**(void(* **)(signed int, DWORD))MainTable)(1004, LODWORD(time_now));
 			return;
 		}
 		if (a1 == dword_1028244)
 		{
-			if (!*(_DWORD*)((char*)MainTable + 370))
+			if (!*(DWORD*)((char*)MainTable + 370))
 				nudge_right();
 			return;
 		}
 		if (a1 == dword_1028248)
 		{
-			if (!*(_DWORD*)((char*)MainTable + 370))
+			if (!*(DWORD*)((char*)MainTable + 370))
 				nudge_left();
 			return;
 		}
 		if (a1 == dword_102824C)
 		{
-			if (!*(_DWORD*)((char*)MainTable + 370))
+			if (!*(DWORD*)((char*)MainTable + 370))
 				nudge_up();
 			return;
 		}
@@ -661,8 +661,8 @@ void __stdcall pb_keydown(HKEY a1)
 	{
 		if (a1 == (HKEY)66)
 		{
-			v2 = *(_DWORD*)((char*)MainTable + 262);
-			v3 = *(_DWORD*)(v2 + 4);
+			v2 = *(DWORD*)((char*)MainTable + 262);
+			v3 = *(DWORD*)(v2 + 4);
 			v4 = 0;
 			v5 = v2 + 8;
 			if (v3 <= 0)
@@ -679,7 +679,7 @@ void __stdcall pb_keydown(HKEY a1)
 				while (1)
 				{
 					v6 = *(TBall * *)v5;
-					if (!*(_BYTE*)(*(_DWORD*)v5 + 5))
+					if (!*(_BYTE*)(*(DWORD*)v5 + 5))
 						break;
 					++v4;
 					v5 += 4;
@@ -687,10 +687,10 @@ void __stdcall pb_keydown(HKEY a1)
 						goto LABEL_36;
 				}
 			}
-			v8 = *(_DWORD*)((char*)v6 + 154);
+			v8 = *(DWORD*)((char*)v6 + 154);
 			*(float*)((char*)v6 + 42) = 1.0;
 			*((_BYTE*)v6 + 5) = 1;
-			*(_DWORD*)((char*)v6 + 50) = v8;
+			*(DWORD*)((char*)v6 + 50) = v8;
 			*(float*)((char*)v6 + 46) = 1.0;
 			*(float*)((char*)v6 + 62) = 0.0;
 			*(float*)((char*)v6 + 58) = 0.0;
@@ -717,7 +717,7 @@ void __stdcall pb_keydown(HKEY a1)
 		}
 		else if ((HKEY)((char*)a1 - 122) == (HKEY)1)
 		{
-			(*(void (**)(void))(*(_DWORD*)MainTable + 4))();
+			(*(void (**)(void))(*(DWORD*)MainTable + 4))();
 		}
 	}
 }
@@ -729,21 +729,21 @@ void __stdcall pb_keydown(HKEY a1)
 // 1025630: using guessed type float time_now;
 
 //----- (010152E4) --------------------------------------------------------
-void __stdcall pb_keyup(HKEY a1)
+void pb_keyup(HKEY a1)
 {
 	if (dword_1025568 == 1 && !single_step && !dword_1025570)
 	{
 		if (a1 == dword_1028238)
 		{
-			(**(void(__stdcall * **)(signed int, _DWORD))MainTable)(1001, LODWORD(time_now));
+			(**(void(* **)(signed int, DWORD))MainTable)(1001, LODWORD(time_now));
 		}
 		else if (a1 == dword_102823C)
 		{
-			(**(void(__stdcall * **)(signed int, _DWORD))MainTable)(1003, LODWORD(time_now));
+			(**(void(* **)(signed int, DWORD))MainTable)(1003, LODWORD(time_now));
 		}
 		else if (a1 == dword_1028240)
 		{
-			(**(void(__stdcall * **)(signed int, _DWORD))MainTable)(1005, LODWORD(time_now));
+			(**(void(* **)(signed int, DWORD))MainTable)(1005, LODWORD(time_now));
 		}
 		else if (a1 == dword_1028244)
 		{
@@ -765,7 +765,7 @@ void __stdcall pb_keyup(HKEY a1)
 // 1025630: using guessed type float time_now;
 
 //----- (010153AE) --------------------------------------------------------
-int __stdcall pb_replay_level(int a1)
+int pb_replay_level(int a1)
 {
 	float v1; // ST04_4
 
@@ -774,20 +774,20 @@ int __stdcall pb_replay_level(int a1)
 	if (phkResult)
 		midi_play_pb_theme(0);
 	v1 = (double)(signed int)dword_1028234;
-	return (**(int(__stdcall * **)(signed int, _DWORD))MainTable)(1014, LODWORD(v1));
+	return (**(int(* **)(signed int, DWORD))MainTable)(1014, LODWORD(v1));
 }
 // 1025570: using guessed type int dword_1025570;
 
 //----- (010153F4) --------------------------------------------------------
-INT_PTR __stdcall pb_high_scores()
+INT_PTR pb_high_scores()
 {
 	return show_high_score_dialog(byte_1025578);
 }
 
 //----- (01015404) --------------------------------------------------------
-_DWORD* __stdcall pb_window_size(_DWORD* a1, _DWORD* a2)
+DWORD* pb_window_size(DWORD* a1, DWORD* a2)
 {
-	_DWORD* result; // eax
+	DWORD* result; // eax
 
 	*a1 = 600;
 	result = a2;
@@ -796,13 +796,13 @@ _DWORD* __stdcall pb_window_size(_DWORD* a1, _DWORD* a2)
 }
 
 //----- (01015424) --------------------------------------------------------
-int __stdcall pb_init()
+int pb_init()
 {
 	int result; // eax
 	int v1; // eax
-	signed __int16* v2; // ebx
-	_DWORD* v3; // edi
-	_DWORD* v4; // esi
+	signed int* v2; // ebx
+	DWORD* v3; // edi
+	DWORD* v4; // esi
 	char* v5; // eax
 	signed int v6; // ecx
 	double v7; // st7
@@ -831,9 +831,9 @@ int __stdcall pb_init()
 		return pb_record_table + 1;
 	v1 = partman_field_labeled(pb_record_table, "background", 5);
 	gdrv_display_palette(v1);
-	v2 = (signed __int16*)partman_field_labeled(pb_record_table, "table_size", 10);
-	v3 = (_DWORD*)partman_field_labeled(pb_record_table, "background", 1);
-	v4 = (_DWORD*)partman_field_labeled(pb_record_table, "camera_info", 11);
+	v2 = (signed int*)partman_field_labeled(pb_record_table, "table_size", 10);
+	v3 = (DWORD*)partman_field_labeled(pb_record_table, "background", 1);
+	v4 = (DWORD*)partman_field_labeled(pb_record_table, "camera_info", 11);
 	if (v4)
 	{
 		v5 = &v15;
@@ -843,7 +843,7 @@ int __stdcall pb_init()
 			v6 = 4;
 			do
 			{
-				*(_DWORD*)v5 = *v4;
+				*(DWORD*)v5 = *v4;
 				++v4;
 				v5 += 4;
 				--v6;
@@ -863,9 +863,9 @@ int __stdcall pb_init()
 		v17 = *((float*)v12 + 1);
 	}
 	render_init(0, v16, v17, *v2, v2[1]);
-	gdrv_copy_bitmap(&vscreen, v3[3], v3[4], *(_DWORD*)((char*)v3 + 29), *(_DWORD*)((char*)v3 + 33), v3, 0, 0);
+	gdrv_copy_bitmap(&vscreen, v3[3], v3[4], *(DWORD*)((char*)v3 + 29), *(DWORD*)((char*)v3 + 33), v3, 0, 0);
 	gdrv_destroy_bitmap((int)v3);
-	loader_loadfrom((_WORD*)pb_record_table);
+	loader_loadfrom((WORD*)pb_record_table);
 	if (play_midi_music)
 		pb_mode_change(1);
 	else
@@ -879,7 +879,7 @@ int __stdcall pb_init()
 	else
 		MainTable = 0;
 	high_score_read((int)byte_1025578, (int)& pb_state);
-	v14 = *(float*)(*(_DWORD*)(*(_DWORD*)((char*)MainTable + 262) + 8) + 154);
+	v14 = *(float*)(*(DWORD*)(*(DWORD*)((char*)MainTable + 262) + 8) + 154);
 	--memory_critical_allocation;
 	result = 0;
 	ball_speed_limit = v14 * 200.0;
@@ -891,14 +891,14 @@ int __stdcall pb_init()
 // 102556C: using guessed type int play_midi_music;
 
 //----- (0101566E) --------------------------------------------------------
-int __stdcall pb_uninit()
+int pb_uninit()
 {
 	score_unload_msg_font();
 	loader_unload();
-	partman_unload_records((_WORD*)pb_record_table);
+	partman_unload_records((WORD*)pb_record_table);
 	high_score_write(byte_1025578, (int)& pb_state);
 	if (MainTable)
-		(*(void(__stdcall * *)(signed int))(*(_DWORD*)MainTable + 16))(1);
+		(*(void(* *)(signed int))(*(DWORD*)MainTable + 16))(1);
 	MainTable = 0;
 	gdrv_get_focus();
 	timer_uninit();
@@ -907,18 +907,18 @@ int __stdcall pb_uninit()
 }
 
 //----- (010156C1) --------------------------------------------------------
-int __stdcall pb_loose_focus()
+int pb_loose_focus()
 {
 	int result; // eax
 
 	if (MainTable)
-		result = (**(int(__stdcall * **)(signed int, _DWORD))MainTable)(1010, LODWORD(time_now));
+		result = (**(int(* **)(signed int, DWORD))MainTable)(1010, LODWORD(time_now));
 	return result;
 }
 // 1025630: using guessed type float time_now;
 
 //----- (010156E4) --------------------------------------------------------
-void __usercall pb_pause_continue(int a1@<ebx > )
+void pb_pause_continue(int a1@<ebx > )
 {
 	char* v1; // eax
 	char* v2; // eax
@@ -930,7 +930,7 @@ void __usercall pb_pause_continue(int a1@<ebx > )
 	if (single_step)
 	{
 		if (MainTable)
-			(**(void(__stdcall * **)(signed int, _DWORD))MainTable)(1008, LODWORD(time_now));
+			(**(void(* **)(signed int, DWORD))MainTable)(1008, LODWORD(time_now));
 		v1 = get_rc_string(22, 0);
 		TTextBox::Display(InfoTextBox, a1, v1, -1.0);
 		midi_music_stop();
@@ -938,7 +938,7 @@ void __usercall pb_pause_continue(int a1@<ebx > )
 	else
 	{
 		if (MainTable)
-			(**(void(__stdcall * **)(signed int, _DWORD))MainTable)(1009, 0.0);
+			(**(void(* **)(signed int, DWORD))MainTable)(1009, 0.0);
 		if (!dword_1025570)
 		{
 			if (dword_1025568 == 2)
@@ -963,30 +963,30 @@ void __usercall pb_pause_continue(int a1@<ebx > )
 // 1025630: using guessed type float time_now;
 
 //----- (010157C3) --------------------------------------------------------
-int __stdcall pb_launch_ball()
+int pb_launch_ball()
 {
-	return (***(int(__stdcall * ***)(signed int, _DWORD))((char*)MainTable + 222))(1017, 0.0);
+	return (***(int(* ***)(signed int, DWORD))((char*)MainTable + 222))(1017, 0.0);
 }
 
 //----- (010157E3) --------------------------------------------------------
-int __stdcall pb_reset_table()
+int pb_reset_table()
 {
 	int result; // eax
 
 	if (MainTable)
-		result = (**(int(__stdcall * **)(signed int, _DWORD))MainTable)(1024, 0.0);
+		result = (**(int(* **)(signed int, DWORD))MainTable)(1024, 0.0);
 	return result;
 }
 
 //----- (01015802) --------------------------------------------------------
-void __usercall pb_toggle_demo(int a1@<ebx > )
+void pb_toggle_demo(int a1@<ebx > )
 {
 	char* v1; // eax
 
 	if (dword_1025570)
 	{
 		dword_1025570 = 0;
-		(**(void(__stdcall * **)(signed int, _DWORD))MainTable)(1024, 0.0);
+		(**(void(* **)(signed int, DWORD))MainTable)(1024, 0.0);
 		pb_mode_change(2);
 		TTextBox::Clear(MissTextBox, a1);
 		v1 = get_rc_string(24, 0);
@@ -1000,7 +1000,7 @@ void __usercall pb_toggle_demo(int a1@<ebx > )
 // 1025570: using guessed type int dword_1025570;
 
 //----- (010211D0) --------------------------------------------------------
-int __stdcall check_expiration_date()
+int check_expiration_date()
 {
 	return 0;
 }

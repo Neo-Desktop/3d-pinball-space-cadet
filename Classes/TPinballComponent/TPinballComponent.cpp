@@ -7,7 +7,7 @@
 //----- (010145F5) --------------------------------------------------------
 void* TPinballComponent::operator new(size_t SizeOfElements)
 {
-	return _calloc(1u, SizeOfElements);
+	return calloc(1u, SizeOfElements);
 }
 
 //----- (010159A9) --------------------------------------------------------
