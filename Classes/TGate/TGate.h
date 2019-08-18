@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TGATE_H
 #define PINBALL_TGATE_H
-
-#include "../../pinball.h"
 
 /* 133 */
 struct TGate;

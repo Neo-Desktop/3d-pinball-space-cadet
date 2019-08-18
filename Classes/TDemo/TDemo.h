@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TDEMO_H
 #define PINBALL_TDEMO_H
-
-#include "../../pinball.h"
 
 /* 128 */
 struct TDemo;

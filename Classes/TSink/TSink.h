@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TSINK_H
 #define PINBALL_TSINK_H
-
-#include "../../pinball.h"
 
 /* 114 */
 struct TSink;

@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TTRIPWIRE_H
 #define PINBALL_TTRIPWIRE_H
-
-#include "../../pinball.h"
 
 /* 131 */
 struct TTripwire;

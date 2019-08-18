@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TFLAGSPINNER_H
 #define PINBALL_TFLAGSPINNER_H
-
-#include "../../pinball.h"
 
 /* 105 */
 struct TFlagSpinner;

@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TBLOCKER_H
 #define PINBALL_TBLOCKER_H
-
-#include "../../pinball.h"
 
 /* 130 */
 struct TBlocker;

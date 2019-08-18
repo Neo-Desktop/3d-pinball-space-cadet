@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TSOLOTARGET_H
 #define PINBALL_TSOLOTARGET_H
-
-#include "../../pinball.h"
 
 /* 107 */
 struct TSoloTarget;

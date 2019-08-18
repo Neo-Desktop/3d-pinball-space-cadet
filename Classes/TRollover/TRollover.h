@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TROLLOVER_H
 #define PINBALL_TROLLOVER_H
-
-#include "../../pinball.h"
 
 /* 108 */
 struct TRollover;

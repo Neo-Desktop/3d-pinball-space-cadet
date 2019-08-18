@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TONEWAY_H
 #define PINBALL_TONEWAY_H
-
-#include "../../pinball.h"
 
 /* 103 */
 struct TOneway;

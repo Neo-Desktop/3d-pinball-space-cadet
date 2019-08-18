@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TTIMER_H
 #define PINBALL_TTIMER_H
-
-#include "../../pinball.h"
 
 /* 129 */
 struct TTimer;

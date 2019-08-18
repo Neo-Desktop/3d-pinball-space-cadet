@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TLIGHTROLLOVER_H
 #define PINBALL_TLIGHTROLLOVER_H
-
-#include "../../pinball.h"
 
 /* 109 */
 struct TLightRollover;

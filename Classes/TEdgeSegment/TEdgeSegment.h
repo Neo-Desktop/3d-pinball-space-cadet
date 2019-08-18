@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TEDGESEGMENT_H
 #define PINBALL_TEDGESEGMENT_H
-
-#include "../../pinball.h"
 
 /* 98 */
 struct TEdgeSegment;

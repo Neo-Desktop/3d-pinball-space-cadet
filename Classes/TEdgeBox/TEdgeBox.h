@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TEDGEBOX_H
 #define PINBALL_TEDGEBOX_H
-
-#include "../../pinball.h"
 
 /* 125 */
 struct TEdgeBox;

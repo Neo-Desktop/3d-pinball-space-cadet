@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TBUMPER_H
 #define PINBALL_TBUMPER_H
-
-#include "../../pinball.h"
 
 /* 104 */
 struct TBumper;

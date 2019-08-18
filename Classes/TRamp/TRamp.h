@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TRAMP_H
 #define PINBALL_TRAMP_H
-
-#include "../../pinball.h"
 
 /* 113 */
 struct TRamp;

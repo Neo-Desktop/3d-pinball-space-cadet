@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TPOPUPTARGET_H
 #define PINBALL_TPOPUPTARGET_H
-
-#include "../../pinball.h"
 
 /* 106 */
 struct TPopupTarget;

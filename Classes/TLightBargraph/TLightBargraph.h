@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TLIGHTBARGRAPH_H
 #define PINBALL_TLIGHTBARGRAPH_H
-
-#include "../../pinball.h"
 
 /* 94 */
 struct TLightBargraph;

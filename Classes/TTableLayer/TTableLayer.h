@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TTABLELAYER_H
 #define PINBALL_TTABLELAYER_H
-
-#include "../../pinball.h"
 
 /* 116 */
 struct TTableLayer;

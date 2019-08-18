@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TSOUND_H
 #define PINBALL_TSOUND_H
-
-#include "../../pinball.h"
 
 /* 132 */
 struct TSound;

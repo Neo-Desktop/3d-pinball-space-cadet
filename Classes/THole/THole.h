@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_THOLE_H
 #define PINBALL_THOLE_H
-
-#include "../../pinball.h"
 
 /* 112 */
 struct THole;

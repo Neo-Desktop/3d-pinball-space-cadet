@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TCOMPONENTGROUP_H
 #define PINBALL_TCOMPONENTGROUP_H
-
-#include "../../pinball.h"
 
 /* 127 */
 struct TComponentGroup;

@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TKICKOUT_H
 #define PINBALL_TKICKOUT_H
-
-#include "../../pinball.h"
 
 /* 111 */
 struct TKickout;

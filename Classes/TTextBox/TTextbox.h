@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TTEXTBOX_H
 #define PINBALL_TTEXTBOX_H
-
-#include "../../pinball.h"
 
 /* 119 */
 struct TTextBox;

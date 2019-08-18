@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TZMAPLIST_H
 #define PINBALL_TZMAPLIST_H
-
-#include "../../pinball.h"
 
 /* 126 */
 struct TZmapList;

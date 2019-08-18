@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TKICKBACK_H
 #define PINBALL_TKICKBACK_H
-
-#include "../../pinball.h"
 
 /* 110 */
 struct TKickback;

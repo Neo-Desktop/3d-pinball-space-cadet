@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TWALL_H
 #define PINBALL_TWALL_H
-
-#include "../../pinball.h"
 
 /* 102 */
 struct TWall;

@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TPLUNGER_H
 #define PINBALL_TPLUNGER_H
-
-#include "../../pinball.h"
 
 /* 118 */
 struct TPlunger;

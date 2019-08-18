@@ -1,11 +1,10 @@
 //
 // Created by neo on 2019-08-15.
 //
+#include "../../pinball.h"
 
 #ifndef PINBALL_TCOLLISIONCOMPONENT_H
 #define PINBALL_TCOLLISIONCOMPONENT_H
-
-#include "../../pinball.h"
 
 /* 101 */
 struct TCollisionComponent;

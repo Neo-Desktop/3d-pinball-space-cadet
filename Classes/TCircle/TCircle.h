@@ -2,10 +2,10 @@
 // Created by neo on 2019-08-15.
 //
 
+#include "../../pinball.h"
+
 #ifndef PINBALL_TCIRCLE_H
 #define PINBALL_TCIRCLE_H
-
-#include "../../pinball.h"
 
 /* 99 */
 struct TCircle;
