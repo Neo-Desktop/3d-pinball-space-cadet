@@ -1,7 +1,7 @@
 #include "TTextbox.h"
 
 //----- (01014092) --------------------------------------------------------
-TTextBox* __thiscall TTextBox::TTextBox(TTextBox* this, struct TPinballTable* a2, int a3)
+TTextBox* TTextBox::TTextBox(TPinballTable* a2, int a3)
 {
 	TTextBox* v3; // esi
 	bool v4; // zf
@@ -42,7 +42,7 @@ TTextBox* __thiscall TTextBox::TTextBox(TTextBox* this, struct TPinballTable* a2
 // 10253C4: using guessed type struct score_msg_font_type *score_msg_fontp;
 
 //----- (01014143) --------------------------------------------------------
-void TTextBox::Clear(TTextBox* this, int a2)
+void TTextBox::Clear(int a2)
 {
 	TTextBox* v2; // esi
 	DWORD* v3; // edx
@@ -115,7 +115,7 @@ void TTextBox::TimerExpired(int a1, int a2, TTextBox* a3)
 }
 
 //----- (0101421C) --------------------------------------------------------
-TZmapList* __thiscall TTextBox::~TTextBox(TTextBox* this)
+TZmapList* TTextBox::~TTextBox()
 {
 	TTextBox* v1; // esi
 	int v2; // eax
@@ -379,7 +379,7 @@ void TTextBox::Display(TTextBox* this, int a2, char* a3, float a4)
 }
 
 //----- (010145CF) --------------------------------------------------------
-TTextBox* __thiscall TTextBox::destroy(TTextBox* this, char a2)
+TTextBox* TTextBox::destroy(char a2)
 {
 	TTextBox* v2; // esi
 

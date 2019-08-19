@@ -70,7 +70,7 @@ if ( v7 < 9 )
 v8 = get_rc_string(word_10246EC[2 * v7], 1);
 v9 = get_rc_string(83, 0);
 _sprintf(&Dest, v9, v8);
-TTextBox::Display(dword_1023E24, 1, &Dest, 8.0);
+TTextBox::Display(tTextBox, 1, &Dest, 8.0);
 (*(void (**)(void))(*(DWORD *)dword_1023D1C + 20))();
 }
 }

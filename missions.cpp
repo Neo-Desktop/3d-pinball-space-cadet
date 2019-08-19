@@ -1,26 +1,26 @@
-#include"pinball.h"
+#include "pinball.h"
 
 //----- (0100E657) --------------------------------------------------------
-void WaitingDeploymentController(int a1, int a2, struct TPinballComponent* a3)
+void WaitingDeploymentController(int a1, int a2, TPinballComponent* a3)
 {
 	char* v3; // eax
 
 	switch (a2)
 	{
 	case 63:
-		if ((struct TPinballComponent*)dword_1023838 == a3 || (struct TPinballComponent*)dword_1023840 == a3)
+		if ((struct TPinballComponent*)dword_1023838 == a3 || (TPinballComponent*)dword_1023840 == a3)
 		{
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 		}
 		break;
 	case 66:
-		TTextBox::Clear(dword_1023E24, a1);
+		TTextBox::Clear(tTextBox, a1);
 		dword_1025048 = 0;
 		break;
 	case 67:
 		v3 = get_rc_string(50, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		break;
 	}
 }
@@ -184,7 +184,7 @@ void SelectMissionController(int a1, struct TPinballComponent* a2)
 			v11 = SpecialAddScore(*(&off_10246A0 + v10));
 			v12 = get_rc_string(77, 0);
 			_sprintf(&Dest, v12, v11);
-			TTextBox::Display(dword_1023E24, 0, &Dest, 4.0);
+			TTextBox::Display(tTextBox, 0, &Dest, 4.0);
 		}
 	}
 	else
@@ -215,7 +215,7 @@ void SelectMissionController(int a1, struct TPinballComponent* a2)
 				v8 = get_rc_string(word_1024708[2 * *(DWORD*)(dword_1023888 + 6)], 1);
 				v9 = get_rc_string(106, 0);
 				_sprintf(&Dest, v9, v8);
-				TTextBox::Display(dword_1023E24, 0, &Dest, -1.0);
+				TTextBox::Display(tTextBox, 0, &Dest, -1.0);
 				if (light_on((struct component_tag*) & lite318))
 					(**(void(* **)(signed int, DWORD))dword_1023EC4)(20, 0.0);
 				if (light_on((struct component_tag*) & lite319))
@@ -229,7 +229,7 @@ void SelectMissionController(int a1, struct TPinballComponent* a2)
 			else
 			{
 				v7 = get_rc_string(104, 0);
-				TTextBox::Display(dword_1023E24, 0, v7, -1.0);
+				TTextBox::Display(tTextBox, 0, v7, -1.0);
 				if (light_on((struct component_tag*) & lite317))
 					(**(void(* **)(signed int, DWORD))dword_1023EBC)(20, 0.0);
 				if (light_on((struct component_tag*) & lite318))
@@ -244,7 +244,7 @@ void SelectMissionController(int a1, struct TPinballComponent* a2)
 		else
 		{
 			v5 = get_rc_string(105, 0);
-			TTextBox::Display(dword_1023E24, 0, v5, -1.0);
+			TTextBox::Display(tTextBox, 0, v5, -1.0);
 			if (light_on((struct component_tag*) & lite317))
 				(**(void(* **)(signed int, DWORD))dword_1023EBC)(20, 0.0);
 			if (light_on((struct component_tag*) & lite319))
@@ -312,7 +312,7 @@ void PracticeMissionController(int a1@<ebx > , int a2, struct TPinballComponent*
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(107, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_10236E4 == a3
@@ -337,13 +337,13 @@ void PracticeMissionController(int a1@<ebx > , int a2, struct TPinballComponent*
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v6 = get_rc_string(108, 0);
-			TTextBox::Display(dword_1023E24, a1, v6, 4.0);
+			TTextBox::Display(tTextBox, a1, v6, 4.0);
 			v7 = SpecialAddScore(500000);
 			v8 = get_rc_string(78, 0);
 			_sprintf(&Dest, v8, v7);
 			if (!AddRankProgress(6))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -388,7 +388,7 @@ void LaunchTrainingController(int a1@<ebx > , int a2, struct TPinballComponent* 
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(110, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023870 == a3)
@@ -409,13 +409,13 @@ void LaunchTrainingController(int a1@<ebx > , int a2, struct TPinballComponent* 
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v6 = get_rc_string(111, 0);
-			TTextBox::Display(dword_1023E24, a1, v6, 4.0);
+			TTextBox::Display(tTextBox, a1, v6, 4.0);
 			v7 = SpecialAddScore(500000);
 			v8 = get_rc_string(78, 0);
 			_sprintf(&Dest, v8, v7);
 			if (!AddRankProgress(6))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -466,7 +466,7 @@ void ReentryTrainingController(int a1@<ebx > , int a2, struct TPinballComponent*
 		v5 = *(DWORD*)(dword_1023888 + 6);
 		v6 = get_rc_string(112, 0);
 		_sprintf(&Dest, v6, v5);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_102372C == a3
@@ -489,13 +489,13 @@ void ReentryTrainingController(int a1@<ebx > , int a2, struct TPinballComponent*
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v8 = get_rc_string(113, 0);
-			TTextBox::Display(dword_1023E24, a1, v8, 4.0);
+			TTextBox::Display(tTextBox, a1, v8, 4.0);
 			v9 = SpecialAddScore(500000);
 			v10 = get_rc_string(78, 0);
 			_sprintf(&Dest, v10, v9);
 			if (!AddRankProgress(6))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -556,7 +556,7 @@ void ScienceMissionController(int a1@<ebx > , int a2, struct TPinballComponent* 
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(114, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023A9C == a3
@@ -583,13 +583,13 @@ void ScienceMissionController(int a1@<ebx > , int a2, struct TPinballComponent* 
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v6 = get_rc_string(115, 0);
-			TTextBox::Display(dword_1023E24, a1, v6, 4.0);
+			TTextBox::Display(tTextBox, a1, v6, 4.0);
 			v7 = SpecialAddScore(750000);
 			v8 = get_rc_string(78, 0);
 			_sprintf(&Dest, v8, v7);
 			if (!AddRankProgress(9))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -640,13 +640,13 @@ void StrayCometController(int a1@<ebx > , int a2, struct TPinballComponent* a3)
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v4 = get_rc_string(119, 0);
-			TTextBox::Display(dword_1023E24, a1, v4, 4.0);
+			TTextBox::Display(tTextBox, a1, v4, 4.0);
 			v5 = SpecialAddScore(1000000);
 			v6 = get_rc_string(78, 0);
 			_sprintf(&Dest, v6, v5);
 			if (!AddRankProgress(8))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -667,7 +667,7 @@ void StrayCometController(int a1@<ebx > , int a2, struct TPinballComponent* a3)
 			v3 = get_rc_string(118, 0);
 		else
 			v3 = get_rc_string(117, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 	}
 }
 // 1023980: using guessed type int dword_1023980;
@@ -713,13 +713,13 @@ void SpaceRadiationController(int a1@<ebx > , int a2, struct TPinballComponent* 
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v4 = get_rc_string(121, 0);
-			TTextBox::Display(dword_1023E24, a1, v4, 4.0);
+			TTextBox::Display(tTextBox, a1, v4, 4.0);
 			v5 = SpecialAddScore(1000000);
 			v6 = get_rc_string(78, 0);
 			_sprintf(&Dest, v6, v5);
 			if (!AddRankProgress(8))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -740,7 +740,7 @@ void SpaceRadiationController(int a1@<ebx > , int a2, struct TPinballComponent* 
 			v3 = get_rc_string(120, 0);
 		else
 			v3 = get_rc_string(176, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 	}
 }
 // 10239EC: using guessed type int dword_10239EC;
@@ -784,13 +784,13 @@ void BlackHoleThreatController(int a1@<ebx > , int a2, struct TPinballComponent*
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v6 = get_rc_string(124, 0);
-			TTextBox::Display(dword_1023E24, a1, v6, 4.0);
+			TTextBox::Display(tTextBox, a1, v6, 4.0);
 			v7 = SpecialAddScore(1000000);
 			v8 = get_rc_string(78, 0);
 			_sprintf(&Dest, v8, v7);
 			if (!AddRankProgress(8))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -809,7 +809,7 @@ void BlackHoleThreatController(int a1@<ebx > , int a2, struct TPinballComponent*
 		if (*(DWORD*)(dword_1023758 + 78))
 		{
 			v5 = get_rc_string(123, 0);
-			TTextBox::Display(dword_1023E24, a1, v5, v9);
+			TTextBox::Display(tTextBox, a1, v5, v9);
 			if (light_on((struct component_tag*) & lite316))
 				(**(void(* **)(signed int, DWORD))dword_1023EB4)(20, 0.0);
 			if (!light_on((struct component_tag*) & lite314))
@@ -821,7 +821,7 @@ void BlackHoleThreatController(int a1@<ebx > , int a2, struct TPinballComponent*
 		else
 		{
 			v3 = get_rc_string(122, 0);
-			TTextBox::Display(dword_1023E24, a1, v3, v9);
+			TTextBox::Display(tTextBox, a1, v3, v9);
 			if (light_on((struct component_tag*) & lite314))
 				(**(void(* **)(signed int, DWORD))dword_1023EA4)(20, 0.0);
 			if (!light_on((struct component_tag*) & lite316))
@@ -895,7 +895,7 @@ void BugHuntController(int a1@<ebx > , int a2, struct TPinballComponent* a3)
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(125, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023A9C == a3
@@ -937,13 +937,13 @@ void BugHuntController(int a1@<ebx > , int a2, struct TPinballComponent* a3)
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v6 = get_rc_string(126, 0);
-			TTextBox::Display(dword_1023E24, a1, v6, 4.0);
+			TTextBox::Display(tTextBox, a1, v6, 4.0);
 			v7 = SpecialAddScore(750000);
 			v8 = get_rc_string(78, 0);
 			_sprintf(&Dest, v8, v7);
 			if (!AddRankProgress(7))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -1023,13 +1023,13 @@ void RescueMissionController(int a1, int a2, struct TPinballComponent* a3)
 		*(DWORD*)(dword_1023BBC + 6) = 1;
 		MissionControl(66, 0);
 		v8 = get_rc_string(129, 0);
-		TTextBox::Display(dword_1023E24, a1, v8, 4.0);
+		TTextBox::Display(tTextBox, a1, v8, 4.0);
 		v9 = SpecialAddScore(750000);
 		v10 = get_rc_string(78, 0);
 		_sprintf(&Dest, v10, v9);
 		if (!AddRankProgress(7))
 		{
-			TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+			TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 			(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 		}
 	}
@@ -1050,7 +1050,7 @@ void RescueMissionController(int a1, int a2, struct TPinballComponent* a3)
 		if (v3)
 		{
 			v6 = get_rc_string(128, 0);
-			TTextBox::Display(dword_1023E24, a1, v6, v11);
+			TTextBox::Display(tTextBox, a1, v6, v11);
 			if (light_on((struct component_tag*) & lite303))
 				(**(void(* **)(signed int, DWORD))dword_1023E4C)(20, 0.0);
 			if (!light_on((struct component_tag*) & lite304))
@@ -1062,7 +1062,7 @@ void RescueMissionController(int a1, int a2, struct TPinballComponent* a3)
 		else
 		{
 			v4 = get_rc_string(127, 0);
-			TTextBox::Display(dword_1023E24, a1, v4, v11);
+			TTextBox::Display(tTextBox, a1, v4, v11);
 			if (light_on((struct component_tag*) & lite304))
 				(**(void(* **)(signed int, DWORD))dword_1023E54)(20, 0.0);
 			if (!light_on((struct component_tag*) & lite303))
@@ -1117,7 +1117,7 @@ void AlienMenaceController(int a1@<ebx > , int a2, struct TPinballComponent* a3)
 			return;
 		}
 		v5 = get_rc_string(175, 0);
-		TTextBox::Display(dword_1023E24, a1, v5, -1.0);
+		TTextBox::Display(tTextBox, a1, v5, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_10236E4 == a3)
@@ -1175,7 +1175,7 @@ void AlienMenacePartTwoController(int a1@<ebx > , int a2, struct TPinballCompone
 		v5 = *(DWORD*)(dword_1023888 + 6);
 		v6 = get_rc_string(107, 0);
 		_sprintf(&Dest, v6, v5);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_10236E4 == a3
@@ -1200,13 +1200,13 @@ void AlienMenacePartTwoController(int a1@<ebx > , int a2, struct TPinballCompone
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v8 = get_rc_string(130, 0);
-			TTextBox::Display(dword_1023E24, a1, v8, 4.0);
+			TTextBox::Display(tTextBox, a1, v8, 4.0);
 			v9 = SpecialAddScore(750000);
 			v10 = get_rc_string(78, 0);
 			_sprintf(&Dest, v10, v9);
 			if (!AddRankProgress(7))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -1253,7 +1253,7 @@ void SatelliteController(int a1@<ebx > , int a2, struct TPinballComponent* a3)
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(132, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_10236FC == a3)
@@ -1274,13 +1274,13 @@ void SatelliteController(int a1@<ebx > , int a2, struct TPinballComponent* a3)
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v6 = get_rc_string(133, 0);
-			TTextBox::Display(dword_1023E24, a1, v6, 4.0);
+			TTextBox::Display(tTextBox, a1, v6, 4.0);
 			v7 = SpecialAddScore(1250000);
 			v8 = get_rc_string(78, 0);
 			_sprintf(&Dest, v8, v7);
 			if (!AddRankProgress(9))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -1322,7 +1322,7 @@ void ReconnaissanceController(int a1@<ebx > , int a2, struct TPinballComponent* 
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(134, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_102372C == a3
@@ -1354,13 +1354,13 @@ void ReconnaissanceController(int a1@<ebx > , int a2, struct TPinballComponent* 
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v6 = get_rc_string(136, 0);
-			TTextBox::Display(dword_1023E24, a1, v6, 4.0);
+			TTextBox::Display(tTextBox, a1, v6, 4.0);
 			v7 = SpecialAddScore(1250000);
 			v8 = get_rc_string(78, 0);
 			_sprintf(&Dest, v8, v7);
 			if (!AddRankProgress(9))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -1417,7 +1417,7 @@ void DoomsdayMachineController(int a1@<ebx > , int a2, struct TPinballComponent*
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(137, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_102389C == a3 || (struct TPinballComponent*)dword_10238A4 == a3)
@@ -1439,13 +1439,13 @@ void DoomsdayMachineController(int a1@<ebx > , int a2, struct TPinballComponent*
 			*(DWORD*)(dword_1023BBC + 6) = 1;
 			MissionControl(66, 0);
 			v6 = get_rc_string(138, 0);
-			TTextBox::Display(dword_1023E24, a1, v6, 4.0);
+			TTextBox::Display(tTextBox, a1, v6, 4.0);
 			v7 = SpecialAddScore(1250000);
 			v8 = get_rc_string(78, 0);
 			_sprintf(&Dest, v8, v7);
 			if (!AddRankProgress(9))
 			{
-				TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+				TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 				(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 			}
 		}
@@ -1488,7 +1488,7 @@ void CosmicPlagueController(int a1@<ebx > , int a2, struct TPinballComponent* a3
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(139, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023930 == a3 || (struct TPinballComponent*)dword_10239C8 == a3)
@@ -1543,7 +1543,7 @@ void CosmicPlaguePartTwoController(int a1@<ebx > , int a2, struct TPinballCompon
 			return;
 		}
 		v3 = get_rc_string(140, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023C50 == a3)
@@ -1552,13 +1552,13 @@ void CosmicPlaguePartTwoController(int a1@<ebx > , int a2, struct TPinballCompon
 		*(DWORD*)(dword_1023BBC + 6) = 1;
 		MissionControl(66, 0);
 		v4 = get_rc_string(141, 0);
-		TTextBox::Display(dword_1023E24, a1, v4, 4.0);
+		TTextBox::Display(tTextBox, a1, v4, 4.0);
 		v5 = SpecialAddScore(1750000);
 		v6 = get_rc_string(78, 0);
 		_sprintf(&Dest, v6, v5);
 		if (!AddRankProgress(11))
 		{
-			TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+			TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 			(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 		}
 	}
@@ -1591,7 +1591,7 @@ void SecretMissionYellowController(int a1@<ebx > , int a2, struct TPinballCompon
 			return;
 		}
 		v3 = get_rc_string(142, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_10239FC == a3)
@@ -1627,7 +1627,7 @@ void SecretMissionRedController(int a1@<ebx > , int a2, struct TPinballComponent
 			return;
 		}
 		v3 = get_rc_string(143, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_10239EC == a3)
@@ -1664,7 +1664,7 @@ void SecretMissionGreenController(int a1@<ebx > , int a2, struct TPinballCompone
 			return;
 		}
 		v3 = get_rc_string(144, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_10239F4 == a3)
@@ -1672,13 +1672,13 @@ void SecretMissionGreenController(int a1@<ebx > , int a2, struct TPinballCompone
 		*(DWORD*)(dword_1023BBC + 6) = 1;
 		MissionControl(66, 0);
 		v4 = get_rc_string(145, 0);
-		TTextBox::Display(dword_1023E24, a1, v4, 4.0);
+		TTextBox::Display(tTextBox, a1, v4, 4.0);
 		v5 = SpecialAddScore(1500000);
 		v6 = get_rc_string(78, 0);
 		_sprintf(&Dest, v6, v5);
 		if (!AddRankProgress(10))
 		{
-			TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+			TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 			(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 		}
 	}
@@ -1716,7 +1716,7 @@ void TimeWarpController(int a1@<ebx > , int a2, struct TPinballComponent* a3)
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(146, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_10237C4 == a3
@@ -1780,13 +1780,13 @@ void TimeWarpPartTwoController(int a1@<ebx > , int a2, struct TPinballComponent*
 			return;
 		}
 		v3 = get_rc_string(147, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023980 == a3)
 	{
 		v4 = get_rc_string(47, 0);
-		TTextBox::Display(dword_1023E24, a1, v4, 4.0);
+		TTextBox::Display(tTextBox, a1, v4, 4.0);
 		if ((**(int(* **)(signed int, DWORD))dword_1023CF4)(37, 0.0) > 1)
 		{
 			(**(void(* **)(signed int, DWORD))dword_1023CF4)(33, 5.0);
@@ -1794,7 +1794,7 @@ void TimeWarpPartTwoController(int a1@<ebx > , int a2, struct TPinballComponent*
 			v6 = get_rc_string(word_10246EC[2 * (v5 - 1)], 1);
 			v7 = get_rc_string(174, 0);
 			_sprintf(&Dest, v7, v6);
-			TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+			TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 		}
 	}
 	else
@@ -1802,7 +1802,7 @@ void TimeWarpPartTwoController(int a1@<ebx > , int a2, struct TPinballComponent*
 		if ((struct TPinballComponent*)dword_1023870 != a3)
 			return;
 		v8 = get_rc_string(46, 0);
-		TTextBox::Display(dword_1023E24, a1, v8, 4.0);
+		TTextBox::Display(tTextBox, a1, v8, 4.0);
 		if ((**(int(* **)(signed int, DWORD))dword_1023CF4)(37, 0.0) < 9)
 		{
 			v9 = (**(int(* **)(signed int, DWORD))dword_1023CF4)(37, 0.0);
@@ -1813,7 +1813,7 @@ void TimeWarpPartTwoController(int a1@<ebx > , int a2, struct TPinballComponent*
 		}
 		if (!AddRankProgress(12))
 		{
-			TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+			TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 			(*(void (**)(void))(*(DWORD*)dword_1023D1C + 20))();
 		}
 	}
@@ -1860,7 +1860,7 @@ void MaelstromController(int a1@<ebx > , int a2, struct TPinballComponent* a3)
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(148, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023A9C == a3
@@ -1930,7 +1930,7 @@ void MaelstromPartTwoController(int a1@<ebx > , int a2, struct TPinballComponent
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(149, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023B48 == a3
@@ -2013,7 +2013,7 @@ void MaelstromPartThreeController(int a1@<ebx > , int a2, struct TPinballCompone
 		v3 = *(DWORD*)(dword_1023888 + 6);
 		v4 = get_rc_string(150, 0);
 		_sprintf(&Dest, v4, v3);
-		TTextBox::Display(dword_1023E24, a1, &Dest, -1.0);
+		TTextBox::Display(tTextBox, a1, &Dest, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_102372C == a3
@@ -2084,7 +2084,7 @@ void MaelstromPartFourController(int a1@<ebx > , int a2, struct TPinballComponen
 			return;
 		}
 		v3 = get_rc_string(151, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023924 == a3)
@@ -2115,7 +2115,7 @@ void MaelstromPartFiveController(int a1@<ebx > , int a2, struct TPinballComponen
 			return;
 		}
 		v3 = get_rc_string(152, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023870 == a3)
@@ -2148,7 +2148,7 @@ void MaelstromPartSixController(int a1@<ebx > , int a2, struct TPinballComponent
 			return;
 		}
 		v3 = get_rc_string(153, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023930 == a3 || (struct TPinballComponent*)dword_10239C8 == a3)
@@ -2188,7 +2188,7 @@ void MaelstromPartSevenController(int a1@<ebx > , int a2, struct TPinballCompone
 			return;
 		}
 		v3 = get_rc_string(154, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_10239EC == a3
@@ -2225,7 +2225,7 @@ void MaelstromPartEightController(int a1@<ebx > , int a2, struct TPinballCompone
 			return;
 		}
 		v3 = get_rc_string(155, 0);
-		TTextBox::Display(dword_1023E24, a1, v3, -1.0);
+		TTextBox::Display(tTextBox, a1, v3, -1.0);
 		return;
 	}
 	if ((struct TPinballComponent*)dword_1023980 == a3)
@@ -2241,7 +2241,7 @@ void MaelstromPartEightController(int a1@<ebx > , int a2, struct TPinballCompone
 		TTextBox::Display(dword_1023E1C, a1, v6, 4.0);
 		if (!AddRankProgress(18))
 		{
-			TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+			TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 			(*(void (**)(void))(*(DWORD*)dword_1023D14 + 20))();
 		}
 	}
@@ -2274,15 +2274,15 @@ void GameoverController(int a1, struct TPinballComponent* a2)
 	{
 		if (a1 != 67)
 			return;
-		v2 = dword_1023E24;
-		v3 = *(DWORD*)((char*)dword_1023E24 + 6);
+		v2 = tTextBox;
+		v3 = *(DWORD*)((char*)tTextBox + 6);
 		if (!(v3 & 0x100))
 		{
 			if (!(v3 & 0x200))
 				goto LABEL_33;
 			goto LABEL_18;
 		}
-		v4 = *(DWORD*)((_BYTE*)dword_1023E24 + 6) & 0xF;
+		v4 = *(DWORD*)((_BYTE*)tTextBox + 6) & 0xF;
 		v5 = **(DWORD * *)((char*)dword_1025040 + 28 * v4 + 102);
 		v3 = v4 + 1;
 		if (v5 >= 0)
@@ -2309,7 +2309,7 @@ void GameoverController(int a1, struct TPinballComponent* a2)
 				goto LABEL_9;
 			}
 			_sprintf(&Dest, v6, v13);
-			TTextBox::Display(dword_1023E24, 256, &Dest, 3.0);
+			TTextBox::Display(tTextBox, 256, &Dest, 3.0);
 			if (v3 == *(DWORD*)((char*)dword_1025040 + 214))
 				v7 = 512;
 			else
@@ -2317,8 +2317,8 @@ void GameoverController(int a1, struct TPinballComponent* a2)
 			goto LABEL_32;
 		}
 	LABEL_9:
-		*(DWORD*)((char*)dword_1023E24 + 6) = 512;
-		v2 = dword_1023E24;
+		*(DWORD*)((char*)tTextBox + 6) = 512;
+		v2 = tTextBox;
 	LABEL_18:
 		v8 = v3 & 0xF;
 		v9 = dword_1025598[9 * v8];
@@ -2351,26 +2351,26 @@ void GameoverController(int a1, struct TPinballComponent* a2)
 				goto LABEL_33;
 			}
 			_sprintf(&Dest, v11, v14);
-			TTextBox::Display(dword_1023E24, 256, &Dest, 3.0);
+			TTextBox::Display(tTextBox, 256, &Dest, 3.0);
 			if (v10 == 5)
 				v7 = 0;
 			else
 				v7 = v10 | 0x200;
 		LABEL_32:
-			*(DWORD*)((char*)dword_1023E24 + 6) = v7;
+			*(DWORD*)((char*)tTextBox + 6) = v7;
 			return;
 		}
 	LABEL_33:
 		*(DWORD*)((char*)v2 + 6) = 256;
 		v12 = get_rc_string(172, 0);
-		TTextBox::Display(dword_1023E24, 256, v12, 10.0);
+		TTextBox::Display(tTextBox, 256, v12, 10.0);
 		return;
 	}
 	(**(void(* **)(signed int, DWORD))dword_1023EEC)(20, 0.0);
 	pb_mode_change(2);
 	(**(void(* **)(signed int, DWORD))dword_1023A74)(1022, 0.0);
 	(**(void(* **)(signed int, DWORD))dword_1023A7C)(1022, 0.0);
-	*(DWORD*)((char*)dword_1023E24 + 6) = 0;
+	*(DWORD*)((char*)tTextBox + 6) = 0;
 }
 // 1023A74: using guessed type int dword_1023A74;
 // 1023A7C: using guessed type int dword_1023A7C;
@@ -2412,7 +2412,7 @@ void MissionControl(int a1, struct TPinballComponent* a2)
 				(**(void(* **)(signed int, DWORD))dword_1023A94)(34, 0.0);
 				(**v5)(v5, 20, 0.0);
 				v6 = get_rc_string(109, 0);
-				TTextBox::Display(dword_1023E24, (int)v5, v6, 4.0);
+				TTextBox::Display(tTextBox, (int)v5, v6, 4.0);
 				*(DWORD*)(dword_1023BBC + 6) = 1;
 				MissionControl(66, 0);
 				v2 = v8;
@@ -2424,11 +2424,11 @@ void MissionControl(int a1, struct TPinballComponent* a2)
 				if ((**(int(* **)(signed int, DWORD))dword_1023978)(37, 0.0) == 1)
 				{
 					v7 = get_rc_string(116, 0);
-					TTextBox::Display(dword_1023E24, v2, v7, 4.0);
+					TTextBox::Display(tTextBox, v2, v7, 4.0);
 				}
 				break;
 			}
-			if (dword_1023E24 == a2)
+			if (tTextBox == a2)
 				goto LABEL_14;
 			break;
 		case 1009:

@@ -1665,7 +1665,7 @@ if ( result < 9 )
 v4 = get_rc_string(word_10246EC[2 * v3], 1);
 v5 = get_rc_string(83, 0);
 _sprintf(&Dest, v5, v4);
-TTextBox::Display(dword_1023E24, a1, &Dest, 8.0);
+TTextBox::Display(tTextBox, a1, &Dest, 8.0);
 result = (*(int (**)(void))(*(DWORD *)dword_1023D1C + 20))();
 }
 return result;
@@ -2315,7 +2315,7 @@ if ( pb_chk_highscore() )
 (*(void (**)(void))(*(DWORD *)dword_1023DFC + 20))();
 (***(void (****)(signed int, DWORD))((char *)dword_1025040 + 266))(16, 3.0);
 v11 = get_rc_string(177, 0);
-TTextBox::Display(dword_1023E24, 0, v11, -1.0);
+TTextBox::Display(tTextBox, 0, v11, -1.0);
 }
 }
 else
