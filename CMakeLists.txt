@@ -89,28 +89,38 @@ set(SOURCE_FILES
 
 add_library(SDL2 IMPORTED SHARED)
 set_target_properties(SDL2 PROPERTIES
-  IMPORTED_LOCATION "/SDL/SDL2-2.0.10/lib/x64/SDL2.dll"
-  INTERFACE_INCLUDE_DIRECTORIES "/SDL/SDL2-2.0.10/include"
+  IMPORTED_LOCATION "C:\\SDL\\SDL2-2.0.10\\lib\\x64\\*.lib"
+  INTERFACE_INCLUDE_DIRECTORIES "C:\\SDL\\SDL2-2.0.10\\include"
 )
 
 add_library(SDL2_IMAGE IMPORTED SHARED)
 set_target_properties(SDL2_IMAGE PROPERTIES
-  IMPORTED_LOCATION "/SDL/SDL2_image-2.0.5/lib/x64/SDL2_image.dll"
-  INTERFACE_INCLUDE_DIRECTORIES "/SDL/SDL2_image-2.0.5/include"
+  IMPORTED_LOCATION "C:\\SDL\\SDL2_image-2.0.5\\lib\\x64\\*.lib"
+  INTERFACE_INCLUDE_DIRECTORIES "C:\\SDL\\SDL2_image-2.0.5\\include"
 )
 
 add_library(SDL2_MIXER IMPORTED SHARED)
 set_target_properties(SDL2_MIXER PROPERTIES
-  IMPORTED_LOCATION "/SDL/SDL2_mixer-2.0.4/lib/x64/SDL2_mixer.dll"
-  INTERFACE_INCLUDE_DIRECTORIES "/SDL/SDL2_mixer-2.0.4/include"
+  IMPORTED_LOCATION "C:\\SDL\\SDL2_mixer-2.0.4\\lib\\x64\\*.lib"
+  INTERFACE_INCLUDE_DIRECTORIES "C:\\SDL\\SDL2_mixer-2.0.4\\include"
 )
 
-target_link_libraries(SDL2 INTERFACE
-	SDL2_IMAGE INTERFACE
-	SDL2_MIXER INTERFACE)
+add_library(DX9 IMPORTED STATIC)
+set_target_properties(DX9 PROPERTIES
+  IMPORTED_LOCATION "C:\\DirectxSDK\\DX9\\Lib\\*.lib"
+  INTERFACE_INCLUDE_DIRECTORIES "C:\\DirectxSDK\\DX9\\Include"
+)
 
-include_directories(/SDL/SDL2-2.0.10/include
-/SDL/SDL2_image-2.0.5/include
-/SDL/SDL2_mixer-2.0.4/include)
 
+include_directories("C:\\SDL\\SDL2-2.0.10\\include"
+		"C:\\SDL\\SDL2_image-2.0.5\\include"
+		"C:\\SDL\\SDL2_mixer-2.0.4\\include"
+		"C:\\DirectxSDK\\DX9\\Include")
+		
 add_executable(3d_pinball_space_cadet ${SOURCE_FILES})
+
+target_link_libraries(3d_pinball_space_cadet INTERFACE
+        SDL2
+        SDL2_IMAGE
+        SDL2_MIXER
+		DX9)
