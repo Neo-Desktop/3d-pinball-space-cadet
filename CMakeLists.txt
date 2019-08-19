@@ -3,11 +3,10 @@ project(3d_pinball_space_cadet)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_C_COMPILER, gcc)
-set(CMAKE_CXX_COMPILER, g++)
-
 set(SOURCE_FILES
-        Classes/Objlist/Objlist.cpp
+		Classes/classes.h
+        Classes/Objlist/Objlist_Class.cpp
+		Classes/Objlist/Objlist.cpp
         Classes/Objlist/objlist.h
         Classes/TBall/TBall.cpp
         Classes/TBall/TBall.h
@@ -57,6 +56,11 @@ set(SOURCE_FILES
         Classes/TTripwire/TTripwire.cpp
         Classes/TWall/TWall.cpp
         Classes/TZmapList/TZmapList.cpp
+        Forms/about.cpp
+        Forms/options.cpp
+        Forms/help.cpp
+        Forms/highscore.cpp
+		Forms/winmain.cpp
         geometry/edges.cpp
         geometry/geometry.cpp
         graphics/flasher.cpp
@@ -69,23 +73,44 @@ set(SOURCE_FILES
         partman/partman.cpp
         sound/midi.cpp
         sound/sound.cpp
-        about.cpp
+        sound/wavemix.cpp
         control.cpp
-        exceptionhandling.cpp
-        help.cpp
-        highscore.cpp
+		guicon.cpp
         lights.cpp
         memory.cpp
         missions.cpp
-        objlist.cpp
-        options.cpp
         pinball.cpp
         pinball.h
         score.cpp
         table.cpp
         underscore.cpp
         vectors.cpp
-        wavemix.cpp
         windows.cpp)
+
+add_library(SDL2 IMPORTED SHARED)
+set_target_properties(SDL2 PROPERTIES
+  IMPORTED_LOCATION "/SDL/SDL2-2.0.10/lib/x64/SDL2.dll"
+  INTERFACE_INCLUDE_DIRECTORIES "/SDL/SDL2-2.0.10/include"
+)
+
+add_library(SDL2_IMAGE IMPORTED SHARED)
+set_target_properties(SDL2_IMAGE PROPERTIES
+  IMPORTED_LOCATION "/SDL/SDL2_image-2.0.5/lib/x64/SDL2_image.dll"
+  INTERFACE_INCLUDE_DIRECTORIES "/SDL/SDL2_image-2.0.5/include"
+)
+
+add_library(SDL2_MIXER IMPORTED SHARED)
+set_target_properties(SDL2_MIXER PROPERTIES
+  IMPORTED_LOCATION "/SDL/SDL2_mixer-2.0.4/lib/x64/SDL2_mixer.dll"
+  INTERFACE_INCLUDE_DIRECTORIES "/SDL/SDL2_mixer-2.0.4/include"
+)
+
+target_link_libraries(SDL2 INTERFACE
+	SDL2_IMAGE INTERFACE
+	SDL2_MIXER INTERFACE)
+
+include_directories(/SDL/SDL2-2.0.10/include
+/SDL/SDL2_image-2.0.5/include
+/SDL/SDL2_mixer-2.0.4/include)
 
 add_executable(3d_pinball_space_cadet ${SOURCE_FILES})

@@ -48,10 +48,13 @@ TPinballComponent* TPinballComponent::TPinballComponent(TPinballTable* a2, int a
 	*((_BYTE*)this + 5) = 0;
 	*(DWORD*)((char*)this + 30) = a2;
 	*(DWORD*)((char*)this + 26) = 0;
+
 	if (a2)
 		objlist_class::Add((struct TPinballTable*)((char*)a2 + 250), (void*)this);
+
 	if (a3 >= 0)
 		* (DWORD*)((char*)this + 10) = loader_query_name(a3);
+
 	if (a4 && a3 >= 0)
 	{
 		this.v33 = loader_query_visual_states(a3);
