@@ -59,7 +59,7 @@ LONG fullscrn_shutdown();
 BOOL fullscrn_activate(int a1);
 int fullscrn_convert_mouse_pos(int a1);
 DWORD *fullscrn_getminmaxinfo(DWORD *a1);
-// HBRUSH sub_1003F10(LONG a1, LONG a2, int a3, int a4);
+HBRUSH sub_1003F10(LONG a1, LONG a2, int a3, int a4);
 void fullscrn_paint();
 signed int rectangle_clip(int *a1, int *a2, DWORD *a3);
 int enclosing_box(DWORD *a1, DWORD *a2, DWORD *a3);
@@ -77,13 +77,13 @@ int gdrv_blit_sequence(int, int xSrc, int, int xDest, int yDest, int DestWidth, 
 int gdrv_end_blit_sequence();
 HDC gdrv_blit(int a1, int xSrc, int a3, int xDest, int yDest, int DestWidth, int DestHeight);
 int gdrv_blat(int, int xDest, int yDest); // idb
-// int gdrv_fill_bitmap(int a1, DWORD *a2, unsigned int a3, int a4, int a5, int a6, char a7);
+int gdrv_fill_bitmap(int a1, DWORD *a2, unsigned int a3, int a4, int a5, int a6, char a7);
 char *gdrv_copy_bitmap(DWORD *a1, int a2, int a3, int a4, int a5, DWORD *a6, int a7, int a8);
 _BYTE *gdrv_copy_bitmap_w_transparency(DWORD *a1, int a2, int a3, int a4, int a5, DWORD *a6, int a7, int a8);
 int zdrv_pad(int a1);
 signed int zdrv_create_zmap(int a1, int a2, int a3);
 signed int zdrv_destroy_zmap(DWORD *a1);
-// int zdrv_fill(int a1, int a2, unsigned int a3, int a4, int a5, int a6, int a7);
+int zdrv_fill(int a1, int a2, unsigned int a3, int a4, int a5, int a6, int a7);
 WORD *zdrv_paint(int a1, int a2, DWORD *a3, int a4, int a5, int a6, int a7, int a8, DWORD *a9, int a10, int a11, int a12, int a13, int a14);
 unsigned int *zdrv_paint_flat(int a1, int a2, DWORD *a3, int a4, int a5, int a6, int a7, int a8, DWORD *a9, int a10, int a11, unsigned int a12);
 int high_score_clear_table(int a1);
@@ -150,9 +150,9 @@ int make_path_name(LPSTR lpFilename, LPCSTR lpString2, DWORD nSize); // idb
 void help_introduction(int a1, int a2);
 BOOL center_in(HWND hWnd, HWND a2);
 INT a_dialog(HINSTANCE hInstance, HWND hWnd, int a3);
-// void winmain_pause(int a1);
-// void winmain_end_pause(int a1);
-// HCURSOR winmain_new_game(int a1);
+void winmain_pause(int a1);
+void winmain_end_pause(int a1);
+HCURSOR winmain_new_game(int a1);
 void winmain_memalloc_failure(); // idb
 HANDLE adjust_priority(int a1);
 LRESULT message_handler(HWND hWnd, UINT Msg, WPARAM wParam, int a4);
@@ -200,14 +200,14 @@ struct TPinballComponent *make_component_link(struct component_tag *); // idb
 void control_make_links(struct TPinballTable *); // idb
 BOOL light_on(struct component_tag *a1);
 void table_control_handler(int); // idb
-// void table_set_replay(int a1, float a2);
-// void table_set_multiball(int a1);
-// void table_set_jackpot(int a1);
-// void table_set_bonus(int a1);
-// void table_set_flag_lights(int a1);
-// void table_set_bonus_hold(int a1);
-// void table_bump_ball_sink_lock(int a1);
-// void table_add_extra_ball(int a1, float a2);
+void table_set_replay(int a1, float a2);
+void table_set_multiball(int a1);
+void table_set_jackpot(int a1);
+void table_set_bonus(int a1);
+void table_set_flag_lights(int a1);
+void table_set_bonus_hold(int a1);
+void table_bump_ball_sink_lock(int a1);
+void table_add_extra_ball(int a1, float a2);
 int SpecialAddScore(int); // idb
 void AdvanceWormHoleDestination(int); // idb
 void FlipperRebounderControl1(int, struct TPinballComponent *); // idb
@@ -218,42 +218,42 @@ void LeftKickerControl(int, struct TPinballComponent *); // idb
 void RightKickerControl(int, struct TPinballComponent *); // idb
 void LeftKickerGateControl(int, struct TPinballComponent *); // idb
 void RightKickerGateControl(int, struct TPinballComponent *); // idb
-// void DeploymentChuteToEscapeChuteOneWayControl(int a1, int a2, int a3, struct TPinballComponent *a4);
+void DeploymentChuteToEscapeChuteOneWayControl(int a1, int a2, int a3, struct TPinballComponent *a4);
 void DeploymentChuteToTableOneWayControl(int, struct TPinballComponent *); // idb
 void DrainBallBlockerControl(int, struct TPinballComponent *); // idb
-// void LaunchRampControl(int a1, int a2, struct TPinballComponent *a3);
+void LaunchRampControl(int a1, int a2, struct TPinballComponent *a3);
 void LaunchRampHoleControl(int, struct TPinballComponent *); // idb
 void SpaceWarpRolloverControl(int, struct TPinballComponent *); // idb
-// void ReentryLanesRolloverControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+void ReentryLanesRolloverControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
 void BumperGroupControl(int, struct TPinballComponent *); // idb
-// void LaunchLanesRolloverControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
-// void OutLaneRolloverControl(int a1, int a2, int a3, struct TPinballComponent *a4);
+void LaunchLanesRolloverControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+void OutLaneRolloverControl(int a1, int a2, int a3, struct TPinballComponent *a4);
 void ExtraBallLightControl(int, struct TPinballComponent *); // idb
-// void ReturnLaneRolloverControl(int a1, int a2, struct TPinballComponent *a3);
-// void BonusLaneRolloverControl(int a1, int a2, struct TPinballComponent *a3);
-// void FuelRollover1Control(int a1, int a2, struct TPinballComponent *a3);
-// void FuelRollover2Control(int a1, int a2, struct TPinballComponent *a3);
-// void FuelRollover3Control(int a1, int a2, struct TPinballComponent *a3);
-// void FuelRollover4Control(int a1, int a2, struct TPinballComponent *a3);
-// void FuelRollover5Control(int a1, int a2, struct TPinballComponent *a3);
-// void FuelRollover6Control(int a1, int a2, struct TPinballComponent *a3);
+void ReturnLaneRolloverControl(int a1, int a2, struct TPinballComponent *a3);
+void BonusLaneRolloverControl(int a1, int a2, struct TPinballComponent *a3);
+void FuelRollover1Control(int a1, int a2, struct TPinballComponent *a3);
+void FuelRollover2Control(int a1, int a2, struct TPinballComponent *a3);
+void FuelRollover3Control(int a1, int a2, struct TPinballComponent *a3);
+void FuelRollover4Control(int a1, int a2, struct TPinballComponent *a3);
+void FuelRollover5Control(int a1, int a2, struct TPinballComponent *a3);
+void FuelRollover6Control(int a1, int a2, struct TPinballComponent *a3);
 void HyperspaceLightGroupControl(int, struct TPinballComponent *); // idb
-// void WormHoleControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+void WormHoleControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
 void LeftFlipperControl(int, struct TPinballComponent *); // idb
 void RightFlipperControl(int, struct TPinballComponent *); // idb
 void JackpotLightControl(int, struct TPinballComponent *); // idb
 void BonusLightControl(int, struct TPinballComponent *); // idb
 void BoosterTargetControl(int, struct TPinballComponent *); // idb
 void MedalLightGroupControl(int, struct TPinballComponent *); // idb
-// void MultiplierLightGroupControl(int a1, int a2, struct TPinballComponent *a3);
-// void FuelSpotTargetControl(int a1, int a2, struct TPinballComponent *a3);
-// void MissionSpotTargetControl(int a1, int a2, struct TPinballComponent *a3);
+void MultiplierLightGroupControl(int a1, int a2, struct TPinballComponent *a3);
+void FuelSpotTargetControl(int a1, int a2, struct TPinballComponent *a3);
+void MissionSpotTargetControl(int a1, int a2, struct TPinballComponent *a3);
 void LeftHazardSpotTargetControl(int, struct TPinballComponent *); // idb
 void RightHazardSpotTargetControl(int, struct TPinballComponent *); // idb
-// void WormHoleDestinationControl(int a1, int a2, struct TPinballComponent *a3);
-// void BlackHoleKickoutControl(int a1, int a2, struct TPinballComponent *a3);
+void WormHoleDestinationControl(int a1, int a2, struct TPinballComponent *a3);
+void BlackHoleKickoutControl(int a1, int a2, struct TPinballComponent *a3);
 void FlagControl(int, struct TPinballComponent *); // idb
-// void GravityWellKickoutControl(int a1, int a2, struct TPinballComponent *a3);
+void GravityWellKickoutControl(int a1, int a2, struct TPinballComponent *a3);
 void SkillShotGate1Control(int, struct TPinballComponent *); // idb
 void SkillShotGate2Control(int, struct TPinballComponent *); // idb
 void SkillShotGate3Control(int, struct TPinballComponent *); // idb
@@ -262,48 +262,48 @@ void SkillShotGate5Control(int, struct TPinballComponent *); // idb
 void SkillShotGate6Control(int, struct TPinballComponent *); // idb
 void ShootAgainLightControl(int, struct TPinballComponent *); // idb
 void EscapeChuteSinkControl(int, struct TPinballComponent *); // idb
-// int cheat_bump_rank(int a1);
-// void pbctrl_bdoor_controller(int a1, int a2);
+int cheat_bump_rank(int a1);
+void pbctrl_bdoor_controller(int a1, int a2);
 int AddRankProgress(int); // idb
-// void WaitingDeploymentController(int a1, int a2, struct TPinballComponent *a3);
+void WaitingDeploymentController(int a1, int a2, struct TPinballComponent *a3);
 void SelectMissionController(int, struct TPinballComponent *); // idb
-// void PracticeMissionController(int a1, int a2, struct TPinballComponent *a3);
-// void LaunchTrainingController(int a1, int a2, struct TPinballComponent *a3);
-// void ReentryTrainingController(int a1, int a2, struct TPinballComponent *a3);
-// void ScienceMissionController(int a1, int a2, struct TPinballComponent *a3);
-// void StrayCometController(int a1, int a2, struct TPinballComponent *a3);
-// void SpaceRadiationController(int a1, int a2, struct TPinballComponent *a3);
-// void BlackHoleThreatController(int a1, int a2, struct TPinballComponent *a3);
-// void BugHuntController(int a1, int a2, struct TPinballComponent *a3);
-// void RescueMissionController(int a1, int a2, struct TPinballComponent *a3);
-// void AlienMenaceController(int a1, int a2, struct TPinballComponent *a3);
-// void AlienMenacePartTwoController(int a1, int a2, struct TPinballComponent *a3);
-// void SatelliteController(int a1, int a2, struct TPinballComponent *a3);
-// void ReconnaissanceController(int a1, int a2, struct TPinballComponent *a3);
-// void DoomsdayMachineController(int a1, int a2, struct TPinballComponent *a3);
-// void CosmicPlagueController(int a1, int a2, struct TPinballComponent *a3);
-// void CosmicPlaguePartTwoController(int a1, int a2, struct TPinballComponent *a3);
-// void SecretMissionYellowController(int a1, int a2, struct TPinballComponent *a3);
-// void SecretMissionRedController(int a1, int a2, struct TPinballComponent *a3);
-// void SecretMissionGreenController(int a1, int a2, struct TPinballComponent *a3);
-// void TimeWarpController(int a1, int a2, struct TPinballComponent *a3);
-// void TimeWarpPartTwoController(int a1, int a2, struct TPinballComponent *a3);
-// void MaelstromController(int a1, int a2, struct TPinballComponent *a3);
-// void MaelstromPartTwoController(int a1, int a2, struct TPinballComponent *a3);
-// void MaelstromPartThreeController(int a1, int a2, struct TPinballComponent *a3);
-// void MaelstromPartFourController(int a1, int a2, struct TPinballComponent *a3);
-// void MaelstromPartFiveController(int a1, int a2, struct TPinballComponent *a3);
-// void MaelstromPartSixController(int a1, int a2, struct TPinballComponent *a3);
-// void MaelstromPartSevenController(int a1, int a2, struct TPinballComponent *a3);
-// void MaelstromPartEightController(int a1, int a2, struct TPinballComponent *a3);
+void PracticeMissionController(int a1, int a2, struct TPinballComponent *a3);
+void LaunchTrainingController(int a1, int a2, struct TPinballComponent *a3);
+void ReentryTrainingController(int a1, int a2, struct TPinballComponent *a3);
+void ScienceMissionController(int a1, int a2, struct TPinballComponent *a3);
+void StrayCometController(int a1, int a2, struct TPinballComponent *a3);
+void SpaceRadiationController(int a1, int a2, struct TPinballComponent *a3);
+void BlackHoleThreatController(int a1, int a2, struct TPinballComponent *a3);
+void BugHuntController(int a1, int a2, struct TPinballComponent *a3);
+void RescueMissionController(int a1, int a2, struct TPinballComponent *a3);
+void AlienMenaceController(int a1, int a2, struct TPinballComponent *a3);
+void AlienMenacePartTwoController(int a1, int a2, struct TPinballComponent *a3);
+void SatelliteController(int a1, int a2, struct TPinballComponent *a3);
+void ReconnaissanceController(int a1, int a2, struct TPinballComponent *a3);
+void DoomsdayMachineController(int a1, int a2, struct TPinballComponent *a3);
+void CosmicPlagueController(int a1, int a2, struct TPinballComponent *a3);
+void CosmicPlaguePartTwoController(int a1, int a2, struct TPinballComponent *a3);
+void SecretMissionYellowController(int a1, int a2, struct TPinballComponent *a3);
+void SecretMissionRedController(int a1, int a2, struct TPinballComponent *a3);
+void SecretMissionGreenController(int a1, int a2, struct TPinballComponent *a3);
+void TimeWarpController(int a1, int a2, struct TPinballComponent *a3);
+void TimeWarpPartTwoController(int a1, int a2, struct TPinballComponent *a3);
+void MaelstromController(int a1, int a2, struct TPinballComponent *a3);
+void MaelstromPartTwoController(int a1, int a2, struct TPinballComponent *a3);
+void MaelstromPartThreeController(int a1, int a2, struct TPinballComponent *a3);
+void MaelstromPartFourController(int a1, int a2, struct TPinballComponent *a3);
+void MaelstromPartFiveController(int a1, int a2, struct TPinballComponent *a3);
+void MaelstromPartSixController(int a1, int a2, struct TPinballComponent *a3);
+void MaelstromPartSevenController(int a1, int a2, struct TPinballComponent *a3);
+void MaelstromPartEightController(int a1, int a2, struct TPinballComponent *a3);
 void GameoverController(int, struct TPinballComponent *); // idb
 void UnselectMissionController(int, struct TPinballComponent *); // idb
 void MissionControl(int, struct TPinballComponent *); // idb
 void control_handler(int, struct TPinballComponent *); // idb
 void HyperspaceKickOutControl(int, struct TPinballComponent *); // idb
-// void PlungerControl(int a1, int a2, struct TPinballComponent *a3);
-// void MedalTargetControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
-// void MultiplierTargetControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+void PlungerControl(int a1, int a2, struct TPinballComponent *a3);
+void MedalTargetControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
+void MultiplierTargetControl(int a1, int a2, int a3, int a4, struct TPinballComponent *a5);
 void BallDrainControl(int, struct TPinballComponent *); // idb
 int objlist_add_object(DWORD *a1, int a2);
 signed int objlist_delete_object(int a1, int a2);
@@ -331,8 +331,8 @@ DWORD *score_create(LPCSTR lpString, int a2);
 void *score_dup(const void *a1, int a2);
 void objlist_destroy(int a1);
 DWORD *score_set(DWORD *a1, int a2);
-// void *score_erase(int a1, DWORD *a2, int a3);
-// HDC score_update(int a1, int *a2);
+void *score_erase(int a1, DWORD *a2, int a3);
+HDC score_update(int a1, int *a2);
 signed int score_init();
 void score_unload_msg_font();
 HRSRC score_load_msg_font(LPCSTR lpName);
@@ -343,9 +343,9 @@ int pb_end_game();
 signed int pb_chk_highscore();
 long double pb_collide(struct TEdgeSegment *a1, float a2, struct TBall *a3);
 void pb_timed_frame(float, float, int); // idb
-// signed int pb_frame(int a1, int a2);
+signed int pb_frame(int a1, int a2);
 void pb_firsttime_setup();
-// struct TPinballTable *pb_tilt_no_more(int a1);
+struct TPinballTable *pb_tilt_no_more(int a1);
 void pb_ballset(signed int a1, signed int a2);
 void nudge(float, float); // idb
 void un_nudge_left(int, void *); // idb
@@ -362,10 +362,10 @@ DWORD *pb_window_size(DWORD *a1, DWORD *a2);
 int pb_init();
 int pb_uninit();
 int pb_loose_focus();
-// void pb_pause_continue(int a1);
+void pb_pause_continue(int a1);
 int pb_launch_ball();
 int pb_reset_table();
-// void pb_toggle_demo(int a1);
+void pb_toggle_demo(int a1);
 DWORD gdrv_get_focus(); // idb
 void throw_ball(struct TBall *, struct vector_type *, float, float, float); // idb
 void find_closest_edge(struct ramp_plane_type *, int, struct wall_point_type *, struct vector_type **, struct vector_type **); // idb
@@ -451,9 +451,9 @@ int WaveMixConfigureInit(WORD *a1);
 int WaveMixInit();
 HLOCAL WaveMixCloseSession(HLOCAL hMem);
 int WinMainCRTStartup();
-// void __cdecl operator delete(void *); idb
-// void *__cdecl operator new(unsigned int); idb
-// int __cdecl _initterm(DWORD, DWORD); weak
+void component_delete(void *); idb
+void *component_create(unsigned int); idb
+int _initterm(DWORD, DWORD); weak
 unsigned int _setdefaultprecision();
 int check_expiration_date();
 // unsigned int __cdecl _controlfp(unsigned int NewValue, unsigned int Mask);

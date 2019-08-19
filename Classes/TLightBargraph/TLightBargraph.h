@@ -15,7 +15,7 @@ void __thiscall TLightBargraph::Reset(TLightBargraph* this); // idb
 void TLightBargraph::BargraphTimerExpired(int, void*); // idb
 int __thiscall TLightBargraph::Message(TLightBargraph* this, int, float); // idb
 TLightBargraph* __thiscall TLightBargraph::TLightBargraph(TLightBargraph* this, struct TPinballTable* a2, int a3);
-TLightBargraph* __thiscall TLightBargraph::`vector deleting destructor'(TLightBargraph *this, char a2);
+TLightBargraph* __thiscall TLightBargraph::destroy(TLightBargraph *this, char a2);
 
 void* TLightBargraph::vftable = &TLightBargraph::Message; // weak
 

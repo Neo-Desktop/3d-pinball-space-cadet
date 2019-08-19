@@ -10,7 +10,7 @@
 /* 132 */
 struct TSound;
 
-TSound* __thiscall TSound::`vector deleting destructor`(TSound *this, char a2);
+TSound* __thiscall TSound::destroy(TSound *this, char a2);
 double __thiscall TSound::Play(TSound* this);
 TSound* __thiscall TSound::TSound(TSound* this, struct TPinballTable* a2, int a3);
 

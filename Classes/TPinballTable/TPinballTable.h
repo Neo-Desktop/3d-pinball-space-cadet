@@ -20,7 +20,7 @@ void TPinballTable::tilt_timeout(int, void*); // idb
 // void TPinballTable::tilt(TPinballTable *this, int a2, float a3);
 // int TPinballTable::Message(TPinballTable *this, int a2, int a3, float a4);
 TZmapList* __thiscall TPinballTable::~TPinballTable(TPinballTable* this);
-TPinballTable* __thiscall TPinballTable::`vector deleting destructor'(TPinballTable *this, char a2);
+TPinballTable* __thiscall TPinballTable::destroy(TPinballTable *this, char a2);
 TPinballTable* __thiscall TPinballTable::TPinballTable(TPinballTable* this);
 TPinballComponent* __thiscall TPinballTable::find_component(TPinballTable* this, char*); // idb
 TPinballComponent* __thiscall TPinballTable::find_component(TPinballTable* this, int); // idb

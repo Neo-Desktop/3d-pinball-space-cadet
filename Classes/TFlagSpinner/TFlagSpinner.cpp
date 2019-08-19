@@ -156,7 +156,7 @@ v15 = *v13;
 v16 = v13[1];
 v17 = v13[2];
 v18 = v13[3];
-v4 = (TLine *)operator new(0x55u);
+v4 = (TLine *)component_create(0x55u);
 if ( v4 )
 v5 = TLine::TLine(v4, v3, (char *)v3 + 5, v14, (struct vector_type *)&v17, (struct vector_type *)&v15);
 else
@@ -166,7 +166,7 @@ if ( v5 )
 (*(void (__thiscall **)(TLine *))(*(DWORD *)v5 + 8))(v5);
 objlist_class::Add((TFlagSpinner *)((char *)v3 + 42), (void *)v5);
 }
-v6 = (TLine *)operator new(0x55u);
+v6 = (TLine *)component_create(0x55u);
 if ( v6 )
 v7 = TLine::TLine(v6, v3, (char *)v3 + 5, v14, (struct vector_type *)&v15, (struct vector_type *)&v17);
 else

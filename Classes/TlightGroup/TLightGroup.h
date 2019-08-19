@@ -20,7 +20,7 @@ void __thiscall TLightGroup::start_animation(TLightGroup* __hidden this); // idb
 void TLightGroup::NotifyTimerExpired(int, void*); // idb
 int __thiscall TLightGroup::Message(TLightGroup* this, int, float); // idb
 TLightGroup* __thiscall TLightGroup::TLightGroup(TLightGroup* this, struct TPinballTable* a2, int a3);
-TLightGroup* __thiscall TLightGroup::`vector deleting destructor`(TLightGroup *this, char a2);
+TLightGroup* __thiscall TLightGroup::destroy(TLightGroup *this, char a2);
 
 void* TLightGroup::vftable = &TLightGroup::Message; // weak
 

@@ -12,7 +12,7 @@ struct TEdgeBox;
 
 TEdgeBox* __thiscall TEdgeBox::TEdgeBox(TEdgeBox* this);
 void __thiscall TEdgeBox::~TEdgeBox(TEdgeBox* this);
-TEdgeBox* __thiscall TEdgeBox::`vector deleting destructor`(TEdgeBox *this, char a2);
+TEdgeBox* __thiscall TEdgeBox::destroy(TEdgeBox *this, char a2);
 
 
 #endif //PINBALL_TEDGEBOX_H
